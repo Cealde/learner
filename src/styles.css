@@ -1,15 +1,19 @@
 @font-face {
-    font-family: 'Title';
-    src: url('assets/fonts/Moderniz.otf') format('opentype');
+  font-family: 'Title';
+  src: url('assets/fonts/Moderniz.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Body';
+  src: url('assets/fonts/Manrope.ttf') format('truetype');
 }
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: Body;
+  font-size: 25px;
   line-height: 24px;
   font-weight: 400;
 
-  color: #ffffff;
+  color: #000000;
   background-color: #f6f6f6;
 
   font-synthesis: none;
@@ -35,17 +39,6 @@
   transition: 0.75s;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-}
-
-h1 {
-  text-align: center;
-  font-family: Title;
-  font-size: 3vw;
-}
-
 .title-container {
   border: 1px solid black;
   height: 20vw;
@@ -56,22 +49,48 @@ h1 {
   align-self: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #1d1d1d;
-    background-color: #f7f7f7;
-  }
+h1 {
+  text-align: center;
+  font-family: Title;
+  font-size: 3vw;
+}
 
-  a:hover {
-    color: #24c8db;
-  }
+/* ============================================================ */
+/* FRONTEND DEVS BLUEPRINT - PROFILE & DASHBOARD STYLES        */
+/* ============================================================ */
 
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
-  }
+#status-msg {
+  /* Status / notification styling */
+}
+
+#profiles-section {
+  /* Profiles section container styling */
+}
+
+#profiles-grid {
+  /* Profiles grid / list layout styling */
+}
+
+.profile-card {
+  /* Profile card item styling */
+}
+
+#dashboard-section {
+  /* Active profile dashboard styling */
+}
+
+#add-modal {
+  /* Add profile modal / popup styling */
+}
+
+#add-profile-form {
+  /* Add profile form elements styling */
+}
+
+#password-modal {
+  /* Password prompt modal / popup styling */
+}
+
+#password-form {
+  /* Password form elements styling */
 }

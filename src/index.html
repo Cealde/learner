@@ -4,18 +4,52 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
+    <title>Adhicode</title>
     <script type="module" src="/main.js" defer></script>
   </head>
 
   <body>
     <main class="container">
+      <div class="title-container">
+        <img src="assets/logo.svg" class="logo" />
+        <hr class="strike" />
+        <h1>Adhicode</h1>
+      </div>
 
-    <div class="title-container">
-        <img src="assets/logo.svg" class="logo">
-        <hr class="strike">
-        <h1>DHICODE</h1>
-    </div>
+      <div id="status-msg" style="display: none;"></div>
+      
+      <section id="profiles-section">
+        <h2></h2>
+        <div id="profiles-grid"></div>
+      </section>
+
+      <section id="dashboard-section" style="display: none;">
+        <h2 id="active-name"></h2>
+        <button id="switch-profile-btn" type="button"></button>
+      </section>
+
+      <div id="add-modal" style="display: none;">
+        <h3></h3>
+        <form id="add-profile-form">
+          <label for="new-profile-name"></label>
+          <input type="text" id="new-profile-name" required autocomplete="off" />
+
+          <label for="new-profile-password"></label>
+          <input type="password" id="new-profile-password" autocomplete="off" />
+
+          <button type="button" id="cancel-add-btn"></button>
+          <button type="submit"></button>
+        </form>
+      </div>
+
+      <div id="password-modal" style="display: none;">
+        <h3 id="password-modal-title"></h3>
+        <form id="password-form">
+          <input type="password" id="profile-password-input" required autocomplete="off" />
+          <button type="button" id="cancel-password-btn"></button>
+          <button type="submit"></button>
+        </form>
+      </div>
     </main>
   </body>
 </html>

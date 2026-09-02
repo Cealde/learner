@@ -1,69 +1,225 @@
-use dotenvy::dotenv;
-use postgrest::Postgrest;
 use serde::{Deserialize, Serialize};
-use std::env;
-use tauri::State;
+use std::fs;
+use std::path::PathBuf;
+use std::sync::Mutex;
+use std::time::{SystemTime, UNIX_EPOCH};
+use tauri::{AppHandle, Manager, State};
 
-#[derive(serde::Serialize, serde::Deserialize, Clone, Debug)]
-pub struct UserProfile {
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct Profile {
     pub id: String,
-    pub email: String,
+    pub name: String,
+    pub password: Option<String>,
+    pub created_at: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct ProfilePublic {
+    pub id: String,
+    pub name: String,
+    pub has_password: bool,
+    pub created_at: u64,
+}
+
+impl From<&Profile> for ProfilePublic {
+    fn from(p: &Profile) -> Self {
+        ProfilePublic {
+            id: p.id.clone(),
+            name: p.name.clone(),
+            has_password: p.password.as_ref().map_or(false, |pwd| !pwd.trim().is_empty()),
+            created_at: p.created_at,
+        }
+    }
+}
+
+#[derive(Serialize, Deserialize, Default)]
+struct Database {
+    profiles: Vec<Profile>,
+    active_profile_id: Option<String>,
 }
 
 pub struct AppState {
-    pub supabase: Postgrest,
+    db_path: PathBuf,
+    data: Mutex<Database>,
+}
+
+impl AppState {
+    fn new(app_handle: &AppHandle) -> Self {
+        let db_path = match app_handle.path().app_data_dir() {
+            Ok(mut dir) => {
+                let _ = fs::create_dir_all(&dir);
+                dir.push("profiles.json");
+                dir
+            }
+            Err(_) => PathBuf::from("profiles.json"),
+        };
+
+        let db = if db_path.exists() {
+            fs::read_to_string(&db_path)
+                .ok()
+                .and_then(|contents| serde_json::from_str::<Database>(&contents).ok())
+                .unwrap_or_default()
+        } else {
+            Database::default()
+        };
+
+        Self {
+            db_path,
+            data: Mutex::new(db),
+        }
+    }
+
+    fn persist(&self) -> Result<(), String> {
+        let data = self.data.lock().map_err(|e| e.to_string())?;
+        let json = serde_json::to_string_pretty(&*data).map_err(|e| e.to_string())?;
+        fs::write(&self.db_path, json).map_err(|e| e.to_string())?;
+        Ok(())
+    }
 }
 
 #[tauri::command]
-async fn simple_login(
+fn get_profiles(state: State<'_, AppState>) -> Result<Vec<ProfilePublic>, String> {
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    Ok(data.profiles.iter().map(ProfilePublic::from).collect())
+}
+
+#[tauri::command]
+fn create_profile(
     state: State<'_, AppState>,
-    email: String,
-    password: String,
-) -> Result<UserProfile, String> {
-    let query_email = format!("eq.{}", email);
-    let query_password = format!("eq.{}", password);
-
-    let response = state
-        .supabase
-        .from("app_users")
-        .select("id, email")
-        .eq("email", query_email)
-        .eq("password", query_password)
-        .limit(1)
-        .execute()
-        .await
-        .map_err(|e| format!("Request failed: {}", e))?;
-
-    let body = response
-        .text()
-        .await
-        .map_err(|e| format!("Failed to read response: {}", e))?;
-
-    let users: Vec<UserProfile> = serde_json::from_str(&body)
-        .map_err(|e| format!("Failed to parse response: {}", e))?;
-
-    match users.into_iter().next() {
-        Some(user) => Ok(user),
-        None => Err("Invalid email or password".into()),
+    name: String,
+    password: Option<String>,
+) -> Result<ProfilePublic, String> {
+    let name = name.trim().to_string();
+    if name.is_empty() {
+        return Err("Profile name cannot be empty".into());
     }
+
+    let password_cleaned = password.and_then(|p| {
+        let trimmed = p.trim().to_string();
+        if trimmed.is_empty() {
+            None
+        } else {
+            Some(trimmed)
+        }
+    });
+
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+
+    if data.profiles.iter().any(|p| p.name.eq_ignore_ascii_case(&name)) {
+        return Err("A profile with this name already exists".into());
+    }
+
+    let id = format!(
+        "prof_{}",
+        SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_millis()
+    );
+
+    let created_at = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .unwrap_or_default()
+        .as_secs();
+
+    let new_profile = Profile {
+        id: id.clone(),
+        name,
+        password: password_cleaned,
+        created_at,
+    };
+
+    let public_profile = ProfilePublic::from(&new_profile);
+
+    data.profiles.push(new_profile);
+    data.active_profile_id = Some(id);
+
+    drop(data);
+    state.persist()?;
+
+    Ok(public_profile)
+}
+
+#[tauri::command]
+fn delete_profile(state: State<'_, AppState>, id: String) -> Result<(), String> {
+    {
+        let mut data = state.data.lock().map_err(|e| e.to_string())?;
+        data.profiles.retain(|p| p.id != id);
+        if data.active_profile_id.as_deref() == Some(&id) {
+            data.active_profile_id = None;
+        }
+    }
+    state.persist()?;
+    Ok(())
+}
+
+#[tauri::command]
+fn login_profile(
+    state: State<'_, AppState>,
+    id: String,
+    password: Option<String>,
+) -> Result<ProfilePublic, String> {
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+
+    let profile = data
+        .profiles
+        .iter()
+        .find(|p| p.id == id)
+        .ok_or_else(|| "Profile not found".to_string())?;
+
+    if let Some(required_pwd) = &profile.password {
+        let input_pwd = password.unwrap_or_default();
+        if &input_pwd != required_pwd {
+            return Err("Incorrect password".into());
+        }
+    }
+
+    let public_profile = ProfilePublic::from(profile);
+    data.active_profile_id = Some(id);
+
+    drop(data);
+    state.persist()?;
+
+    Ok(public_profile)
+}
+
+#[tauri::command]
+fn get_active_profile(state: State<'_, AppState>) -> Result<Option<ProfilePublic>, String> {
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    if let Some(active_id) = &data.active_profile_id {
+        let profile = data.profiles.iter().find(|p| &p.id == active_id);
+        Ok(profile.map(ProfilePublic::from))
+    } else {
+        Ok(None)
+    }
+}
+
+#[tauri::command]
+fn logout_profile(state: State<'_, AppState>) -> Result<(), String> {
+    {
+        let mut data = state.data.lock().map_err(|e| e.to_string())?;
+        data.active_profile_id = None;
+    }
+    state.persist()?;
+    Ok(())
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    dotenv().ok();
-
-    let supabase_url = env::var("SUPABASE_URL")
-        .expect("SUPABASE_URL must be set in .env or environment");
-    let supabase_key = env::var("SUPABASE_ANON_KEY")
-        .expect("SUPABASE_ANON_KEY must be set in .env or environment");
-
-    let client = Postgrest::new(supabase_url)
-        .insert_header("apikey", &supabase_key)
-        .insert_header("Authorization", format!("Bearer {}", supabase_key));
-
     tauri::Builder::default()
-        .manage(AppState { supabase: client })
-        .invoke_handler(tauri::generate_handler![simple_login])
+        .setup(|app| {
+            let app_state = AppState::new(app.handle());
+            app.manage(app_state);
+            Ok(())
+        })
+        .invoke_handler(tauri::generate_handler![
+            get_profiles,
+            create_profile,
+            delete_profile,
+            login_profile,
+            get_active_profile,
+            logout_profile
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
