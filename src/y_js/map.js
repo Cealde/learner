@@ -61,9 +61,8 @@ document.body.appendChild(renderer.domElement);
 // ============================================================
 // Large plane mesh centered under camera
 
-
 const GRID_CELL_SIZE = 2;
-const gridTexture = createTexturedGrid('assets/textures/ground.png', 512, 4);
+const gridTexture = createTexturedGrid('../assets/textures/ground.png', 512, 4);
 const PLANE_SIZE = 800;
 const tileSizeWorld = GRID_CELL_SIZE * 4;
 const planeRepeatCount = PLANE_SIZE / tileSizeWorld;
@@ -81,13 +80,13 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: 'assets/icons/hq.svg',      desc: 'Central tactical operations and network control hub.' },
-    { id: 'Programming',    x: 50,  z: -16, iconSvg: 'assets/icons/power.svg',   desc: 'High-voltage reactor grid delivering primary base power.' },
-    { id: 'Variables',      x: 26,  z: -5,  iconSvg: 'assets/icons/lab.svg',     desc: 'Advanced laboratory conducting atmospheric and material analysis.' },
-    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: 'assets/icons/storage.svg', desc: 'Logistics center and automated supply storage facility.' },
-    { id: 'Lists',          x: -26, z: 24,  iconSvg: 'assets/icons/launch.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
-    { id: 'Conditions',     x: -64, z: 32,  iconSvg: 'assets/icons/beacon.svg',  desc: 'Long-range satellite transceiver and telemetry relay array.' },
-    { id: 'For Loop',       x: -98, z: 20,  iconSvg: 'assets/icons/mining.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/hq.svg',      desc: 'Central tactical operations and network control hub.' },
+    { id: 'Programming',    x: 50,  z: -16, iconSvg: '../assets/icons/power.svg',   desc: 'High-voltage reactor grid delivering primary base power.' },
+    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/lab.svg',     desc: 'Advanced laboratory conducting atmospheric and material analysis.' },
+    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/storage.svg', desc: 'Logistics center and automated supply storage facility.' },
+    { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/launch.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
+    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/beacon.svg',  desc: 'Long-range satellite transceiver and telemetry relay array.' },
+    { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/mining.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
 ];
 
 const WAVE_AMPLITUDE = 3.5;

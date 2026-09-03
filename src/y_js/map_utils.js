@@ -84,10 +84,10 @@ function createGridTexture(tileSize = 512, subDiv = 4) {
 
 const textureLoader = new THREE.TextureLoader();
 
-const barkTexture = textureLoader.load('assets/textures/bark.png');
+const barkTexture = textureLoader.load('../assets/textures/bark.png');
 barkTexture.colorSpace = THREE.SRGBColorSpace;
 
-const leavesTexture = textureLoader.load('assets/textures/leaves.png');
+const leavesTexture = textureLoader.load('../assets/textures/leaves.png');
 leavesTexture.colorSpace = THREE.SRGBColorSpace;
 
 const trunkMaterial = new THREE.MeshBasicMaterial({
