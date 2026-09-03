@@ -10,11 +10,11 @@ import {
   loginProfile,
   getActiveProfile,
   logoutProfile,
-} from "./tauri.js";
-import { renderProfileGrid } from "./profiles.js";
-import { renderDashboard } from "./dashboard.js";
-import { initUI, showStatus, showView, openModal, closeModal } from "./ui.js";
-import { getAvatarColor } from "./utils.js";
+} from "./js/tauri.js";
+import { renderProfileGrid } from "./js/profiles.js";
+import { renderDashboard } from "./js/dashboard.js";
+import { initUI, showStatus, showView, openModal, closeModal } from "./js/ui.js";
+import { getAvatarColor } from "./js/utils.js";
 
 // ============================================================
 // State
