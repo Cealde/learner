@@ -4,12 +4,10 @@ let pendingPasswordProfileId = null;
 
 // DOM Elements
 let profilesSection;
-let dashboardSection;
 let profilesGrid;
 let addModal;
 let passwordModal;
 let statusMsg;
-let activeNameEl;
 
 function showStatus(message, isError = false) {
   if (!statusMsg) return;
@@ -24,7 +22,7 @@ export async function refreshProfiles() {
   try {
     const activeProfile = await invoke("get_active_profile");
     if (activeProfile) {
-      showDashboard(activeProfile);
+      goToMiddlePage(activeProfile);
       return;
     }
 
@@ -38,13 +36,10 @@ export async function refreshProfiles() {
 
 function showProfilesView() {
   if (profilesSection) profilesSection.style.display = "block";
-  if (dashboardSection) dashboardSection.style.display = "none";
 }
 
-function showDashboard(profile) {
-  if (activeNameEl) activeNameEl.textContent = profile.name || "";
-  if (profilesSection) profilesSection.style.display = "none";
-  if (dashboardSection) dashboardSection.style.display = "block";
+function goToMiddlePage(profile) {
+  window.location.href = 'middle.html';
 }
 
 function renderProfiles(profiles) {
@@ -58,7 +53,7 @@ function renderProfiles(profiles) {
 
     const nameSpan = document.createElement("span");
     nameSpan.className = "profile-name";
-    nameSpan.textContent = profile.name;
+    nameSpan.textContent = profile.name ? `${profile.username} (${profile.name})` : profile.username;
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-profile-btn";
@@ -118,19 +113,21 @@ function handleProfileSelect(profile) {
 async function performLogin(id, password) {
   try {
     const active = await invoke("login_profile", { id, password });
-    showDashboard(active);
+    goToMiddlePage(active);
   } catch (err) {
     showStatus(String(err), true);
   }
 }
 
 function openAddModal() {
+  const usernameInput = document.getElementById("new-profile-username");
   const nameInput = document.getElementById("new-profile-name");
   const pwdInput = document.getElementById("new-profile-password");
+  if (usernameInput) usernameInput.value = "";
   if (nameInput) nameInput.value = "";
   if (pwdInput) pwdInput.value = "";
   if (addModal) addModal.style.display = "block";
-  if (nameInput) nameInput.focus();
+  if (usernameInput) usernameInput.focus();
 }
 
 function closeAddModal() {
@@ -144,30 +141,30 @@ function closePasswordModal() {
 
 window.addEventListener("DOMContentLoaded", () => {
   profilesSection = document.getElementById("profiles-section");
-  dashboardSection = document.getElementById("dashboard-section");
   profilesGrid = document.getElementById("profiles-grid");
   addModal = document.getElementById("add-modal");
   passwordModal = document.getElementById("password-modal");
   statusMsg = document.getElementById("status-msg");
-  activeNameEl = document.getElementById("active-name");
 
-  // Add profile form
   const addProfileForm = document.getElementById("add-profile-form");
   if (addProfileForm) {
     addProfileForm.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const usernameInput = document.getElementById("new-profile-username");
       const nameInput = document.getElementById("new-profile-name");
       const pwdInput = document.getElementById("new-profile-password");
+      const username = usernameInput ? usernameInput.value : "";
       const name = nameInput ? nameInput.value : "";
       const password = pwdInput ? pwdInput.value : "";
 
       try {
         const created = await invoke("create_profile", {
-          name,
+          username,
+          name: name || null,
           password: password || null,
         });
         closeAddModal();
-        showDashboard(created);
+        goToMiddlePage(created);
       } catch (err) {
         showStatus(String(err), true);
       }
@@ -177,7 +174,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const cancelAddBtn = document.getElementById("cancel-add-btn");
   if (cancelAddBtn) cancelAddBtn.addEventListener("click", closeAddModal);
 
-  // Password Form
   const passwordForm = document.getElementById("password-form");
   if (passwordForm) {
     passwordForm.addEventListener("submit", async (e) => {
@@ -194,19 +190,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const cancelPasswordBtn = document.getElementById("cancel-password-btn");
   if (cancelPasswordBtn) cancelPasswordBtn.addEventListener("click", closePasswordModal);
-
-  // Switch / Logout button
-  const switchProfileBtn = document.getElementById("switch-profile-btn");
-  if (switchProfileBtn) {
-    switchProfileBtn.addEventListener("click", async () => {
-      try {
-        await invoke("logout_profile");
-        refreshProfiles();
-      } catch (err) {
-        showStatus(String(err), true);
-      }
-    });
-  }
 
   // Initial load
   refreshProfiles();

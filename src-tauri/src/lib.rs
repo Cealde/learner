@@ -8,7 +8,8 @@ use tauri::{AppHandle, Manager, State};
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Profile {
     pub id: String,
-    pub name: String,
+    pub username: String,
+    pub name: Option<String>,
     pub password: Option<String>,
     pub created_at: u64,
 }
@@ -16,7 +17,8 @@ pub struct Profile {
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct ProfilePublic {
     pub id: String,
-    pub name: String,
+    pub username: String,
+    pub name: Option<String>,
     pub has_password: bool,
     pub created_at: u64,
 }
@@ -25,6 +27,7 @@ impl From<&Profile> for ProfilePublic {
     fn from(p: &Profile) -> Self {
         ProfilePublic {
             id: p.id.clone(),
+            username: p.username.clone(),
             name: p.name.clone(),
             has_password: p.password.as_ref().map_or(false, |pwd| !pwd.trim().is_empty()),
             created_at: p.created_at,
@@ -86,13 +89,23 @@ fn get_profiles(state: State<'_, AppState>) -> Result<Vec<ProfilePublic>, String
 #[tauri::command]
 fn create_profile(
     state: State<'_, AppState>,
-    name: String,
+    username: String,
+    name: Option<String>,
     password: Option<String>,
 ) -> Result<ProfilePublic, String> {
-    let name = name.trim().to_string();
-    if name.is_empty() {
-        return Err("Profile name cannot be empty".into());
+    let username = username.trim().to_string();
+    if username.is_empty() {
+        return Err("Username cannot be empty".into());
     }
+
+    let name_cleaned = name.and_then(|n| {
+        let trimmed = n.trim().to_string();
+        if trimmed.is_empty() {
+            None
+        } else {
+            Some(trimmed)
+        }
+    });
 
     let password_cleaned = password.and_then(|p| {
         let trimmed = p.trim().to_string();
@@ -105,8 +118,12 @@ fn create_profile(
 
     let mut data = state.data.lock().map_err(|e| e.to_string())?;
 
-    if data.profiles.iter().any(|p| p.name.eq_ignore_ascii_case(&name)) {
-        return Err("A profile with this name already exists".into());
+    if data
+        .profiles
+        .iter()
+        .any(|p| p.username.eq_ignore_ascii_case(&username))
+    {
+        return Err("A profile with this username already exists".into());
     }
 
     let id = format!(
@@ -124,7 +141,8 @@ fn create_profile(
 
     let new_profile = Profile {
         id: id.clone(),
-        name,
+        username,
+        name: name_cleaned,
         password: password_cleaned,
         created_at,
     };
@@ -184,7 +202,7 @@ fn login_profile(
 }
 
 #[tauri::command]
-fn get_active_profile(state: State<'_, AppState>) -> Result<Option<ProfilePublic>, String> {
+async fn get_active_profile(state: State<'_, AppState>) -> Result<Option<ProfilePublic>, String> {
     let data = state.data.lock().map_err(|e| e.to_string())?;
     if let Some(active_id) = &data.active_profile_id {
         let profile = data.profiles.iter().find(|p| &p.id == active_id);
@@ -204,12 +222,16 @@ fn logout_profile(state: State<'_, AppState>) -> Result<(), String> {
     Ok(())
 }
 
+pub mod user_store;
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
             let app_state = AppState::new(app.handle());
+            let user_store_state = user_store::UserStoreState::new(app.handle());
             app.manage(app_state);
+            app.manage(user_store_state);
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
@@ -218,7 +240,11 @@ pub fn run() {
             delete_profile,
             login_profile,
             get_active_profile,
-            logout_profile
+            logout_profile,
+            user_store::set_user_value,
+            user_store::get_user_value,
+            user_store::get_all_user_values,
+            user_store::delete_user_value
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

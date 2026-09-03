@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adhicode</title>
-    <script type="module" src="/main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
   </head>
 
   <body>
@@ -19,37 +19,37 @@
       <div id="status-msg" style="display: none;"></div>
       
       <section id="profiles-section">
-        <h2></h2>
+        <h2>Choose A Profile</h2>
         <div id="profiles-grid"></div>
       </section>
 
-      <section id="dashboard-section" style="display: none;">
-        <h2 id="active-name"></h2>
-        <button id="switch-profile-btn" type="button"></button>
-      </section>
 
       <div id="add-modal" style="display: none;">
-        <h3></h3>
+        <h3>Create Profile</h3>
         <form id="add-profile-form">
-          <label for="new-profile-name"></label>
-          <input type="text" id="new-profile-name" required autocomplete="off" />
+          <label for="new-profile-username">Username</label>
+          <input type="text" id="new-profile-username" required autocomplete="off" />
 
-          <label for="new-profile-password"></label>
+          <label for="new-profile-name">Display Name</label>
+          <input type="text" id="new-profile-name" autocomplete="off" />
+
+          <label for="new-profile-password">Password</label>
           <input type="password" id="new-profile-password" autocomplete="off" />
 
-          <button type="button" id="cancel-add-btn"></button>
-          <button type="submit"></button>
+          <button type="button" id="cancel-add-btn">Cancel</button>
+          <button type="submit">Confirm</button>
         </form>
       </div>
 
       <div id="password-modal" style="display: none;">
-        <h3 id="password-modal-title"></h3>
+        <h3 id="password-modal-title">Password</h3>
         <form id="password-form">
           <input type="password" id="profile-password-input" required autocomplete="off" />
-          <button type="button" id="cancel-password-btn"></button>
-          <button type="submit"></button>
+          <button type="button" id="cancel-password-btn">Cancel</button>
+          <button type="submit">Confirm</button>
         </form>
       </div>
     </main>
+    <button onClick="window.location.href = 'journey.html';">GTG</button>
   </body>
 </html>
