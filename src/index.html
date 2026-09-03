@@ -2,54 +2,267 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adhicode</title>
-    <script type="module" src="/main.js" defer></script>
+    <title>Adhicode — Workspace Manager</title>
+    <meta name="description" content="Adhicode — Your premium developer workspace manager." />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="/main.js"></script>
   </head>
 
   <body>
-    <main class="container">
-      <div class="title-container">
-        <img src="assets/logo.svg" class="logo" />
-        <hr class="strike" />
-        <h1>Adhicode</h1>
-      </div>
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║  Toast Notification                      ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <div id="status-toast" class="status-toast" style="display:none;" role="alert" aria-live="polite"></div>
 
-      <div id="status-msg" style="display: none;"></div>
-      
-      <section id="profiles-section">
-        <h2></h2>
-        <div id="profiles-grid"></div>
-      </section>
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║  APP SHELL                               ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <div class="app-shell">
 
-      <section id="dashboard-section" style="display: none;">
-        <h2 id="active-name"></h2>
-        <button id="switch-profile-btn" type="button"></button>
-      </section>
+      <!-- ── Global Header ─────────────────────── -->
+      <header class="app-header">
+        <div class="app-logo">
+          <img src="assets/logo.svg" class="logo-img" alt="" aria-hidden="true" />
+          <span class="logo-wordmark">ADHICODE</span>
+        </div>
+        <div class="header-right" id="header-profile-pill" style="display:none;">
+          <div class="header-avatar-wrap">
+            <div class="header-avatar" id="header-avatar"></div>
+            <span class="header-profile-name" id="header-profile-name"></span>
+          </div>
+        </div>
+      </header>
 
-      <div id="add-modal" style="display: none;">
-        <h3></h3>
-        <form id="add-profile-form">
-          <label for="new-profile-name"></label>
-          <input type="text" id="new-profile-name" required autocomplete="off" />
+      <!-- ╔══════════════════════════════════════╗ -->
+      <!-- ║  VIEW: PROFILE SELECTION             ║ -->
+      <!-- ╚══════════════════════════════════════╝ -->
+      <main id="view-profiles" class="view view-profiles view-hidden" role="main">
 
-          <label for="new-profile-password"></label>
-          <input type="password" id="new-profile-password" autocomplete="off" />
+        <!-- Decorative Hero Area -->
+        <section class="hero-section" aria-hidden="true">
+          <div class="hero-blobs">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+          </div>
+          <div class="hero-grid-lines"></div>
+          <div class="hero-text-area">
+            <p class="hero-eyebrow">YOUR WORKSPACE.</p>
+            <h1 class="hero-headline">Where do you<br/>want to work?</h1>
+            <p class="hero-sub">Keep your projects, tools and workflows separated.</p>
+          </div>
+        </section>
 
-          <button type="button" id="cancel-add-btn"></button>
-          <button type="submit"></button>
+        <!-- Profile Grid Area -->
+        <section class="profiles-area" aria-label="Workspace profiles">
+          <div class="profiles-header">
+            <span class="profiles-label">WORKSPACES</span>
+            <span class="profiles-count" id="profiles-count"></span>
+          </div>
+          <div id="profiles-grid" class="profiles-grid" role="list"></div>
+        </section>
+
+      </main>
+
+      <!-- ╔══════════════════════════════════════╗ -->
+      <!-- ║  VIEW: DASHBOARD                     ║ -->
+      <!-- ╚══════════════════════════════════════╝ -->
+      <main id="view-dashboard" class="view view-dashboard view-hidden" role="main">
+
+        <!-- Dashboard Hero -->
+        <section class="dash-hero">
+          <div class="dash-hero-inner">
+            <div class="dash-greeting-area">
+              <h1 class="dash-greeting" id="dash-greeting">Good evening.</h1>
+              <p class="dash-sub" id="dash-sub">Welcome to your workspace.</p>
+            </div>
+            <div class="dash-actions">
+              <button id="switch-profile-btn" class="btn-outline" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                  <polyline points="16 17 21 12 16 7"/>
+                  <line x1="21" y1="12" x2="9" y2="12"/>
+                </svg>
+                Switch Profile
+              </button>
+            </div>
+          </div>
+
+          <!-- Workspace Status Strip -->
+          <div class="workspace-strip">
+            <div class="ws-stat">
+              <span class="ws-stat-label">WORKSPACE</span>
+              <span class="ws-stat-value" id="stat-profile-name">—</span>
+            </div>
+            <div class="ws-divider"></div>
+            <div class="ws-stat">
+              <span class="ws-stat-label">STATUS</span>
+              <span class="ws-stat-value" id="stat-status">—</span>
+            </div>
+            <div class="ws-divider"></div>
+            <div class="ws-stat">
+              <span class="ws-stat-label">LAST USED</span>
+              <span class="ws-stat-value" id="stat-last-used">—</span>
+            </div>
+            <div class="ws-divider"></div>
+            <div class="ws-stat">
+              <span class="ws-stat-label">CREATED</span>
+              <span class="ws-stat-value" id="stat-created">—</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Dashboard Feature Cards -->
+        <section class="dash-cards" aria-label="Workspace features">
+
+          <div class="dash-card dash-card--blue">
+            <div class="dash-card-header">
+              <span class="dash-card-label">PROJECTS</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="dash-card-value">12</div>
+            <div class="dash-card-desc">Active projects</div>
+            <div class="dash-card-arrow">→</div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <span class="dash-card-label">TOOLS</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <div class="dash-card-value">Dev</div>
+            <div class="dash-card-desc">Development environment</div>
+            <div class="dash-card-arrow">→</div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <span class="dash-card-label">ACTIVITY</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="dash-card-value">—</div>
+            <div class="dash-card-desc">Recent workspace events</div>
+            <div class="dash-card-arrow">→</div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <span class="dash-card-label">SETTINGS</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+            </div>
+            <div class="dash-card-value">⚙</div>
+            <div class="dash-card-desc">Workspace preferences</div>
+            <div class="dash-card-arrow">→</div>
+          </div>
+
+        </section>
+      </main>
+
+    </div><!-- /.app-shell -->
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║  MODAL: ADD PROFILE                      ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <div id="add-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="add-modal-title">
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <h2 id="add-modal-title">Create Workspace</h2>
+          <p class="modal-subtitle">Set up a new workspace profile.</p>
+        </div>
+        <form id="add-profile-form" novalidate>
+          <div class="form-group">
+            <label for="new-profile-name">Workspace Name <span class="required">*</span></label>
+            <input type="text" id="new-profile-name" placeholder="e.g. Developer, Pentesting, Personal" required autocomplete="off" />
+          </div>
+          <div class="form-group">
+            <label for="new-profile-description">Description <span class="optional">(optional)</span></label>
+            <input type="text" id="new-profile-description" placeholder="Brief description of this workspace" autocomplete="off" />
+          </div>
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="protect-checkbox" />
+              <span class="checkmark"></span>
+              Protect this workspace with a password
+            </label>
+          </div>
+          <div id="add-password-fields" class="password-fields" style="display:none;">
+            <div class="form-group">
+              <label for="new-profile-password">Password</label>
+              <input type="password" id="new-profile-password" placeholder="Enter a strong password" autocomplete="new-password" />
+            </div>
+            <div class="form-group">
+              <label for="new-profile-confirm-password">Confirm Password</label>
+              <input type="password" id="new-profile-confirm-password" placeholder="Repeat your password" autocomplete="new-password" />
+            </div>
+          </div>
+          <p id="add-form-error" class="form-error" role="alert"></p>
+          <div class="modal-actions">
+            <button type="button" id="cancel-add-btn" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Create Workspace</button>
+          </div>
         </form>
       </div>
+    </div>
 
-      <div id="password-modal" style="display: none;">
-        <h3 id="password-modal-title"></h3>
-        <form id="password-form">
-          <input type="password" id="profile-password-input" required autocomplete="off" />
-          <button type="button" id="cancel-password-btn"></button>
-          <button type="submit"></button>
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║  MODAL: PASSWORD                         ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <div id="password-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="pwd-modal-title">
+      <div class="modal-dialog modal-dialog--compact">
+        <div class="modal-profile-header">
+          <div class="modal-avatar" id="pwd-modal-avatar"></div>
+          <div>
+            <h2 id="pwd-modal-title">Unlock Workspace</h2>
+            <p class="modal-profile-name" id="pwd-modal-profile-name"></p>
+          </div>
+        </div>
+        <form id="password-form" novalidate>
+          <div class="form-group">
+            <label for="profile-password-input">Password</label>
+            <input type="password" id="profile-password-input" placeholder="Enter workspace password" required autocomplete="current-password" />
+          </div>
+          <p id="pwd-error" class="form-error" role="alert"></p>
+          <div class="modal-actions">
+            <button type="button" id="cancel-password-btn" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary">Unlock</button>
+          </div>
         </form>
       </div>
-    </main>
+    </div>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║  MODAL: DELETE CONFIRMATION              ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <div id="delete-modal" class="modal-overlay" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title">
+      <div class="modal-dialog modal-dialog--compact">
+        <div class="modal-header">
+          <div class="delete-warning-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+            </svg>
+          </div>
+          <h2 id="delete-modal-title">Delete workspace?</h2>
+          <p class="modal-subtitle">
+            You are about to permanently delete
+            <strong id="delete-profile-name"></strong>.
+            This cannot be undone.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancel-delete-btn" class="btn-secondary">Cancel</button>
+          <button type="button" id="confirm-delete-btn" class="btn-danger">Delete Workspace</button>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

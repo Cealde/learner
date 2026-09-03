@@ -1,115 +1,95 @@
-const { invoke } = window.__TAURI__.core;
+/**
+ * app.js — Main application entry point
+ * Orchestrates all modules and manages global state.
+ */
 
-let pendingPasswordProfileId = null;
+import {
+  getProfiles,
+  createProfile,
+  deleteProfile,
+  loginProfile,
+  getActiveProfile,
+  logoutProfile,
+} from "./tauri.js";
+import { renderProfileGrid } from "./profiles.js";
+import { renderDashboard } from "./dashboard.js";
+import { initUI, showStatus, showView, openModal, closeModal } from "./ui.js";
+import { getAvatarColor } from "./utils.js";
 
-// DOM Elements
-let profilesSection;
-let dashboardSection;
+// ============================================================
+// State
+// ============================================================
+
+let profiles = [];
+let activeProfile = null;
+let pendingProfileId = null;
+let pendingDeleteProfile = null;
+
+// ============================================================
+// DOM Refs — populated in DOMContentLoaded
+// ============================================================
+
 let profilesGrid;
-let addModal;
-let passwordModal;
-let statusMsg;
-let activeNameEl;
+let addModal, passwordModal, deleteModal;
+let statusEl;
 
-function showStatus(message, isError = false) {
-  if (!statusMsg) return;
-  statusMsg.textContent = message;
-  statusMsg.style.display = "block";
-  setTimeout(() => {
-    if (statusMsg) statusMsg.style.display = "none";
-  }, 4000);
-}
+// ============================================================
+// Core Functions
+// ============================================================
 
-export async function refreshProfiles() {
+async function loadProfiles() {
   try {
-    const activeProfile = await invoke("get_active_profile");
-    if (activeProfile) {
-      showDashboard(activeProfile);
+    const active = await getActiveProfile();
+    if (active) {
+      activeProfile = active;
+      renderDashboard(active);
+      showView("view-dashboard");
       return;
     }
 
-    const profiles = await invoke("get_profiles");
-    renderProfiles(profiles);
-    showProfilesView();
+    profiles = await getProfiles();
+    // Hide header pill on profile selection
+    const pill = document.getElementById("header-profile-pill");
+    if (pill) pill.style.display = "none";
+
+    renderProfileGrid(profiles, profilesGrid, {
+      onSelect: handleProfileSelect,
+      onDelete: handleDeleteRequest,
+      onAdd: () => openAddModal(),
+    });
+
+    // Update count badge
+    const countEl = document.getElementById("profiles-count");
+    if (countEl) countEl.textContent = profiles.length > 0 ? `${profiles.length} workspace${profiles.length > 1 ? "s" : ""}` : "";
+
+    showView("view-profiles");
   } catch (err) {
-    showStatus(String(err), true);
+    console.error("loadProfiles error:", err);
+    showStatus("Unable to load workspaces.", "error");
   }
 }
 
-function showProfilesView() {
-  if (profilesSection) profilesSection.style.display = "block";
-  if (dashboardSection) dashboardSection.style.display = "none";
-}
+function handleProfileSelect(profile) {
+  if (profile.protected) {
+    pendingProfileId = profile.id;
 
-function showDashboard(profile) {
-  if (activeNameEl) activeNameEl.textContent = profile.name || "";
-  if (profilesSection) profilesSection.style.display = "none";
-  if (dashboardSection) dashboardSection.style.display = "block";
-}
-
-function renderProfiles(profiles) {
-  if (!profilesGrid) return;
-  profilesGrid.innerHTML = "";
-
-  profiles.forEach((profile) => {
-    const card = document.createElement("div");
-    card.className = "profile-card";
-    card.setAttribute("data-id", profile.id);
-
-    const nameSpan = document.createElement("span");
-    nameSpan.className = "profile-name";
-    nameSpan.textContent = profile.name;
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "delete-profile-btn";
-    deleteBtn.setAttribute("type", "button");
-    deleteBtn.textContent = "×";
-    deleteBtn.addEventListener("click", async (e) => {
-      e.stopPropagation();
-      try {
-        await invoke("delete_profile", { id: profile.id });
-        refreshProfiles();
-      } catch (err) {
-        showStatus(String(err), true);
-      }
-    });
-
-    card.appendChild(nameSpan);
-
-    if (profile.has_password) {
-      const lockIndicator = document.createElement("span");
-      lockIndicator.className = "password-indicator";
-      lockIndicator.textContent = "*";
-      card.appendChild(lockIndicator);
+    // Set modal title with color
+    const color = getAvatarColor(profile.name);
+    const titleEl = document.getElementById("pwd-modal-profile-name");
+    const avatarEl = document.getElementById("pwd-modal-avatar");
+    if (titleEl) titleEl.textContent = profile.name;
+    if (avatarEl) {
+      avatarEl.textContent = profile.initials;
+      avatarEl.style.background = color.bg;
+      avatarEl.style.color = color.text;
     }
 
-    card.appendChild(deleteBtn);
-
-    card.addEventListener("click", () => {
-      handleProfileSelect(profile);
-    });
-
-    profilesGrid.appendChild(card);
-  });
-
-  // Add profile trigger button
-  const addTrigger = document.createElement("button");
-  addTrigger.id = "open-add-modal-btn";
-  addTrigger.setAttribute("type", "button");
-  addTrigger.textContent = "+";
-  addTrigger.addEventListener("click", () => {
-    openAddModal();
-  });
-  profilesGrid.appendChild(addTrigger);
-}
-
-function handleProfileSelect(profile) {
-  if (profile.has_password) {
-    pendingPasswordProfileId = profile.id;
     const pwdInput = document.getElementById("profile-password-input");
     if (pwdInput) pwdInput.value = "";
-    if (passwordModal) passwordModal.style.display = "block";
-    if (pwdInput) pwdInput.focus();
+    const errEl = document.getElementById("pwd-error");
+    if (errEl) errEl.textContent = "";
+    openModal(passwordModal);
+    setTimeout(() => pwdInput && pwdInput.focus(), 250);
   } else {
     performLogin(profile.id, null);
   }
@@ -117,59 +97,166 @@ function handleProfileSelect(profile) {
 
 async function performLogin(id, password) {
   try {
-    const active = await invoke("login_profile", { id, password });
-    showDashboard(active);
+    const profile = await loginProfile(id, password);
+    closeModal(passwordModal);
+    pendingProfileId = null;
+    activeProfile = profile;
+    renderDashboard(profile);
+    showView("view-dashboard");
   } catch (err) {
-    showStatus(String(err), true);
+    const errEl = document.getElementById("pwd-error");
+    if (errEl) errEl.textContent = "Incorrect password. Please try again.";
+    const pwdInput = document.getElementById("profile-password-input");
+    if (pwdInput) {
+      pwdInput.focus();
+      pwdInput.select();
+    }
   }
 }
 
+function handleDeleteRequest(profile) {
+  pendingDeleteProfile = profile;
+  const nameEl = document.getElementById("delete-profile-name");
+  if (nameEl) nameEl.textContent = profile.name;
+  openModal(deleteModal);
+}
+
+async function handleDeleteConfirm() {
+  if (!pendingDeleteProfile) return;
+  try {
+    await deleteProfile(pendingDeleteProfile.id);
+    closeModal(deleteModal);
+    showStatus(`"${pendingDeleteProfile.name}" deleted.`);
+    pendingDeleteProfile = null;
+    await loadProfiles();
+  } catch (err) {
+    console.error("deleteProfile error:", err);
+    showStatus("Unable to delete workspace.", "error");
+  }
+}
+
+// ============================================================
+// Modal Helpers
+// ============================================================
+
 function openAddModal() {
-  const nameInput = document.getElementById("new-profile-name");
-  const pwdInput = document.getElementById("new-profile-password");
-  if (nameInput) nameInput.value = "";
-  if (pwdInput) pwdInput.value = "";
-  if (addModal) addModal.style.display = "block";
-  if (nameInput) nameInput.focus();
+  document.getElementById("new-profile-name").value = "";
+  document.getElementById("new-profile-description").value = "";
+  document.getElementById("new-profile-password").value = "";
+  document.getElementById("new-profile-confirm-password").value = "";
+  document.getElementById("protect-checkbox").checked = false;
+
+  const pwdFields = document.getElementById("add-password-fields");
+  if (pwdFields) pwdFields.style.display = "none";
+
+  const addErr = document.getElementById("add-form-error");
+  if (addErr) addErr.textContent = "";
+
+  openModal(addModal);
+  setTimeout(() => document.getElementById("new-profile-name").focus(), 250);
 }
 
 function closeAddModal() {
-  if (addModal) addModal.style.display = "none";
+  closeModal(addModal);
 }
 
 function closePasswordModal() {
-  pendingPasswordProfileId = null;
-  if (passwordModal) passwordModal.style.display = "none";
+  pendingProfileId = null;
+  closeModal(passwordModal);
 }
 
+function closeDeleteModal() {
+  pendingDeleteProfile = null;
+  closeModal(deleteModal);
+}
+
+// ============================================================
+// DOMContentLoaded
+// ============================================================
+
 window.addEventListener("DOMContentLoaded", () => {
-  profilesSection = document.getElementById("profiles-section");
-  dashboardSection = document.getElementById("dashboard-section");
+  // DOM refs
   profilesGrid = document.getElementById("profiles-grid");
   addModal = document.getElementById("add-modal");
   passwordModal = document.getElementById("password-modal");
-  statusMsg = document.getElementById("status-msg");
-  activeNameEl = document.getElementById("active-name");
+  deleteModal = document.getElementById("delete-modal");
+  statusEl = document.getElementById("status-toast");
 
-  // Add profile form
-  const addProfileForm = document.getElementById("add-profile-form");
-  if (addProfileForm) {
-    addProfileForm.addEventListener("submit", async (e) => {
+  // Init UI system
+  initUI(statusEl);
+
+  // ── Keyboard: Escape to close modals ──
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAddModal();
+      closePasswordModal();
+      closeDeleteModal();
+    }
+  });
+
+  // ── Backdrop clicks ──
+  [addModal, passwordModal, deleteModal].forEach((m) => {
+    if (m) {
+      m.addEventListener("click", (e) => {
+        if (e.target === m) {
+          if (m === addModal) closeAddModal();
+          else if (m === passwordModal) closePasswordModal();
+          else if (m === deleteModal) closeDeleteModal();
+        }
+      });
+    }
+  });
+
+  // ── Protect checkbox toggle ──
+  const protectCheckbox = document.getElementById("protect-checkbox");
+  const pwdFields = document.getElementById("add-password-fields");
+  if (protectCheckbox && pwdFields) {
+    protectCheckbox.addEventListener("change", () => {
+      pwdFields.style.display = protectCheckbox.checked ? "flex" : "none";
+      if (!protectCheckbox.checked) {
+        document.getElementById("new-profile-password").value = "";
+        document.getElementById("new-profile-confirm-password").value = "";
+      }
+    });
+  }
+
+  // ── Add Profile Form ──
+  const addForm = document.getElementById("add-profile-form");
+  if (addForm) {
+    addForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const nameInput = document.getElementById("new-profile-name");
-      const pwdInput = document.getElementById("new-profile-password");
-      const name = nameInput ? nameInput.value : "";
-      const password = pwdInput ? pwdInput.value : "";
+      const name = document.getElementById("new-profile-name").value.trim();
+      const description = document.getElementById("new-profile-description").value.trim();
+      const protect = document.getElementById("protect-checkbox").checked;
+      const password = document.getElementById("new-profile-password").value;
+      const confirm = document.getElementById("new-profile-confirm-password").value;
+      const errEl = document.getElementById("add-form-error");
+
+      if (!name) {
+        errEl.textContent = "Workspace name is required.";
+        return;
+      }
+
+      if (protect) {
+        if (!password) {
+          errEl.textContent = "Please enter a password.";
+          return;
+        }
+        if (password !== confirm) {
+          errEl.textContent = "Passwords do not match.";
+          return;
+        }
+      }
+
+      errEl.textContent = "";
 
       try {
-        const created = await invoke("create_profile", {
-          name,
-          password: password || null,
-        });
+        await createProfile(name, description || null, protect ? password : null);
         closeAddModal();
-        showDashboard(created);
+        showStatus(`Workspace "${name}" created.`);
+        await loadProfiles();
       } catch (err) {
-        showStatus(String(err), true);
+        errEl.textContent = String(err);
       }
     });
   }
@@ -177,37 +264,43 @@ window.addEventListener("DOMContentLoaded", () => {
   const cancelAddBtn = document.getElementById("cancel-add-btn");
   if (cancelAddBtn) cancelAddBtn.addEventListener("click", closeAddModal);
 
-  // Password Form
-  const passwordForm = document.getElementById("password-form");
-  if (passwordForm) {
-    passwordForm.addEventListener("submit", async (e) => {
+  // ── Password Form ──
+  const pwdForm = document.getElementById("password-form");
+  if (pwdForm) {
+    pwdForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const pwdInput = document.getElementById("profile-password-input");
-      const password = pwdInput ? pwdInput.value : "";
-      if (pendingPasswordProfileId) {
-        const targetId = pendingPasswordProfileId;
-        closePasswordModal();
-        await performLogin(targetId, password);
+      const pwd = document.getElementById("profile-password-input").value;
+      if (pendingProfileId) {
+        await performLogin(pendingProfileId, pwd);
       }
     });
   }
 
-  const cancelPasswordBtn = document.getElementById("cancel-password-btn");
-  if (cancelPasswordBtn) cancelPasswordBtn.addEventListener("click", closePasswordModal);
+  const cancelPwdBtn = document.getElementById("cancel-password-btn");
+  if (cancelPwdBtn) cancelPwdBtn.addEventListener("click", closePasswordModal);
 
-  // Switch / Logout button
-  const switchProfileBtn = document.getElementById("switch-profile-btn");
-  if (switchProfileBtn) {
-    switchProfileBtn.addEventListener("click", async () => {
+  // ── Delete Modal ──
+  const confirmDeleteBtn = document.getElementById("confirm-delete-btn");
+  if (confirmDeleteBtn) confirmDeleteBtn.addEventListener("click", handleDeleteConfirm);
+
+  const cancelDeleteBtn = document.getElementById("cancel-delete-btn");
+  if (cancelDeleteBtn) cancelDeleteBtn.addEventListener("click", closeDeleteModal);
+
+  // ── Switch Profile / Logout ──
+  const switchBtn = document.getElementById("switch-profile-btn");
+  if (switchBtn) {
+    switchBtn.addEventListener("click", async () => {
       try {
-        await invoke("logout_profile");
-        refreshProfiles();
+        await logoutProfile();
+        activeProfile = null;
+        await loadProfiles();
       } catch (err) {
-        showStatus(String(err), true);
+        console.error("logout error:", err);
+        showStatus("Unable to switch profile.", "error");
       }
     });
   }
 
-  // Initial load
-  refreshProfiles();
+  // ── Initial load ──
+  loadProfiles();
 });

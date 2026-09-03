@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "learner",
+  "productName": "Adhicode",
   "version": "0.1.0",
-  "identifier": "learn",
+  "identifier": "com.adhicode.workspace",
   "build": {
     "frontendDist": "../src"
   },
@@ -10,9 +10,12 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Learner",
-        "width": 800,
-        "height": 600
+        "title": "Adhicode",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "center": true
       }
     ],
     "security": {
@@ -23,7 +26,8 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/logo.svg"
+      "icons/icon.png",
+      "icons/icon.ico"
     ]
   }
 }
