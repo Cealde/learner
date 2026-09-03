@@ -30,16 +30,35 @@ export function showStatus(message, type = "success") {
 }
 
 export function showView(viewId) {
-  const views = document.querySelectorAll(".view");
-  views.forEach((v) => {
-    if (v.id === viewId) {
-      v.classList.remove("view-hidden");
-      v.classList.add("view-visible");
-    } else {
-      v.classList.add("view-hidden");
-      v.classList.remove("view-visible");
+  const nextView = document.getElementById(viewId);
+  const currentView = document.querySelector(".view.view-visible");
+  if (!nextView || currentView === nextView) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reveal = () => {
+    document.querySelectorAll(".view").forEach((view) => {
+      const isNext = view === nextView;
+      view.classList.toggle("view-hidden", !isNext);
+      view.classList.toggle("view-visible", isNext);
+      view.classList.remove("view-exit");
+    });
+    nextView.classList.remove("view-enter");
+    if (!reduceMotion) {
+      requestAnimationFrame(() => nextView.classList.add("view-enter"));
     }
-  });
+  };
+
+  if (!currentView || reduceMotion) {
+    reveal();
+    return;
+  }
+
+  document.body.classList.add("is-transitioning");
+  currentView.classList.add("view-exit");
+  window.setTimeout(() => {
+    reveal();
+    window.setTimeout(() => document.body.classList.remove("is-transitioning"), 620);
+  }, 260);
 }
 
 export function openModal(modalEl) {

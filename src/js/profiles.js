@@ -23,8 +23,8 @@ export function renderProfileGrid(profiles, grid, handlers) {
           <circle cx="12" cy="7" r="4"/>
         </svg>
       </div>
-      <h3>No workspaces yet</h3>
-      <p>Create your first workspace to get started.</p>
+      <h3>No learners yet</h3>
+      <p>Add a learner to begin building their personal learning path.</p>
     `;
     grid.appendChild(empty);
   } else {
@@ -34,7 +34,7 @@ export function renderProfileGrid(profiles, grid, handlers) {
     });
   }
 
-  // Add new workspace card
+  // Add learner card
   const addCard = createAddCard(handlers.onAdd);
   grid.appendChild(addCard);
 }
@@ -51,7 +51,7 @@ function createProfileCard(profile, handlers, index) {
       <div class="profile-avatar" style="background:${color.bg};color:${color.text}">
         ${profile.initials}
       </div>
-      <button class="delete-profile-btn" data-id="${profile.id}" title="Delete workspace" type="button" aria-label="Delete ${profile.name}">
+      <button class="delete-profile-btn" data-id="${profile.id}" title="Remove learner" type="button" aria-label="Remove ${profile.name}">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
@@ -71,13 +71,16 @@ function createProfileCard(profile, handlers, index) {
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 Protected
               </span>`
-            : `<span class="badge badge-open">Open</span>`
+            : `<span class="badge badge-open">Ready to learn</span>`
         }
-        <span class="last-used">${profile.last_used ? timeAgo(profile.last_used) : "Never used"}</span>
+        <span class="last-used">${profile.last_used ? `Last learned ${timeAgo(profile.last_used)}` : "New learner"}</span>
+      </div>
+      <div class="subject-peek" aria-label="Subjects available">
+        <span>Math</span><span>Science</span><span>English</span>
       </div>
     </div>
     <div class="card-footer">
-      <span class="enter-hint">Open workspace →</span>
+      <span class="enter-hint">Open learning space <b>→</b></span>
     </div>
   `;
 
@@ -109,7 +112,7 @@ function createAddCard(onAdd) {
         <line x1="5" y1="12" x2="19" y2="12"/>
       </svg>
     </div>
-    <span class="add-profile-label">Create Workspace</span>
+    <span class="add-profile-label">Add learner</span>
   `;
   btn.addEventListener("click", onAdd);
   return btn;

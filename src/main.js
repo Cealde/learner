@@ -60,12 +60,12 @@ async function loadProfiles() {
 
     // Update count badge
     const countEl = document.getElementById("profiles-count");
-    if (countEl) countEl.textContent = profiles.length > 0 ? `${profiles.length} workspace${profiles.length > 1 ? "s" : ""}` : "";
+    if (countEl) countEl.textContent = profiles.length > 0 ? `${profiles.length} learner${profiles.length > 1 ? "s" : ""}` : "";
 
     showView("view-profiles");
   } catch (err) {
     console.error("loadProfiles error:", err);
-    showStatus("Unable to load workspaces.", "error");
+    showStatus("Unable to load learner profiles.", "error");
   }
 }
 
@@ -126,12 +126,12 @@ async function handleDeleteConfirm() {
   try {
     await deleteProfile(pendingDeleteProfile.id);
     closeModal(deleteModal);
-    showStatus(`"${pendingDeleteProfile.name}" deleted.`);
+    showStatus(`${pendingDeleteProfile.name}'s profile was removed.`);
     pendingDeleteProfile = null;
     await loadProfiles();
   } catch (err) {
     console.error("deleteProfile error:", err);
-    showStatus("Unable to delete workspace.", "error");
+    showStatus("Unable to remove learner.", "error");
   }
 }
 
@@ -233,7 +233,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const errEl = document.getElementById("add-form-error");
 
       if (!name) {
-        errEl.textContent = "Workspace name is required.";
+        errEl.textContent = "Learner name is required.";
         return;
       }
 
@@ -253,7 +253,7 @@ window.addEventListener("DOMContentLoaded", () => {
       try {
         await createProfile(name, description || null, protect ? password : null);
         closeAddModal();
-        showStatus(`Workspace "${name}" created.`);
+        showStatus(`${name}'s learning space is ready.`);
         await loadProfiles();
       } catch (err) {
         errEl.textContent = String(err);
@@ -296,7 +296,7 @@ window.addEventListener("DOMContentLoaded", () => {
         await loadProfiles();
       } catch (err) {
         console.error("logout error:", err);
-        showStatus("Unable to switch profile.", "error");
+        showStatus("Unable to switch learner.", "error");
       }
     });
   }
