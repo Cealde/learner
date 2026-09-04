@@ -1,0 +1,110 @@
+{
+  "title": "Loops Mastery Exam",
+  "topic": "5.2 • MASTERY EXAM",
+  "questions": [
+    {
+      "badge": "Mastery Exam • Question 1 / 8",
+      "question": "What is the difference between a for loop and a while loop?",
+      "options": [
+        "for iterates over a collection/range; while repeats as long as a condition is True",
+        "for is only for strings; while is only for numbers",
+        "while cannot use variables",
+        "They are 100% identical in every scenario"
+      ],
+      "correct_answer": "for iterates over a collection/range; while repeats as long as a condition is True",
+      "explanation_correct": "Correct! for loops handle bounded sequences, while loops handle condition states.",
+      "explanation_incorrect": "for loops traverse collections/ranges, while loops evaluate boolean conditions."
+    },
+    {
+      "badge": "Mastery Exam • Question 2 / 8",
+      "question": "What does range(2, 8, 2) generate?",
+      "options": [
+        "[2, 4, 6]",
+        "[2, 4, 6, 8]",
+        "[2, 3, 4, 5, 6, 7]",
+        "[0, 2, 4, 6]"
+      ],
+      "correct_answer": "[2, 4, 6]",
+      "explanation_correct": "Correct! Starts at 2, steps by 2, and stops before 8 (2, 4, 6).",
+      "explanation_incorrect": "range stops before the second argument (8), producing 2, 4, 6."
+    },
+    {
+      "badge": "Mastery Exam • Question 3 / 8",
+      "question": "How many times does 'while False:' execute its body?",
+      "options": [
+        "0 times",
+        "1 time",
+        "Infinite times",
+        "Causes an error"
+      ],
+      "correct_answer": "0 times",
+      "explanation_correct": "Correct! Since condition is immediately False, the body never runs.",
+      "explanation_incorrect": "When the condition is False from the start, the loop body executes 0 times."
+    },
+    {
+      "badge": "Mastery Exam • Question 4 / 8",
+      "question": "What happens if a loop body is not indented?",
+      "options": [
+        "IndentationError",
+        "It runs anyway",
+        "It becomes an infinite loop",
+        "NameError"
+      ],
+      "correct_answer": "IndentationError",
+      "explanation_correct": "Correct! Python syntax requires indented blocks after loop headers.",
+      "explanation_incorrect": "Missing indentation after a loop header raises an IndentationError."
+    },
+    {
+      "badge": "Mastery Exam • Question 5 / 8",
+      "question": "What is the total sum calculated by:\ntotal = 0\nfor x in [5, 10, 15]:\n    total = total + x",
+      "options": [
+        "30",
+        "15",
+        "0",
+        "50"
+      ],
+      "correct_answer": "30",
+      "explanation_correct": "Correct! 0 + 5 + 10 + 15 = 30.",
+      "explanation_incorrect": "The accumulator sums 5, 10, and 15 to get 30."
+    },
+    {
+      "badge": "Mastery Exam • Question 6 / 8",
+      "question": "What will list(range(0)) return?",
+      "options": [
+        "[] (empty list)",
+        "[0]",
+        "[-1]",
+        "Error"
+      ],
+      "correct_answer": "[] (empty list)",
+      "explanation_correct": "Correct! Starting at 0 and stopping before 0 produces an empty sequence.",
+      "explanation_incorrect": "range(0) produces no elements (empty sequence)."
+    },
+    {
+      "badge": "Mastery Exam • Question 7 / 8",
+      "question": "In a countdown loop, how do you step backward with range?",
+      "options": [
+        "Use a negative step: range(5, 0, -1)",
+        "Use range(-5)",
+        "Use range(5 to 0)",
+        "range cannot count backward"
+      ],
+      "correct_answer": "Use a negative step: range(5, 0, -1)",
+      "explanation_correct": "Correct! Negative step values decrement the range countdown.",
+      "explanation_incorrect": "Passing a negative step like -1 allows counting downwards."
+    },
+    {
+      "badge": "Mastery Exam • Question 8 / 8",
+      "question": "What keyword is used to start a fixed collection loop in Python?",
+      "options": [
+        "for",
+        "loop",
+        "repeat",
+        "each"
+      ],
+      "correct_answer": "for",
+      "explanation_correct": "Correct! The 'for' keyword initiates sequence traversal.",
+      "explanation_incorrect": "'for' is the Python keyword for sequence iteration."
+    }
+  ]
+}

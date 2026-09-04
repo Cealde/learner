@@ -1,0 +1,110 @@
+{
+  "title": "Conditions Mastery Exam",
+  "topic": "4.2 • MASTERY EXAM",
+  "questions": [
+    {
+      "badge": "Mastery Exam • Question 1 / 8",
+      "question": "What is the boolean result of (10 + 5) == (3 * 5)?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "15"
+      ],
+      "correct_answer": "True",
+      "explanation_correct": "Correct! (10 + 5) evaluates to 15, (3 * 5) evaluates to 15, and 15 == 15 is True.",
+      "explanation_incorrect": "Both expressions compute 15, so 15 == 15 evaluates to True."
+    },
+    {
+      "badge": "Mastery Exam • Question 2 / 8",
+      "question": "Which of the following lines has correct Python syntax?",
+      "options": [
+        "if score >= 50:",
+        "if score >= 50",
+        "if (score >= 50) {",
+        "if score => 50:"
+      ],
+      "correct_answer": "if score >= 50:",
+      "explanation_correct": "Correct! 'if score >= 50:' uses valid comparison >= and ending colon :.",
+      "explanation_incorrect": "Python requires >= (not =>) and a trailing colon :."
+    },
+    {
+      "badge": "Mastery Exam • Question 3 / 8",
+      "question": "What happens if no condition in an if-elif ladder is True and there is no else block?",
+      "options": [
+        "Nothing in the conditional block executes, and program continues",
+        "Python crashes with an error",
+        "The first elif runs automatically",
+        "The program restarts"
+      ],
+      "correct_answer": "Nothing in the conditional block executes, and program continues",
+      "explanation_correct": "Correct! Without an else fallback, Python skips the entire block safely.",
+      "explanation_incorrect": "If no branch matches and no else is provided, the entire block is skipped."
+    },
+    {
+      "badge": "Mastery Exam • Question 4 / 8",
+      "question": "What will this code output?\nx = 20\nif x < 10:\n    print('Small')\nelif x < 30:\n    print('Medium')\nelse:\n    print('Large')",
+      "options": [
+        "Medium",
+        "Small",
+        "Large",
+        "Small\nMedium"
+      ],
+      "correct_answer": "Medium",
+      "explanation_correct": "Correct! 20 < 10 is False, but 20 < 30 is True, printing 'Medium'.",
+      "explanation_incorrect": "Since 20 < 30 is True, 'Medium' is output."
+    },
+    {
+      "badge": "Mastery Exam • Question 5 / 8",
+      "question": "Which operator checks if a value is strictly greater than another?",
+      "options": [
+        ">",
+        ">=",
+        "<",
+        "=="
+      ],
+      "correct_answer": ">",
+      "explanation_correct": "Correct! > is strictly greater than.",
+      "explanation_incorrect": "> checks strictly greater than."
+    },
+    {
+      "badge": "Mastery Exam • Question 6 / 8",
+      "question": "Why is 'score = 100' invalid inside 'if score = 100:'?",
+      "options": [
+        "= is assignment, whereas comparison requires ==",
+        "You cannot use integers inside if statements",
+        "Colons are not allowed after =",
+        "score must be a float"
+      ],
+      "correct_answer": "= is assignment, whereas comparison requires ==",
+      "explanation_correct": "Correct! Single = assigns a variable, double == compares equality.",
+      "explanation_incorrect": "Single = is variable assignment and raises a SyntaxError inside if conditions."
+    },
+    {
+      "badge": "Mastery Exam • Question 7 / 8",
+      "question": "What is the result of 'apple' != 'banana'?",
+      "options": [
+        "True",
+        "False",
+        "Error",
+        "None"
+      ],
+      "correct_answer": "True",
+      "explanation_correct": "Correct! 'apple' is not equal to 'banana', so != evaluates to True.",
+      "explanation_incorrect": "Since the two strings differ, != evaluates to True."
+    },
+    {
+      "badge": "Mastery Exam • Question 8 / 8",
+      "question": "How many spaces is the standard Python indentation for an if block?",
+      "options": [
+        "4 spaces",
+        "1 space",
+        "8 spaces",
+        "10 spaces"
+      ],
+      "correct_answer": "4 spaces",
+      "explanation_correct": "Correct! 4 spaces is the official PEP 8 Python standard for block indentation.",
+      "explanation_incorrect": "4 spaces is the standard indentation level in Python."
+    }
+  ]
+}

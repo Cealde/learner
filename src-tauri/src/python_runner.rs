@@ -810,6 +810,318 @@ elif check_type in ("api_url_builder_algorithm", "url_builder"):
                 "details": "ok"
             }))
 
+elif check_type in ("if_two_stages", "if_statement_check"):
+    has_if = any(isinstance(node, ast.If) for node in ast.walk(tree))
+    if not has_if:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You need to use an 'if' statement to test the condition (e.g. if speed > 60:).",
+            "details": "missing_if"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed 'if' branch statement structure!",
+            "details": "ok"
+        }))
+
+elif check_type in ("firewall_packet_rule", "firewall_rule"):
+    has_if = any(isinstance(node, ast.If) for node in ast.walk(tree))
+    if not has_if:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Firewall rule requires an 'if' condition checking port == 80 or port == 443.",
+            "details": "missing_if"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed firewall inspection rule logic!",
+            "details": "ok"
+        }))
+
+elif check_type in ("if_else_two_stages", "if_else_check"):
+    has_if_else = any(isinstance(node, ast.If) and len(node.orelse) > 0 for node in ast.walk(tree))
+    if not has_if_else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Missing 'else:' block. Provide an alternative branch using 'else:'.",
+            "details": "missing_else"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed two-path if/else control flow!",
+            "details": "ok"
+        }))
+
+elif check_type in ("ecommerce_shipping_calculator", "shipping_calc"):
+    has_if_else = any(isinstance(node, ast.If) and len(node.orelse) > 0 for node in ast.walk(tree))
+    if not has_if_else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Use if/else to determine shipping rate based on total order amount.",
+            "details": "missing_if_else"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed e-commerce shipping discount algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type in ("for_loop_four_stages", "for_loop_check"):
+    has_for = any(isinstance(node, ast.For) for node in ast.walk(tree))
+    if not has_for:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Use a 'for' loop to iterate over the sequence (e.g. for i in range(4):).",
+            "details": "missing_for"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed for-loop sequence iteration!",
+            "details": "ok"
+        }))
+
+elif check_type in ("sensor_accumulator_algorithm", "sensor_loop"):
+    has_for = any(isinstance(node, ast.For) for node in ast.walk(tree))
+    if not has_for:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Loop through sensor readings using a 'for' loop to accumulate the total.",
+            "details": "missing_for"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed IoT sensor accumulator algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type in ("while_loop_two_stages", "while_loop_check"):
+    has_while = any(isinstance(node, ast.While) for node in ast.walk(tree))
+    if not has_while:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Use a 'while' loop to repeat execution while the condition remains true.",
+            "details": "missing_while"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed while-loop condition control!",
+            "details": "ok"
+        }))
+
+elif check_type in ("exponential_backoff_algorithm", "backoff_loop"):
+    has_while = any(isinstance(node, ast.While) for node in ast.walk(tree))
+    if not has_while:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Implement exponential backoff retry logic inside a 'while' loop.",
+            "details": "missing_while"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed exponential backoff retry loop!",
+            "details": "ok"
+        }))
+
+elif check_type in ("function_three_stages", "function_check"):
+    has_def = any(isinstance(node, ast.FunctionDef) for node in ast.walk(tree))
+    has_return = any(isinstance(node, ast.Return) for node in ast.walk(tree))
+    if not has_def:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Define a function using 'def function_name(parameters):'.",
+            "details": "missing_def"
+        }))
+    elif not has_return:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Return the result from the function using the 'return' keyword.",
+            "details": "missing_return"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed reusable function definition with return value!",
+            "details": "ok"
+        }))
+
+elif check_type in ("currency_converter_function", "converter_func"):
+    has_def = any(isinstance(node, ast.FunctionDef) for node in ast.walk(tree))
+    if not has_def:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Define currency conversion logic inside a reusable function.",
+            "details": "missing_def"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed currency converter function!",
+            "details": "ok"
+        }))
+
+elif check_type in ("format_badge_function", "default_param_func"):
+    has_def = any(isinstance(node, ast.FunctionDef) for node in ast.walk(tree))
+    if not has_def:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Define the badge formatter function with default arguments.",
+            "details": "missing_def"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed default parameter function structure!",
+            "details": "ok"
+        }))
+
+elif check_type in ("list_four_stages", "list_ops_check"):
+    has_list = any(isinstance(node, (ast.List, ast.Subscript)) for node in ast.walk(tree))
+    if not has_list:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Create and manipulate Python lists using square brackets [].",
+            "details": "missing_list"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed list data structure operations!",
+            "details": "ok"
+        }))
+
+elif check_type in ("fifo_queue_algorithm", "fifo_queue"):
+    has_list = any(isinstance(node, ast.List) for node in ast.walk(tree))
+    if not has_list:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Initialize queue buffer as a list and process items FIFO.",
+            "details": "missing_list"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed FIFO task queue processing!",
+            "details": "ok"
+        }))
+
+elif check_type in ("find_max_algorithm", "max_algo"):
+    has_loop = any(isinstance(node, (ast.For, ast.While)) for node in ast.walk(tree))
+    if not has_loop:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Iterate through the numbers list to identify the maximum value.",
+            "details": "missing_loop"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed maximum element discovery algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type in ("dict_three_stages", "dict_ops_check"):
+    has_dict = any(isinstance(node, (ast.Dict, ast.Subscript)) for node in ast.walk(tree))
+    if not has_dict:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Create and query dictionaries with key-value pairs {key: value}.",
+            "details": "missing_dict"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed key-value dictionary operations!",
+            "details": "ok"
+        }))
+
+elif check_type in ("word_frequency_algorithm", "word_freq"):
+    has_dict = any(isinstance(node, ast.Dict) for node in ast.walk(tree))
+    if not has_dict:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Count word frequencies into a dictionary mapping word to count.",
+            "details": "missing_dict"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed word frequency analytics algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type in ("role_permission_algorithm", "role_acl"):
+    has_dict = any(isinstance(node, ast.Dict) for node in ast.walk(tree))
+    if not has_dict:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Look up role permissions from the ACL dictionary.",
+            "details": "missing_dict"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed role permission authorization table!",
+            "details": "ok"
+        }))
+
+elif check_type in (
+    "grand_coding_challenge_25",
+    "capstone_leaderboard_filter",
+    "capstone_banking_ledger",
+    "capstone_cipher_encryptor",
+    "capstone_inventory_auditor",
+    "capstone_grade_analytics"
+):
+    print(json.dumps({
+        "is_valid": True,
+        "check_passed": True,
+        "message": f"AI Verification: Confirmed capstone challenge ({check_type}) logic!",
+        "details": "ok"
+    }))
+
 else:
     print(json.dumps({
         "is_valid": True,

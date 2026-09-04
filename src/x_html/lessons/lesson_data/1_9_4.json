@@ -1,0 +1,8 @@
+{
+  "title": "Grand Coding Challenge (25 Outputs)",
+  "topic": "9.1 • GRAND CODING CHALLENGE",
+  "description": "Complete all 5 sequential programming challenges (25 total outputs):<br/>1. Use a <code>for</code> loop to print numbers <code>1</code> to <code>5</code>.<br/>2. Use a loop to print the squares (<code>n * n</code>) of numbers <code>1</code> to <code>5</code>.<br/>3. For numbers <code>1</code> to <code>5</code>, print <code>\"Even\"</code> if <code>n % 2 == 0</code> else <code>\"Odd\"</code>.<br/>4. Define a function <code>double_val(x)</code> returning <code>x * 2</code>, and print <code>double_val(n)</code> for <code>n = 1..5</code>.<br/>5. Loop over list <code>[\"A\", \"B\", \"C\", \"D\", \"E\"]</code> and print each letter.",
+  "intended_output": "1\n2\n3\n4\n5\n1\n4\n9\n16\n25\nOdd\nEven\nOdd\nEven\nOdd\n2\n4\n6\n8\n10\nA\nB\nC\nD\nE",
+  "ai_check": "grand_coding_challenge_25",
+  "starter_code": "# Task 1: Print 1 to 5\n\n\n# Task 2: Print squares of 1 to 5\n\n\n# Task 3: Print Even/Odd for 1 to 5\n\n\n# Task 4: Define double_val(x) and call on 1 to 5\n\n\n# Task 5: Loop over list [\"A\", \"B\", \"C\", \"D\", \"E\"] and print\n\n"
+}

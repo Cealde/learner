@@ -1,0 +1,58 @@
+{
+  "title": "Function Basics Quiz",
+  "topic": "6.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "Which keyword is used to define a new function in Python?",
+      "options": [
+        "def",
+        "function",
+        "func",
+        "create"
+      ],
+      "correct_answer": "def",
+      "explanation_correct": "Correct! 'def' (short for define) introduces a function in Python.",
+      "explanation_incorrect": "Python uses the 'def' keyword to define functions."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What is the difference between print() and return inside a function?",
+      "options": [
+        "return sends a value back to the caller to be stored or used; print() only displays on screen",
+        "They are 100% identical",
+        "print() stops function execution, return does not",
+        "return can only output text"
+      ],
+      "correct_answer": "return sends a value back to the caller to be stored or used; print() only displays on screen",
+      "explanation_correct": "Correct! 'return' hands a value back to your program, while print() merely outputs visual text.",
+      "explanation_incorrect": "return provides a value back to the caller, while print() displays text."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What does a function call like calculate_tax(100) do?",
+      "options": [
+        "Executes the function body using 100 as the argument",
+        "Deletes the function",
+        "Renames the function",
+        "Prints 100 on screen"
+      ],
+      "correct_answer": "Executes the function body using 100 as the argument",
+      "explanation_correct": "Correct! Parentheses () trigger the execution of the function.",
+      "explanation_incorrect": "Calling a function with () executes its code block with the passed arguments."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What happens after a function hits a 'return' statement?",
+      "options": [
+        "The function exits immediately, skipping any lines below it in that function",
+        "The function restarts from the top",
+        "It repeats 3 times",
+        "An error is raised"
+      ],
+      "correct_answer": "The function exits immediately, skipping any lines below it in that function",
+      "explanation_correct": "Correct! 'return' terminates function execution and returns control to the caller.",
+      "explanation_incorrect": "return immediately exits the function."
+    }
+  ]
+}

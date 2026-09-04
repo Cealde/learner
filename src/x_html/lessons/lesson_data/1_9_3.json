@@ -1,0 +1,396 @@
+{
+  "title": "Comprehensive Final Certification Exam",
+  "topic": "9.1 • GRAND CERTIFICATION EXAM",
+  "questions": [
+    {
+      "badge": "Final Exam • Question 1 / 30",
+      "question": "What is the primary role of the CPU in a computer?",
+      "options": [
+        "Executing instructions and arithmetic calculations",
+        "Long term file storage",
+        "Displaying pixels",
+        "Connecting to wifi"
+      ],
+      "correct_answer": "Executing instructions and arithmetic calculations",
+      "explanation_correct": "Correct! The CPU executes code instructions.",
+      "explanation_incorrect": "The CPU is the central processing unit that executes instructions."
+    },
+    {
+      "badge": "Final Exam • Question 2 / 30",
+      "question": "Which memory type loses its contents when power is turned off?",
+      "options": [
+        "RAM (Volatile)",
+        "SSD Storage",
+        "Hard Disk Drive",
+        "ROM"
+      ],
+      "correct_answer": "RAM (Volatile)",
+      "explanation_correct": "Correct! RAM is temporary volatile memory.",
+      "explanation_incorrect": "RAM requires power to retain data."
+    },
+    {
+      "badge": "Final Exam • Question 3 / 30",
+      "question": "What is the output of print('3' + '4')?",
+      "options": [
+        "34",
+        "7",
+        "12",
+        "Error"
+      ],
+      "correct_answer": "34",
+      "explanation_correct": "Correct! String concatenation glues '3' and '4' into '34'.",
+      "explanation_incorrect": "Quotes denote strings, which concatenate to '34'."
+    },
+    {
+      "badge": "Final Exam • Question 4 / 30",
+      "question": "What is the output of print(3 + 4)?",
+      "options": [
+        "7",
+        "34",
+        "12",
+        "Error"
+      ],
+      "correct_answer": "7",
+      "explanation_correct": "Correct! Unquoted numbers perform arithmetic addition.",
+      "explanation_incorrect": "3 + 4 = 7."
+    },
+    {
+      "badge": "Final Exam • Question 5 / 30",
+      "question": "Which statement correctly assigns a variable?",
+      "options": [
+        "score = 100",
+        "100 = score",
+        "score == 100",
+        "int score = 100"
+      ],
+      "correct_answer": "score = 100",
+      "explanation_correct": "Correct! Variable name on left, value on right.",
+      "explanation_incorrect": "Assignment syntax is variable = value."
+    },
+    {
+      "badge": "Final Exam • Question 6 / 30",
+      "question": "What error occurs if you try to print an unassigned variable?",
+      "options": [
+        "NameError",
+        "SyntaxError",
+        "TypeError",
+        "ZeroDivisionError"
+      ],
+      "correct_answer": "NameError",
+      "explanation_correct": "Correct! Referencing undefined names raises a NameError.",
+      "explanation_incorrect": "Undefined variables raise NameError."
+    },
+    {
+      "badge": "Final Exam • Question 7 / 30",
+      "question": "What does print(10 // 3) output in Python?",
+      "options": [
+        "3",
+        "3.333",
+        "3.0",
+        "1"
+      ],
+      "correct_answer": "3",
+      "explanation_correct": "Correct! Floor division // returns the integer quotient 3.",
+      "explanation_incorrect": "// is integer floor division."
+    },
+    {
+      "badge": "Final Exam • Question 8 / 30",
+      "question": "What does print(10 % 3) output in Python?",
+      "options": [
+        "1",
+        "3",
+        "0",
+        "3.33"
+      ],
+      "correct_answer": "1",
+      "explanation_correct": "Correct! Modulo % returns the remainder 1.",
+      "explanation_incorrect": "10 divided by 3 is 3 remainder 1."
+    },
+    {
+      "badge": "Final Exam • Question 9 / 30",
+      "question": "What does print(2 ** 3) output in Python?",
+      "options": [
+        "8",
+        "6",
+        "5",
+        "9"
+      ],
+      "correct_answer": "8",
+      "explanation_correct": "Correct! ** is exponentiation: 2^3 = 8.",
+      "explanation_incorrect": "** is the power operator: 2 ** 3 = 8."
+    },
+    {
+      "badge": "Final Exam • Question 10 / 30",
+      "question": "What is the result of (10 + 20) * 2?",
+      "options": [
+        "60",
+        "50",
+        "40",
+        "200"
+      ],
+      "correct_answer": "60",
+      "explanation_correct": "Correct! Brackets evaluate first: 30 * 2 = 60.",
+      "explanation_incorrect": "(10 + 20) = 30; 30 * 2 = 60."
+    },
+    {
+      "badge": "Final Exam • Question 11 / 30",
+      "question": "What is the output of 'Py' + 'thon'?",
+      "options": [
+        "Python",
+        "Py thon",
+        "Py+thon",
+        "Error"
+      ],
+      "correct_answer": "Python",
+      "explanation_correct": "Correct! Strings join without automatic spaces.",
+      "explanation_incorrect": "Strings concatenate directly."
+    },
+    {
+      "badge": "Final Exam • Question 12 / 30",
+      "question": "How do you convert an integer 42 to a text string?",
+      "options": [
+        "str(42)",
+        "text(42)",
+        "string(42)",
+        "int(42)"
+      ],
+      "correct_answer": "str(42)",
+      "explanation_correct": "Correct! str() converts values to strings.",
+      "explanation_incorrect": "str() converts data to text strings."
+    },
+    {
+      "badge": "Final Exam • Question 13 / 30",
+      "question": "Which comparison checks if two values are NOT equal?",
+      "options": [
+        "!=",
+        "==",
+        "<>",
+        "not ="
+      ],
+      "correct_answer": "!=",
+      "explanation_correct": "Correct! != checks inequality.",
+      "explanation_incorrect": "!= means not equal to."
+    },
+    {
+      "badge": "Final Exam • Question 14 / 30",
+      "question": "What is the output of if 10 > 5: print('Yes') else: print('No')?",
+      "options": [
+        "Yes",
+        "No",
+        "Yes\nNo",
+        "Error"
+      ],
+      "correct_answer": "Yes",
+      "explanation_correct": "Correct! 10 > 5 is True.",
+      "explanation_incorrect": "10 > 5 evaluates to True."
+    },
+    {
+      "badge": "Final Exam • Question 15 / 30",
+      "question": "Which keyword provides additional conditions between if and else?",
+      "options": [
+        "elif",
+        "else if",
+        "elseif",
+        "case"
+      ],
+      "correct_answer": "elif",
+      "explanation_correct": "Correct! elif chains conditional branches.",
+      "explanation_incorrect": "Python uses elif for else-if."
+    },
+    {
+      "badge": "Final Exam • Question 16 / 30",
+      "question": "What happens if none of the if/elif conditions match and no else is given?",
+      "options": [
+        "Nothing executes and program continues",
+        "Crashes with an error",
+        "Repeats the test",
+        "Prints False"
+      ],
+      "correct_answer": "Nothing executes and program continues",
+      "explanation_correct": "Correct! The entire block is skipped safely.",
+      "explanation_incorrect": "Unmatched conditions skip the block."
+    },
+    {
+      "badge": "Final Exam • Question 17 / 30",
+      "question": "What does range(3) produce?",
+      "options": [
+        "[0, 1, 2]",
+        "[1, 2, 3]",
+        "[0, 1, 2, 3]",
+        "[1, 2]"
+      ],
+      "correct_answer": "[0, 1, 2]",
+      "explanation_correct": "Correct! 0 up to but not including 3.",
+      "explanation_incorrect": "range(3) produces 0, 1, 2."
+    },
+    {
+      "badge": "Final Exam • Question 18 / 30",
+      "question": "What does range(2, 6) produce?",
+      "options": [
+        "[2, 3, 4, 5]",
+        "[2, 3, 4, 5, 6]",
+        "[1, 2, 3, 4, 5]",
+        "[2, 4, 6]"
+      ],
+      "correct_answer": "[2, 3, 4, 5]",
+      "explanation_correct": "Correct! Starts at 2 and stops before 6.",
+      "explanation_incorrect": "range(2, 6) is 2, 3, 4, 5."
+    },
+    {
+      "badge": "Final Exam • Question 19 / 30",
+      "question": "Which loop repeats while a condition is True?",
+      "options": [
+        "while loop",
+        "for loop",
+        "if statement",
+        "def block"
+      ],
+      "correct_answer": "while loop",
+      "explanation_correct": "Correct! while loops repeat based on boolean conditions.",
+      "explanation_incorrect": "while loops execute while condition remains True."
+    },
+    {
+      "badge": "Final Exam • Question 20 / 30",
+      "question": "What is required to prevent an infinite while loop?",
+      "options": [
+        "Updating the loop condition variable inside the body",
+        "Adding more print statements",
+        "Using square brackets",
+        "Running in debug mode"
+      ],
+      "correct_answer": "Updating the loop condition variable inside the body",
+      "explanation_correct": "Correct! The state must change so the condition eventually turns False.",
+      "explanation_incorrect": "The condition variable must be updated."
+    },
+    {
+      "badge": "Final Exam • Question 21 / 30",
+      "question": "Which keyword is used to define a function?",
+      "options": [
+        "def",
+        "function",
+        "func",
+        "create"
+      ],
+      "correct_answer": "def",
+      "explanation_correct": "Correct! def defines functions.",
+      "explanation_incorrect": "def is the keyword."
+    },
+    {
+      "badge": "Final Exam • Question 22 / 30",
+      "question": "What keyword sends a value back from a function to the caller?",
+      "options": [
+        "return",
+        "print",
+        "send",
+        "yield_now"
+      ],
+      "correct_answer": "return",
+      "explanation_correct": "Correct! return hands a value back.",
+      "explanation_incorrect": "return outputs a value to the caller."
+    },
+    {
+      "badge": "Final Exam • Question 23 / 30",
+      "question": "In 'def calc(a, b=10):', what is b=10?",
+      "options": [
+        "A default parameter",
+        "A global variable",
+        "A constant",
+        "A syntax error"
+      ],
+      "correct_answer": "A default parameter",
+      "explanation_correct": "Correct! b defaults to 10 if omitted.",
+      "explanation_incorrect": "b=10 is a default parameter."
+    },
+    {
+      "badge": "Final Exam • Question 24 / 30",
+      "question": "What does DRY stand for in software engineering?",
+      "options": [
+        "Don't Repeat Yourself",
+        "Data Running Yearly",
+        "Debug React Yield",
+        "Direct Route Yield"
+      ],
+      "correct_answer": "Don't Repeat Yourself",
+      "explanation_correct": "Correct! DRY means avoiding duplicate code.",
+      "explanation_incorrect": "DRY = Don't Repeat Yourself."
+    },
+    {
+      "badge": "Final Exam • Question 25 / 30",
+      "question": "What brackets are used to create a List?",
+      "options": [
+        "Square brackets []",
+        "Curly braces {}",
+        "Parentheses ()",
+        "Angle brackets <>"
+      ],
+      "correct_answer": "Square brackets []",
+      "explanation_correct": "Correct! Lists use square brackets [].",
+      "explanation_incorrect": "Lists use []."
+    },
+    {
+      "badge": "Final Exam • Question 26 / 30",
+      "question": "How do you access the first element of a list 'items'?",
+      "options": [
+        "items[0]",
+        "items[1]",
+        "items.first()",
+        "items[-0]"
+      ],
+      "correct_answer": "items[0]",
+      "explanation_correct": "Correct! Lists are 0-indexed.",
+      "explanation_incorrect": "Index 0 is the first item."
+    },
+    {
+      "badge": "Final Exam • Question 27 / 30",
+      "question": "What does list.append('X') do?",
+      "options": [
+        "Adds 'X' to the end of the list",
+        "Replaces the list with 'X'",
+        "Adds 'X' at index 0",
+        "Deletes 'X'"
+      ],
+      "correct_answer": "Adds 'X' to the end of the list",
+      "explanation_correct": "Correct! .append() pushes an element onto the end.",
+      "explanation_incorrect": ".append() adds to the end."
+    },
+    {
+      "badge": "Final Exam • Question 28 / 30",
+      "question": "What brackets are used to create a Dictionary?",
+      "options": [
+        "Curly braces {}",
+        "Square brackets []",
+        "Parentheses ()",
+        "Angle brackets <>"
+      ],
+      "correct_answer": "Curly braces {}",
+      "explanation_correct": "Correct! Dictionaries use curly braces {}.",
+      "explanation_incorrect": "Dictionaries use {}."
+    },
+    {
+      "badge": "Final Exam • Question 29 / 30",
+      "question": "How do you safely get a key 'role' from 'user_dict' with a default 'guest'?",
+      "options": [
+        "user_dict.get('role', 'guest')",
+        "user_dict['role', 'guest']",
+        "user_dict.find('role')",
+        "user_dict.try('role')"
+      ],
+      "correct_answer": "user_dict.get('role', 'guest')",
+      "explanation_correct": "Correct! .get() returns the fallback default.",
+      "explanation_incorrect": ".get(key, default) is the safe lookup method."
+    },
+    {
+      "badge": "Final Exam • Question 30 / 30",
+      "question": "What does 'del user_dict['age']' do?",
+      "options": [
+        "Deletes the key 'age' and its value from user_dict",
+        "Deletes the entire dictionary",
+        "Sets 'age' to 0",
+        "Renames 'age'"
+      ],
+      "correct_answer": "Deletes the key 'age' and its value from user_dict",
+      "explanation_correct": "Correct! del removes the specified key-value pair.",
+      "explanation_incorrect": "del deletes the key-value pair."
+    }
+  ]
+}

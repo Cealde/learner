@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm: Linear Scan Maximum Finder",
+  "topic": "7.1 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: Linear Scan Peak Finder</strong><br/>Data analytics engines find highest temperatures, stock peaks, and leaderboard highs by scanning through unorganized lists.<br/><br/><strong>The Challenge:</strong><br/>The dataset below is locked. In the editable section, write a <code>for</code> loop that scans <code>scores</code>: for each <code>num</code>, if <code>num &gt; max_val</code>, update <code>max_val = num</code>.",
+  "locked_prefix": "# --- TELEMETRY READINGS (LOCKED) ---\nscores = [42, 88, 19, 95, 73]\nmax_val = scores[0]\n\n# --- WRITE YOUR PEAK SCANNER LOOP BELOW ---\n",
+  "locked_suffix": "\n# --- MAX VALUE VERIFICATION (LOCKED) ---\nprint(max_val)\n",
+  "starter_code": "# --- TELEMETRY READINGS (LOCKED) ---\nscores = [42, 88, 19, 95, 73]\nmax_val = scores[0]\n\n# --- WRITE YOUR PEAK SCANNER LOOP BELOW ---\n\n\n# --- MAX VALUE VERIFICATION (LOCKED) ---\nprint(max_val)\n",
+  "intended_output": "95",
+  "ai_check": "find_max_algorithm"
+}

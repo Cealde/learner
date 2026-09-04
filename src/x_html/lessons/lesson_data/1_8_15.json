@@ -1,0 +1,110 @@
+{
+  "title": "Lists & Dictionaries Mastery Exam",
+  "topic": "7.2 • MASTERY EXAM",
+  "questions": [
+    {
+      "badge": "Mastery Exam • Question 1 / 8",
+      "question": "What is the primary difference between a List and a Dictionary?",
+      "options": [
+        "Lists are ordered by integer indexes; Dictionaries map custom keys to values",
+        "Lists can only store strings; Dictionaries only store numbers",
+        "Lists use curly braces; Dictionaries use square brackets",
+        "There is no difference"
+      ],
+      "correct_answer": "Lists are ordered by integer indexes; Dictionaries map custom keys to values",
+      "explanation_correct": "Correct! Lists are position-based sequences, whereas Dictionaries are key-value maps.",
+      "explanation_incorrect": "Lists use numeric indices, while Dictionaries use named keys."
+    },
+    {
+      "badge": "Mastery Exam • Question 2 / 8",
+      "question": "What is the result of len({'a': 1, 'b': 2, 'c': 3})?",
+      "options": [
+        "3",
+        "6",
+        "1",
+        "Error"
+      ],
+      "correct_answer": "3",
+      "explanation_correct": "Correct! len() on a dictionary counts the number of key-value pairs (3).",
+      "explanation_incorrect": "len() returns the total number of keys (3)."
+    },
+    {
+      "badge": "Mastery Exam • Question 3 / 8",
+      "question": "How do you check if a key 'email' exists in dict 'user'?",
+      "options": [
+        "'email' in user",
+        "user.has_key('email')",
+        "user.contains('email')",
+        "'email' == user"
+      ],
+      "correct_answer": "'email' in user",
+      "explanation_correct": "Correct! The 'in' operator checks for key presence in a dictionary.",
+      "explanation_incorrect": "The 'in' operator tests whether a key is present in a dictionary."
+    },
+    {
+      "badge": "Mastery Exam • Question 4 / 8",
+      "question": "What will list([10, 20, 30].pop()) return?",
+      "options": [
+        "30",
+        "10",
+        "[10, 20]",
+        "None"
+      ],
+      "correct_answer": "30",
+      "explanation_correct": "Correct! .pop() returns the removed last element (30).",
+      "explanation_incorrect": ".pop() returns the removed value 30."
+    },
+    {
+      "badge": "Mastery Exam • Question 5 / 8",
+      "question": "Which data structure is best for storing a student profile with name, age, and grade?",
+      "options": [
+        "Dictionary",
+        "Float",
+        "Integer",
+        "Boolean"
+      ],
+      "correct_answer": "Dictionary",
+      "explanation_correct": "Correct! Dictionaries are ideal for structured records with named attributes.",
+      "explanation_incorrect": "A dictionary organizes structured attributes with descriptive keys."
+    },
+    {
+      "badge": "Mastery Exam • Question 6 / 8",
+      "question": "What is the output of:\nd = {'x': 10}\nd['x'] = 50\nprint(d['x'])",
+      "options": [
+        "50",
+        "10",
+        "60",
+        "Error"
+      ],
+      "correct_answer": "50",
+      "explanation_correct": "Correct! Assigning d['x'] = 50 overwrites the previous value 10 with 50.",
+      "explanation_incorrect": "The key 'x' is reassigned to 50."
+    },
+    {
+      "badge": "Mastery Exam • Question 7 / 8",
+      "question": "Can you iterate through list items with a for loop?",
+      "options": [
+        "Yes, using 'for item in my_list:'",
+        "No, lists cannot be looped",
+        "Only in while loops",
+        "Only if sorted"
+      ],
+      "correct_answer": "Yes, using 'for item in my_list:'",
+      "explanation_correct": "Correct! Python for loops traverse lists item by item.",
+      "explanation_incorrect": "Lists are iterable sequences and work directly with for loops."
+    },
+    {
+      "badge": "Mastery Exam • Question 8 / 8",
+      "question": "What does [1, 2, 3] + [4, 5] evaluate to in Python?",
+      "options": [
+        "[1, 2, 3, 4, 5]",
+        "[5, 7]",
+        "Error",
+        "[15]"
+      ],
+      "correct_answer": "[1, 2, 3, 4, 5]",
+      "explanation_correct": "Correct! The + operator concatenates two lists into a single combined list.",
+      "explanation_incorrect": "List concatenation with + combines both lists into [1, 2, 3, 4, 5]."
+    }
+  ]
+}

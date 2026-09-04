@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm: Currency Exchange Converter Function",
+  "topic": "6.1 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: Foreign Exchange Rate Engine</strong><br/>Global payment gateways convert amounts across international currencies using configurable spot exchange rates.<br/><br/><strong>The Challenge:</strong><br/>Define a function <code>convert_currency(amount, rate=83)</code> that returns <code>amount * rate</code>.<br/><br/>The verification calls below are locked.",
+  "locked_prefix": "# --- DEFINE YOUR CONVERTER FUNCTION BELOW ---\n",
+  "locked_suffix": "\n# --- VERIFICATION CALLS (LOCKED) ---\nprint(convert_currency(10))\nprint(convert_currency(5, 90))\n",
+  "starter_code": "# --- DEFINE YOUR CONVERTER FUNCTION BELOW ---\ndef convert_currency(amount, rate=83):\n    \n\n# --- VERIFICATION CALLS (LOCKED) ---\nprint(convert_currency(10))\nprint(convert_currency(5, 90))\n",
+  "intended_output": "830\n450",
+  "ai_check": "currency_converter_function"
+}

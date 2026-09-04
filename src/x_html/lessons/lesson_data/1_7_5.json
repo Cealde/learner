@@ -1,0 +1,8 @@
+{
+  "title": "Custom Function Creator (3 Stages)",
+  "topic": "6.1 • CODING EXERCISE",
+  "description": "Build custom functions across 3 stages:<br/>1. Define a function <code>say_hello()</code> that prints <code>\"Hello, Learner!\"</code>. Call <code>say_hello()</code>.<br/>2. Define a function <code>double_val(n)</code> that returns <code>n * 2</code>. Call and print <code>double_val(5)</code>.<br/>3. Define a function <code>calc_total(price, tax=5)</code> that returns <code>price + tax</code>. Call and print <code>calc_total(100)</code> with default tax.",
+  "intended_output": "Hello, Learner!\n10\n105",
+  "ai_check": "function_three_stages",
+  "starter_code": "# Stage 1: Define say_hello() and call it\n\n\n# Stage 2: Define double_val(n) and print double_val(5)\n\n\n# Stage 3: Define calc_total(price, tax=5) and print calc_total(100)\n\n"
+}

@@ -13,13 +13,15 @@ function getInvoke() {
 }
 
 const SYLLABUS_MAP = [
-    [1, 4, 3, 4],                         // Lesson 1: What is a PC (0.1 Intro, 0.1 Quiz, 0.2 Info, 0.2 Quiz)
-    [1, 4, 3, 2, 4, 3, 4],                // Lesson 2: Programming (1.1 Editor, 1.1 Quiz, 1.2 print() Info, 1.2 Code, 1.2 Quiz, 1.3 Running Code, 1.3 Quiz)
-    [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],       // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
-    [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],       // Lesson 4: Math Functions (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
-    [1, 2, 4],                            // Lesson 5: Lists
-    [1, 2, 4],                            // Lesson 6: Conditions
-    [1, 2, 4]                             // Lesson 7: For Loop
+    [1, 4, 3, 4],                                   // Lesson 1: What is a PC (0.1 Intro, 0.1 Quiz, 0.2 Info, 0.2 Quiz)
+    [1, 4, 3, 2, 4, 3, 4],                          // Lesson 2: Programming (1.1 Editor, 1.1 Quiz, 1.2 print() Info, 1.2 Code, 1.2 Quiz, 1.3 Running Code, 1.3 Quiz)
+    [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],                 // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
+    [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],                 // Lesson 4: Math Functions (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
+    [1, 4, 3, 4, 2, 2, 1, 4, 3, 4, 2, 2, 4],       // Lesson 5: Conditions (4.1 if Info->Quiz->Caveats->Quiz->Code->Algo, 4.2 if/else Info->Quiz->Caveats->Quiz->Code->Algo->FinalQuiz)
+    [1, 4, 3, 4, 2, 2, 1, 4, 2, 2, 4],             // Lesson 6: Loops (5.1 for Info->Quiz->SeqInfo->Quiz->Code->Algo, 5.2 while Info->Quiz->Code->Algo->FinalQuiz)
+    [1, 4, 3, 4, 2, 2, 1, 4, 2, 4],                 // Lesson 7: Functions (6.1 def Info->Quiz->DefaultInfo->Quiz->Code->Algo, 6.2 DRY Info->Quiz->Code->FinalQuiz)
+    [1, 4, 3, 4, 2, 2, 2, 1, 4, 3, 4, 2, 2, 2, 4], // Lesson 8: Lists & Dicts (7.1 List Info->Quiz->Ops->Quiz->Code->Algo1->Algo2, 7.2 Dict Info->Quiz->Ops->Quiz->Code->Algo1->Algo2->FinalQuiz)
+    [1, 3, 4, 2, 2, 2, 2, 2, 2]                     // Lesson 9: Final Test (Revision Part 1, Revision Part 2, 30Q Grand MCQ, 25 Output Challenge, 5 Capstone Algorithms)
 ];
 
 function getLessonPageUrl(spclNo, lessonNo, subNo) {

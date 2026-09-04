@@ -1,0 +1,58 @@
+{
+  "title": "List Mutation Quiz",
+  "topic": "7.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What does list.append('Item') do?",
+      "options": [
+        "Adds 'Item' to the end of the list",
+        "Replaces the entire list",
+        "Adds 'Item' to index 0",
+        "Creates a new copy"
+      ],
+      "correct_answer": "Adds 'Item' to the end of the list",
+      "explanation_correct": "Correct! .append() pushes an element onto the end of the list.",
+      "explanation_incorrect": ".append() places the new item at the very end."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What does list.pop() with no arguments do?",
+      "options": [
+        "Removes and returns the last item",
+        "Clears all items",
+        "Removes the first item",
+        "Throws an error"
+      ],
+      "correct_answer": "Removes and returns the last item",
+      "explanation_correct": "Correct! .pop() removes and returns the trailing element.",
+      "explanation_incorrect": ".pop() defaults to removing the last element."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What is the result of [1, 2, 3, 4, 5][1:3]?",
+      "options": [
+        "[2, 3]",
+        "[1, 2, 3]",
+        "[2, 3, 4]",
+        "[1, 2]"
+      ],
+      "correct_answer": "[2, 3]",
+      "explanation_correct": "Correct! Slicing [1:3] includes index 1 and 2, stopping before 3: [2, 3].",
+      "explanation_incorrect": "Slicing is start-inclusive and end-exclusive, giving [2, 3]."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Can a single Python list store mixed data types (e.g. ['Alice', 25, True])?",
+      "options": [
+        "Yes, Python lists can hold any combination of types",
+        "No, all elements must be identical types",
+        "Only if converted to strings",
+        "Only in Python 2"
+      ],
+      "correct_answer": "Yes, Python lists can hold any combination of types",
+      "explanation_correct": "Correct! Python lists are dynamic and heterogeneous.",
+      "explanation_incorrect": "Python lists can hold mixed data types simultaneously."
+    }
+  ]
+}

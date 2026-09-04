@@ -1,0 +1,8 @@
+{
+  "title": "Pass / Fail Evaluation (2 Stages)",
+  "topic": "4.2 • CODING EXERCISE",
+  "description": "Practice writing <code>if / else</code> statements across 2 stages:<br/>1. Create variable <code>score1 = 82</code>. If <code>score1 >= 60</code>, print <code>\"Student 1: Passed\"</code>, else print <code>\"Student 1: Failed\"</code>.<br/>2. Create variable <code>score2 = 45</code>. If <code>score2 >= 60</code>, print <code>\"Student 2: Passed\"</code>, else print <code>\"Student 2: Failed\"</code>.",
+  "intended_output": "Student 1: Passed\nStudent 2: Failed",
+  "ai_check": "if_else_two_stages",
+  "starter_code": "# Stage 1: Evaluate score1 (82) with if/else\nscore1 = 82\n\n\n# Stage 2: Evaluate score2 (45) with if/else\nscore2 = 45\n\n"
+}

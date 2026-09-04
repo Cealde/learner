@@ -1,0 +1,58 @@
+{
+  "title": "while Loop Mechanics Quiz",
+  "topic": "5.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What happens if you forget to increment the loop variable inside a while loop?",
+      "options": [
+        "An infinite loop occurs (the program never stops)",
+        "Python automatically adds 1 for you",
+        "Python stops after 10 runs",
+        "A SyntaxError is thrown before running"
+      ],
+      "correct_answer": "An infinite loop occurs (the program never stops)",
+      "explanation_correct": "Correct! If the condition never turns False, the loop runs forever.",
+      "explanation_incorrect": "Without an update step, the condition stays True forever (infinite loop)."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "When does a while loop evaluate its condition?",
+      "options": [
+        "Before each iteration begins",
+        "Only once at the very end",
+        "Every second",
+        "Only when an error occurs"
+      ],
+      "correct_answer": "Before each iteration begins",
+      "explanation_correct": "Correct! The condition is tested before every pass through the loop.",
+      "explanation_incorrect": "Python checks the while condition at the start of each iteration."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What is the output of:\nx = 5\nwhile x > 2:\n    print(x)\n    x = x - 2",
+      "options": [
+        "5\n3",
+        "5\n3\n1",
+        "5",
+        "3\n1"
+      ],
+      "correct_answer": "5\n3",
+      "explanation_correct": "Correct! Step 1: prints 5, x becomes 3. Step 2: prints 3, x becomes 1. 1 > 2 is False, stops!",
+      "explanation_incorrect": "x prints 5 (becomes 3), prints 3 (becomes 1), then terminates since 1 > 2 is False."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Which loop is better when you DO NOT know how many times to repeat in advance?",
+      "options": [
+        "while loop",
+        "for loop",
+        "if statement",
+        "range()"
+      ],
+      "correct_answer": "while loop",
+      "explanation_correct": "Correct! while loops are ideal for state/condition-based iteration.",
+      "explanation_incorrect": "while loops are best when waiting for an unknown event or threshold."
+    }
+  ]
+}

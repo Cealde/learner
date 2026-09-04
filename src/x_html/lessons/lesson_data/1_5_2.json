@@ -1,0 +1,58 @@
+{
+  "title": "Comparison Operators Quiz",
+  "topic": "4.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "Which operator checks if two values are equal in Python?",
+      "options": [
+        "==",
+        "=",
+        "===",
+        "equals"
+      ],
+      "correct_answer": "==",
+      "explanation_correct": "Correct! Double equals == checks equality, whereas single = is assignment.",
+      "explanation_incorrect": "In Python, == is used for comparison equality."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What is the boolean result of 15 != 20?",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Error"
+      ],
+      "correct_answer": "True",
+      "explanation_correct": "Correct! 15 is indeed not equal to 20, which evaluates to True.",
+      "explanation_incorrect": "Since 15 is not equal to 20, 15 != 20 evaluates to True."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What must appear at the end of an 'if' line before the indented code?",
+      "options": [
+        ": (colon)",
+        "; (semicolon)",
+        "{ (curly brace)",
+        "then"
+      ],
+      "correct_answer": ": (colon)",
+      "explanation_correct": "Correct! A colon : is required at the end of the if statement line.",
+      "explanation_incorrect": "In Python, header statements like 'if' require a colon : at the end."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What happens if the condition in an 'if' statement evaluates to False?",
+      "options": [
+        "The indented code block is skipped",
+        "Python crashes with an error",
+        "It prints False to the console",
+        "It stops the entire script"
+      ],
+      "correct_answer": "The indented code block is skipped",
+      "explanation_correct": "Correct! When False, Python skips the indented block and continues downward.",
+      "explanation_incorrect": "False conditions cause Python to skip past the indented block."
+    }
+  ]
+}

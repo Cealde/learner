@@ -1,0 +1,10 @@
+{
+  "title": "Capstone 1: Game Leaderboard Filter",
+  "topic": "9.2 • CAPSTONE ALGORITHM 1",
+  "description": "<strong>Real-World Algorithm: Arcade High-Score Leaderboard Qualifier</strong><br/>Multiplayer gaming servers filter top-tier players who scored above a qualifying cutoff threshold.<br/><br/><strong>The Challenge:</strong><br/>The player database below is locked. In the editable section, loop through <code>players</code>: for each player dictionary, if <code>p[\"score\"] &gt;= 80</code>, append their <code>p[\"name\"]</code> to <code>qualified_players</code>.",
+  "locked_prefix": "# --- ARCADE LEADERBOARD DATABASE (LOCKED) ---\nplayers = [\n    {\"name\": \"Kiran\", \"score\": 95},\n    {\"name\": \"Maya\", \"score\": 72},\n    {\"name\": \"Alex\", \"score\": 88},\n    {\"name\": \"Rohan\", \"score\": 60},\n    {\"name\": \"Tara\", \"score\": 84}\n]\nqualified_players = []\n\n# --- WRITE YOUR FILTERING LOOP BELOW ---\n",
+  "locked_suffix": "\n# --- QUALIFIED ROSTER (LOCKED) ---\nprint(qualified_players)\n",
+  "starter_code": "# --- ARCADE LEADERBOARD DATABASE (LOCKED) ---\nplayers = [\n    {\"name\": \"Kiran\", \"score\": 95},\n    {\"name\": \"Maya\", \"score\": 72},\n    {\"name\": \"Alex\", \"score\": 88},\n    {\"name\": \"Rohan\", \"score\": 60},\n    {\"name\": \"Tara\", \"score\": 84}\n]\nqualified_players = []\n\n# --- WRITE YOUR FILTERING LOOP BELOW ---\n\n\n# --- QUALIFIED ROSTER (LOCKED) ---\nprint(qualified_players)\n",
+  "intended_output": "['Kiran', 'Alex', 'Tara']",
+  "ai_check": "capstone_leaderboard_filter"
+}

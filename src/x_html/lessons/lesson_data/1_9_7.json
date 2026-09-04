@@ -1,0 +1,10 @@
+{
+  "title": "Capstone 3: Substitution Cipher Encryptor",
+  "topic": "9.2 • CAPSTONE ALGORITHM 3",
+  "description": "<strong>Real-World Algorithm: Substitution Cipher Text Encryptor</strong><br/>Cryptography engines obfuscate sensitive strings by substituting characters based on a key translation map.<br/><br/><strong>The Challenge:</strong><br/>The cipher dictionary <code>cipher_map</code> and <code>raw_text</code> are locked below. In the editable section, iterate through each character in <code>raw_text</code>, look up its replacement in <code>cipher_map.get(ch, ch)</code>, and concatenate into <code>encrypted_text</code>.",
+  "locked_prefix": "# --- CIPHER DICTIONARY (LOCKED) ---\ncipher_map = {\"A\": \"X\", \"B\": \"Y\", \"C\": \"Z\"}\nraw_text = \"ABC\"\nencrypted_text = \"\"\n\n# --- WRITE YOUR ENCRYPTION LOOP BELOW ---\n",
+  "locked_suffix": "\n# --- ENCRYPTED OUTPUT (LOCKED) ---\nprint(encrypted_text)\n",
+  "starter_code": "# --- CIPHER DICTIONARY (LOCKED) ---\ncipher_map = {\"A\": \"X\", \"B\": \"Y\", \"C\": \"Z\"}\nraw_text = \"ABC\"\nencrypted_text = \"\"\n\n# --- WRITE YOUR ENCRYPTION LOOP BELOW ---\n\n\n# --- ENCRYPTED OUTPUT (LOCKED) ---\nprint(encrypted_text)\n",
+  "intended_output": "XYZ",
+  "ai_check": "capstone_cipher_encryptor"
+}

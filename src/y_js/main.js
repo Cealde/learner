@@ -106,7 +106,7 @@ function renderProfiles(profiles) {
       <div class="profile-card-top">
         <div class="profile-avatar">${initials}</div>
         <span class="status-pill ${isProtected ? 'protected' : 'available'}">
-          ${isProtected ? '🔒 PROTECTED' : '● AVAILABLE'}
+          ${isProtected ? 'LOCKED' : 'AVAILABLE'}
         </span>
       </div>
 

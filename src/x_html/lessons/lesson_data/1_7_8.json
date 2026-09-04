@@ -1,0 +1,58 @@
+{
+  "title": "Modular Architecture Quiz",
+  "topic": "6.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What does the software engineering principle 'DRY' stand for?",
+      "options": [
+        "Don't Repeat Yourself",
+        "Data Returns Yearly",
+        "Debug Running Yield",
+        "Direct Router Yield"
+      ],
+      "correct_answer": "Don't Repeat Yourself",
+      "explanation_correct": "Correct! DRY promotes code reuse and eliminating duplicate logic.",
+      "explanation_incorrect": "DRY stands for Don't Repeat Yourself."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What is 'local scope' regarding variables created inside a function?",
+      "options": [
+        "Variables created inside a function exist only while that function runs and cannot be accessed outside",
+        "They are accessible anywhere in every file",
+        "They can never be changed",
+        "They are saved to the hard drive"
+      ],
+      "correct_answer": "Variables created inside a function exist only while that function runs and cannot be accessed outside",
+      "explanation_correct": "Correct! Variables defined in a function are local to that function's scope.",
+      "explanation_incorrect": "Function local variables are private to that function."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "If you find a bug in a formula wrapped in a reusable function, how many places do you have to fix it?",
+      "options": [
+        "Only 1 place (inside the function)",
+        "Everywhere it was called",
+        "None",
+        "5 places"
+      ],
+      "correct_answer": "Only 1 place (inside the function)",
+      "explanation_correct": "Correct! Centralizing logic in a function means fixes apply everywhere automatically.",
+      "explanation_incorrect": "Functions centralize logic so you only update one place."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Can a function call another function in Python?",
+      "options": [
+        "Yes, functions can call other functions freely",
+        "No, functions must be completely isolated",
+        "Only up to 2 calls",
+        "Only in class methods"
+      ],
+      "correct_answer": "Yes, functions can call other functions freely",
+      "explanation_correct": "Correct! Function composition is a cornerstone of modular software design.",
+      "explanation_incorrect": "Functions can call other helper functions seamlessly."
+    }
+  ]
+}

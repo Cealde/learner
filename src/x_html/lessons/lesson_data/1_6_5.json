@@ -1,0 +1,8 @@
+{
+  "title": "for Loop Variations (4 Stages)",
+  "topic": "5.1 • CODING EXERCISE",
+  "description": "Practice writing <code>for</code> loops across 4 distinct stages:<br/>1. Use <code>range(3)</code> to print numbers <code>0</code>, <code>1</code>, <code>2</code>.<br/>2. Use <code>range(1, 4)</code> to print numbers <code>1</code>, <code>2</code>, <code>3</code>.<br/>3. Use <code>range(10, 40, 10)</code> to print <code>10</code>, <code>20</code>, <code>30</code>.<br/>4. Loop over <code>[\"A\", \"B\"]</code> and print each letter.",
+  "intended_output": "0\n1\n2\n1\n2\n3\n10\n20\n30\nA\nB",
+  "ai_check": "for_loop_four_stages",
+  "starter_code": "# Stage 1: range(3)\n\n\n# Stage 2: range(1, 4)\n\n\n# Stage 3: range(10, 40, 10)\n\n\n# Stage 4: for item in [\"A\", \"B\"]\n\n"
+}

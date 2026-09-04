@@ -1,0 +1,8 @@
+{
+  "title": "Conditional Decisions (2 Stages)",
+  "topic": "4.1 • CODING EXERCISE",
+  "description": "Practice writing <code>if</code> statements across 2 stages:<br/>1. Create variable <code>age = 20</code>. If <code>age >= 18</code>, print <code>\"Eligible to vote\"</code>.<br/>2. Create variable <code>temperature = 35</code>. If <code>temperature > 30</code>, print <code>\"Hot day\"</code>.",
+  "intended_output": "Eligible to vote\nHot day",
+  "ai_check": "if_two_stages",
+  "starter_code": "# Stage 1: Check age eligibility (>= 18) and print \"Eligible to vote\"\nage = 20\n\n\n# Stage 2: Check temperature (> 30) and print \"Hot day\"\ntemperature = 35\n\n"
+}

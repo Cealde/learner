@@ -1,0 +1,58 @@
+{
+  "title": "Dictionary Basics Quiz",
+  "topic": "7.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "Which brackets are used to define a dictionary in Python?",
+      "options": [
+        "Curly braces {}",
+        "Square brackets []",
+        "Parentheses ()",
+        "Angle brackets <>"
+      ],
+      "correct_answer": "Curly braces {}",
+      "explanation_correct": "Correct! Dictionaries use curly braces { key: value }.",
+      "explanation_incorrect": "Dictionaries are enclosed in curly braces {}."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "How do you access the value associated with key 'email' in user_dict?",
+      "options": [
+        "user_dict['email']",
+        "user_dict(email)",
+        "user_dict.email",
+        "user_dict[0]"
+      ],
+      "correct_answer": "user_dict['email']",
+      "explanation_correct": "Correct! Square bracket notation with the key name retrieves the value.",
+      "explanation_incorrect": "Access dictionary values with square brackets: dict[key]."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "Can a dictionary contain duplicate keys?",
+      "options": [
+        "No, keys must be unique (reassigning overwrites the old value)",
+        "Yes, as many duplicate keys as you want",
+        "Only if they have different values",
+        "Only up to 2 duplicates"
+      ],
+      "correct_answer": "No, keys must be unique (reassigning overwrites the old value)",
+      "explanation_correct": "Correct! Dictionary keys are unique identifiers.",
+      "explanation_incorrect": "Duplicate keys are not permitted; duplicate assignments overwrite existing keys."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What error occurs if you try to access a non-existent key with dict[missing_key]?",
+      "options": [
+        "KeyError",
+        "IndexError",
+        "ValueError",
+        "None"
+      ],
+      "correct_answer": "KeyError",
+      "explanation_correct": "Correct! Looking up a missing key with square brackets raises a KeyError.",
+      "explanation_incorrect": "Missing keys raise a KeyError."
+    }
+  ]
+}

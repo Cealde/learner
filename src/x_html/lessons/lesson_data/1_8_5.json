@@ -1,0 +1,8 @@
+{
+  "title": "List Operations (4 Stages)",
+  "topic": "7.1 • CODING EXERCISE",
+  "description": "Practice working with lists across 4 stages:<br/>1. Create list <code>items = [\"pen\", \"book\"]</code> and print <code>items[0]</code>.<br/>2. Append <code>\"pencil\"</code> to <code>items</code> and print <code>len(items)</code>.<br/>3. Pop the last item from <code>items</code> with <code>items.pop()</code> and print <code>items</code>.<br/>4. Print the last item using negative index <code>items[-1]</code>.",
+  "intended_output": "pen\n3\n['pen', 'book']\nbook",
+  "ai_check": "list_four_stages",
+  "starter_code": "# Stage 1: Create items = [\"pen\", \"book\"] and print first item\n\n\n# Stage 2: Append \"pencil\" and print len(items)\n\n\n# Stage 3: items.pop() and print items\n\n\n# Stage 4: Print items[-1]\n\n"
+}

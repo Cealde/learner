@@ -28,44 +28,112 @@ export const MALAYALAM_UI = {
 };
 
 export const MALAYALAM_MODULE_NAMES = {
-  1: [
-    '0.1 • കമ്പ്യൂട്ടർ എന്ന യന്ത്രം',
-    '0.1 • അടിസ്ഥാന ക്വിസ്',
-    '0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ',
-    '0.2 • ഡീബഗ്ഗിംഗ് ക്വിസ്'
+  "1": [
+    "0.1 • കമ്പ്യൂട്ടർ എന്ന യന്ത്രം",
+    "0.1 • അടിസ്ഥാന ക്വിസ്",
+    "0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
+    "0.2 • ഡീബഗ്ഗിംഗ് ക്വിസ്"
   ],
-  2: [
-    '1.1 • കോഡ് എഡിറ്റർ',
-    '1.1 • എഡിറ്റർ ക്വിസ്',
-    '1.2 • print() കമാൻഡ്',
-    '1.2 • കോഡിംഗ് പരിശീലനം',
-    '1.2 • print() ക്വിസ്',
-    '1.3 • കോഡ് റൺ ചെയ്യുമ്പോൾ',
-    '1.3 • പ്രവർത്തന ക്രമ ക്വിസ്'
+  "2": [
+    "1.1 • കോഡ് എഡിറ്റർ",
+    "1.1 • എഡിറ്റർ ക്വിസ്",
+    "1.2 • print() കമാൻഡ്",
+    "1.2 • കോഡിംഗ് പരിശീലനം",
+    "1.2 • print() ക്വിസ്",
+    "1.3 • കോഡ് റൺ ചെയ്യുമ്പോൾ",
+    "1.3 • പ്രവർത്തന ക്രമ ക്വിസ്"
   ],
-  3: [
-    '2.1 • എന്താണ് വേരിയബിൾ?',
-    '2.1 • വേരിയബിൾ അടിസ്ഥാന ക്വിസ്',
-    '2.1 • വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്',
-    '2.2 • സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)',
-    '2.2 • സംഖ്യകളും വാചകങ്ങളും ക്വിസ്',
-    '2.2 • മെമ്മറിയും ടൈപ്പുകളും കോഡ്',
-    '2.3 • പെട്ടിയിലെ മൂല്യം മാറ്റൽ',
-    '2.3 • മൂല്യം മാറ്റൽ ക്വിസ്',
-    '2.3 • വേരിയബിളുകൾ പുതുക്കൽ കോഡ്',
-    '2.3 • വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്'
+  "3": [
+    "2.1 • എന്താണ് വേരിയബിൾ?",
+    "2.1 • വേരിയബിൾ അടിസ്ഥാന ക്വിസ്",
+    "2.1 • വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്",
+    "2.2 • സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)",
+    "2.2 • സംഖ്യകളും വാചകങ്ങളും ക്വിസ്",
+    "2.2 • മെമ്മറിയും ടൈപ്പുകളും കോഡ്",
+    "2.3 • പെട്ടിയിലെ മൂല്യം മാറ്റൽ",
+    "2.3 • മൂല്യം മാറ്റൽ ക്വിസ്",
+    "2.3 • വേരിയബിളുകൾ പുതുക്കൽ കോഡ്",
+    "2.3 • വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്"
   ],
-  4: [
-    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
-    '3.1 • കണക്കും മുൻഗണനയും ക്വിസ്',
-    '3.1 • ഗുണനവും ഹരണവും',
-    '3.1 • നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
-    '3.1 • അൽഗോരിതം ഫോർമുല: മിൻ-മാക്സ് നോർമലൈസേഷൻ',
-    '3.2 • വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ',
-    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്',
-    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്',
-    '3.2 • അൽഗോരിതം ഫോർമുല: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം',
-    '3.2 • കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്'
+  "4": [
+    "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
+    "3.1 • കണക്കും മുൻഗണനയും ക്വിസ്",
+    "3.1 • ഗുണനവും ഹരണവും",
+    "3.1 • നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്",
+    "3.1 • അൽഗോരിതം: മിൻ-മാക്സ് നോർമലൈസേഷൻ",
+    "3.2 • വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ",
+    "3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്",
+    "3.2 • സ്ട്രിംഗ് ക്വിസ്",
+    "3.2 • അൽഗോരിതം: API URL ബിൽഡർ",
+    "3.2 • കണക്കും സ്ട്രിംഗും ഫൈനൽ ക്വിസ്"
+  ],
+  "5": [
+    "4.1 • if സ്റ്റേറ്റ്മെന്റ് (നിബന്ധനകൾ)",
+    "4.1 • താരതമ്യ ഓപ്പറേറ്ററുകൾ ക്വിസ്",
+    "4.1 • ഇൻഡന്റേഷനും ശ്രദ്ധിക്കേണ്ട കാര്യങ്ങളും",
+    "4.1 • സിന്റാക്സ് പിഴവുകൾ ക്വിസ്",
+    "4.1 • നിബന്ധന കോഡിംഗ് പരിശീലനം",
+    "4.1 • അൽഗോരിതം: ഫയർവോൾ പാക്കറ്റ് ഫിൽട്ടർ",
+    "4.2 • if / else സ്റ്റേറ്റ്മെന്റ്",
+    "4.2 • രണ്ട് വഴികൾ ക്വിസ്",
+    "4.2 • ബ്രാഞ്ചിംഗ് ക്രമവും പിഴവുകളും",
+    "4.2 • ബ്രാഞ്ചിംഗ് ക്വിസ്",
+    "4.2 • പാസ്സ് / ഫെയിൽ കോഡ്",
+    "4.2 • അൽഗോരിതം: ഷിപ്പിംഗ് നിരക്ക് കണക്കുകൂട്ടൽ",
+    "4.2 • നിബന്ധന മാസ്റ്ററി പരീക്ഷ"
+  ],
+  "6": [
+    "5.1 • for ലൂപ്പും range() ഫങ്ഷനും",
+    "5.1 • for ലൂപ്പ് ക്വിസ്",
+    "5.1 • ലിസ്റ്റിലൂടെയുള്ള ആവർത്തനം",
+    "5.1 • ലിസ്റ്റ് ലൂപ്പ് ക്വിസ്",
+    "5.1 • for ലൂപ്പ് കോഡിംഗ്",
+    "5.1 • അൽഗോരിതം: IoT സെൻസർ സംഗ്രഹം",
+    "5.2 • while ലൂപ്പ്",
+    "5.2 • while ലൂപ്പ് ക്വിസ്",
+    "5.2 • while ലൂപ്പ് കൗണ്ടർ കോഡ്",
+    "5.2 • അൽഗോരിതം: എക്സ്പോണൻഷ്യൽ ബാക്ക്ഓഫ് റീട്രൈ",
+    "5.2 • ലൂപ്പ് മാസ്റ്ററി പരീക്ഷ"
+  ],
+  "7": [
+    "6.1 • എന്താണ് ഫങ്ഷൻ?",
+    "6.1 • ഫങ്ഷൻ അടിസ്ഥാന ക്വിസ്",
+    "6.1 • ഡിഫോൾട്ട് ആർഗ്യുമെന്റുകൾ",
+    "6.1 • ഡിഫോൾട്ട് പാരാമീറ്റർ ക്വിസ്",
+    "6.1 • ഫങ്ഷൻ കോഡിംഗ്",
+    "6.1 • അൽഗോരിതം: കറൻസി കൺവെർട്ടർ",
+    "6.2 • എന്തുകൊണ്ട് ഫങ്ഷനുകൾ? (DRY തത്വം)",
+    "6.2 • മോഡുലാർ ആർക്കിടെക്ചർ ക്വിസ്",
+    "6.2 • ഫോർമാറ്റർ ഫങ്ഷൻ കോഡ്",
+    "6.2 • ഫങ്ഷൻ മാസ്റ്ററി പരീക്ഷ"
+  ],
+  "8": [
+    "7.1 • ലിസ്റ്റുകൾ — ക്രമീകരിച്ച കണ്ടെയ്നറുകൾ",
+    "7.1 • ലിസ്റ്റ് ഇൻഡെക്സിംഗ് ക്വിസ്",
+    "7.1 • ലിസ്റ്റ് ഓപ്പറേഷനുകൾ (append/pop/slice)",
+    "7.1 • ലിസ്റ്റ് മാറ്റങ്ങൾ ക്വിസ്",
+    "7.1 • ലിസ്റ്റ് ഓപ്പറേഷൻസ് കോഡ്",
+    "7.1 • അൽഗോരിതം: FIFO ടാസ്ക് ക്യൂ ഡിസ്പാച്ചർ",
+    "7.1 • അൽഗോരിതം: ഏറ്റവും വലിയ സംഖ്യ കണ്ടെത്തൽ",
+    "7.2 • ഡിക്ഷണറികൾ — ലേബൽ ചെയ്ത കണ്ടെയ്നറുകൾ",
+    "7.2 • ഡിക്ഷണറി അടിസ്ഥാന ക്വിസ്",
+    "7.2 • ഡിക്ഷണറി ഓപ്പറേഷനുകൾ (.get/keys)",
+    "7.2 • ഡിക്ഷണറി ഓപ്പറേഷൻസ് ക്വിസ്",
+    "7.2 • ഡിക്ഷണറി മാനേജ്മെന്റ് കോഡ്",
+    "7.2 • അൽഗോരിതം: വേഡ് ഫ്രീക്വൻസി കൗണ്ടർ",
+    "7.2 • അൽഗോരിതം: റോൾ പെർമിഷൻസ് ടേബിൾ",
+    "7.2 • ലിസ്റ്റ് & ഡിക്ഷണറി മാസ്റ്ററി പരീക്ഷ"
+  ],
+  "9": [
+    "9.1 • റിവിഷൻ: ഭാഗം 1 (അടിസ്ഥാന തത്വങ്ങൾ)",
+    "9.1 • റിവിഷൻ: ഭാഗം 2 (ഡാറ്റാ സ്ട്രക്ചറുകൾ)",
+    "9.1 • സമഗ്ര ഫൈനൽ 30-ചോദ്യ പരീക്ഷ",
+    "9.1 • ഗ്രാൻഡ് കോഡിംഗ് ചലഞ്ച് (25 ഔട്ട്പുട്ടുകൾ)",
+    "9.2 • ക്യാപ്സ്റ്റോൺ 1: ലീഡർബോർഡ് ഫിൽട്ടർ",
+    "9.2 • ക്യാപ്സ്റ്റോൺ 2: ബാങ്കിംഗ് ലെഡ്ജർ വാലിഡേറ്റർ",
+    "9.2 • ക്യാപ്സ്റ്റോൺ 3: സൈഫർ എൻക്രിപ്റ്റർ",
+    "9.2 • ക്യാപ്സ്റ്റോൺ 4: ഇൻവെന്ററി ഓഡിറ്റർ",
+    "9.2 • ക്യാപ്സ്റ്റോൺ 5: ഗ്രേഡ് അനലിറ്റിക്സ് എഞ്ചിൻ"
   ]
 };
 
@@ -1389,6 +1457,412 @@ export const MALAYALAM_LESSON_DATA = {
           }
       ]
   },
+  "1_5_1": {
+    "title": "The if Statement — A Fork in the Road",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_10": {
+    "title": "Branch Ordering & Tracing Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_11": {
+    "title": "Pass / Fail Evaluation (2 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_12": {
+    "title": "Algorithm: E-Commerce Shipping Fee Calculator",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_13": {
+    "title": "Conditions Mastery Exam",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_2": {
+    "title": "Comparison Operators Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_3": {
+    "title": "Condition Caveats & Indentation",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_4": {
+    "title": "Indentation & Syntax Caveats Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_5": {
+    "title": "Conditional Decisions (2 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_6": {
+    "title": "Algorithm: Network Firewall Packet Filter",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_7": {
+    "title": "The if / else Statement — Two Paths",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_8": {
+    "title": "if / else Logic Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_5_9": {
+    "title": "Branching Caveats & elif Order",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_1": {
+    "title": "The for Loop — Repeating a Fixed Number of Times",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_10": {
+    "title": "Algorithm: Exponential Backoff Network Retry",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_11": {
+    "title": "Loops Mastery Exam",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_2": {
+    "title": "for Loop & range() Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_3": {
+    "title": "Iterating Through Collections Directly",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_4": {
+    "title": "Collection Traversal Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_5": {
+    "title": "for Loop Variations (4 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_6": {
+    "title": "Algorithm: IoT Telemetry Sensor Accumulator",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_7": {
+    "title": "The while Loop — Repeating Until a Condition Is Met",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_8": {
+    "title": "while Loop Mechanics Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_6_9": {
+    "title": "while Loop Counters (2 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_1": {
+    "title": "What Is a Function? — Reusable Recipes",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_10": {
+    "title": "Functions Mastery Exam",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_2": {
+    "title": "Function Basics Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_3": {
+    "title": "Default Arguments & Flexibility",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_4": {
+    "title": "Default Parameters Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_5": {
+    "title": "Custom Function Creator (3 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_6": {
+    "title": "Algorithm: Currency Exchange Converter Function",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_7": {
+    "title": "Why Use Functions? — DRY & Modularity",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_8": {
+    "title": "Modular Architecture Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_7_9": {
+    "title": "Reusable Formatter Function (2 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_1": {
+    "title": "Lists — Ordered Containers",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_10": {
+    "title": "Dictionary Operations — .get(), keys & mutation",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_11": {
+    "title": "Dictionary Operations Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_12": {
+    "title": "Dictionary Management (3 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_13": {
+    "title": "Algorithm: Word Frequency Histogram Builder",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_14": {
+    "title": "Algorithm: Security Role Permissions Lookup",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_15": {
+    "title": "Lists & Dictionaries Mastery Exam",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_2": {
+    "title": "List Indexing Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_3": {
+    "title": "List Mutation — append, pop & slicing",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_4": {
+    "title": "List Mutation Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_5": {
+    "title": "List Operations (4 Stages)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_6": {
+    "title": "Algorithm: FIFO Task Queue Dispatcher",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_7": {
+    "title": "Algorithm: Linear Scan Maximum Finder",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_8": {
+    "title": "Dictionaries — Labeled Containers",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_8_9": {
+    "title": "Dictionary Basics Quiz",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_1": {
+    "title": "Grand Revision — Part 1: Fundamentals",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_2": {
+    "title": "Grand Revision — Part 2: Logic & Data Structures",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_3": {
+    "title": "Comprehensive Final Certification Exam",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_4": {
+    "title": "Grand Coding Challenge (25 Outputs)",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_5": {
+    "title": "Capstone 1: Game Leaderboard Filter",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_6": {
+    "title": "Capstone 2: Banking Ledger Balance Validator",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_7": {
+    "title": "Capstone 3: Substitution Cipher Encryptor",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_8": {
+    "title": "Capstone 4: Warehouse Inventory Restock Auditor",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+},
+  "1_9_9": {
+    "title": "Capstone 5: Class Grade Average & Stats Engine",
+    "badge": "പാഠം • വിവരണം",
+    "summary": "",
+    "sections": [],
+    "footer": ""
+}
 };
 
 export const MALAYALAM_OVERVIEWS = {

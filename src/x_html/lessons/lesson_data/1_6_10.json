@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm: Exponential Backoff Network Retry",
+  "topic": "5.2 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: Exponential Backoff Network Retry</strong><br/>When cloud servers fail to connect, network clients double their waiting delay on each retry (1s, 2s, 4s, 8s) until a maximum retry count is reached.<br/><br/><strong>The Challenge:</strong><br/>The retry setup below is locked. In the editable section, write a <code>while</code> loop that runs while <code>attempt &lt;= 3</code>:<br/>- Multiply <code>delay = delay * 2</code><br/>- Increment <code>attempt = attempt + 1</code>",
+  "locked_prefix": "# --- NETWORK CLIENT RETRY CONFIG (LOCKED) ---\ndelay = 1\nattempt = 1\n\n# --- WRITE YOUR WHILE LOOP RETRY LOGIC BELOW ---\n",
+  "locked_suffix": "\n# --- FINAL DELAY VERIFICATION (LOCKED) ---\nprint(delay)\n",
+  "starter_code": "# --- NETWORK CLIENT RETRY CONFIG (LOCKED) ---\ndelay = 1\nattempt = 1\n\n# --- WRITE YOUR WHILE LOOP RETRY LOGIC BELOW ---\n\n\n# --- FINAL DELAY VERIFICATION (LOCKED) ---\nprint(delay)\n",
+  "intended_output": "8",
+  "ai_check": "exponential_backoff_algorithm"
+}

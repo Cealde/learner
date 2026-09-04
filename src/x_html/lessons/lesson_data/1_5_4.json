@@ -1,0 +1,58 @@
+{
+  "title": "Indentation & Syntax Caveats Quiz",
+  "topic": "4.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What error occurs if you write 'if x = 5:' in Python?",
+      "options": [
+        "SyntaxError",
+        "TypeError",
+        "ZeroDivisionError",
+        "None (it works)"
+      ],
+      "correct_answer": "SyntaxError",
+      "explanation_correct": "Correct! Single = is an assignment statement and is illegal inside an if condition.",
+      "explanation_incorrect": "Using = instead of == causes a SyntaxError."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "How does Python determine which code lines belong inside an if statement?",
+      "options": [
+        "By the level of indentation (spaces)",
+        "By curly braces {}",
+        "By an 'end if' statement",
+        "By semicolon separators"
+      ],
+      "correct_answer": "By the level of indentation (spaces)",
+      "explanation_correct": "Correct! Python relies strictly on indentation to define code blocks.",
+      "explanation_incorrect": "Python uses indentation (typically 4 spaces) to demarcate blocks."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What is the output if age = 15 and code is:\nif age >= 18:\n    print('Adult')\nprint('Done')",
+      "options": [
+        "Done",
+        "Adult\nDone",
+        "Adult",
+        "Nothing"
+      ],
+      "correct_answer": "Done",
+      "explanation_correct": "Correct! Since 15 >= 18 is False, 'Adult' is skipped, and unindented 'Done' executes.",
+      "explanation_incorrect": "The indented block is skipped, so only 'Done' is printed."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Can you compare text strings with == in Python (e.g. status == 'active')?",
+      "options": [
+        "Yes, it checks if both strings have identical characters",
+        "No, comparison operators only work on integers",
+        "Only if they are uppercase",
+        "No, it throws a TypeError"
+      ],
+      "correct_answer": "Yes, it checks if both strings have identical characters",
+      "explanation_correct": "Correct! String comparison with == checks character-by-character equality.",
+      "explanation_incorrect": "Python allows comparing strings using == and !=."
+    }
+  ]
+}

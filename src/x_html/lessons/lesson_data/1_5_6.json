@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm: Network Firewall Packet Filter",
+  "topic": "4.1 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: Network Security Firewall</strong><br/>Enterprise routers inspect inbound packet headers millions of times per second. If a packet matches a blocked IP address or malicious port, the packet is flagged.<br/><br/><strong>The Challenge:</strong><br/>The network packet data below is locked. In the editable section, write an <code>if</code> statement: if <code>port == 8080</code>, print <code>\"BLOCKED: Insecure Port Detected\"</code>.",
+  "locked_prefix": "# --- INBOUND NETWORK PACKET (LOCKED) ---\nsource_ip = \"192.168.1.105\"\nport = 8080\nprotocol = \"TCP\"\n\n# --- WRITE YOUR SECURITY RULE BELOW ---\n",
+  "locked_suffix": "\n# --- PACKET PROCESSED (LOCKED) ---\nprint(\"Packet Inspection Complete\")\n",
+  "starter_code": "# --- INBOUND NETWORK PACKET (LOCKED) ---\nsource_ip = \"192.168.1.105\"\nport = 8080\nprotocol = \"TCP\"\n\n# --- WRITE YOUR SECURITY RULE BELOW ---\n\n\n# --- PACKET PROCESSED (LOCKED) ---\nprint(\"Packet Inspection Complete\")\n",
+  "intended_output": "BLOCKED: Insecure Port Detected\nPacket Inspection Complete",
+  "ai_check": "firewall_packet_rule"
+}

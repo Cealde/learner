@@ -1,0 +1,58 @@
+{
+  "title": "List Indexing Quiz",
+  "topic": "7.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What is the index of the first element in a Python list?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "first"
+      ],
+      "correct_answer": "0",
+      "explanation_correct": "Correct! Python lists are 0-indexed.",
+      "explanation_incorrect": "Python uses 0-based indexing for all collections."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What does negative index [-1] access in a list?",
+      "options": [
+        "The very last item in the list",
+        "The first item",
+        "An empty list",
+        "Throws an IndexError"
+      ],
+      "correct_answer": "The very last item in the list",
+      "explanation_correct": "Correct! Negative indices count backward from the end, with -1 being the last item.",
+      "explanation_incorrect": "[-1] retrieves the last item of a sequence."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "Which function returns the total number of items in a list?",
+      "options": [
+        "len()",
+        "count()",
+        "size()",
+        "length()"
+      ],
+      "correct_answer": "len()",
+      "explanation_correct": "Correct! len() returns the length of lists, strings, and dictionaries.",
+      "explanation_incorrect": "len() is the standard Python function for length."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What happens if you try to access nums[5] on a list with only 3 items?",
+      "options": [
+        "IndexError: list index out of range",
+        "Returns None",
+        "Returns 0",
+        "Extends the list"
+      ],
+      "correct_answer": "IndexError: list index out of range",
+      "explanation_correct": "Correct! Accessing an index outside the list bounds raises an IndexError.",
+      "explanation_incorrect": "Out-of-range index lookups raise an IndexError."
+    }
+  ]
+}

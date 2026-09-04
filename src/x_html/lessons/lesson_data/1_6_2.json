@@ -1,0 +1,58 @@
+{
+  "title": "for Loop & range() Quiz",
+  "topic": "5.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What numbers does list(range(4)) produce?",
+      "options": [
+        "[0, 1, 2, 3]",
+        "[1, 2, 3, 4]",
+        "[0, 1, 2, 3, 4]",
+        "[1, 2, 3]"
+      ],
+      "correct_answer": "[0, 1, 2, 3]",
+      "explanation_correct": "Correct! range(n) starts at 0 and stops right before n.",
+      "explanation_incorrect": "In Python, range(4) generates 0, 1, 2, 3 (stopping before 4)."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "How do you generate numbers from 5 to 10 inclusive in Python?",
+      "options": [
+        "range(5, 11)",
+        "range(5, 10)",
+        "range(10, 5)",
+        "range(5..10)"
+      ],
+      "correct_answer": "range(5, 11)",
+      "explanation_correct": "Correct! Since range stops before the end value, range(5, 11) includes 10.",
+      "explanation_incorrect": "To include 10, the stop parameter must be 11: range(5, 11)."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What does the third argument in range(0, 10, 2) represent?",
+      "options": [
+        "The step size (increment between numbers)",
+        "The number of repetitions",
+        "The maximum limit",
+        "The number of decimals"
+      ],
+      "correct_answer": "The step size (increment between numbers)",
+      "explanation_correct": "Correct! The third argument specifies how much to jump each iteration.",
+      "explanation_incorrect": "range(start, stop, step) uses the 3rd argument as the step increment."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "How many times will 'print(\"Hello\")' run in:\nfor i in range(5):\n    print('Hello')",
+      "options": [
+        "5 times",
+        "4 times",
+        "6 times",
+        "0 times"
+      ],
+      "correct_answer": "5 times",
+      "explanation_correct": "Correct! range(5) produces 5 values (0, 1, 2, 3, 4), so the body runs 5 times.",
+      "explanation_incorrect": "range(5) iterates exactly 5 times."
+    }
+  ]
+}

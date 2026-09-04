@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm: E-Commerce Shipping Fee Calculator",
+  "topic": "4.2 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: E-Commerce Dynamic Shipping Fee Calculator</strong><br/>Online store checkout engines determine delivery fees dynamically based on order value. Customers receive free shipping for high-value orders or pay tiered standard rates.<br/><br/><strong>Shipping Policy:</strong><br/>- If <code>order_total >= 100</code>: <code>shipping_fee = 0</code><br/>- Else if <code>order_total >= 50</code>: <code>shipping_fee = 10</code><br/>- Else: <code>shipping_fee = 25</code><br/><br/><strong>The Challenge:</strong><br/>The order data below is locked. In the editable area, write the if-elif-else logic to assign the correct <code>shipping_fee</code>.",
+  "locked_prefix": "# --- CHECKOUT CART DATA (LOCKED) ---\norder_total = 65\n\n# --- WRITE YOUR SHIPPING LOGIC BELOW ---\n",
+  "locked_suffix": "\n# --- RECEIPT SUMMARY (LOCKED) ---\nprint(shipping_fee)\n",
+  "starter_code": "# --- CHECKOUT CART DATA (LOCKED) ---\norder_total = 65\n\n# --- WRITE YOUR SHIPPING LOGIC BELOW ---\nshipping_fee = \n\n# --- RECEIPT SUMMARY (LOCKED) ---\nprint(shipping_fee)\n",
+  "intended_output": "10",
+  "ai_check": "ecommerce_shipping_calculator"
+}

@@ -1,0 +1,58 @@
+{
+  "title": "Branch Ordering & Tracing Quiz",
+  "topic": "4.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What happens after the first True branch in an if-elif-else chain executes?",
+      "options": [
+        "Python skips the remaining elif and else blocks immediately",
+        "Python continues to check every subsequent elif condition",
+        "Python restarts from the top of the chain",
+        "An error is raised"
+      ],
+      "correct_answer": "Python skips the remaining elif and else blocks immediately",
+      "explanation_correct": "Correct! Only the first matching branch executes in an if-elif ladder.",
+      "explanation_incorrect": "Python immediately exits the chain after executing the first matching branch."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "When is an 'else' block executed in an if-elif-else ladder?",
+      "options": [
+        "Only when all previous if and elif conditions evaluate to False",
+        "Whenever the last elif is True",
+        "At the start of every iteration",
+        "Always on every program run"
+      ],
+      "correct_answer": "Only when all previous if and elif conditions evaluate to False",
+      "explanation_correct": "Correct! 'else' is the ultimate catch-all when no conditions match.",
+      "explanation_incorrect": "else runs only if every preceding condition was False."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "If score = 95, why would placing 'if score >= 50:' above 'elif score >= 90:' be a bug?",
+      "options": [
+        "Because 95 >= 50 is True, so it will print Grade C and never reach Grade A",
+        "Because Python raises a SyntaxError if numbers are in ascending order",
+        "Because >= cannot be used twice",
+        "Because score cannot exceed 90"
+      ],
+      "correct_answer": "Because 95 >= 50 is True, so it will print Grade C and never reach Grade A",
+      "explanation_correct": "Correct! Broad checks shadow more specific checks if placed first.",
+      "explanation_incorrect": "Since 95 >= 50 is True first, Grade C would execute and Grade A would be unreachable."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Can you have multiple 'elif' statements inside a single conditional block?",
+      "options": [
+        "Yes, as many as needed between if and else",
+        "No, maximum of one elif allowed",
+        "Only up to 3 elif statements",
+        "Only if each elif checks different variables"
+      ],
+      "correct_answer": "Yes, as many as needed between if and else",
+      "explanation_correct": "Correct! You can chain as many elif statements as your logic requires.",
+      "explanation_incorrect": "Python allows chaining unlimited elif statements between if and else."
+    }
+  ]
+}

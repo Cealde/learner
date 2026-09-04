@@ -1,0 +1,58 @@
+{
+  "title": "Dictionary Operations Quiz",
+  "topic": "7.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "What does dict.get('avatar', 'default.png') return if 'avatar' is missing?",
+      "options": [
+        "'default.png'",
+        "None",
+        "KeyError",
+        "Empty string"
+      ],
+      "correct_answer": "'default.png'",
+      "explanation_correct": "Correct! .get() returns the provided fallback argument when the key is absent.",
+      "explanation_incorrect": ".get(key, fallback) yields the fallback value if the key does not exist."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "How do you add a new key 'age' with value 30 to existing dictionary 'user'?",
+      "options": [
+        "user['age'] = 30",
+        "user.append('age', 30)",
+        "user.add('age', 30)",
+        "user.push(30)"
+      ],
+      "correct_answer": "user['age'] = 30",
+      "explanation_correct": "Correct! Assigning user['age'] = 30 inserts or updates the key.",
+      "explanation_incorrect": "Dictionary keys are assigned with user['age'] = 30."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "Which method returns a collection of all keys in a dictionary?",
+      "options": [
+        ".keys()",
+        ".all_keys()",
+        ".list()",
+        ".index()"
+      ],
+      "correct_answer": ".keys()",
+      "explanation_correct": "Correct! .keys() retrieves all active dictionary keys.",
+      "explanation_incorrect": ".keys() extracts all keys from a dictionary."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "Which keyword is used to delete a key from a dictionary in Python?",
+      "options": [
+        "del",
+        "remove",
+        "pop_key",
+        "destroy"
+      ],
+      "correct_answer": "del",
+      "explanation_correct": "Correct! 'del dict[key]' deletes the key-value pair.",
+      "explanation_incorrect": "'del' is the Python keyword used to remove items from dictionaries."
+    }
+  ]
+}

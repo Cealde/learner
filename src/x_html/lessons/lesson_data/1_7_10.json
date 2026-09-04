@@ -1,0 +1,110 @@
+{
+  "title": "Functions Mastery Exam",
+  "topic": "6.2 • MASTERY EXAM",
+  "questions": [
+    {
+      "badge": "Mastery Exam • Question 1 / 8",
+      "question": "What is the parameter list in 'def calculate(x, y, z):'?",
+      "options": [
+        "x, y, z",
+        "calculate",
+        "def",
+        "colon :"
+      ],
+      "correct_answer": "x, y, z",
+      "explanation_correct": "Correct! x, y, and z are the parameters defined to accept incoming arguments.",
+      "explanation_incorrect": "Parameters are the variables defined in the function header (x, y, z)."
+    },
+    {
+      "badge": "Mastery Exam • Question 2 / 8",
+      "question": "What happens if you define a function but never call it in your script?",
+      "options": [
+        "The function body never executes",
+        "Python runs it automatically at the end",
+        "A SyntaxError is thrown",
+        "It executes once on startup"
+      ],
+      "correct_answer": "The function body never executes",
+      "explanation_correct": "Correct! Defining a function only registers it; calling it executes the body.",
+      "explanation_incorrect": "A function only runs when explicitly called."
+    },
+    {
+      "badge": "Mastery Exam • Question 3 / 8",
+      "question": "What value does a function return if it has no return statement?",
+      "options": [
+        "None",
+        "0",
+        "\"\"",
+        "False"
+      ],
+      "correct_answer": "None",
+      "explanation_correct": "Correct! In Python, functions without an explicit return statement return None.",
+      "explanation_incorrect": "Python functions return None by default when return is omitted."
+    },
+    {
+      "badge": "Mastery Exam • Question 4 / 8",
+      "question": "What will this output?\ndef mystery(a, b):\n    return a * b\nprint(mystery(3, 4))",
+      "options": [
+        "12",
+        "7",
+        "34",
+        "None"
+      ],
+      "correct_answer": "12",
+      "explanation_correct": "Correct! mystery(3, 4) calculates and returns 3 * 4 = 12.",
+      "explanation_incorrect": "3 * 4 = 12."
+    },
+    {
+      "badge": "Mastery Exam • Question 5 / 8",
+      "question": "Why is 'def func(a=5, b):' invalid syntax?",
+      "options": [
+        "Parameters with defaults must come after parameters without defaults",
+        "a cannot equal 5",
+        "func is a reserved word",
+        "Colons cannot follow parentheses"
+      ],
+      "correct_answer": "Parameters with defaults must come after parameters without defaults",
+      "explanation_correct": "Correct! Required parameters (b) must precede default parameters (a=5).",
+      "explanation_incorrect": "Required parameters must be placed before default parameters."
+    },
+    {
+      "badge": "Mastery Exam • Question 6 / 8",
+      "question": "Can a function return a boolean (True / False)?",
+      "options": [
+        "Yes, functions can return any valid Python data type",
+        "No, functions can only return numbers",
+        "No, booleans cannot be returned",
+        "Only if converted to a string"
+      ],
+      "correct_answer": "Yes, functions can return any valid Python data type",
+      "explanation_correct": "Correct! Functions can return booleans, numbers, strings, lists, or dictionaries.",
+      "explanation_incorrect": "Functions can return any Python object."
+    },
+    {
+      "badge": "Mastery Exam • Question 7 / 8",
+      "question": "What is an 'argument'?",
+      "options": [
+        "The concrete value passed into a function when calling it",
+        "An error in your logic",
+        "The function name",
+        "The keyword def"
+      ],
+      "correct_answer": "The concrete value passed into a function when calling it",
+      "explanation_correct": "Correct! Arguments are the actual values passed during a function call.",
+      "explanation_incorrect": "Arguments are the specific values provided when invoking a function."
+    },
+    {
+      "badge": "Mastery Exam • Question 8 / 8",
+      "question": "What is the primary benefit of modular code using functions?",
+      "options": [
+        "High reusability, easier debugging, and clear organization",
+        "Makes the script file larger",
+        "Slows down execution speed",
+        "Requires fewer variables"
+      ],
+      "correct_answer": "High reusability, easier debugging, and clear organization",
+      "explanation_correct": "Correct! Functions produce clean, maintainable, and testable code architecture.",
+      "explanation_incorrect": "Functions improve code readability, reusability, and maintenance."
+    }
+  ]
+}

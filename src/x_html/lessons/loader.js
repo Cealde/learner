@@ -12,13 +12,15 @@ import {
 
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
 export const sylPy = [
-  [1, 4, 3, 4],                         // Lesson 1: What is a PC (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
-  [1, 4, 3, 2, 4, 3, 4],                // Lesson 2: Programming (1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz)
-  [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],       // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
-  [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],       // Lesson 4: Basic Math & Strings (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
-  [1, 2, 4],                            // Lesson 5: Lists
-  [1, 2, 4],                            // Lesson 6: Conditions
-  [1, 2, 4]                             // Lesson 7: For Loop
+  [1, 4, 3, 4],                                   // Lesson 1: What is a PC (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
+  [1, 4, 3, 2, 4, 3, 4],                          // Lesson 2: Programming (1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz)
+  [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],                 // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
+  [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],                 // Lesson 4: Basic Math & Strings (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
+  [1, 4, 3, 4, 2, 2, 1, 4, 3, 4, 2, 2, 4],       // Lesson 5: Conditions (4.1 if Info->Quiz->Caveats->Quiz->Code->Algo, 4.2 if/else Info->Quiz->Caveats->Quiz->Code->Algo->FinalQuiz)
+  [1, 4, 3, 4, 2, 2, 1, 4, 2, 2, 4],             // Lesson 6: Loops (5.1 for Info->Quiz->SeqInfo->Quiz->Code->Algo, 5.2 while Info->Quiz->Code->Algo->FinalQuiz)
+  [1, 4, 3, 4, 2, 2, 1, 4, 2, 4],                 // Lesson 7: Functions (6.1 def Info->Quiz->DefaultInfo->Quiz->Code->Algo, 6.2 DRY Info->Quiz->Code->FinalQuiz)
+  [1, 4, 3, 4, 2, 2, 2, 1, 4, 3, 4, 2, 2, 2, 4], // Lesson 8: Lists & Dicts (7.1 List Info->Quiz->Ops->Quiz->Code->Algo1->Algo2, 7.2 Dict Info->Quiz->Ops->Quiz->Code->Algo1->Algo2->FinalQuiz)
+  [1, 3, 4, 2, 2, 2, 2, 2, 2]                     // Lesson 9: Final Test (Revision Part 1, Revision Part 2, 30Q Grand MCQ, 25 Output Challenge, 5 Capstone Algorithms)
 ];
 
 export const LANGUAGES = [
@@ -1037,6 +1039,74 @@ export const ENGLISH_MODULE_NAMES = {
     '3.2 • String Concatenation Quiz',
     '3.2 • Algorithm: API URL Builder',
     '3.2 • Math & Strings Final Quiz'
+  ],
+  5: [
+    '4.1 • The if Statement',
+    '4.1 • Comparison Operators Quiz',
+    '4.1 • Indentation & Caveats',
+    '4.1 • Syntax Pitfalls Quiz',
+    '4.1 • Conditional Decisions Code',
+    '4.1 • Algorithm: Firewall Packet Filter',
+    '4.2 • The if / else Statement',
+    '4.2 • Branching Logic Quiz',
+    '4.2 • Branch Ordering & Caveats',
+    '4.2 • Branch Ordering Quiz',
+    '4.2 • Pass / Fail Code',
+    '4.2 • Algorithm: Shipping Fee Calculator',
+    '4.2 • Conditions Mastery Exam'
+  ],
+  6: [
+    '5.1 • The for Loop & range()',
+    '5.1 • for Loop & range() Quiz',
+    '5.1 • Iterating Collections Directly',
+    '5.1 • Collection Traversal Quiz',
+    '5.1 • for Loop Variations Code',
+    '5.1 • Algorithm: IoT Sensor Accumulator',
+    '5.2 • The while Loop',
+    '5.2 • while Loop Mechanics Quiz',
+    '5.2 • while Loop Counters Code',
+    '5.2 • Algorithm: Exponential Backoff Retry',
+    '5.2 • Loops Mastery Exam'
+  ],
+  7: [
+    '6.1 • What Is a Function?',
+    '6.1 • Function Basics Quiz',
+    '6.1 • Default Arguments & Flexibility',
+    '6.1 • Default Parameters Quiz',
+    '6.1 • Custom Function Creator Code',
+    '6.1 • Algorithm: Currency Exchange Converter',
+    '6.2 • Why Use Functions? (DRY)',
+    '6.2 • Modular Architecture Quiz',
+    '6.2 • Reusable Formatter Function Code',
+    '6.2 • Functions Mastery Exam'
+  ],
+  8: [
+    '7.1 • Lists — Ordered Containers',
+    '7.1 • List Indexing Quiz',
+    '7.1 • List Operations (append/pop/slice)',
+    '7.1 • List Mutation Quiz',
+    '7.1 • List Operations Code',
+    '7.1 • Algorithm: FIFO Task Queue Dispatcher',
+    '7.1 • Algorithm: Linear Scan Peak Finder',
+    '7.2 • Dictionaries — Labeled Containers',
+    '7.2 • Dictionary Basics Quiz',
+    '7.2 • Dictionary Operations (.get/keys)',
+    '7.2 • Dictionary Operations Quiz',
+    '7.2 • Dictionary Management Code',
+    '7.2 • Algorithm: Word Frequency Counter',
+    '7.2 • Algorithm: Role Permissions Table',
+    '7.2 • Lists & Dictionaries Mastery Exam'
+  ],
+  9: [
+    '9.1 • Grand Revision: Part 1 (Fundamentals)',
+    '9.1 • Grand Revision: Part 2 (Structures)',
+    '9.1 • Comprehensive Final 30Q Exam',
+    '9.1 • Grand Coding Challenge (25 Outputs)',
+    '9.2 • Capstone 1: Leaderboard Filter',
+    '9.2 • Capstone 2: Banking Ledger Validator',
+    '9.2 • Capstone 3: Substitution Cipher Encryptor',
+    '9.2 • Capstone 4: Inventory Restock Auditor',
+    '9.2 • Capstone 5: Grade Analytics Engine'
   ]
 };
 

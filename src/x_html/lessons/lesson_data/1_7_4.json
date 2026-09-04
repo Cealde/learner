@@ -1,0 +1,58 @@
+{
+  "title": "Default Parameters Quiz",
+  "topic": "6.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "In 'def send(msg, priority=1):', what is 'priority=1'?",
+      "options": [
+        "A default parameter value",
+        "A global variable",
+        "A mandatory argument",
+        "A syntax error"
+      ],
+      "correct_answer": "A default parameter value",
+      "explanation_correct": "Correct! If priority is omitted in the call, it defaults to 1.",
+      "explanation_incorrect": "Parameters with = value in the header are default parameters."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "Can default parameters be placed BEFORE non-default parameters in the function definition?",
+      "options": [
+        "No, non-default parameters must always come first",
+        "Yes, any order is permitted",
+        "Only if they are numbers",
+        "Yes, in Python 3.10+"
+      ],
+      "correct_answer": "No, non-default parameters must always come first",
+      "explanation_correct": "Correct! Non-default parameters must precede parameters with defaults.",
+      "explanation_incorrect": "Python syntax requires required parameters to come before optional defaults."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What is the output of:\ndef discount(price, rate=10):\n    return price - rate\nprint(discount(100))",
+      "options": [
+        "90",
+        "100",
+        "10",
+        "Error"
+      ],
+      "correct_answer": "90",
+      "explanation_correct": "Correct! rate defaults to 10, computing 100 - 10 = 90.",
+      "explanation_incorrect": "The default rate of 10 is subtracted from 100 to yield 90."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What is the output of discount(100, 25) using the same function above?",
+      "options": [
+        "75",
+        "90",
+        "125",
+        "25"
+      ],
+      "correct_answer": "75",
+      "explanation_correct": "Correct! Passing 25 overrides the default rate of 10, computing 100 - 25 = 75.",
+      "explanation_incorrect": "Passing 25 explicitly overrides the default 10, giving 100 - 25 = 75."
+    }
+  ]
+}

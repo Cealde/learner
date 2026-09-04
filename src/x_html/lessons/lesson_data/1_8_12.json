@@ -1,0 +1,8 @@
+{
+  "title": "Dictionary Management (3 Stages)",
+  "topic": "7.2 • CODING EXERCISE",
+  "description": "Practice dictionary operations across 3 stages:<br/>1. Create dictionary <code>user = {\"name\": \"Alex\", \"level\": 5}</code> and print <code>user[\"name\"]</code>.<br/>2. Update <code>user[\"level\"] = 6</code> and print <code>user[\"level\"]</code>.<br/>3. Add <code>user[\"role\"] = \"admin\"</code> and print <code>user.get(\"role\")</code>.",
+  "intended_output": "Alex\n6\nadmin",
+  "ai_check": "dict_three_stages",
+  "starter_code": "# Stage 1: Create user dict and print user[\"name\"]\n\n\n# Stage 2: Update user[\"level\"] = 6 and print it\n\n\n# Stage 3: Add user[\"role\"] = \"admin\" and print user.get(\"role\")\n\n"
+}

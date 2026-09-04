@@ -1,0 +1,58 @@
+{
+  "title": "if / else Logic Quiz",
+  "topic": "4.2 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "Does an 'else' statement have its own condition (e.g. else x < 5:)?",
+      "options": [
+        "No, else catches everything not caught by if and has no condition",
+        "Yes, else always requires a condition",
+        "Only when comparing numbers",
+        "Yes, separated by commas"
+      ],
+      "correct_answer": "No, else catches everything not caught by if and has no condition",
+      "explanation_correct": "Correct! else never takes a condition; it acts as the default fallback branch.",
+      "explanation_incorrect": "else has no condition. If you need a second condition, use elif."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "Can both the 'if' block and 'else' block execute in a single run?",
+      "options": [
+        "No, they are mutually exclusive (only one can run)",
+        "Yes, if the number is zero",
+        "Yes, if both conditions are True",
+        "Only in debug mode"
+      ],
+      "correct_answer": "No, they are mutually exclusive (only one can run)",
+      "explanation_correct": "Correct! An if/else construct executes exactly one path.",
+      "explanation_incorrect": "if and else are mutually exclusive: either if runs or else runs, never both."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "What keyword is used in Python for 'else if' to check multiple conditions in order?",
+      "options": [
+        "elif",
+        "else if",
+        "elseif",
+        "case"
+      ],
+      "correct_answer": "elif",
+      "explanation_correct": "Correct! Python uses 'elif' for chained conditional checks.",
+      "explanation_incorrect": "In Python, the contraction 'elif' is the keyword for else-if."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What is the output of:\nx = 10\nif x > 20:\n    print('A')\nelif x == 10:\n    print('B')\nelse:\n    print('C')",
+      "options": [
+        "B",
+        "A",
+        "C",
+        "B\nC"
+      ],
+      "correct_answer": "B",
+      "explanation_correct": "Correct! x > 20 is False, but elif x == 10 is True, so 'B' is printed.",
+      "explanation_incorrect": "The first matching condition (elif x == 10) executes, outputting 'B'."
+    }
+  ]
+}

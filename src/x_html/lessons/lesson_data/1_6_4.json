@@ -1,0 +1,58 @@
+{
+  "title": "Collection Traversal Quiz",
+  "topic": "5.1 • QUIZ",
+  "questions": [
+    {
+      "badge": "Module Quiz • Question 1 / 4",
+      "question": "In 'for name in users:', what does 'name' hold on each iteration?",
+      "options": [
+        "The current item value from the list",
+        "The index number (0, 1, 2)",
+        "The total length of the list",
+        "The word 'name'"
+      ],
+      "correct_answer": "The current item value from the list",
+      "explanation_correct": "Correct! The loop variable takes on each successive item in the collection.",
+      "explanation_incorrect": "In 'for x in list', x takes the actual item value on each step."
+    },
+    {
+      "badge": "Module Quiz • Question 2 / 4",
+      "question": "What happens if you loop over a string like 'for ch in \"AI\":'?",
+      "options": [
+        "It prints 'A' on line 1, then 'I' on line 2",
+        "It throws a TypeError",
+        "It only runs once",
+        "It converts to numbers"
+      ],
+      "correct_answer": "It prints 'A' on line 1, then 'I' on line 2",
+      "explanation_correct": "Correct! In Python, strings are iterable character sequences.",
+      "explanation_incorrect": "Strings can be iterated character-by-character."
+    },
+    {
+      "badge": "Module Quiz • Question 3 / 4",
+      "question": "Do you need to manually increment a counter variable when using a for loop?",
+      "options": [
+        "No, the for loop advances automatically through the sequence",
+        "Yes, you must write i = i + 1 at the end",
+        "Only when looping over numbers",
+        "Only in Python 2"
+      ],
+      "correct_answer": "No, the for loop advances automatically through the sequence",
+      "explanation_correct": "Correct! Python for loops manage stepping automatically.",
+      "explanation_incorrect": "for loops advance to the next item automatically."
+    },
+    {
+      "badge": "Module Quiz • Question 4 / 4",
+      "question": "What is the output of:\nfor x in [10, 20]:\n    print(x * 2)",
+      "options": [
+        "20\n40",
+        "10\n20",
+        "2040",
+        "Error"
+      ],
+      "correct_answer": "20\n40",
+      "explanation_correct": "Correct! 10 * 2 = 20, then 20 * 2 = 40.",
+      "explanation_incorrect": "Each element is multiplied by 2, outputting 20 then 40."
+    }
+  ]
+}

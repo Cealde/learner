@@ -1,0 +1,8 @@
+{
+  "title": "Reusable Formatter Function (2 Stages)",
+  "topic": "6.2 • CODING EXERCISE",
+  "description": "Practice building a reusable helper function across 2 stages:<br/>1. Define a function <code>format_badge(title)</code> that returns <code>\"[ \" + title + \" ]\"</code>.<br/>2. Call <code>print(format_badge(\"VIP\"))</code>.<br/>3. Call <code>print(format_badge(\"PRO\"))</code>.",
+  "intended_output": "[ VIP ]\n[ PRO ]",
+  "ai_check": "format_badge_function",
+  "starter_code": "# Define format_badge(title) and test it with \"VIP\" and \"PRO\":\n\n"
+}
