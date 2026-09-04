@@ -5,25 +5,29 @@
 const { invoke } = window.__TAURI__ ? window.__TAURI__.core : { invoke: null };
 
 // 1. User session & completion helpers
-async function getUserCompletion(keyName, defaultVal = 1) {
-    if (!invoke) return defaultVal;
+async function getUserCompletion(keyName, defaultLesson = 1, defaultSub = 1, defaultSpec = 1) {
+    if (!invoke) return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
     try {
-        if (!keyName) return defaultVal;
+        if (!keyName) return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
         let value = await invoke('get_user_value', { userKey: keyName });
         if (value === null || value === undefined) {
-            await invoke('set_user_value', { userKey: keyName, value: defaultVal });
-            value = defaultVal;
+            value = await invoke('set_user_value', {
+                userKey: keyName,
+                lessonNo: defaultLesson,
+                subNo: defaultSub,
+                specNo: defaultSpec
+            });
         }
         return value;
     } catch (err) {
         console.error('Error fetching user completion:', err);
-        return defaultVal;
+        return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
     }
 }
 
 async function userSessionInitialize(onSuccess, onFail) {
     if (!invoke) {
-        if (onSuccess) onSuccess('Guest', 3);
+        if (onSuccess) onSuccess('Guest', 1, 1, 1);
         return;
     }
     try {
@@ -34,8 +38,11 @@ async function userSessionInitialize(onSuccess, onFail) {
             return;
         }
         const currentUsername = active.username;
-        const completion = await getUserCompletion(currentUsername, 3);
-        if (onSuccess) onSuccess(currentUsername, completion);
+        const progress = await getUserCompletion(currentUsername, 1, 1, 1);
+        const lessonNo = (progress && progress.lesson_no !== undefined) ? progress.lesson_no : 3;
+        const subNo = (progress && progress.sub_no !== undefined) ? progress.sub_no : 1;
+        const specNo = (progress && progress.spec_no !== undefined) ? progress.spec_no : 1;
+        if (onSuccess) onSuccess(currentUsername, lessonNo, subNo, specNo);
     } catch (err) {
         console.error('Failed to load active profile:', err);
         if (onFail) onFail();
@@ -307,7 +314,7 @@ function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
 }
 
 // 7. Point Details Card Displayer
-function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl, cardDescEl) {
+function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl, cardDescEl, visitCardEl, subNo, spclNo) {
     if (!pointCardEl) return;
     if (cardIconEl && pt.iconSvg) {
         cardIconEl.src = pt.iconSvg;
@@ -317,9 +324,36 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
         cardTitleEl.textContent = pt.id;
         if (pt.color) cardTitleEl.style.color = pt.color;
     }
+
+    if(visitCardEl) {
+        const stat = pt.status;
+
+        if(stat == 2) {
+            visitCardEl.innerText = 'Learn Again';
+            visitCardEl.classList.add('completed');
+        } else if(stat == 1) {
+            visitCardEl.innerText = 'Learn';
+            visitCardEl.classList.add('active');
+        } else {
+            visitCardEl.innerText = 'Locked';
+            visitCardEl.classList.add('locked');
+        }
+
+        visitCardEl.addEventListener('click', () => {
+            if(stat <= 1) {
+                window.location.href = '../x_html/lessons/'+subNo+'.html?'+'spcl='+spclNo+'&lsn'+pt.page_no;
+            }
+        });
+
+    }
+
     if (cardCoordsEl) cardCoordsEl.textContent = `X: ${pt.x.toFixed(1)}, Z: ${pt.z.toFixed(1)}`;
     if (cardDescEl) cardDescEl.textContent = pt.desc || 'Operational waypoint on the isometric map.';
     pointCardEl.style.display = 'block';
+}
+
+function goToPage(pt) {
+
 }
 
 // 8. Pan Clamping Helper

@@ -1,12 +1,17 @@
 // ============================================================
 // MAP INITIALIZATION & STATE
 // ============================================================
-let completionInt = 3;
+let currentUsername = 'Guest';
+let completionInt = 1;
+let currentSubNo = 1;
+let currentSpecNo = 1;
 
 userSessionInitialize(
-    (username, completion) => {
+    (username, lessonNo, subNo, specNo) => {
         currentUsername = username;
-        completionInt = completion;
+        completionInt = lessonNo;
+        currentSubNo = subNo;
+        currentSpecNo = specNo;
     },
     () => {
         window.location.href = 'index.html';
@@ -80,7 +85,7 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/hq.svg',      desc: 'Central tactical operations and network control hub.' },
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/hq.svg',    desc: 'Central tactical operations and network control hub.' },
     { id: 'Programming',    x: 50,  z: -16, iconSvg: '../assets/icons/power.svg',   desc: 'High-voltage reactor grid delivering primary base power.' },
     { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/lab.svg',     desc: 'Advanced laboratory conducting atmospheric and material analysis.' },
     { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/storage.svg', desc: 'Logistics center and automated supply storage facility.' },
@@ -146,16 +151,20 @@ MAP_POINTS.forEach((pt, idx) => {
     let hlt = null;
     let swirl = null;
 
+    pt.page_no = idx + 1;
+
     if (idx + 1 > completionInt) { // Incomplete
         pt.sphere_color = '#73628A';
         pt.ring_opacity = 0.6;
         pt.ring_color = '#CBC5EA';
         pt.stem_color = '#313D5A';
+        pt.status = 0;
     } else if (idx + 1 === completionInt) { // Active
         pt.sphere_color = '#F5AF40';
         pt.ring_opacity = 0.9;
         pt.ring_color = '#F2E86D';
         pt.stem_color = '#6C4F1A';
+        pt.status = 1;
 
         const hltGeometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 30, 1, true);
         const hltMat = new THREE.MeshBasicMaterial({
@@ -176,6 +185,7 @@ MAP_POINTS.forEach((pt, idx) => {
         pt.ring_opacity = 1;
         pt.ring_color = '#6EB257';
         pt.stem_color = '#507255';
+        pt.status = 2;
     }
 
     const headMat = new THREE.MeshBasicMaterial({ color: pt.sphere_color });
@@ -226,6 +236,7 @@ const cardTitle = document.getElementById('card-title');
 const cardCoords = document.getElementById('card-coords');
 const cardDesc = document.getElementById('card-desc');
 const cardCloseBtn = document.getElementById('card-close');
+const visitBtn = document.getElementById('visit-btn');
 
 cardCloseBtn?.addEventListener('click', () => {
     if (pointCard) pointCard.style.display = 'none';
@@ -288,7 +299,7 @@ window.addEventListener('pointerup', (e) => {
         if (intersects.length > 0) {
             const hitData = intersects[0].object.userData.ptData;
             if (hitData) {
-                showPointDetails(hitData, pointCard, cardIcon, cardTitle, cardCoords, cardDesc);
+                showPointDetails(hitData, pointCard, cardIcon, cardTitle, cardCoords, cardDesc, visitBtn, currentSubNo, currentSpecNo);
             }
         } else {
             if (pointCard) pointCard.style.display = 'none';
