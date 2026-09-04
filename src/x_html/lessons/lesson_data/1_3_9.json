@@ -3,5 +3,5 @@
   "topic": "2.3 • CODING EXERCISE",
   "description": "Practice reassigning a variable! In the code editor below:<br/>1. Create a variable <code>score = 0</code><br/>2. Print <code>score</code><br/>3. Reassign <code>score = 50</code><br/>4. Print <code>score</code> again.",
   "intended_output": "0\n50",
-  "starter_code": "# 1. Start with score equal to 0:\nscore = 0\nprint(score)\n\n# 2. Update score to 50 and print it again:\nscore = 50\nprint(score)\n"
+  "starter_code": "# 1. Create variable 'score' with value 0, and print it\n# 2. Update 'score' to 50, and print it again:\n\n"
 }

@@ -3,5 +3,5 @@
   "topic": "2.2 • CODING EXERCISE",
   "description": "Practice working with different data types! In the code editor below:<br/>1. Create a number variable <code>score = 100</code> (without quotes)<br/>2. Create a text variable <code>player = \"John\"</code> (with quotes)<br/>3. Print <code>score</code> on the first line and <code>player</code> on the second line.",
   "intended_output": "100\nJohn",
-  "starter_code": "# 1. Create integer variable 'score' with value 100:\nscore = 100\n\n# 2. Create string variable 'player' with value \"John\":\nplayer = \"John\"\n\n# 3. Print both variables:\nprint(score)\nprint(player)\n"
+  "starter_code": "# 1. Create integer variable 'score' with value 100 (no quotes)\n# 2. Create string variable 'player' with value \"John\" (with quotes)\n# 3. Print both variables:\n\n"
 }

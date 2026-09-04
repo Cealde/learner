@@ -130,7 +130,7 @@ export const MALAYALAM_LESSON_DATA = {
     topic: "2.1 • കോഡിംഗ്",
     description: "name എന്ന വേരിയബിളിൽ 'Alice' ഉം age എന്നതിൽ 25 ഉം സൂക്ഷിച്ച് രണ്ടും print ചെയ്യുക.",
     intended_output: "Alice\n25",
-    starter_code: "# വേരിയബിളുകൾ താഴെ നൽകുക:\nname = \"Alice\"\nage = 25\n\n# print ചെയ്യുക:\nprint(name)\nprint(age)\n"
+    starter_code: "# 1. 'name' എന്നതിൽ \"Alice\" എന്ന് നൽകുക\n# 2. 'age' എന്നതിൽ 25 എന്ന് നൽകുക\n# 3. രണ്ടും print ചെയ്യുക:\n\n"
   },
   '1_1_1': {
     title: "കമ്പ്യൂട്ടർ ഒരു \"യന്ത്രം മാത്രം\"",
