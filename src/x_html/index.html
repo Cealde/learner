@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adhicode - Choose Workspace</title>
+    <title>Adhicode - Choose Profile</title>
     <link rel="stylesheet" href="../z_css/styles.css" />
     <script type="module" src="../y_js/main.js" defer></script>
   </head>
@@ -19,8 +19,8 @@
           <img src="../assets/logo.svg" alt="Adhicode Logo" class="brand-logo" />
           <span class="brand-name">ADHICODE</span>
         </div>
-        <h1 class="header-title">CHOOSE YOUR WORKSPACE</h1>
-        <p class="header-subtitle">Select a workspace to continue your learning journey.</p>
+        <h1 class="header-title">CHOOSE YOUR PROFILE</h1>
+        <p class="header-subtitle">Select a profile to continue your learning journey.</p>
       </header>
 
       <!-- Status Notification Message -->
@@ -32,14 +32,14 @@
       </section>
     </main>
 
-    <!-- Create Workspace Modal -->
+    <!-- Create Profile Modal -->
     <div id="add-modal" class="modal-backdrop" style="display: none;">
       <div class="modal-card">
         <div class="modal-header">
           <div class="modal-icon">+</div>
-          <h2>Create New Workspace</h2>
+          <h2>Create New Profile</h2>
         </div>
-        <p class="modal-desc">Configure your personal workspace profile for Adhicode.</p>
+        <p class="modal-desc">Configure your personal profile for Adhicode.</p>
 
         <form id="add-profile-form">
           <div class="form-group">
@@ -59,7 +59,7 @@
 
           <div class="modal-actions">
             <button type="button" id="cancel-add-btn" class="btn-secondary">Cancel</button>
-            <button type="submit" class="btn-primary">Create Workspace</button>
+            <button type="submit" class="btn-primary">Create Profile</button>
           </div>
         </form>
       </div>
@@ -70,9 +70,9 @@
       <div class="modal-card">
         <div class="modal-header">
           <div class="modal-icon">🔒</div>
-          <h2 id="password-modal-title">Protected Workspace</h2>
+          <h2 id="password-modal-title">Protected Profile</h2>
         </div>
-        <p class="modal-desc">Enter password to unlock this profile workspace.</p>
+        <p class="modal-desc">Enter password to unlock this profile.</p>
 
         <form id="password-form">
           <div class="form-group">
@@ -82,7 +82,7 @@
 
           <div class="modal-actions">
             <button type="button" id="cancel-password-btn" class="btn-secondary">Cancel</button>
-            <button type="submit" class="btn-primary">Unlock Workspace</button>
+            <button type="submit" class="btn-primary">Unlock Profile</button>
           </div>
         </form>
       </div>

@@ -85,7 +85,7 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC', x: 80, z: 0, iconSvg: '../assets/icons/hq.svg', desc: 'gay nigga' },
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/hq.svg',    desc: 'Central tactical operations and network control hub.' },
     { id: 'Programming', x: 50, z: -16, iconSvg: '../assets/icons/power.svg', desc: 'High-voltage reactor grid delivering primary base power.' },
     { id: 'Variables', x: 26, z: -5, iconSvg: '../assets/icons/lab.svg', desc: 'Advanced laboratory conducting atmospheric and material analysis.' },
     { id: 'Math Functions', x: 0, z: 8, iconSvg: '../assets/icons/storage.svg', desc: 'Logistics center and automated supply storage facility.' },

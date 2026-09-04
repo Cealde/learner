@@ -78,8 +78,8 @@ function renderProfiles(profiles) {
         </svg>
       </div>
       <h2 class="empty-title">WELCOME TO ADHICODE</h2>
-      <p class="empty-sub">Create your first workspace to begin learning Python.</p>
-      <button type="button" class="btn-primary empty-create-btn">+ CREATE WORKSPACE</button>
+      <p class="empty-sub">Create your first profile to begin learning Python.</p>
+      <button type="button" class="btn-primary empty-create-btn">+ CREATE PROFILE</button>
     `;
     emptyState.querySelector(".empty-create-btn").addEventListener("click", () => {
       openAddModal();
@@ -112,11 +112,11 @@ function renderProfiles(profiles) {
 
       <div class="profile-info">
         <h3 class="profile-username">${profile.username}</h3>
-        <p class="profile-name">${profile.name || "Personal Workspace"}</p>
+        <p class="profile-name">${profile.name || "Personal Profile"}</p>
       </div>
 
       <div class="profile-card-footer">
-        <span class="open-label">OPEN WORKSPACE</span>
+        <span class="open-label">OPEN PROFILE</span>
         <span class="card-arrow">→</span>
       </div>
     `;
@@ -125,7 +125,7 @@ function renderProfiles(profiles) {
     const deleteBtn = card.querySelector(".delete-profile-btn");
     deleteBtn.addEventListener("click", async (e) => {
       e.stopPropagation();
-      if (!confirm(`Are you sure you want to delete workspace "${profile.username}"?`)) return;
+      if (!confirm(`Are you sure you want to delete profile "${profile.username}"?`)) return;
       
       if (!invoke) {
         showStatus(`Deleted ${profile.username}`);
@@ -148,7 +148,7 @@ function renderProfiles(profiles) {
     profilesGrid.appendChild(card);
   });
 
-  // Create Workspace Card
+  // Create Profile Card
   const createCard = document.createElement("div");
   createCard.className = "profile-card create-card";
   createCard.id = "open-add-modal-btn";
@@ -158,8 +158,9 @@ function renderProfiles(profiles) {
         <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
+
     <div class="profile-info">
-      <h3 class="profile-username">+ NEW WORKSPACE</h3>
+      <h3 class="profile-username">+ NEW PROFILE</h3>
       <p class="profile-name">Create a new learner profile</p>
     </div>
   `;

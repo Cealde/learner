@@ -3,39 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Active Workspace - Adhicode</title>
+    <title>Active Profile - Adhicode</title>
     <link rel="stylesheet" href="../z_css/middle.css" />
     <script type="module" src="../y_js/middle.js" defer></script>
   </head>
 
-  <body class="middle-page">
-    <div class="bg-glow"></div>
+  <body class="workspace-page">
     <div class="bg-grid"></div>
 
-    <main class="middle-container">
-      <div class="workspace-card">
-        <div class="workspace-badge">
+    <!-- Top Navigation Bar -->
+    <header class="workspace-header">
+      <div class="header-left">
+        <div class="brand-badge">
           <img src="../assets/logo.svg" alt="Adhicode" class="brand-icon" />
-          <span>ACTIVE WORKSPACE</span>
+          <span class="brand-title">ADHICODE</span>
         </div>
-
-        <h1 id="display-username" class="user-heading">Learner Profile</h1>
-
-        <div id="display-name-container" class="name-sub" style="display: none;">
-          <span id="display-name"></span>
+        <div class="active-badge">
+          <span class="badge-icon">★</span>
+          <span>ACTIVE PROFILE</span>
         </div>
-
-        <p class="workspace-welcome">Ready to resume your Python learning journey?</p>
-
-        <div class="actions-group">
-          <a href="journey.html" class="action-btn primary-btn">
-            ENTER JOURNEY MAP →
-          </a>
-          <button id="switch-profile-btn" type="button" class="action-btn secondary-btn">
-            Switch Workspace
-          </button>
+        <div class="user-pill">
+          <span id="display-username">Learner Profile</span>
+          <span id="display-name-container" style="display: none;">(<span id="display-name"></span>)</span>
         </div>
       </div>
+
+      <div class="header-right">
+        <button id="switch-profile-btn" type="button" class="switch-workspace-btn">
+          SWITCH PROFILE
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Full-Page Profile Dashboard Container -->
+    <main class="workspace-main">
+      <!-- Daily Motivation Banner (Data-Ready) -->
+      <section class="workspace-banner">
+        <div class="banner-header">
+          <div class="banner-tag">
+            <span class="banner-star">⚡</span>
+            <span>TODAY'S MOTIVATION</span>
+          </div>
+          <span class="banner-sticker">DAILY QUOTE</span>
+        </div>
+        <p id="motivation-text" class="motivation-text">
+          "The best way to learn is to build something."
+        </p>
+        <div id="motivation-author" class="motivation-author">— ADHICODE</div>
+      </section>
+
+      <!-- Main Course Selection Section -->
+      <section class="workspace-courses">
+        <div class="courses-header">
+          <h2 class="courses-title">CHOOSE YOUR LEARNING SUBJECT</h2>
+          <p id="workspace-welcome" class="courses-subtitle">Pick a subject and continue your learning journey.</p>
+        </div>
+
+        <div class="subject-grid">
+          <button type="button" id="subject-python" class="subject-card active" data-subject="python">
+            <div class="subject-check">✓</div>
+            <div class="subject-card-content">
+              <div class="subject-icon-box">🐍</div>
+              <h3 class="subject-title">PYTHON</h3>
+              <p class="subject-desc">Logic & Algorithms</p>
+            </div>
+          </button>
+
+          <button type="button" id="subject-sql" class="subject-card" data-subject="sql">
+            <div class="subject-check">✓</div>
+            <div class="subject-card-content">
+              <div class="subject-icon-box">🗄️</div>
+              <h3 class="subject-title">SQL</h3>
+              <p class="subject-desc">Database & Queries</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- Enter Journey Map Primary Button -->
+        <div class="workspace-actions">
+          <a id="enter-journey-btn" href="journey.html" class="enter-journey-btn">
+            ENTER JOURNEY MAP →
+          </a>
+        </div>
+      </section>
     </main>
   </body>
 </html>
