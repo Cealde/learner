@@ -182,3 +182,46 @@ pub fn debug_python(code: String) -> Result<PythonDebugResult, String> {
         }),
     }
 }
+
+#[tauri::command]
+pub fn translate_with_ai(text: String, language: Option<String>) -> Result<String, String> {
+    let _target_lang = language.unwrap_or_else(|| "malayalam".to_string());
+    let script = r#"
+import sys
+try:
+    from runtime import translate_to_malayalam
+    raw = sys.stdin.read()
+    res = translate_to_malayalam(raw)
+    print(res)
+except Exception as e:
+    import sys
+    sys.stdout.write(raw)
+"#;
+
+    let mut child = Command::new("python")
+        .arg("-u")
+        .arg("-c")
+        .arg(script)
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .map_err(|e| format!("Failed to launch AI translator: {}", e))?;
+
+    if let Some(mut stdin) = child.stdin.take() {
+        stdin
+            .write_all(text.as_bytes())
+            .map_err(|e| format!("Failed to pass content to translator: {}", e))?;
+    }
+
+    let output = child
+        .wait_with_output()
+        .map_err(|e| format!("Error waiting for translator: {}", e))?;
+
+    let stdout = String::from_utf8_lossy(&output.stdout).trim().to_string();
+    if !stdout.is_empty() {
+        Ok(stdout)
+    } else {
+        Ok(text)
+    }
+}

@@ -5,7 +5,9 @@
 import {
   MALAYALAM_UI,
   MALAYALAM_MODULE_NAMES,
-  MALAYALAM_LESSON_DATA
+  MALAYALAM_LESSON_DATA,
+  MALAYALAM_OVERVIEWS,
+  MALAYALAM_CONCEPTS
 } from './malayalam_translations.js';
 
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
@@ -707,32 +709,45 @@ export function generateAdaptiveContent(sub, totalSteps) {
 
   if (!isQuiz) {
     // Step 1: Breakdown View (3.html)
+    const isMl = currentLang === 'ml';
     const conceptCardsHtml = activeConcepts.map(cg => {
+      const mlConcept = isMl ? MALAYALAM_CONCEPTS[cg.id] : null;
+      const badgeText = mlConcept ? mlConcept.badge : cg.badge;
+      const titleText = mlConcept ? mlConcept.title : cg.title;
+      const takeawayText = mlConcept ? mlConcept.takeaway : cg.takeaway;
+
+      const qLabel = isMl ? MALAYALAM_OVERVIEWS.questionLabel : '• <strong>Question:</strong>';
+      const earlierChoiceLabel = isMl ? MALAYALAM_OVERVIEWS.earlierChoiceLabel : 'Earlier Choice:';
+      const correctPrincipleLabel = isMl ? MALAYALAM_OVERVIEWS.correctPrincipleLabel : 'Correct Principle:';
+      const reviewHeader = isMl 
+        ? MALAYALAM_OVERVIEWS.reviewPointsTitle(cg.mistakes.length)
+        : `📝 Triggered Review Points (${cg.mistakes.length} item${cg.mistakes.length > 1 ? 's' : ''}):`;
+
       const reviewedItems = cg.mistakes.map(m => `
         <div style="font-size: 13px; font-weight: 600; color: #111111; margin-bottom: 8px; line-height: 1.4;">
-          • <strong>Question:</strong> ${m.question}<br/>
-          <span style="color: #b91c1c; font-weight: 700;">Earlier Choice:</span> "${m.student_answer || 'Incorrect Option'}" → 
-          <span style="color: #15803d; font-weight: 700;">Correct Principle:</span> ${m.explanation || 'Follow precise machine rules.'}
+          ${qLabel} ${m.question}<br/>
+          <span style="color: #b91c1c; font-weight: 700;">${earlierChoiceLabel}</span> "${m.student_answer || 'Incorrect Option'}" → 
+          <span style="color: #15803d; font-weight: 700;">${correctPrincipleLabel}</span> ${m.explanation || 'Follow precise machine rules.'}
         </div>
       `).join('');
 
       return `
         <div style="background: ${cg.color}; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; margin-bottom: 18px;">
           <span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">
-            ${cg.badge}
+            ${badgeText}
           </span>
           <h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">
-            ${cg.title}
+            ${titleText}
           </h2>
           <p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">
-            ${cg.takeaway}
+            ${takeawayText}
           </p>
 
           <div style="background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 10px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px; margin-bottom: 12px; white-space: pre-wrap;">${cg.sampleCode}</div>
 
           <div style="background: rgba(255, 255, 255, 0.85); border: 2px solid #111111; border-radius: 4px; padding: 12px 14px;">
             <div style="font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: #374151; margin-bottom: 6px;">
-              📝 Triggered Review Points (${cg.mistakes.length} item${cg.mistakes.length > 1 ? 's' : ''}):
+              ${reviewHeader}
             </div>
             ${reviewedItems}
           </div>
@@ -740,20 +755,29 @@ export function generateAdaptiveContent(sub, totalSteps) {
       `;
     }).join('');
 
+    const overviewBadge = isMl ? MALAYALAM_OVERVIEWS.breakdownBadge(roundNum) : `🧠 AI Breakdown ${roundNum > 1 ? `• Round ${roundNum}` : ''}`;
+    const overviewHeading = isMl ? MALAYALAM_OVERVIEWS.breakdownHeading : 'Mastering Your <hlt>Tricky Concepts</hlt>';
+    const overviewIntro = isMl 
+      ? MALAYALAM_OVERVIEWS.breakdownIntro(activeConcepts.length)
+      : `We synthesized your latest quiz responses into ${activeConcepts.length} focused concept pillar${activeConcepts.length > 1 ? 's' : ''} to solidify your understanding.`;
+    const footerPrompt = isMl 
+      ? MALAYALAM_OVERVIEWS.breakdownFooter
+      : 'Ready to test your understanding? Click <hlt>Next Page →</hlt> for your targeted reinforcement check!';
+
     return {
-      topic: 'AI ADAPTIVE REINFORCEMENT',
-      title: `Personalized Review: Tricky Concept Breakdown${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
+      topic: isMl ? 'AI പുനർപഠന വിശകലനം' : 'AI ADAPTIVE REINFORCEMENT',
+      title: isMl ? `പ്രയാസമുള്ള ആശയങ്ങളുടെ വിശകലനം ${roundNum > 1 ? `(റൗണ്ട് ${roundNum})` : ''}` : `Personalized Review: Tricky Concept Breakdown${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
       body: `
         <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
           <div style="text-align: center; margin-bottom: 4px; width: 100%;">
             <div style="display: inline-block; background-color: #2563EB; color: #FFFFFF; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
-              🧠 AI Breakdown ${roundNum > 1 ? `• Round ${roundNum}` : ''}
+              ${overviewBadge}
             </div>
             <h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 28px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;">
-              Mastering Your <hlt>Tricky Concepts</hlt>
+              ${overviewHeading}
             </h1>
             <p style="font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;">
-              We synthesized your latest quiz responses into ${activeConcepts.length} focused concept pillar${activeConcepts.length > 1 ? 's' : ''} to solidify your understanding.
+              ${overviewIntro}
             </p>
           </div>
 
@@ -761,7 +785,7 @@ export function generateAdaptiveContent(sub, totalSteps) {
 
           <div style="background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;">
             <p style="font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;">
-              Ready to test your understanding? Click <hlt>Next Page →</hlt> for your targeted reinforcement check!
+              ${footerPrompt}
             </p>
           </div>
         </div>
@@ -769,10 +793,23 @@ export function generateAdaptiveContent(sub, totalSteps) {
     };
   } else {
     // Step 2: Reinforcement Quiz View (4.html)
+    const isMl = currentLang === 'ml';
     const generatedQuestions = activeConcepts.map((cg, qIdx) => {
-      const qObj = cg.getQuestionForRound(roundNum);
+      const mlConcept = isMl ? MALAYALAM_CONCEPTS[cg.id] : null;
+      let qObj;
+      if (mlConcept && Array.isArray(mlConcept.reinforceQuestions) && mlConcept.reinforceQuestions.length > 0) {
+        const idx = (roundNum - 1) % mlConcept.reinforceQuestions.length;
+        qObj = mlConcept.reinforceQuestions[idx];
+      } else {
+        qObj = cg.getQuestionForRound(roundNum);
+      }
+
+      const badgeText = isMl 
+        ? MALAYALAM_OVERVIEWS.quizBadge(qIdx + 1, activeConcepts.length)
+        : `AI REINFORCEMENT QUIZ • QUESTION ${qIdx + 1} OF ${activeConcepts.length}`;
+
       return {
-        badge: `AI REINFORCEMENT QUIZ • QUESTION ${qIdx + 1} OF ${activeConcepts.length}`,
+        badge: badgeText,
         question: qObj.question,
         code: qObj.code,
         options: qObj.options,
@@ -782,8 +819,8 @@ export function generateAdaptiveContent(sub, totalSteps) {
     });
 
     return {
-      topic: 'AI ADAPTIVE PRACTICE',
-      title: `Targeted Reinforcement Quiz${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
+      topic: isMl ? MALAYALAM_OVERVIEWS.quizTopic : 'AI ADAPTIVE PRACTICE',
+      title: isMl ? MALAYALAM_OVERVIEWS.quizTitle(roundNum) : `Targeted Reinforcement Quiz${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
       questions: generatedQuestions
     };
   }
