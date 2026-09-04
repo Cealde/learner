@@ -88,7 +88,7 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'Central tactical operations and network control hub.' },
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'A PC is not a magical device that does everything, its simply a extremelt complex calculator, every application in a PC had to be programmed by someone, Us as humans have managed to make sand do things which is feat on its own but here we are to learn that a computer does things as its asked and has no common sense.' },
     { id: 'Programming',   x: 53,  z: -3,  iconSvg: '../assets/icons/power.svg', desc: 'Code editor essentials, the print() command, and sequential execution.' },
     { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',   desc: 'How are variables stored in the memory' },
     { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Logistics center and automated supply storage facility.' },

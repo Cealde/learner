@@ -1,4 +1,4 @@
-const { invoke } = window.__TAURI__.core;
+const { invoke } = window.__TAURI__ ? window.__TAURI__.core : { invoke: null };
 
 let pendingPasswordProfileId = null;
 
@@ -12,13 +12,35 @@ let statusMsg;
 function showStatus(message, isError = false) {
   if (!statusMsg) return;
   statusMsg.textContent = message;
+  statusMsg.className = `status-toast ${isError ? 'error' : 'success'}`;
   statusMsg.style.display = "block";
   setTimeout(() => {
     if (statusMsg) statusMsg.style.display = "none";
   }, 4000);
 }
 
+function getInitials(username, name) {
+  const source = (name && name.trim()) ? name : username;
+  if (!source) return "A";
+  const parts = source.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return source.slice(0, 2).toUpperCase();
+}
+
 export async function refreshProfiles() {
+  if (!invoke) {
+    // Demo mock profiles if running outside Tauri
+    const demoProfiles = [
+      { id: "1", username: "AVINASH", name: "Avinash Kumar", has_password: false },
+      { id: "2", username: "DEV_TEAM", name: "Adhicode Lead", has_password: true }
+    ];
+    renderProfiles(demoProfiles);
+    showProfilesView();
+    return;
+  }
+
   try {
     const activeProfile = await invoke("get_active_profile");
     if (activeProfile) {
@@ -46,21 +68,70 @@ function renderProfiles(profiles) {
   if (!profilesGrid) return;
   profilesGrid.innerHTML = "";
 
+  if (!profiles || profiles.length === 0) {
+    const emptyState = document.createElement("div");
+    emptyState.className = "empty-profiles-card";
+    emptyState.innerHTML = `
+      <div class="empty-icon-glow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 4v16m-8-8h16" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2 class="empty-title">WELCOME TO ADHICODE</h2>
+      <p class="empty-sub">Create your first profile to begin learning Python.</p>
+      <button type="button" class="btn-primary empty-create-btn">+ CREATE PROFILE</button>
+    `;
+    emptyState.querySelector(".empty-create-btn").addEventListener("click", () => {
+      openAddModal();
+    });
+    profilesGrid.appendChild(emptyState);
+    return;
+  }
+
   profiles.forEach((profile) => {
     const card = document.createElement("div");
     card.className = "profile-card";
     card.setAttribute("data-id", profile.id);
 
-    const nameSpan = document.createElement("span");
-    nameSpan.className = "profile-name";
-    nameSpan.textContent = profile.name ? `${profile.username} (${profile.name})` : profile.username;
+    const initials = getInitials(profile.username, profile.name);
+    const isProtected = !!profile.has_password;
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.className = "delete-profile-btn";
-    deleteBtn.setAttribute("type", "button");
-    deleteBtn.textContent = "×";
+    card.innerHTML = `
+      <button class="delete-profile-btn" type="button" title="Delete profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="profile-card-top">
+        <div class="profile-avatar">${initials}</div>
+        <span class="status-pill ${isProtected ? 'protected' : 'available'}">
+          ${isProtected ? '🔒 PROTECTED' : '● AVAILABLE'}
+        </span>
+      </div>
+
+      <div class="profile-info">
+        <h3 class="profile-username">${profile.username}</h3>
+        <p class="profile-name">${profile.name || "Personal Profile"}</p>
+      </div>
+
+      <div class="profile-card-footer">
+        <span class="open-label">OPEN PROFILE</span>
+        <span class="card-arrow">→</span>
+      </div>
+    `;
+
+    // Delete handler
+    const deleteBtn = card.querySelector(".delete-profile-btn");
     deleteBtn.addEventListener("click", async (e) => {
       e.stopPropagation();
+      if (!confirm(`Are you sure you want to delete profile "${profile.username}"?`)) return;
+      
+      if (!invoke) {
+        showStatus(`Deleted ${profile.username}`);
+        return;
+      }
+
       try {
         await invoke("delete_profile", { id: profile.id });
         refreshProfiles();
@@ -69,17 +140,7 @@ function renderProfiles(profiles) {
       }
     });
 
-    card.appendChild(nameSpan);
-
-    if (profile.has_password) {
-      const lockIndicator = document.createElement("span");
-      lockIndicator.className = "password-indicator";
-      lockIndicator.textContent = "*";
-      card.appendChild(lockIndicator);
-    }
-
-    card.appendChild(deleteBtn);
-
+    // Card click handler
     card.addEventListener("click", () => {
       handleProfileSelect(profile);
     });
@@ -87,15 +148,27 @@ function renderProfiles(profiles) {
     profilesGrid.appendChild(card);
   });
 
-  // Add profile trigger button
-  const addTrigger = document.createElement("button");
-  addTrigger.id = "open-add-modal-btn";
-  addTrigger.setAttribute("type", "button");
-  addTrigger.textContent = "+";
-  addTrigger.addEventListener("click", () => {
+  // Create Profile Card
+  const createCard = document.createElement("div");
+  createCard.className = "profile-card create-card";
+  createCard.id = "open-add-modal-btn";
+  createCard.innerHTML = `
+    <div class="create-icon-wrapper">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="profile-info">
+      <h3 class="profile-username">+ NEW PROFILE</h3>
+      <p class="profile-name">Create a new learner profile</p>
+    </div>
+  `;
+  createCard.addEventListener("click", () => {
     openAddModal();
   });
-  profilesGrid.appendChild(addTrigger);
+
+  profilesGrid.appendChild(createCard);
 }
 
 function handleProfileSelect(profile) {
@@ -103,7 +176,7 @@ function handleProfileSelect(profile) {
     pendingPasswordProfileId = profile.id;
     const pwdInput = document.getElementById("profile-password-input");
     if (pwdInput) pwdInput.value = "";
-    if (passwordModal) passwordModal.style.display = "block";
+    if (passwordModal) passwordModal.style.display = "flex";
     if (pwdInput) pwdInput.focus();
   } else {
     performLogin(profile.id, null);
@@ -111,6 +184,11 @@ function handleProfileSelect(profile) {
 }
 
 async function performLogin(id, password) {
+  if (!invoke) {
+    window.location.href = 'middle.html';
+    return;
+  }
+
   try {
     const active = await invoke("login_profile", { id, password });
     goToMiddlePage(active);
@@ -126,7 +204,7 @@ function openAddModal() {
   if (usernameInput) usernameInput.value = "";
   if (nameInput) nameInput.value = "";
   if (pwdInput) pwdInput.value = "";
-  if (addModal) addModal.style.display = "block";
+  if (addModal) addModal.style.display = "flex";
   if (usernameInput) usernameInput.focus();
 }
 
@@ -153,9 +231,20 @@ window.addEventListener("DOMContentLoaded", () => {
       const usernameInput = document.getElementById("new-profile-username");
       const nameInput = document.getElementById("new-profile-name");
       const pwdInput = document.getElementById("new-profile-password");
-      const username = usernameInput ? usernameInput.value : "";
-      const name = nameInput ? nameInput.value : "";
+      const username = usernameInput ? usernameInput.value.trim() : "";
+      const name = nameInput ? nameInput.value.trim() : "";
       const password = pwdInput ? pwdInput.value : "";
+
+      if (!username) {
+        showStatus("Username is required.", true);
+        return;
+      }
+
+      if (!invoke) {
+        closeAddModal();
+        window.location.href = 'middle.html';
+        return;
+      }
 
       try {
         const created = await invoke("create_profile", {
@@ -190,6 +279,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const cancelPasswordBtn = document.getElementById("cancel-password-btn");
   if (cancelPasswordBtn) cancelPasswordBtn.addEventListener("click", closePasswordModal);
+
+  // Close modals on backdrop click
+  if (addModal) {
+    addModal.addEventListener("click", (e) => {
+      if (e.target === addModal) closeAddModal();
+    });
+  }
+  if (passwordModal) {
+    passwordModal.addEventListener("click", (e) => {
+      if (e.target === passwordModal) closePasswordModal();
+    });
+  }
 
   // Initial load
   refreshProfiles();

@@ -269,10 +269,16 @@ canvas:active {
   font-weight: 600;
 }
 
-#visit-btn, .visit-btn {
-  display: block;
+.point-card #visit-btn,
+.point-card .visit-btn,
+#visit-btn,
+.visit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   width: 100%;
-  padding: 12px 16px;
+  padding: 14px 18px;
   background: var(--neo-blue);
   color: var(--neo-white);
   border: var(--neo-border);
@@ -281,37 +287,69 @@ canvas:active {
   font-family: 'Title', sans-serif;
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.6px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+  user-select: none;
 }
 
-#visit-btn:hover {
+.point-card #visit-btn:hover:not(.locked),
+.point-card .visit-btn:hover:not(.locked),
+#visit-btn:hover:not(.locked),
+.visit-btn:hover:not(.locked) {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--neo-black);
 }
 
-#visit-btn:active {
+.point-card #visit-btn:active:not(.locked),
+.point-card .visit-btn:active:not(.locked),
+#visit-btn:active:not(.locked),
+.visit-btn:active:not(.locked) {
   transform: translate(3px, 3px);
   box-shadow: 0 0 0 var(--neo-black);
 }
 
-#visit-btn.active {
+.point-card #visit-btn.active,
+.point-card .visit-btn.active,
+#visit-btn.active,
+.visit-btn.active {
   background: var(--neo-green);
   color: var(--neo-black);
 }
 
-#visit-btn.completed {
+.point-card #visit-btn.active:hover,
+.point-card .visit-btn.active:hover,
+#visit-btn.active:hover,
+.visit-btn.active:hover {
+  background: #65f052;
+}
+
+.point-card #visit-btn.completed,
+.point-card .visit-btn.completed,
+#visit-btn.completed,
+.visit-btn.completed {
   background: var(--neo-yellow);
   color: var(--neo-black);
 }
 
-#visit-btn.locked {
-  background: #E5E5E5;
-  color: #888888;
-  border-color: #888888;
-  box-shadow: 2px 2px 0 #888888;
+.point-card #visit-btn.completed:hover,
+.point-card .visit-btn.completed:hover,
+#visit-btn.completed:hover,
+.visit-btn.completed:hover {
+  background: #ffe066;
+}
+
+.point-card #visit-btn.locked,
+.point-card .visit-btn.locked,
+#visit-btn.locked,
+.visit-btn.locked {
+  background: #e5e7eb;
+  color: #9ca3af;
+  border-color: #9ca3af;
+  box-shadow: 2px 2px 0 #9ca3af;
   cursor: not-allowed;
+  transform: none;
 }

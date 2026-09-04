@@ -342,13 +342,12 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
     if (!pointCardEl) return;
     if (cardIconEl && pt.iconSvg) {
         cardIconEl.src = pt.iconSvg;
-        if (pt.color) cardIconEl.style.borderColor = pt.color;
     }
     if (cardTitleEl) {
         cardTitleEl.textContent = pt.id;
-        if (pt.color) cardTitleEl.style.color = pt.color;
     }
 
+    const cardBadge = document.getElementById('card-badge');
     const closeBtn = document.getElementById('card-close');
     if (closeBtn) {
         closeBtn.onclick = () => {
@@ -363,14 +362,32 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
         visitCardEl.classList.remove('completed', 'active', 'locked');
 
         if (stat === 2) {
-            visitCardEl.innerText = 'Learn Again';
+            visitCardEl.textContent = 'LEARN AGAIN →';
             visitCardEl.classList.add('completed');
+            visitCardEl.disabled = false;
+            if (cardBadge) {
+                cardBadge.textContent = 'COMPLETED';
+                cardBadge.style.background = 'var(--neo-yellow)';
+                cardBadge.style.color = 'var(--neo-black)';
+            }
         } else if (stat === 1) {
-            visitCardEl.innerText = 'Learn';
+            visitCardEl.textContent = 'START LESSON →';
             visitCardEl.classList.add('active');
+            visitCardEl.disabled = false;
+            if (cardBadge) {
+                cardBadge.textContent = 'IN PROGRESS';
+                cardBadge.style.background = 'var(--neo-green)';
+                cardBadge.style.color = 'var(--neo-black)';
+            }
         } else {
-            visitCardEl.innerText = 'Locked';
+            visitCardEl.textContent = 'LOCKED';
             visitCardEl.classList.add('locked');
+            visitCardEl.disabled = true;
+            if (cardBadge) {
+                cardBadge.textContent = 'LOCKED';
+                cardBadge.style.background = '#e5e7eb';
+                cardBadge.style.color = '#6b7280';
+            }
         }
 
         visitCardEl.onclick = () => {
