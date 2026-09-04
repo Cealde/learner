@@ -459,3 +459,105 @@ function animate() {
 }
 
 animate();
+
+// ============================================================
+// DEVELOPER TOOLS: 100% ACCURACY LESSON COMPLETION (JOURNEY MAP)
+// ============================================================
+
+/**
+ * Completes the current (or specified) lesson with 100% accuracy and unlocks next 3D map milestone.
+ * @param {number} [targetLsn] - Specific lesson number to complete. Defaults to currently unlocked lesson.
+ */
+async function devCompleteLesson(targetLsn) {
+    const lsn = Number(targetLsn || completionInt || 1);
+    const nextLessonNo = Math.min(9, lsn + 1);
+
+    console.log(`%c[DEV TOOLS] Completing Lesson ${lsn} with 100% accuracy on Journey Map...`, 'color: #3b82f6; font-weight: bold;');
+
+    // Complete all subtopics in SYLLABUS_MAP for this lesson
+    const subCount = (SYLLABUS_MAP && SYLLABUS_MAP[lsn]) ? SYLLABUS_MAP[lsn].length : 4;
+    for (let sub = 1; sub <= subCount; sub++) {
+        const subKey = `1_${lsn}_${sub}`;
+        if (!currentUserProgress.completed_subtopics) currentUserProgress.completed_subtopics = [];
+        if (!currentUserProgress.completed_subtopics.includes(subKey)) {
+            currentUserProgress.completed_subtopics.push(subKey);
+        }
+    }
+
+    completionInt = nextLessonNo;
+    currentUserProgress.lesson_no = nextLessonNo;
+    currentUserProgress.sub_no = 1;
+
+    // Persist via Tauri or localStorage
+    if (typeof window !== 'undefined' && window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
+        try {
+            await window.__TAURI__.core.invoke('set_user_value', {
+                userKey: currentUsername,
+                lessonNo: nextLessonNo,
+                subNo: 1,
+                specNo: currentSpecNo
+            });
+            await window.__TAURI__.core.invoke('clear_lesson_mistakes', {
+                userKey: currentUsername,
+                spcl: "1",
+                lsn: lsn
+            });
+        } catch (e) {
+            console.warn('[DEV TOOLS] Backend invoke warning:', e);
+        }
+    } else {
+        try {
+            localStorage.setItem(`adhicode_user_progress_${currentUsername}`, JSON.stringify(currentUserProgress));
+        } catch (e) {}
+    }
+
+    // Rebuild 3D visual graph and pan camera to newly active milestone
+    buildMapNodesAndRoutes();
+    zoomToActiveNode(350);
+
+    console.log(
+        `%c[DEV TOOLS] SUCCESS: Lesson ${lsn} completed with 100% accuracy!\n` +
+        `• Map Milestone ${lsn} completed\n` +
+        `• Unlocked Milestone ${nextLessonNo}\n` +
+        `• Re-rendered 3D isometric path`,
+        'background: #22c55e; color: #000000; font-weight: bold; font-size: 13px; padding: 6px 10px; border: 2px solid #000000; border-radius: 4px;'
+    );
+
+    return {
+        success: true,
+        lessonCompleted: lsn,
+        nextLesson: nextLessonNo,
+        accuracy: '100%'
+    };
+}
+
+async function devCompleteAllLessons() {
+    console.log('%c[DEV TOOLS] Completing ALL 9 lessons with 100% accuracy on Journey Map...', 'color: #3b82f6; font-weight: bold;');
+    for (let l = 1; l <= 9; l++) {
+        await devCompleteLesson(l);
+    }
+    console.log(
+        '%c[DEV TOOLS] ALL 9 LESSONS COMPLETED WITH 100% ACCURACY!',
+        'background: #22c55e; color: #000000; font-weight: bold; font-size: 14px; padding: 8px 12px; border: 2px solid #000000;'
+    );
+    return { success: true, allLessonsCompleted: 9, accuracy: '100%' };
+}
+
+window.devCompleteLesson = devCompleteLesson;
+window.devCompleteAllLessons = devCompleteAllLessons;
+window.completeLesson = devCompleteLesson;
+window.completeAllLessons = devCompleteAllLessons;
+window.learnerDev = {
+    completeLesson: devCompleteLesson,
+    completeCurrentLesson: () => devCompleteLesson(),
+    completeAllLessons: devCompleteAllLessons
+};
+
+// Keyboard shortcut: Ctrl + Shift + L to auto-complete current lesson on map
+window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'l') || (e.altKey && e.shiftKey && e.key.toLowerCase() === 'c')) {
+        e.preventDefault();
+        console.log('[DEV TOOLS] Shortcut triggered: Completing current map milestone...');
+        devCompleteLesson();
+    }
+});

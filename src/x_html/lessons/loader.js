@@ -1987,3 +1987,231 @@ function setupMultiQuestionQuiz(data) {
   // Initial question render
   renderQuestion(currentQuestionIdx);
 }
+
+// ============================================================
+// DEVELOPER TOOLS: 100% ACCURACY LESSON COMPLETION SUITE
+// ============================================================
+
+/**
+ * Completes the current (or target) lesson with full 100% accuracy.
+ * Marks all subtopics completed, answers all quizzes correctly with zero mistakes,
+ * unlocks the next lesson, updates profile progress, and refreshes the live UI.
+ *
+ * Usage in Browser / DevTools Console:
+ *   devCompleteLesson()         // Completes active lesson
+ *   devCompleteLesson(4)        // Completes Lesson 4
+ *   completeLesson()            // Shorthand alias
+ *   learnerDev.completeLesson() // Structured namespace
+ *   Shortcut: Ctrl + Shift + L
+ *
+ * @param {number} [targetLsn] - Specific lesson number to complete.
+ * @returns {Promise<Object>} Completion status object.
+ */
+export async function devCompleteLesson(targetLsn) {
+  const { spcl: querySpcl, lsn: queryLsn } = getQueryParams();
+  const spcl = String(querySpcl || 1);
+  const lsn = Number(targetLsn || queryLsn || (currentProgress && currentProgress.lesson_no) || 1);
+  const lessonIdx = Math.max(0, lsn - 1);
+  const baseSequence = sylPy[lessonIdx] || sylPy[0] || [1];
+  const subCount = baseSequence.length;
+
+  console.log(`%c[DEV TOOLS] Completing Lesson ${lsn} with 100% accuracy across all ${subCount} subtopics...`, 'color: #3b82f6; font-weight: bold;');
+
+  // 1. Clear any recorded mistakes for this lesson
+  if (currentProgress.lesson_mistakes) {
+    delete currentProgress.lesson_mistakes[`${spcl}_${lsn}`];
+  }
+  await safeInvoke('clear_lesson_mistakes', {
+    userKey: null,
+    spcl: String(spcl),
+    lsn: Number(lsn)
+  });
+
+  // 2. Iterate through all subtopics and mark completed + generate 100% quiz answers
+  for (let sub = 1; sub <= subCount; sub++) {
+    const key = `${spcl}_${lsn}_${sub}`;
+
+    // Mark subtopic completed
+    if (!currentProgress.completed_subtopics) currentProgress.completed_subtopics = [];
+    if (!currentProgress.completed_subtopics.includes(key)) {
+      currentProgress.completed_subtopics.push(key);
+    }
+    await safeInvoke('record_subtopic_progress', {
+      userKey: null,
+      spcl: String(spcl),
+      lsn: Number(lsn),
+      sub: Number(sub),
+      completed: true,
+      maxSub: subCount
+    });
+
+    // Try to load lesson data for this subtopic to populate 100% correct quiz states
+    try {
+      const data = await fetchLessonData(spcl, lsn, sub);
+      if (data && (data.questions || data.question || data.type === 2)) {
+        const questions = Array.isArray(data.questions) ? data.questions : (data.question ? [data] : []);
+        const answers = {};
+        questions.forEach((q, i) => {
+          const normOpts = (q.options && Array.isArray(q.options))
+            ? q.options.map((opt, optIdx) => {
+                if (typeof opt === 'string') {
+                  const isCorrect = (q.correct_answer ? opt === q.correct_answer : optIdx === 0);
+                  return { text: opt, correct: isCorrect };
+                } else if (opt && typeof opt === 'object') {
+                  return { text: opt.text || opt.label || String(opt), correct: opt.correct === true };
+                }
+                return { text: String(opt), correct: false };
+              })
+            : [];
+          const correctOpt = normOpts.find(o => o.correct) || normOpts[0];
+          answers[i] = {
+            questionIdx: i,
+            shuffledOptions: normOpts,
+            selectedOptionText: correctOpt ? correctOpt.text : '',
+            isCorrect: true,
+            explCorrect: (q.explanation_correct || 'Verified 100% correct principle.').replace(/<strong[^>]*>.*?<\/strong>\s*(<br\s*\/?>)?/gi, '').trim(),
+            explIncorrect: (q.explanation_incorrect || '').replace(/<strong[^>]*>.*?<\/strong>\s*(<br\s*\/?>)?/gi, '').trim()
+          };
+        });
+        const qState = {
+          completed: true,
+          currentQuestionIdx: 0,
+          answers: answers
+        };
+        saveQuizState(spcl, lsn, sub, qState);
+      }
+    } catch (e) {
+      console.warn(`[DEV TOOLS] Subtopic ${key} state generation notice:`, e);
+    }
+  }
+
+  // 3. Set max visited sub to the end of the lesson
+  setMaxVisitedSub(spcl, lsn, subCount);
+
+  // 4. Advance user progress to next lesson
+  const currentLsnNo = Number(currentProgress.lesson_no) || 1;
+  const nextLessonNo = Math.max(currentLsnNo, lsn + 1);
+  currentProgress.lesson_no = nextLessonNo;
+  currentProgress.sub_no = 1;
+  await safeInvoke('set_user_value', {
+    userKey: null,
+    lessonNo: nextLessonNo,
+    subNo: 1,
+    specNo: Number(spcl) || 1
+  });
+  persistLocalFallback();
+
+  // 5. Update live DOM elements if currently on this lesson's page
+  const currentUrlParams = getQueryParams();
+  if (Number(currentUrlParams.lsn) === lsn) {
+    // Unblock Next Button
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) {
+      nextBtn.disabled = false;
+      nextBtn.style.background = 'var(--neo-green)';
+      nextBtn.style.color = 'var(--neo-black)';
+      nextBtn.style.opacity = '1';
+      nextBtn.style.cursor = 'pointer';
+      nextBtn.textContent = (Number(currentUrlParams.sub) >= subCount) ? 'Finish Lesson →' : 'Next Page →';
+      if (Number(currentUrlParams.sub) >= subCount) {
+        nextBtn.onclick = () => { window.location.href = '../journey.html'; };
+      }
+    }
+
+    // Green question dots
+    const dots = document.querySelectorAll('.question-dot');
+    dots.forEach(dot => {
+      dot.classList.remove('incorrect', 'active');
+      dot.classList.add('correct');
+    });
+
+    // Feedback box with success confirmation
+    const feedbackBox = document.getElementById('quiz-feedback');
+    if (feedbackBox) {
+      feedbackBox.className = 'quiz-feedback correct active';
+      feedbackBox.style.display = 'block';
+      feedbackBox.innerHTML = `
+        <div style="padding: 12px; background: #86efac; border: 2px solid #111111; border-radius: 4px; font-weight: 800; color: #111111;">
+          [DEV TOOLS] Lesson ${lsn} completed with 100% accuracy! Zero mistakes recorded. Click Next Page / Finish to proceed.
+        </div>
+      `;
+    }
+
+    // Highlight correct option buttons
+    const optButtons = document.querySelectorAll('.mcq-option-btn');
+    optButtons.forEach(btn => {
+      btn.classList.add('correct');
+      btn.style.background = '#86efac';
+      btn.style.borderColor = '#111111';
+    });
+
+    // Code task output unlock
+    const termOut = document.getElementById('output');
+    if (termOut) {
+      termOut.innerHTML = '<span style="color: #22c55e; font-weight: bold;">[DEV TOOLS] Code validation passed with 100% test accuracy!</span>';
+    }
+  }
+
+  // Update Header Progress Bar
+  const headerProgressBar = document.getElementById('header-progress-bar');
+  const headerProgressLabel = document.getElementById('header-progress-label');
+  if (headerProgressBar) headerProgressBar.style.width = '100%';
+  if (headerProgressLabel) headerProgressLabel.textContent = 'Progress 100%';
+
+  // Update Sidebar Navigation with checkmarks
+  initSidebarNavigation(1);
+
+  console.log(
+    `%c[DEV TOOLS] SUCCESS: Lesson ${lsn} completed with full 100% accuracy!\n` +
+    `• Subtopics: ${subCount}/${subCount} completed\n` +
+    `• Accuracy: 100% (Zero mistakes)\n` +
+    `• Next Unlocked Lesson: Lesson ${nextLessonNo}`,
+    'background: #22c55e; color: #000000; font-weight: bold; font-size: 13px; padding: 6px 10px; border: 2px solid #000000; border-radius: 4px;'
+  );
+
+  return {
+    success: true,
+    lessonCompleted: lsn,
+    subtopicsCompleted: subCount,
+    nextLesson: nextLessonNo,
+    accuracy: '100%'
+  };
+}
+
+/**
+ * Completes ALL 9 lessons with 100% accuracy.
+ * @returns {Promise<Object>}
+ */
+export async function devCompleteAllLessons() {
+  console.log('%c[DEV TOOLS] Completing ALL 9 lessons with 100% accuracy...', 'color: #3b82f6; font-weight: bold;');
+  for (let l = 1; l <= 9; l++) {
+    await devCompleteLesson(l);
+  }
+  console.log(
+    '%c[DEV TOOLS] ALL 9 LESSONS COMPLETED WITH 100% ACCURACY!',
+    'background: #22c55e; color: #000000; font-weight: bold; font-size: 14px; padding: 8px 12px; border: 2px solid #000000;'
+  );
+  return { success: true, allLessonsCompleted: 9, accuracy: '100%' };
+}
+
+// Attach globally for DevTools Console and shortcut access
+if (typeof window !== 'undefined') {
+  window.devCompleteLesson = devCompleteLesson;
+  window.devCompleteAllLessons = devCompleteAllLessons;
+  window.completeLesson = devCompleteLesson;
+  window.completeAllLessons = devCompleteAllLessons;
+  window.learnerDev = {
+    completeLesson: devCompleteLesson,
+    completeCurrentLesson: () => devCompleteLesson(),
+    completeAllLessons: devCompleteAllLessons
+  };
+
+  // Keyboard shortcut: Ctrl + Shift + L to auto-complete current lesson
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'l') || (e.altKey && e.shiftKey && e.key.toLowerCase() === 'c')) {
+      e.preventDefault();
+      console.log('[DEV TOOLS] Shortcut triggered: Completing current lesson...');
+      devCompleteLesson();
+    }
+  });
+}
