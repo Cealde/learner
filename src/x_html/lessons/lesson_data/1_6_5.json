@@ -1,8 +1,42 @@
 {
-  "title": "for Loop Variations (4 Stages)",
-  "topic": "5.1 • CODING EXERCISE",
-  "description": "Practice writing <code>for</code> loops across 4 distinct stages:<br/>1. Use <code>range(3)</code> to print numbers <code>0</code>, <code>1</code>, <code>2</code>.<br/>2. Use <code>range(1, 4)</code> to print numbers <code>1</code>, <code>2</code>, <code>3</code>.<br/>3. Use <code>range(10, 40, 10)</code> to print <code>10</code>, <code>20</code>, <code>30</code>.<br/>4. Loop over <code>[\"A\", \"B\"]</code> and print each letter.",
-  "intended_output": "0\n1\n2\n1\n2\n3\n10\n20\n30\nA\nB",
-  "ai_check": "for_loop_four_stages",
-  "starter_code": "# Stage 1: range(3)\n\n\n# Stage 2: range(1, 4)\n\n\n# Stage 3: range(10, 40, 10)\n\n\n# Stage 4: for item in [\"A\", \"B\"]\n\n"
+  "title": "Interactive Coding: for Loop Variations",
+  "subtitle": "Repeating Fixed Sequences",
+  "topic": "5.1 • FOR LOOP VARIATIONS CODE",
+  "description": "Master loop counters and list iteration across 4 interactive stages!",
+  "intended_output": "0\n1\n2\n3",
+  "starter_code": "# Stage 1: Loop with range(4)\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Zero to Stop",
+      "description": "Write <hlt>for i in range(4):</hlt> and print <hlt>i</hlt> to output 0, 1, 2, 3.",
+      "starter_code": "# Stage 1: range(4)\nfor i in range(4):\n    print(i)\n",
+      "intended_output": "0\n1\n2\n3",
+      "ai_check": "for_loop_four_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Start to Stop Range",
+      "description": "Write <hlt>for i in range(1, 5):</hlt> and print <hlt>i</hlt> to output 1, 2, 3, 4.",
+      "starter_code": "# Stage 2: range(1, 5)\nfor i in range(1, 5):\n    print(i)\n",
+      "intended_output": "1\n2\n3\n4",
+      "ai_check": "for_loop_four_stages"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Stepped Even Numbers",
+      "description": "Write <hlt>for i in range(2, 9, 2):</hlt> to output 2, 4, 6, 8.",
+      "starter_code": "# Stage 3: range(2, 9, 2)\nfor i in range(2, 9, 2):\n    print(i)\n",
+      "intended_output": "2\n4\n6\n8",
+      "ai_check": "for_loop_four_stages"
+    },
+    {
+      "stage": 4,
+      "title": "Stage 4: Direct Collection Traversal",
+      "description": "Given <hlt>fruits = [\"apple\", \"banana\", \"cherry\"]</hlt>, iterate with <hlt>for fruit in fruits:</hlt> and print each.",
+      "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 4: Traverse list directly\nfor fruit in fruits:\n    print(fruit)\n",
+      "intended_output": "apple\nbanana\ncherry",
+      "ai_check": "for_loop_four_stages"
+    }
+  ]
 }

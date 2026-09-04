@@ -1,10 +1,26 @@
 {
   "title": "Capstone 2: Banking Ledger Balance Validator",
-  "topic": "9.2 • CAPSTONE ALGORITHM 2",
-  "description": "<strong>Real-World Algorithm: Banking Transaction Ledger Engine</strong><br/>Core banking engines audit debits and credits sequentially, updating balances and rejecting overdraft transactions.<br/><br/><strong>The Challenge:</strong><br/>The account balance and transaction log below are locked. In the editable section, loop over <code>transactions</code>: add positive deposits and deduct negative withdrawals from <code>balance</code>.",
-  "locked_prefix": "# --- BANKING LEDGER (LOCKED) ---\nbalance = 500\ntransactions = [150, -50, 200, -100, -75]\n\n# --- WRITE YOUR TRANSACTION AUDITOR BELOW ---\n",
-  "locked_suffix": "\n# --- RECONCILED BALANCE (LOCKED) ---\nprint(balance)\n",
-  "starter_code": "# --- BANKING LEDGER (LOCKED) ---\nbalance = 500\ntransactions = [150, -50, 200, -100, -75]\n\n# --- WRITE YOUR TRANSACTION AUDITOR BELOW ---\n\n\n# --- RECONCILED BALANCE (LOCKED) ---\nprint(balance)\n",
-  "intended_output": "625",
-  "ai_check": "capstone_banking_ledger"
+  "subtitle": "Financial Transaction Processing",
+  "topic": "9.2 • CAPSTONE 2: BANKING LEDGER",
+  "description": "Process account deposits and withdrawals across 2 interactive stages!",
+  "intended_output": "1350.0",
+  "starter_code": "initial_balance = 1000.0\ntransactions = [200.0, -50.0, 300.0, -100.0]\n# Stage 1: Compute final balance\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Ledger Balance Reconciliation",
+      "description": "Loop through <hlt>transactions</hlt>, add each to <hlt>balance</hlt>, and print the final reconciled balance.",
+      "starter_code": "initial_balance = 1000.0\ntransactions = [200.0, -50.0, 300.0, -100.0]\nbalance = initial_balance\n# Stage 1: Transaction reconciliation\nfor tx in transactions:\n    balance = balance + tx\nprint(balance)\n",
+      "intended_output": "1350.0",
+      "ai_check": "capstone_banking_ledger"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Overdraft Safety Check",
+      "description": "If <hlt>balance >= 0.0:</hlt> print <hlt>\"Account In Good Standing\"</hlt> else print <hlt>\"Overdraft Warning\"</hlt>.",
+      "starter_code": "balance = 1350.0\n# Stage 2: Solvency verification\nif balance >= 0.0:\n    print(\"Account In Good Standing\")\nelse:\n    print(\"Overdraft Warning\")\n",
+      "intended_output": "Account In Good Standing",
+      "ai_check": "capstone_banking_ledger"
+    }
+  ]
 }

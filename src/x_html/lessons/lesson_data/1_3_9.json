@@ -1,8 +1,26 @@
 {
-  "title": "Updating Variable Values",
-  "topic": "2.3 • CODING EXERCISE",
-  "description": "Practice reassigning a variable! In the code editor below:<br/>1. Create a variable <code>score = 0</code><br/>2. Print <code>score</code><br/>3. Reassign <code>score = 50</code><br/>4. Print <code>score</code> again.",
-  "intended_output": "0\n50",
-  "ai_check": "score_reassign_0_50",
-  "starter_code": "# 1. Create variable 'score' with value 0, and print it\n# 2. Update 'score' to 50, and print it again:\n\n"
+  "title": "Interactive Coding: Updating Variables",
+  "subtitle": "Reassigning Memory Boxes",
+  "topic": "2.3 • UPDATING VARIABLES CODE",
+  "description": "Practice reassigning values to variables across 2 interactive stages!",
+  "intended_output": "0",
+  "starter_code": "# Stage 1: Initialize score = 0 and print it\n# Write your code below:\n\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Initial Variable Value",
+      "description": "Create <hlt>score = 0</hlt> and output it with <hlt>print(score)</hlt>.",
+      "starter_code": "# Stage 1: Initialize score = 0 and print(score)\n# Write your code below:\n\n",
+      "intended_output": "0",
+      "ai_check": "score_reassign_0_50"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Reassign Variable Value",
+      "description": "Update the existing variable to 50: <hlt>score = 50</hlt>, then output the updated value with <hlt>print(score)</hlt>.",
+      "starter_code": "# Stage 2: Update score = 50 and print(score)\n# Write your code below:\n\n",
+      "intended_output": "50",
+      "ai_check": "score_reassign_0_50"
+    }
+  ]
 }

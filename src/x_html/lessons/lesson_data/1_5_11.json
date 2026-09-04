@@ -1,8 +1,26 @@
 {
-  "title": "Pass / Fail Evaluation (2 Stages)",
-  "topic": "4.2 • CODING EXERCISE",
-  "description": "Practice writing <code>if / else</code> statements across 2 stages:<br/>1. Create variable <code>score1 = 82</code>. If <code>score1 >= 60</code>, print <code>\"Student 1: Passed\"</code>, else print <code>\"Student 1: Failed\"</code>.<br/>2. Create variable <code>score2 = 45</code>. If <code>score2 >= 60</code>, print <code>\"Student 2: Passed\"</code>, else print <code>\"Student 2: Failed\"</code>.",
-  "intended_output": "Student 1: Passed\nStudent 2: Failed",
-  "ai_check": "if_else_two_stages",
-  "starter_code": "# Stage 1: Evaluate score1 (82) with if/else\nscore1 = 82\n\n\n# Stage 2: Evaluate score2 (45) with if/else\nscore2 = 45\n\n"
+  "title": "Interactive Coding: The if / else Statement",
+  "subtitle": "Two Distinct Paths of Execution",
+  "topic": "4.2 • PASS / FAIL CODE",
+  "description": "Implement two-branch logic across 2 interactive stages!",
+  "intended_output": "Pass",
+  "starter_code": "score = 85\n# Stage 1: If score >= 50 print \"Pass\" else print \"Fail\"\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Exam Result Branching",
+      "description": "Given <hlt>score = 85</hlt>, check if <hlt>score >= 50</hlt> to print <hlt>\"Pass\"</hlt>, else print <hlt>\"Fail\"</hlt>.",
+      "starter_code": "score = 85\n# Stage 1: if / else pass or fail\nif score >= 50:\n    print(\"Pass\")\nelse:\n    print(\"Fail\")\n",
+      "intended_output": "Pass",
+      "ai_check": "if_else_two_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Device Battery Monitor",
+      "description": "Given <hlt>battery = 15</hlt>, if <hlt>battery < 20</hlt> print <hlt>\"Low battery\"</hlt>, else print <hlt>\"Battery OK\"</hlt>.",
+      "starter_code": "battery = 15\n# Stage 2: if / else battery check\nif battery < 20:\n    print(\"Low battery\")\nelse:\n    print(\"Battery OK\")\n",
+      "intended_output": "Low battery",
+      "ai_check": "if_else_two_stages"
+    }
+  ]
 }

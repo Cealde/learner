@@ -1,8 +1,26 @@
 {
-  "title": "String Concatenation Practice",
-  "topic": "3.2 • CODING EXERCISE",
-  "description": "Practice joining strings together!<br/>1. Create variable <code>first_name = \"Alan\"</code><br/>2. Create variable <code>last_name = \"Turing\"</code><br/>3. Create variable <code>full_name = first_name + \" \" + last_name</code><br/>4. Print <code>full_name</code>.",
+  "title": "Interactive Coding: String Concatenation",
+  "subtitle": "Combining Words with Operator +",
+  "topic": "3.2 • STRING CONCATENATION CODE",
+  "description": "Practice joining strings across 2 interactive stages!",
   "intended_output": "Alan Turing",
-  "ai_check": "string_concat_greeting",
-  "starter_code": "# 1. Create first_name = \"Alan\"\n# 2. Create last_name = \"Turing\"\n# 3. Combine with a space into full_name and print it:\n\n"
+  "starter_code": "first_name = \"Alan\"\nlast_name = \"Turing\"\n# Stage 1: Combine with a space\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Full Name Construction",
+      "description": "Join <hlt>first_name</hlt> and <hlt>last_name</hlt> with a space: <hlt>full_name = first_name + \" \" + last_name</hlt> and print.",
+      "starter_code": "first_name = \"Alan\"\nlast_name = \"Turing\"\n# Stage 1: full_name = first_name + \" \" + last_name\nfull_name = first_name + \" \" + last_name\nprint(full_name)\n",
+      "intended_output": "Alan Turing",
+      "ai_check": "string_concat_greeting"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Dynamic Welcome Message",
+      "description": "Create greeting <hlt>greeting = \"Hello, \" + full_name + \"!\"</hlt> and print it.",
+      "starter_code": "first_name = \"Alan\"\nlast_name = \"Turing\"\nfull_name = first_name + \" \" + last_name\n# Stage 2: Create greeting\ngreeting = \"Hello, \" + full_name + \"!\"\nprint(greeting)\n",
+      "intended_output": "Hello, Alan Turing!",
+      "ai_check": "string_concat_greeting"
+    }
+  ]
 }

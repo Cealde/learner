@@ -1,8 +1,34 @@
 {
-  "title": "Custom Function Creator (3 Stages)",
-  "topic": "6.1 • CODING EXERCISE",
-  "description": "Build custom functions across 3 stages:<br/>1. Define a function <code>say_hello()</code> that prints <code>\"Hello, Learner!\"</code>. Call <code>say_hello()</code>.<br/>2. Define a function <code>double_val(n)</code> that returns <code>n * 2</code>. Call and print <code>double_val(5)</code>.<br/>3. Define a function <code>calc_total(price, tax=5)</code> that returns <code>price + tax</code>. Call and print <code>calc_total(100)</code> with default tax.",
-  "intended_output": "Hello, Learner!\n10\n105",
-  "ai_check": "function_three_stages",
-  "starter_code": "# Stage 1: Define say_hello() and call it\n\n\n# Stage 2: Define double_val(n) and print double_val(5)\n\n\n# Stage 3: Define calc_total(price, tax=5) and print calc_total(100)\n\n"
+  "title": "Interactive Coding: Custom Function Creator",
+  "subtitle": "Encapsulating Reusable Logic with def",
+  "topic": "6.1 • CUSTOM FUNCTION CREATOR CODE",
+  "description": "Build modular functions across 3 interactive stages!",
+  "intended_output": "Hello World",
+  "starter_code": "# Stage 1: Define greet() and call it\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Simple Function",
+      "description": "Define <hlt>def greet():</hlt> that prints <hlt>\"Hello World\"</hlt>. Call <hlt>greet()</hlt>.",
+      "starter_code": "# Stage 1: Simple greeting\ndef greet():\n    print(\"Hello World\")\n\ngreet()\n",
+      "intended_output": "Hello World",
+      "ai_check": "function_three_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Function with Parameter",
+      "description": "Define <hlt>def greet_user(name):</hlt> that prints <hlt>\"Hello \" + name</hlt>. Call with <hlt>\"Alice\"</hlt>.",
+      "starter_code": "# Stage 2: Parameterized function\ndef greet_user(name):\n    print(\"Hello \" + name)\n\ngreet_user(\"Alice\")\n",
+      "intended_output": "Hello Alice",
+      "ai_check": "function_three_stages"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Function with Return Value",
+      "description": "Define <hlt>def square(x):</hlt> that returns <hlt>x * x</hlt>. Print <hlt>square(4)</hlt> and <hlt>square(5)</hlt>.",
+      "starter_code": "# Stage 3: Return value\ndef square(x):\n    return x * x\n\nprint(square(4))\nprint(square(5))\n",
+      "intended_output": "16\n25",
+      "ai_check": "function_three_stages"
+    }
+  ]
 }

@@ -1,10 +1,26 @@
 {
   "title": "Capstone 3: Substitution Cipher Encryptor",
-  "topic": "9.2 • CAPSTONE ALGORITHM 3",
-  "description": "<strong>Real-World Algorithm: Substitution Cipher Text Encryptor</strong><br/>Cryptography engines obfuscate sensitive strings by substituting characters based on a key translation map.<br/><br/><strong>The Challenge:</strong><br/>The cipher dictionary <code>cipher_map</code> and <code>raw_text</code> are locked below. In the editable section, iterate through each character in <code>raw_text</code>, look up its replacement in <code>cipher_map.get(ch, ch)</code>, and concatenate into <code>encrypted_text</code>.",
-  "locked_prefix": "# --- CIPHER DICTIONARY (LOCKED) ---\ncipher_map = {\"A\": \"X\", \"B\": \"Y\", \"C\": \"Z\"}\nraw_text = \"ABC\"\nencrypted_text = \"\"\n\n# --- WRITE YOUR ENCRYPTION LOOP BELOW ---\n",
-  "locked_suffix": "\n# --- ENCRYPTED OUTPUT (LOCKED) ---\nprint(encrypted_text)\n",
-  "starter_code": "# --- CIPHER DICTIONARY (LOCKED) ---\ncipher_map = {\"A\": \"X\", \"B\": \"Y\", \"C\": \"Z\"}\nraw_text = \"ABC\"\nencrypted_text = \"\"\n\n# --- WRITE YOUR ENCRYPTION LOOP BELOW ---\n\n\n# --- ENCRYPTED OUTPUT (LOCKED) ---\nprint(encrypted_text)\n",
-  "intended_output": "XYZ",
-  "ai_check": "capstone_cipher_encryptor"
+  "subtitle": "Cryptography & String Transformation",
+  "topic": "9.2 • CAPSTONE 3: CIPHER ENCRYPTOR",
+  "description": "Build secret cipher encoders across 2 interactive stages!",
+  "intended_output": "KHOOR",
+  "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\nmessage = \"HELLO\"\n# Stage 1: Encrypt characters with substitution map\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Word Substitution",
+      "description": "Encrypt message <hlt>\"HELLO\"</hlt> character by character using <hlt>cipher_map</hlt>. Print the encrypted string.",
+      "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\nmessage = \"HELLO\"\nencrypted = \"\"\n# Stage 1: Character substitution\nfor ch in message:\n    encrypted = encrypted + cipher_map.get(ch, ch)\nprint(encrypted)\n",
+      "intended_output": "KHOOR",
+      "ai_check": "capstone_cipher_encryptor"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Reusable Encryptor Function",
+      "description": "Define <hlt>def encrypt_text(txt):</hlt> returning the substituted ciphertext. Print <hlt>encrypt_text(\"HELLO\")</hlt>.",
+      "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\ndef encrypt_text(txt):\n    res = \"\"\n    for ch in txt:\n        res = res + cipher_map.get(ch, ch)\n    return res\n\n# Stage 2: Reusable cipher function\nprint(encrypt_text(\"HELLO\"))\n",
+      "intended_output": "KHOOR",
+      "ai_check": "capstone_cipher_encryptor"
+    }
+  ]
 }

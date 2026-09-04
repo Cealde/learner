@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Linear Scan Maximum Finder",
-  "topic": "7.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Linear Scan Peak Finder</strong><br/>Data analytics engines find highest temperatures, stock peaks, and leaderboard highs by scanning through unorganized lists.<br/><br/><strong>The Challenge:</strong><br/>The dataset below is locked. In the editable section, write a <code>for</code> loop that scans <code>scores</code>: for each <code>num</code>, if <code>num &gt; max_val</code>, update <code>max_val = num</code>.",
-  "locked_prefix": "# --- TELEMETRY READINGS (LOCKED) ---\nscores = [42, 88, 19, 95, 73]\nmax_val = scores[0]\n\n# --- WRITE YOUR PEAK SCANNER LOOP BELOW ---\n",
-  "locked_suffix": "\n# --- MAX VALUE VERIFICATION (LOCKED) ---\nprint(max_val)\n",
-  "starter_code": "# --- TELEMETRY READINGS (LOCKED) ---\nscores = [42, 88, 19, 95, 73]\nmax_val = scores[0]\n\n# --- WRITE YOUR PEAK SCANNER LOOP BELOW ---\n\n\n# --- MAX VALUE VERIFICATION (LOCKED) ---\nprint(max_val)\n",
+  "subtitle": "Finding Extremes Without Built-ins",
+  "topic": "7.1 • ALGORITHM: FIND MAX",
+  "description": "Find highest value in an array across 2 interactive stages!",
   "intended_output": "95",
-  "ai_check": "find_max_algorithm"
+  "starter_code": "scores = [45, 88, 72, 95, 60]\n# Stage 1: Scan and find maximum\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Find Maximum Score",
+      "description": "Initialize <hlt>max_val = scores[0]</hlt>. Loop through <hlt>scores</hlt>, if <hlt>s > max_val:</hlt> update <hlt>max_val = s</hlt>. Print <hlt>max_val</hlt>.",
+      "starter_code": "scores = [45, 88, 72, 95, 60]\nmax_val = scores[0]\n# Stage 1: Linear scan max\nfor s in scores:\n    if s > max_val:\n        max_val = s\nprint(max_val)\n",
+      "intended_output": "95",
+      "ai_check": "find_max_algorithm"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Find Minimum Score",
+      "description": "Initialize <hlt>min_val = scores[0]</hlt>. Loop to find the minimum value. Print <hlt>min_val</hlt>.",
+      "starter_code": "scores = [45, 88, 72, 95, 60]\nmin_val = scores[0]\n# Stage 2: Linear scan min\nfor s in scores:\n    if s < min_val:\n        min_val = s\nprint(min_val)\n",
+      "intended_output": "45",
+      "ai_check": "find_max_algorithm"
+    }
+  ]
 }

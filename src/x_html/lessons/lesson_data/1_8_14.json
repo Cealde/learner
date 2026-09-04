@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Security Role Permissions Lookup",
-  "topic": "7.2 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Access Control List (ACL) Permissions Table</strong><br/>Enterprise systems map user roles to security permission tiers using lookup tables.<br/><br/><strong>The Challenge:</strong><br/>The ACL lookup table and target role below are locked. In the editable section, look up the permission tier for <code>target_role</code> from <code>permissions</code> using <code>.get(target_role, \"guest\")</code> and assign to <code>access_tier</code>.",
-  "locked_prefix": "# --- PERMISSIONS ACL TABLE (LOCKED) ---\npermissions = {\n    \"admin\": \"full_access\",\n    \"editor\": \"write_access\",\n    \"viewer\": \"read_only\"\n}\ntarget_role = \"admin\"\n\n# --- WRITE YOUR LOOKUP EXPRESSION BELOW ---\n",
-  "locked_suffix": "\n# --- ACCESS TIER VERIFICATION (LOCKED) ---\nprint(access_tier)\n",
-  "starter_code": "# --- PERMISSIONS ACL TABLE (LOCKED) ---\npermissions = {\n    \"admin\": \"full_access\",\n    \"editor\": \"write_access\",\n    \"viewer\": \"read_only\"\n}\ntarget_role = \"admin\"\n\n# --- WRITE YOUR LOOKUP EXPRESSION BELOW ---\naccess_tier = \n\n# --- ACCESS TIER VERIFICATION (LOCKED) ---\nprint(access_tier)\n",
-  "intended_output": "full_access",
-  "ai_check": "role_permission_algorithm"
+  "subtitle": "Access Control List (ACL) Engine",
+  "topic": "7.2 • ALGORITHM: ROLE ACL",
+  "description": "Evaluate security authorization across 2 interactive stages!",
+  "intended_output": "ALL_ACCESS\nDENIED",
+  "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 1: Verify admin and guest\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Role Access Query",
+      "description": "Look up permissions for <hlt>\"admin\"</hlt> and fallback for <hlt>\"guest\"</hlt> using <hlt>acl.get()</hlt>.",
+      "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 1: Query permissions\nprint(acl.get(\"admin\", \"DENIED\"))\nprint(acl.get(\"guest\", \"DENIED\"))\n",
+      "intended_output": "ALL_ACCESS\nDENIED",
+      "ai_check": "role_permission_algorithm"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Dynamic Role Promotion",
+      "description": "Add new role <hlt>acl[\"moderator\"] = \"REVIEW\"</hlt> and print <hlt>acl[\"moderator\"]</hlt>.",
+      "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 2: Role registration\nacl[\"moderator\"] = \"REVIEW\"\nprint(acl[\"moderator\"])\n",
+      "intended_output": "REVIEW",
+      "ai_check": "role_permission_algorithm"
+    }
+  ]
 }

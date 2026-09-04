@@ -1,8 +1,26 @@
 {
-  "title": "Creating & Printing Variables",
-  "topic": "2.1 • CODING EXERCISE",
-  "description": "Let's create your first variables! In the editor below, create a variable named <code>name</code> with value <code>\"Alice\"</code> and a variable named <code>age</code> with value <code>25</code>. Then print <code>name</code> on the first line and <code>age</code> on the second line.",
-  "intended_output": "Alice\n25",
-  "ai_check": "create_name_age_vars",
-  "starter_code": "# 1. Create variable 'name' with value \"Alice\"\n# 2. Create variable 'age' with value 25\n# 3. Print both variables (without quotes around variable names):\n\n"
+  "title": "Interactive Coding: Creating Variables",
+  "subtitle": "Storing Data in Memory",
+  "topic": "2.1 • CREATING VARIABLES CODE",
+  "description": "Master creating variables by completing the 2 interactive stages below!",
+  "intended_output": "Alice",
+  "starter_code": "# Stage 1: Create variable name = \"Alice\" and print it\n# Write your code below:\n\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Create a Name Variable",
+      "description": "Create a variable named <hlt>name</hlt> with the text value <hlt>\"Alice\"</hlt>, then output its value using <hlt>print(name)</hlt>.",
+      "starter_code": "# Stage 1: Create name = \"Alice\" and print(name)\n# Write your code below:\n\n",
+      "intended_output": "Alice",
+      "ai_check": "create_name_age_vars"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Create an Age Variable",
+      "description": "Create a variable named <hlt>age</hlt> with the number value <hlt>25</hlt>, then output its value using <hlt>print(age)</hlt> without quotation marks around the variable!",
+      "starter_code": "# Stage 2: Create age = 25 and print(age)\n# Write your code below:\n\n",
+      "intended_output": "25",
+      "ai_check": "create_name_age_vars"
+    }
+  ]
 }

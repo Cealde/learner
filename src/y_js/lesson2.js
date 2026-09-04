@@ -495,13 +495,24 @@ function renderChallengeStepper() {
     const bg = isCurrent ? '#fef08a' : (isDone ? '#86efac' : '#e5e7eb');
     const color = '#111111';
     const border = '2px solid #111111';
-    const icon = isDone ? '[Done] ' : (isCurrent ? '[Active] ' : '');
+    const icon = isDone ? '[DONE] ' : (isCurrent ? '[ACTIVE] ' : '');
+    const cursor = (isDone || isCurrent) ? 'pointer' : 'default';
     return `
-      <div style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 3px 10px; font-weight: 800; font-size: 11px; text-transform: uppercase; border-radius: 3px;">
-        ${icon}Stage ${i + 1}
-      </div>
+      <button type="button" class="stage-pill-btn" data-stage-idx="${i}" style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 4px 10px; font-weight: 900; font-size: 11px; text-transform: uppercase; border-radius: 4px; cursor: ${cursor}; font-family: inherit;">
+        ${icon}STAGE ${i + 1}
+      </button>
     `;
   }).join('');
+
+  stepperEl.querySelectorAll('.stage-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-stage-idx'), 10);
+      if (!isNaN(idx) && idx < activeChallenges.length && idx !== currentChallengeIdx) {
+        currentChallengeIdx = idx;
+        updateChallengeUI();
+      }
+    });
+  });
 }
 
 async function verifyOutput(actualOutput) {

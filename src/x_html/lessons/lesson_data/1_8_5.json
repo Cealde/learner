@@ -1,8 +1,42 @@
 {
-  "title": "List Operations (4 Stages)",
-  "topic": "7.1 • CODING EXERCISE",
-  "description": "Practice working with lists across 4 stages:<br/>1. Create list <code>items = [\"pen\", \"book\"]</code> and print <code>items[0]</code>.<br/>2. Append <code>\"pencil\"</code> to <code>items</code> and print <code>len(items)</code>.<br/>3. Pop the last item from <code>items</code> with <code>items.pop()</code> and print <code>items</code>.<br/>4. Print the last item using negative index <code>items[-1]</code>.",
-  "intended_output": "pen\n3\n['pen', 'book']\nbook",
-  "ai_check": "list_four_stages",
-  "starter_code": "# Stage 1: Create items = [\"pen\", \"book\"] and print first item\n\n\n# Stage 2: Append \"pencil\" and print len(items)\n\n\n# Stage 3: items.pop() and print items\n\n\n# Stage 4: Print items[-1]\n\n"
+  "title": "Interactive Coding: List Operations",
+  "subtitle": "Indexing, Append, Pop, Slicing",
+  "topic": "7.1 • LIST OPERATIONS CODE",
+  "description": "Master ordered list manipulations across 4 interactive stages!",
+  "intended_output": "apple\ncherry",
+  "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 1: Print first and last items\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Index Lookups",
+      "description": "Print first item <hlt>fruits[0]</hlt> and last item <hlt>fruits[2]</hlt>.",
+      "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 1: Indexing\nprint(fruits[0])\nprint(fruits[2])\n",
+      "intended_output": "apple\ncherry",
+      "ai_check": "list_four_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Append Element",
+      "description": "Add date using <hlt>fruits.append(\"date\")</hlt> and print the list.",
+      "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfruits.append(\"date\")\n# Stage 2: Append\nprint(fruits)\n",
+      "intended_output": "['apple', 'banana', 'cherry', 'date']",
+      "ai_check": "list_four_stages"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Pop Element by Index",
+      "description": "Remove banana with <hlt>removed = fruits.pop(1)</hlt>. Print <hlt>removed</hlt> and updated <hlt>fruits</hlt>.",
+      "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n# Stage 3: Pop index 1\nremoved = fruits.pop(1)\nprint(removed)\nprint(fruits)\n",
+      "intended_output": "banana\n['apple', 'cherry', 'date']",
+      "ai_check": "list_four_stages"
+    },
+    {
+      "stage": 4,
+      "title": "Stage 4: List Slicing",
+      "description": "Given <hlt>numbers = [10, 20, 30, 40, 50]</hlt>, print slice <hlt>numbers[1:4]</hlt>.",
+      "starter_code": "numbers = [10, 20, 30, 40, 50]\n# Stage 4: Slicing index 1 to 3\nprint(numbers[1:4])\n",
+      "intended_output": "[20, 30, 40]",
+      "ai_check": "list_four_stages"
+    }
+  ]
 }

@@ -1,8 +1,34 @@
 {
-  "title": "Dictionary Management (3 Stages)",
-  "topic": "7.2 • CODING EXERCISE",
-  "description": "Practice dictionary operations across 3 stages:<br/>1. Create dictionary <code>user = {\"name\": \"Alex\", \"level\": 5}</code> and print <code>user[\"name\"]</code>.<br/>2. Update <code>user[\"level\"] = 6</code> and print <code>user[\"level\"]</code>.<br/>3. Add <code>user[\"role\"] = \"admin\"</code> and print <code>user.get(\"role\")</code>.",
-  "intended_output": "Alex\n6\nadmin",
-  "ai_check": "dict_three_stages",
-  "starter_code": "# Stage 1: Create user dict and print user[\"name\"]\n\n\n# Stage 2: Update user[\"level\"] = 6 and print it\n\n\n# Stage 3: Add user[\"role\"] = \"admin\" and print user.get(\"role\")\n\n"
+  "title": "Interactive Coding: Dictionary Management",
+  "subtitle": "Key-Value Store Lookups & Updates",
+  "topic": "7.2 • DICTIONARY MANAGEMENT CODE",
+  "description": "Work with key-value mappings across 3 interactive stages!",
+  "intended_output": "Alice",
+  "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 1: Access user[\"name\"]\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Direct Key Lookup",
+      "description": "Access and print the name value: <hlt>print(user[\"name\"])</hlt>.",
+      "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 1: Direct key lookup\nprint(user[\"name\"])\n",
+      "intended_output": "Alice",
+      "ai_check": "dict_three_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Safe Lookup with .get()",
+      "description": "Use <hlt>user.get(\"email\", \"Not Provided\")</hlt> to safely handle missing keys without error. Print result.",
+      "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 2: Safe .get() lookup\nprint(user.get(\"email\", \"Not Provided\"))\n",
+      "intended_output": "Not Provided",
+      "ai_check": "dict_three_stages"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Insert & Update Key",
+      "description": "Set <hlt>user[\"active\"] = True</hlt> and print <hlt>user[\"active\"]</hlt>.",
+      "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 3: Insert new key\nuser[\"active\"] = True\nprint(user[\"active\"])\n",
+      "intended_output": "True",
+      "ai_check": "dict_three_stages"
+    }
+  ]
 }

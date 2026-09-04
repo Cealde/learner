@@ -1472,18 +1472,56 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_5_11": {
-    "title": "Pass / Fail Evaluation (2 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: The if / else Statement",
+    "subtitle": "Two Distinct Paths of Execution",
+    "topic": "4.2 • PASS / FAIL CODE",
+    "description": "Implement two-branch logic across 2 interactive stages!",
+    "intended_output": "Pass",
+    "starter_code": "score = 85\n# Stage 1: If score >= 50 print \"Pass\" else print \"Fail\"\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Exam Result Branching",
+            "description": "Given <hlt>score = 85</hlt>, check if <hlt>score >= 50</hlt> to print <hlt>\"Pass\"</hlt>, else print <hlt>\"Fail\"</hlt>.",
+            "starter_code": "score = 85\n# Stage 1: if / else pass or fail\nif score >= 50:\n    print(\"Pass\")\nelse:\n    print(\"Fail\")\n",
+            "intended_output": "Pass",
+            "ai_check": "if_else_two_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Device Battery Monitor",
+            "description": "Given <hlt>battery = 15</hlt>, if <hlt>battery < 20</hlt> print <hlt>\"Low battery\"</hlt>, else print <hlt>\"Battery OK\"</hlt>.",
+            "starter_code": "battery = 15\n# Stage 2: if / else battery check\nif battery < 20:\n    print(\"Low battery\")\nelse:\n    print(\"Battery OK\")\n",
+            "intended_output": "Low battery",
+            "ai_check": "if_else_two_stages"
+        }
+    ]
 },
   "1_5_12": {
     "title": "Algorithm: E-Commerce Shipping Fee Calculator",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Dynamic Pricing Rules",
+    "topic": "4.2 • ALGORITHM: SHIPPING FEE",
+    "description": "Calculate order logistics costs across 2 interactive stages!",
+    "intended_output": "0",
+    "starter_code": "cart_total = 75.0\n# Stage 1: Free shipping for orders >= 50.0\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Free Shipping Order",
+            "description": "Given <hlt>cart_total = 75.0</hlt>, if <hlt>cart_total >= 50.0</hlt> set <hlt>shipping = 0</hlt> else <hlt>shipping = 10</hlt>. Print <hlt>shipping</hlt>.",
+            "starter_code": "cart_total = 75.0\n# Stage 1: Eligible for Free Shipping\nif cart_total >= 50.0:\n    shipping = 0\nelse:\n    shipping = 10\nprint(shipping)\n",
+            "intended_output": "0",
+            "ai_check": "ecommerce_shipping_calculator"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Standard Shipping Order",
+            "description": "Given <hlt>cart_total = 30.0</hlt>, apply the same rule and print <hlt>shipping</hlt>.",
+            "starter_code": "cart_total = 30.0\n# Stage 2: Below threshold -> Standard shipping\nif cart_total >= 50.0:\n    shipping = 0\nelse:\n    shipping = 10\nprint(shipping)\n",
+            "intended_output": "10",
+            "ai_check": "ecommerce_shipping_calculator"
+        }
+    ]
 },
   "1_5_13": {
     "title": "Conditions Mastery Exam",
@@ -1514,18 +1552,56 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_5_5": {
-    "title": "Conditional Decisions (2 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Conditional Decisions: The if Statement",
+    "subtitle": "Guarding Code with Conditions",
+    "topic": "4.1 • CONDITIONAL DECISIONS CODE",
+    "description": "Practice decision branches across 2 interactive stages!",
+    "intended_output": "Eligible to vote",
+    "starter_code": "age = 20\n# Stage 1: If age >= 18, print \"Eligible to vote\"\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Voting Age Check",
+            "description": "Given <hlt>age = 20</hlt>, write <hlt>if age >= 18:</hlt> and indent <hlt>print(\"Eligible to vote\")</hlt>.",
+            "starter_code": "age = 20\n# Stage 1: Check age eligibility (>= 18)\nif age >= 18:\n    print(\"Eligible to vote\")\n",
+            "intended_output": "Eligible to vote",
+            "ai_check": "if_two_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: High Temperature Alert",
+            "description": "Given <hlt>temperature = 35</hlt>, write <hlt>if temperature > 30:</hlt> to output <hlt>\"Hot day\"</hlt>.",
+            "starter_code": "temperature = 35\n# Stage 2: Check temperature (> 30)\nif temperature > 30:\n    print(\"Hot day\")\n",
+            "intended_output": "Hot day",
+            "ai_check": "if_two_stages"
+        }
+    ]
 },
   "1_5_6": {
     "title": "Algorithm: Network Firewall Packet Filter",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Cybersecurity Rule Validation",
+    "topic": "4.1 • ALGORITHM: FIREWALL FILTER",
+    "description": "Inspect network traffic packets across 2 interactive stages!",
+    "intended_output": "ALLOW HTTP",
+    "starter_code": "port = 80\n# Stage 1: If port == 80, print \"ALLOW HTTP\"\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Inbound HTTP Inspection",
+            "description": "Check if <hlt>port == 80</hlt>. If true, output <hlt>\"ALLOW HTTP\"</hlt>.",
+            "starter_code": "port = 80\n# Stage 1: Check port == 80\nif port == 80:\n    print(\"ALLOW HTTP\")\n",
+            "intended_output": "ALLOW HTTP",
+            "ai_check": "firewall_packet_rule"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Multi-Port HTTPS Filter",
+            "description": "Check if <hlt>port == 80 or port == 443</hlt> for secure web traffic. Output <hlt>\"ALLOW SECURE\"</hlt>.",
+            "starter_code": "port = 443\n# Stage 2: Check port == 80 or port == 443\nif port == 80 or port == 443:\n    print(\"ALLOW SECURE\")\n",
+            "intended_output": "ALLOW SECURE",
+            "ai_check": "firewall_packet_rule"
+        }
+    ]
 },
   "1_5_7": {
     "title": "The if / else Statement — Two Paths",
@@ -1557,10 +1633,29 @@ export const MALAYALAM_LESSON_DATA = {
 },
   "1_6_10": {
     "title": "Algorithm: Exponential Backoff Network Retry",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Resilient Microservice Communication",
+    "topic": "5.2 • ALGORITHM: EXPONENTIAL BACKOFF",
+    "description": "Simulate retry backoff intervals across 2 interactive stages!",
+    "intended_output": "1\n2\n4",
+    "starter_code": "delay = 1\nattempt = 1\n# Stage 1: Backoff retry loop\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Double Wait Intervals",
+            "description": "While <hlt>attempt <= 3:</hlt> print <hlt>delay</hlt>, multiply <hlt>delay = delay * 2</hlt>, and increment <hlt>attempt = attempt + 1</hlt>.",
+            "starter_code": "delay = 1\nattempt = 1\n# Stage 1: Backoff retry loop\nwhile attempt <= 3:\n    print(delay)\n    delay = delay * 2\n    attempt = attempt + 1\n",
+            "intended_output": "1\n2\n4",
+            "ai_check": "exponential_backoff_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Max Cap Guard",
+            "description": "Run 5 attempts with delay capped at max 8 seconds using <hlt>min(delay * 2, 8)</hlt>.",
+            "starter_code": "delay = 1\nattempt = 1\n# Stage 2: Capped backoff\nwhile attempt <= 5:\n    print(delay)\n    delay = min(delay * 2, 8)\n    attempt = attempt + 1\n",
+            "intended_output": "1\n2\n4\n8\n8",
+            "ai_check": "exponential_backoff_algorithm"
+        }
+    ]
 },
   "1_6_11": {
     "title": "Loops Mastery Exam",
@@ -1591,18 +1686,72 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_6_5": {
-    "title": "for Loop Variations (4 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: for Loop Variations",
+    "subtitle": "Repeating Fixed Sequences",
+    "topic": "5.1 • FOR LOOP VARIATIONS CODE",
+    "description": "Master loop counters and list iteration across 4 interactive stages!",
+    "intended_output": "0\n1\n2\n3",
+    "starter_code": "# Stage 1: Loop with range(4)\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Zero to Stop",
+            "description": "Write <hlt>for i in range(4):</hlt> and print <hlt>i</hlt> to output 0, 1, 2, 3.",
+            "starter_code": "# Stage 1: range(4)\nfor i in range(4):\n    print(i)\n",
+            "intended_output": "0\n1\n2\n3",
+            "ai_check": "for_loop_four_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Start to Stop Range",
+            "description": "Write <hlt>for i in range(1, 5):</hlt> and print <hlt>i</hlt> to output 1, 2, 3, 4.",
+            "starter_code": "# Stage 2: range(1, 5)\nfor i in range(1, 5):\n    print(i)\n",
+            "intended_output": "1\n2\n3\n4",
+            "ai_check": "for_loop_four_stages"
+        },
+        {
+            "stage": 3,
+            "title": "Stage 3: Stepped Even Numbers",
+            "description": "Write <hlt>for i in range(2, 9, 2):</hlt> to output 2, 4, 6, 8.",
+            "starter_code": "# Stage 3: range(2, 9, 2)\nfor i in range(2, 9, 2):\n    print(i)\n",
+            "intended_output": "2\n4\n6\n8",
+            "ai_check": "for_loop_four_stages"
+        },
+        {
+            "stage": 4,
+            "title": "Stage 4: Direct Collection Traversal",
+            "description": "Given <hlt>fruits = [\"apple\", \"banana\", \"cherry\"]</hlt>, iterate with <hlt>for fruit in fruits:</hlt> and print each.",
+            "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 4: Traverse list directly\nfor fruit in fruits:\n    print(fruit)\n",
+            "intended_output": "apple\nbanana\ncherry",
+            "ai_check": "for_loop_four_stages"
+        }
+    ]
 },
   "1_6_6": {
     "title": "Algorithm: IoT Telemetry Sensor Accumulator",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Processing Streaming Data Batches",
+    "topic": "5.1 • ALGORITHM: IOT ACCUMULATOR",
+    "description": "Aggregate hardware telemetry readings across 2 interactive stages!",
+    "intended_output": "70.0",
+    "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\n# Stage 1: Loop and accumulate total\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Sum Telemetry Readings",
+            "description": "Loop over <hlt>readings</hlt> and accumulate into <hlt>total</hlt>. Print <hlt>total</hlt>.",
+            "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\n# Stage 1: Accumulate total\nfor val in readings:\n    total = total + val\nprint(total)\n",
+            "intended_output": "70.0",
+            "ai_check": "sensor_accumulator_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Calculate Average Reading",
+            "description": "Compute mean average: <hlt>avg = total / len(readings)</hlt> and print <hlt>round(avg, 2)</hlt>.",
+            "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\nfor val in readings:\n    total = total + val\n# Stage 2: Compute average\navg = total / len(readings)\nprint(round(avg, 2))\n",
+            "intended_output": "23.33",
+            "ai_check": "sensor_accumulator_algorithm"
+        }
+    ]
 },
   "1_6_7": {
     "title": "The while Loop — Repeating Until a Condition Is Met",
@@ -1619,11 +1768,30 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_6_9": {
-    "title": "while Loop Counters (2 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: while Loop Counters",
+    "subtitle": "Condition-Driven Repetition",
+    "topic": "5.2 • WHILE LOOP COUNTERS CODE",
+    "description": "Master dynamic loop conditions across 2 interactive stages!",
+    "intended_output": "3\n2\n1\nLiftoff!",
+    "starter_code": "count = 3\n# Stage 1: Countdown while count > 0\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Rocket Countdown",
+            "description": "While <hlt>count > 0:</hlt> print <hlt>count</hlt> and decrement <hlt>count = count - 1</hlt>. Output <hlt>\"Liftoff!\"</hlt> afterwards.",
+            "starter_code": "count = 3\n# Stage 1: Countdown\nwhile count > 0:\n    print(count)\n    count = count - 1\nprint(\"Liftoff!\")\n",
+            "intended_output": "3\n2\n1\nLiftoff!",
+            "ai_check": "while_loop_two_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Power Doubler",
+            "description": "Start <hlt>val = 1</hlt>. While <hlt>val <= 8:</hlt> print <hlt>val</hlt> and multiply <hlt>val = val * 2</hlt>.",
+            "starter_code": "val = 1\n# Stage 2: Exponential doubler\nwhile val <= 8:\n    print(val)\n    val = val * 2\n",
+            "intended_output": "1\n2\n4\n8",
+            "ai_check": "while_loop_two_stages"
+        }
+    ]
 },
   "1_7_1": {
     "title": "What Is a Function? — Reusable Recipes",
@@ -1661,18 +1829,64 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_7_5": {
-    "title": "Custom Function Creator (3 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: Custom Function Creator",
+    "subtitle": "Encapsulating Reusable Logic with def",
+    "topic": "6.1 • CUSTOM FUNCTION CREATOR CODE",
+    "description": "Build modular functions across 3 interactive stages!",
+    "intended_output": "Hello World",
+    "starter_code": "# Stage 1: Define greet() and call it\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Simple Function",
+            "description": "Define <hlt>def greet():</hlt> that prints <hlt>\"Hello World\"</hlt>. Call <hlt>greet()</hlt>.",
+            "starter_code": "# Stage 1: Simple greeting\ndef greet():\n    print(\"Hello World\")\n\ngreet()\n",
+            "intended_output": "Hello World",
+            "ai_check": "function_three_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Function with Parameter",
+            "description": "Define <hlt>def greet_user(name):</hlt> that prints <hlt>\"Hello \" + name</hlt>. Call with <hlt>\"Alice\"</hlt>.",
+            "starter_code": "# Stage 2: Parameterized function\ndef greet_user(name):\n    print(\"Hello \" + name)\n\ngreet_user(\"Alice\")\n",
+            "intended_output": "Hello Alice",
+            "ai_check": "function_three_stages"
+        },
+        {
+            "stage": 3,
+            "title": "Stage 3: Function with Return Value",
+            "description": "Define <hlt>def square(x):</hlt> that returns <hlt>x * x</hlt>. Print <hlt>square(4)</hlt> and <hlt>square(5)</hlt>.",
+            "starter_code": "# Stage 3: Return value\ndef square(x):\n    return x * x\n\nprint(square(4))\nprint(square(5))\n",
+            "intended_output": "16\n25",
+            "ai_check": "function_three_stages"
+        }
+    ]
 },
   "1_7_6": {
     "title": "Algorithm: Currency Exchange Converter Function",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Financial Engineering Routine",
+    "topic": "6.1 • ALGORITHM: CURRENCY CONVERTER",
+    "description": "Build currency exchange helpers across 2 interactive stages!",
+    "intended_output": "830.0",
+    "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n# Stage 1: Call with 10 USD\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Default Exchange Rate",
+            "description": "Call <hlt>convert_usd_to_inr(10)</hlt> using default rate (83.0) and print result.",
+            "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n\n# Stage 1: Default rate (83.0)\nprint(convert_usd_to_inr(10))\n",
+            "intended_output": "830.0",
+            "ai_check": "currency_converter_function"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Custom Spot Rate",
+            "description": "Call <hlt>convert_usd_to_inr(50, 83.5)</hlt> with custom market rate and print result.",
+            "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n\n# Stage 2: Custom market rate (83.5)\nprint(convert_usd_to_inr(50, 83.5))\n",
+            "intended_output": "4175.0",
+            "ai_check": "currency_converter_function"
+        }
+    ]
 },
   "1_7_7": {
     "title": "Why Use Functions? — DRY & Modularity",
@@ -1689,11 +1903,30 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_7_9": {
-    "title": "Reusable Formatter Function (2 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: Reusable Formatter Function",
+    "subtitle": "DRY Architecture & Clean Code",
+    "topic": "6.2 • REUSABLE FORMATTER CODE",
+    "description": "Format user interface badges across 2 interactive stages!",
+    "intended_output": "[User]",
+    "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n# Stage 1: Print default badge\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Default Role Badge",
+            "description": "Call <hlt>format_badge()</hlt> with no arguments and print the returned string.",
+            "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n\n# Stage 1: Default role\nprint(format_badge())\n",
+            "intended_output": "[User]",
+            "ai_check": "format_badge_function"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Admin & Moderator Badges",
+            "description": "Print <hlt>format_badge(\"Admin\")</hlt> and <hlt>format_badge(\"Moderator\")</hlt>.",
+            "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n\n# Stage 2: Custom roles\nprint(format_badge(\"Admin\"))\nprint(format_badge(\"Moderator\"))\n",
+            "intended_output": "[Admin]\n[Moderator]",
+            "ai_check": "format_badge_function"
+        }
+    ]
 },
   "1_8_1": {
     "title": "Lists — Ordered Containers",
@@ -1717,25 +1950,90 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_8_12": {
-    "title": "Dictionary Management (3 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: Dictionary Management",
+    "subtitle": "Key-Value Store Lookups & Updates",
+    "topic": "7.2 • DICTIONARY MANAGEMENT CODE",
+    "description": "Work with key-value mappings across 3 interactive stages!",
+    "intended_output": "Alice",
+    "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 1: Access user[\"name\"]\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Direct Key Lookup",
+            "description": "Access and print the name value: <hlt>print(user[\"name\"])</hlt>.",
+            "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 1: Direct key lookup\nprint(user[\"name\"])\n",
+            "intended_output": "Alice",
+            "ai_check": "dict_three_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Safe Lookup with .get()",
+            "description": "Use <hlt>user.get(\"email\", \"Not Provided\")</hlt> to safely handle missing keys without error. Print result.",
+            "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 2: Safe .get() lookup\nprint(user.get(\"email\", \"Not Provided\"))\n",
+            "intended_output": "Not Provided",
+            "ai_check": "dict_three_stages"
+        },
+        {
+            "stage": 3,
+            "title": "Stage 3: Insert & Update Key",
+            "description": "Set <hlt>user[\"active\"] = True</hlt> and print <hlt>user[\"active\"]</hlt>.",
+            "starter_code": "user = {\"name\": \"Alice\", \"age\": 25, \"role\": \"Engineer\"}\n# Stage 3: Insert new key\nuser[\"active\"] = True\nprint(user[\"active\"])\n",
+            "intended_output": "True",
+            "ai_check": "dict_three_stages"
+        }
+    ]
 },
   "1_8_13": {
     "title": "Algorithm: Word Frequency Histogram Builder",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Natural Language Processing Foundations",
+    "topic": "7.2 • ALGORITHM: WORD FREQUENCY",
+    "description": "Count occurrences of words across 2 interactive stages!",
+    "intended_output": "{'code': 3, 'debug': 1, 'run': 1}",
+    "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\n# Stage 1: Build frequency map\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Word Count Histogram",
+            "description": "Loop through <hlt>words</hlt> and increment counts in dict: <hlt>counts[w] = counts.get(w, 0) + 1</hlt>. Print <hlt>counts</hlt>.",
+            "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\n# Stage 1: Word frequency count\nfor w in words:\n    counts[w] = counts.get(w, 0) + 1\nprint(counts)\n",
+            "intended_output": "{'code': 3, 'debug': 1, 'run': 1}",
+            "ai_check": "word_frequency_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Target Word Query",
+            "description": "Print the frequency of the word \"code\" from the dictionary: <hlt>print(counts[\"code\"])</hlt>.",
+            "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\nfor w in words:\n    counts[w] = counts.get(w, 0) + 1\n# Stage 2: Query specific word frequency\nprint(counts[\"code\"])\n",
+            "intended_output": "3",
+            "ai_check": "word_frequency_algorithm"
+        }
+    ]
 },
   "1_8_14": {
     "title": "Algorithm: Security Role Permissions Lookup",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Access Control List (ACL) Engine",
+    "topic": "7.2 • ALGORITHM: ROLE ACL",
+    "description": "Evaluate security authorization across 2 interactive stages!",
+    "intended_output": "ALL_ACCESS\nDENIED",
+    "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 1: Verify admin and guest\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Role Access Query",
+            "description": "Look up permissions for <hlt>\"admin\"</hlt> and fallback for <hlt>\"guest\"</hlt> using <hlt>acl.get()</hlt>.",
+            "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 1: Query permissions\nprint(acl.get(\"admin\", \"DENIED\"))\nprint(acl.get(\"guest\", \"DENIED\"))\n",
+            "intended_output": "ALL_ACCESS\nDENIED",
+            "ai_check": "role_permission_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Dynamic Role Promotion",
+            "description": "Add new role <hlt>acl[\"moderator\"] = \"REVIEW\"</hlt> and print <hlt>acl[\"moderator\"]</hlt>.",
+            "starter_code": "acl = {\"admin\": \"ALL_ACCESS\", \"editor\": \"WRITE\", \"viewer\": \"READ\"}\n# Stage 2: Role registration\nacl[\"moderator\"] = \"REVIEW\"\nprint(acl[\"moderator\"])\n",
+            "intended_output": "REVIEW",
+            "ai_check": "role_permission_algorithm"
+        }
+    ]
 },
   "1_8_15": {
     "title": "Lists & Dictionaries Mastery Exam",
@@ -1766,25 +2064,98 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_8_5": {
-    "title": "List Operations (4 Stages)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Interactive Coding: List Operations",
+    "subtitle": "Indexing, Append, Pop, Slicing",
+    "topic": "7.1 • LIST OPERATIONS CODE",
+    "description": "Master ordered list manipulations across 4 interactive stages!",
+    "intended_output": "apple\ncherry",
+    "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 1: Print first and last items\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Index Lookups",
+            "description": "Print first item <hlt>fruits[0]</hlt> and last item <hlt>fruits[2]</hlt>.",
+            "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\n# Stage 1: Indexing\nprint(fruits[0])\nprint(fruits[2])\n",
+            "intended_output": "apple\ncherry",
+            "ai_check": "list_four_stages"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Append Element",
+            "description": "Add date using <hlt>fruits.append(\"date\")</hlt> and print the list.",
+            "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\"]\nfruits.append(\"date\")\n# Stage 2: Append\nprint(fruits)\n",
+            "intended_output": "['apple', 'banana', 'cherry', 'date']",
+            "ai_check": "list_four_stages"
+        },
+        {
+            "stage": 3,
+            "title": "Stage 3: Pop Element by Index",
+            "description": "Remove banana with <hlt>removed = fruits.pop(1)</hlt>. Print <hlt>removed</hlt> and updated <hlt>fruits</hlt>.",
+            "starter_code": "fruits = [\"apple\", \"banana\", \"cherry\", \"date\"]\n# Stage 3: Pop index 1\nremoved = fruits.pop(1)\nprint(removed)\nprint(fruits)\n",
+            "intended_output": "banana\n['apple', 'cherry', 'date']",
+            "ai_check": "list_four_stages"
+        },
+        {
+            "stage": 4,
+            "title": "Stage 4: List Slicing",
+            "description": "Given <hlt>numbers = [10, 20, 30, 40, 50]</hlt>, print slice <hlt>numbers[1:4]</hlt>.",
+            "starter_code": "numbers = [10, 20, 30, 40, 50]\n# Stage 4: Slicing index 1 to 3\nprint(numbers[1:4])\n",
+            "intended_output": "[20, 30, 40]",
+            "ai_check": "list_four_stages"
+        }
+    ]
 },
   "1_8_6": {
     "title": "Algorithm: FIFO Task Queue Dispatcher",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "First-In First-Out Buffer Logic",
+    "topic": "7.1 • ALGORITHM: FIFO QUEUE",
+    "description": "Simulate background job queues across 2 interactive stages!",
+    "intended_output": "['Task 1', 'Task 2', 'Task 3']",
+    "starter_code": "queue = []\n# Stage 1: Enqueue 3 tasks\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Enqueue Tasks",
+            "description": "Append <hlt>\"Task 1\"</hlt>, <hlt>\"Task 2\"</hlt>, <hlt>\"Task 3\"</hlt> into <hlt>queue</hlt>. Print <hlt>queue</hlt>.",
+            "starter_code": "queue = []\n# Stage 1: Enqueue\nqueue.append(\"Task 1\")\nqueue.append(\"Task 2\")\nqueue.append(\"Task 3\")\nprint(queue)\n",
+            "intended_output": "['Task 1', 'Task 2', 'Task 3']",
+            "ai_check": "fifo_queue_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Dequeue Head Task",
+            "description": "Pop the oldest item: <hlt>job = queue.pop(0)</hlt>. Print <hlt>job</hlt> and remaining <hlt>queue</hlt>.",
+            "starter_code": "queue = [\"Task 1\", \"Task 2\", \"Task 3\"]\n# Stage 2: Dequeue FIFO (index 0)\njob = queue.pop(0)\nprint(job)\nprint(queue)\n",
+            "intended_output": "Task 1\n['Task 2', 'Task 3']",
+            "ai_check": "fifo_queue_algorithm"
+        }
+    ]
 },
   "1_8_7": {
     "title": "Algorithm: Linear Scan Maximum Finder",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Finding Extremes Without Built-ins",
+    "topic": "7.1 • ALGORITHM: FIND MAX",
+    "description": "Find highest value in an array across 2 interactive stages!",
+    "intended_output": "95",
+    "starter_code": "scores = [45, 88, 72, 95, 60]\n# Stage 1: Scan and find maximum\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Find Maximum Score",
+            "description": "Initialize <hlt>max_val = scores[0]</hlt>. Loop through <hlt>scores</hlt>, if <hlt>s > max_val:</hlt> update <hlt>max_val = s</hlt>. Print <hlt>max_val</hlt>.",
+            "starter_code": "scores = [45, 88, 72, 95, 60]\nmax_val = scores[0]\n# Stage 1: Linear scan max\nfor s in scores:\n    if s > max_val:\n        max_val = s\nprint(max_val)\n",
+            "intended_output": "95",
+            "ai_check": "find_max_algorithm"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Find Minimum Score",
+            "description": "Initialize <hlt>min_val = scores[0]</hlt>. Loop to find the minimum value. Print <hlt>min_val</hlt>.",
+            "starter_code": "scores = [45, 88, 72, 95, 60]\nmin_val = scores[0]\n# Stage 2: Linear scan min\nfor s in scores:\n    if s < min_val:\n        min_val = s\nprint(min_val)\n",
+            "intended_output": "45",
+            "ai_check": "find_max_algorithm"
+        }
+    ]
 },
   "1_8_8": {
     "title": "Dictionaries — Labeled Containers",
@@ -1822,46 +2193,184 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_9_4": {
-    "title": "Grand Coding Challenge (25 Outputs)",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "title": "Grand Coding Challenge (5 Sequential Stages)",
+    "subtitle": "Comprehensive Full-Spectrum Mastery",
+    "topic": "9.1 • GRAND CODING CHALLENGE",
+    "description": "Prove your complete Python engineering mastery across all 5 sequential stages!",
+    "intended_output": "101\nCore",
+    "starter_code": "# Stage 1: Variables & Core Types\nsystem_id = 101\nsystem_name = \"Core\"\nprint(system_id)\nprint(system_name)\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Variables & Data Types",
+            "description": "Initialize <hlt>system_id = 101</hlt> and <hlt>system_name = \"Core\"</hlt>. Print both variables.",
+            "starter_code": "# Stage 1: Variables & Types\nsystem_id = 101\nsystem_name = \"Core\"\nprint(system_id)\nprint(system_name)\n",
+            "intended_output": "101\nCore",
+            "ai_check": "grand_coding_challenge_25"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Math Precedence Calculation",
+            "description": "Compute <hlt>metric = (10 + 20) * 3 / 2</hlt> with correct BODMAS parentheses. Print <hlt>metric</hlt>.",
+            "starter_code": "# Stage 2: Math & BODMAS Precedence\nmetric = (10 + 20) * 3 / 2\nprint(metric)\n",
+            "intended_output": "45.0",
+            "ai_check": "grand_coding_challenge_25"
+        },
+        {
+            "stage": 3,
+            "title": "Stage 3: Conditional Status Evaluation",
+            "description": "Given <hlt>metric = 45.0</hlt>, if <hlt>metric >= 40.0:</hlt> print <hlt>\"Optimal\"</hlt> else <hlt>\"Suboptimal\"</hlt>.",
+            "starter_code": "metric = 45.0\n# Stage 3: Conditions if/else\nif metric >= 40.0:\n    print(\"Optimal\")\nelse:\n    print(\"Suboptimal\")\n",
+            "intended_output": "Optimal",
+            "ai_check": "grand_coding_challenge_25"
+        },
+        {
+            "stage": 4,
+            "title": "Stage 4: Collection Sequence Traversal",
+            "description": "Iterate over <hlt>servers = [\"alpha\", \"beta\", \"gamma\"]</hlt> and print each in uppercase.",
+            "starter_code": "servers = [\"alpha\", \"beta\", \"gamma\"]\n# Stage 4: Loops & List Traversal\nfor s in servers:\n    print(s.upper())\n",
+            "intended_output": "ALPHA\nBETA\nGAMMA",
+            "ai_check": "grand_coding_challenge_25"
+        },
+        {
+            "stage": 5,
+            "title": "Stage 5: Modular Function & Dictionary Lookup",
+            "description": "Define <hlt>def get_status(code):</hlt> querying dict <hlt>{\"ALPHA\": \"ONLINE\", \"BETA\": \"ONLINE\", \"GAMMA\": \"STANDBY\"}</hlt>. Print <hlt>get_status(\"ALPHA\")</hlt>.",
+            "starter_code": "def get_status(code):\n    status_map = {\"ALPHA\": \"ONLINE\", \"BETA\": \"ONLINE\", \"GAMMA\": \"STANDBY\"}\n    return status_map.get(code, \"OFFLINE\")\n\n# Stage 5: Function & Dictionary Lookup\nprint(get_status(\"ALPHA\"))\n",
+            "intended_output": "ONLINE",
+            "ai_check": "grand_coding_challenge_25"
+        }
+    ]
 },
   "1_9_5": {
     "title": "Capstone 1: Game Leaderboard Filter",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Data Pipeline Filtering",
+    "topic": "9.2 • CAPSTONE 1: LEADERBOARD",
+    "description": "Build high-score filters across 2 interactive stages!",
+    "intended_output": "[120, 85, 95]",
+    "starter_code": "scores = [120, 45, 85, 30, 95]\nthreshold = 50\n# Stage 1: Filter high scores >= threshold\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: High Score Filter",
+            "description": "Collect all scores from <hlt>scores</hlt> that are <hlt>>= 50</hlt> into <hlt>high_scores</hlt>. Print <hlt>high_scores</hlt>.",
+            "starter_code": "scores = [120, 45, 85, 30, 95]\nthreshold = 50\nhigh_scores = []\n# Stage 1: Filter scores >= 50\nfor s in scores:\n    if s >= threshold:\n        high_scores.append(s)\nprint(high_scores)\n",
+            "intended_output": "[120, 85, 95]",
+            "ai_check": "capstone_leaderboard_filter"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Top Scorer Discovery",
+            "description": "Find the maximum score among the filtered scores and print it.",
+            "starter_code": "high_scores = [120, 85, 95]\n# Stage 2: Find maximum score\ntop = high_scores[0]\nfor s in high_scores:\n    if s > top:\n        top = s\nprint(top)\n",
+            "intended_output": "120",
+            "ai_check": "capstone_leaderboard_filter"
+        }
+    ]
 },
   "1_9_6": {
     "title": "Capstone 2: Banking Ledger Balance Validator",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Financial Transaction Processing",
+    "topic": "9.2 • CAPSTONE 2: BANKING LEDGER",
+    "description": "Process account deposits and withdrawals across 2 interactive stages!",
+    "intended_output": "1350.0",
+    "starter_code": "initial_balance = 1000.0\ntransactions = [200.0, -50.0, 300.0, -100.0]\n# Stage 1: Compute final balance\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Ledger Balance Reconciliation",
+            "description": "Loop through <hlt>transactions</hlt>, add each to <hlt>balance</hlt>, and print the final reconciled balance.",
+            "starter_code": "initial_balance = 1000.0\ntransactions = [200.0, -50.0, 300.0, -100.0]\nbalance = initial_balance\n# Stage 1: Transaction reconciliation\nfor tx in transactions:\n    balance = balance + tx\nprint(balance)\n",
+            "intended_output": "1350.0",
+            "ai_check": "capstone_banking_ledger"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Overdraft Safety Check",
+            "description": "If <hlt>balance >= 0.0:</hlt> print <hlt>\"Account In Good Standing\"</hlt> else print <hlt>\"Overdraft Warning\"</hlt>.",
+            "starter_code": "balance = 1350.0\n# Stage 2: Solvency verification\nif balance >= 0.0:\n    print(\"Account In Good Standing\")\nelse:\n    print(\"Overdraft Warning\")\n",
+            "intended_output": "Account In Good Standing",
+            "ai_check": "capstone_banking_ledger"
+        }
+    ]
 },
   "1_9_7": {
     "title": "Capstone 3: Substitution Cipher Encryptor",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Cryptography & String Transformation",
+    "topic": "9.2 • CAPSTONE 3: CIPHER ENCRYPTOR",
+    "description": "Build secret cipher encoders across 2 interactive stages!",
+    "intended_output": "KHOOR",
+    "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\nmessage = \"HELLO\"\n# Stage 1: Encrypt characters with substitution map\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Word Substitution",
+            "description": "Encrypt message <hlt>\"HELLO\"</hlt> character by character using <hlt>cipher_map</hlt>. Print the encrypted string.",
+            "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\nmessage = \"HELLO\"\nencrypted = \"\"\n# Stage 1: Character substitution\nfor ch in message:\n    encrypted = encrypted + cipher_map.get(ch, ch)\nprint(encrypted)\n",
+            "intended_output": "KHOOR",
+            "ai_check": "capstone_cipher_encryptor"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Reusable Encryptor Function",
+            "description": "Define <hlt>def encrypt_text(txt):</hlt> returning the substituted ciphertext. Print <hlt>encrypt_text(\"HELLO\")</hlt>.",
+            "starter_code": "cipher_map = {'H': 'K', 'E': 'H', 'L': 'O', 'O': 'R'}\ndef encrypt_text(txt):\n    res = \"\"\n    for ch in txt:\n        res = res + cipher_map.get(ch, ch)\n    return res\n\n# Stage 2: Reusable cipher function\nprint(encrypt_text(\"HELLO\"))\n",
+            "intended_output": "KHOOR",
+            "ai_check": "capstone_cipher_encryptor"
+        }
+    ]
 },
   "1_9_8": {
     "title": "Capstone 4: Warehouse Inventory Restock Auditor",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Supply Chain Logistics Engine",
+    "topic": "9.2 • CAPSTONE 4: INVENTORY AUDITOR",
+    "description": "Audit stock quantities across 2 interactive stages!",
+    "intended_output": "['batteries', 'cables']",
+    "starter_code": "inventory = {\"chips\": 120, \"batteries\": 15, \"cables\": 8, \"screens\": 60}\nthreshold = 20\n# Stage 1: Find items below threshold requiring restock\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Restock Needed Items",
+            "description": "Find all inventory keys where <hlt>quantity < 20</hlt>. Append to <hlt>restock_list</hlt> and print.",
+            "starter_code": "inventory = {\"chips\": 120, \"batteries\": 15, \"cables\": 8, \"screens\": 60}\nthreshold = 20\nrestock_list = []\n# Stage 1: Identify low stock items\nfor item, qty in inventory.items():\n    if qty < threshold:\n        restock_list.append(item)\nprint(restock_list)\n",
+            "intended_output": "['batteries', 'cables']",
+            "ai_check": "capstone_inventory_auditor"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Count Restock Items",
+            "description": "Print the total count of items that need restocking using <hlt>len(restock_list)</hlt>.",
+            "starter_code": "restock_list = ['batteries', 'cables']\n# Stage 2: Count items needing reorder\nprint(len(restock_list))\n",
+            "intended_output": "2",
+            "ai_check": "capstone_inventory_auditor"
+        }
+    ]
 },
   "1_9_9": {
     "title": "Capstone 5: Class Grade Average & Stats Engine",
-    "badge": "പാഠം • വിവരണം",
-    "summary": "",
-    "sections": [],
-    "footer": ""
+    "subtitle": "Analytics & Statistical Computing",
+    "topic": "9.2 • CAPSTONE 5: GRADE ANALYTICS",
+    "description": "Compute class analytics across 2 interactive stages!",
+    "intended_output": "82.5\n98\n65",
+    "starter_code": "grades = [85, 92, 78, 65, 98, 77]\n# Stage 1: Calculate average, highest, and lowest score\n",
+    "challenges": [
+        {
+            "stage": 1,
+            "title": "Stage 1: Aggregate Class Statistics",
+            "description": "Calculate class average <hlt>sum(grades) / len(grades)</hlt>, highest score, and lowest score. Print each on a new line.",
+            "starter_code": "grades = [85, 92, 78, 65, 98, 77]\navg = sum(grades) / len(grades)\nhighest = max(grades)\nlowest = min(grades)\n# Stage 1: Class stats\nprint(avg)\nprint(highest)\nprint(lowest)\n",
+            "intended_output": "82.5\n98\n65",
+            "ai_check": "capstone_grade_analytics"
+        },
+        {
+            "stage": 2,
+            "title": "Stage 2: Distinction Honors Count",
+            "description": "Count how many students scored <hlt>>= 90</hlt>. Print the honors count.",
+            "starter_code": "grades = [85, 92, 78, 65, 98, 77]\nhonors = 0\n# Stage 2: Distinction counter\nfor g in grades:\n    if g >= 90:\n        honors = honors + 1\nprint(honors)\n",
+            "intended_output": "2",
+            "ai_check": "capstone_grade_analytics"
+        }
+    ]
 }
 };
 

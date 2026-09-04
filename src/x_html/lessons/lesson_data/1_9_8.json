@@ -1,10 +1,26 @@
 {
   "title": "Capstone 4: Warehouse Inventory Restock Auditor",
-  "topic": "9.2 • CAPSTONE ALGORITHM 4",
-  "description": "<strong>Real-World Algorithm: Warehouse Automated Restock Trigger</strong><br/>E-commerce fulfillment centers scan product inventory and generate restock alert lists for items whose count falls below safety thresholds.<br/><br/><strong>The Challenge:</strong><br/>The inventory map below is locked. In the editable section, loop through <code>inventory</code> keys: if <code>inventory[item] &lt; 10</code>, append <code>item</code> to <code>restock_alerts</code>.",
-  "locked_prefix": "# --- WAREHOUSE INVENTORY (LOCKED) ---\ninventory = {\n    \"laptop\": 15,\n    \"mouse\": 4,\n    \"keyboard\": 8,\n    \"monitor\": 20\n}\nrestock_alerts = []\n\n# --- WRITE YOUR RESTOCK AUDITOR BELOW ---\n",
-  "locked_suffix": "\n# --- RESTOCK LIST (LOCKED) ---\nprint(restock_alerts)\n",
-  "starter_code": "# --- WAREHOUSE INVENTORY (LOCKED) ---\ninventory = {\n    \"laptop\": 15,\n    \"mouse\": 4,\n    \"keyboard\": 8,\n    \"monitor\": 20\n}\nrestock_alerts = []\n\n# --- WRITE YOUR RESTOCK AUDITOR BELOW ---\n\n\n# --- RESTOCK LIST (LOCKED) ---\nprint(restock_alerts)\n",
-  "intended_output": "['mouse', 'keyboard']",
-  "ai_check": "capstone_inventory_auditor"
+  "subtitle": "Supply Chain Logistics Engine",
+  "topic": "9.2 • CAPSTONE 4: INVENTORY AUDITOR",
+  "description": "Audit stock quantities across 2 interactive stages!",
+  "intended_output": "['batteries', 'cables']",
+  "starter_code": "inventory = {\"chips\": 120, \"batteries\": 15, \"cables\": 8, \"screens\": 60}\nthreshold = 20\n# Stage 1: Find items below threshold requiring restock\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Restock Needed Items",
+      "description": "Find all inventory keys where <hlt>quantity < 20</hlt>. Append to <hlt>restock_list</hlt> and print.",
+      "starter_code": "inventory = {\"chips\": 120, \"batteries\": 15, \"cables\": 8, \"screens\": 60}\nthreshold = 20\nrestock_list = []\n# Stage 1: Identify low stock items\nfor item, qty in inventory.items():\n    if qty < threshold:\n        restock_list.append(item)\nprint(restock_list)\n",
+      "intended_output": "['batteries', 'cables']",
+      "ai_check": "capstone_inventory_auditor"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Count Restock Items",
+      "description": "Print the total count of items that need restocking using <hlt>len(restock_list)</hlt>.",
+      "starter_code": "restock_list = ['batteries', 'cables']\n# Stage 2: Count items needing reorder\nprint(len(restock_list))\n",
+      "intended_output": "2",
+      "ai_check": "capstone_inventory_auditor"
+    }
+  ]
 }

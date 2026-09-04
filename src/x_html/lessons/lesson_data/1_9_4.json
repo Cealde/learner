@@ -1,8 +1,50 @@
 {
-  "title": "Grand Coding Challenge (25 Outputs)",
+  "title": "Grand Coding Challenge (5 Sequential Stages)",
+  "subtitle": "Comprehensive Full-Spectrum Mastery",
   "topic": "9.1 • GRAND CODING CHALLENGE",
-  "description": "Complete all 5 sequential programming challenges (25 total outputs):<br/>1. Use a <code>for</code> loop to print numbers <code>1</code> to <code>5</code>.<br/>2. Use a loop to print the squares (<code>n * n</code>) of numbers <code>1</code> to <code>5</code>.<br/>3. For numbers <code>1</code> to <code>5</code>, print <code>\"Even\"</code> if <code>n % 2 == 0</code> else <code>\"Odd\"</code>.<br/>4. Define a function <code>double_val(x)</code> returning <code>x * 2</code>, and print <code>double_val(n)</code> for <code>n = 1..5</code>.<br/>5. Loop over list <code>[\"A\", \"B\", \"C\", \"D\", \"E\"]</code> and print each letter.",
-  "intended_output": "1\n2\n3\n4\n5\n1\n4\n9\n16\n25\nOdd\nEven\nOdd\nEven\nOdd\n2\n4\n6\n8\n10\nA\nB\nC\nD\nE",
-  "ai_check": "grand_coding_challenge_25",
-  "starter_code": "# Task 1: Print 1 to 5\n\n\n# Task 2: Print squares of 1 to 5\n\n\n# Task 3: Print Even/Odd for 1 to 5\n\n\n# Task 4: Define double_val(x) and call on 1 to 5\n\n\n# Task 5: Loop over list [\"A\", \"B\", \"C\", \"D\", \"E\"] and print\n\n"
+  "description": "Prove your complete Python engineering mastery across all 5 sequential stages!",
+  "intended_output": "101\nCore",
+  "starter_code": "# Stage 1: Variables & Core Types\nsystem_id = 101\nsystem_name = \"Core\"\nprint(system_id)\nprint(system_name)\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Variables & Data Types",
+      "description": "Initialize <hlt>system_id = 101</hlt> and <hlt>system_name = \"Core\"</hlt>. Print both variables.",
+      "starter_code": "# Stage 1: Variables & Types\nsystem_id = 101\nsystem_name = \"Core\"\nprint(system_id)\nprint(system_name)\n",
+      "intended_output": "101\nCore",
+      "ai_check": "grand_coding_challenge_25"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Math Precedence Calculation",
+      "description": "Compute <hlt>metric = (10 + 20) * 3 / 2</hlt> with correct BODMAS parentheses. Print <hlt>metric</hlt>.",
+      "starter_code": "# Stage 2: Math & BODMAS Precedence\nmetric = (10 + 20) * 3 / 2\nprint(metric)\n",
+      "intended_output": "45.0",
+      "ai_check": "grand_coding_challenge_25"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Conditional Status Evaluation",
+      "description": "Given <hlt>metric = 45.0</hlt>, if <hlt>metric >= 40.0:</hlt> print <hlt>\"Optimal\"</hlt> else <hlt>\"Suboptimal\"</hlt>.",
+      "starter_code": "metric = 45.0\n# Stage 3: Conditions if/else\nif metric >= 40.0:\n    print(\"Optimal\")\nelse:\n    print(\"Suboptimal\")\n",
+      "intended_output": "Optimal",
+      "ai_check": "grand_coding_challenge_25"
+    },
+    {
+      "stage": 4,
+      "title": "Stage 4: Collection Sequence Traversal",
+      "description": "Iterate over <hlt>servers = [\"alpha\", \"beta\", \"gamma\"]</hlt> and print each in uppercase.",
+      "starter_code": "servers = [\"alpha\", \"beta\", \"gamma\"]\n# Stage 4: Loops & List Traversal\nfor s in servers:\n    print(s.upper())\n",
+      "intended_output": "ALPHA\nBETA\nGAMMA",
+      "ai_check": "grand_coding_challenge_25"
+    },
+    {
+      "stage": 5,
+      "title": "Stage 5: Modular Function & Dictionary Lookup",
+      "description": "Define <hlt>def get_status(code):</hlt> querying dict <hlt>{\"ALPHA\": \"ONLINE\", \"BETA\": \"ONLINE\", \"GAMMA\": \"STANDBY\"}</hlt>. Print <hlt>get_status(\"ALPHA\")</hlt>.",
+      "starter_code": "def get_status(code):\n    status_map = {\"ALPHA\": \"ONLINE\", \"BETA\": \"ONLINE\", \"GAMMA\": \"STANDBY\"}\n    return status_map.get(code, \"OFFLINE\")\n\n# Stage 5: Function & Dictionary Lookup\nprint(get_status(\"ALPHA\"))\n",
+      "intended_output": "ONLINE",
+      "ai_check": "grand_coding_challenge_25"
+    }
+  ]
 }

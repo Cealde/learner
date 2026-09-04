@@ -1,8 +1,26 @@
 {
-  "title": "Reusable Formatter Function (2 Stages)",
-  "topic": "6.2 • CODING EXERCISE",
-  "description": "Practice building a reusable helper function across 2 stages:<br/>1. Define a function <code>format_badge(title)</code> that returns <code>\"[ \" + title + \" ]\"</code>.<br/>2. Call <code>print(format_badge(\"VIP\"))</code>.<br/>3. Call <code>print(format_badge(\"PRO\"))</code>.",
-  "intended_output": "[ VIP ]\n[ PRO ]",
-  "ai_check": "format_badge_function",
-  "starter_code": "# Define format_badge(title) and test it with \"VIP\" and \"PRO\":\n\n"
+  "title": "Interactive Coding: Reusable Formatter Function",
+  "subtitle": "DRY Architecture & Clean Code",
+  "topic": "6.2 • REUSABLE FORMATTER CODE",
+  "description": "Format user interface badges across 2 interactive stages!",
+  "intended_output": "[User]",
+  "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n# Stage 1: Print default badge\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Default Role Badge",
+      "description": "Call <hlt>format_badge()</hlt> with no arguments and print the returned string.",
+      "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n\n# Stage 1: Default role\nprint(format_badge())\n",
+      "intended_output": "[User]",
+      "ai_check": "format_badge_function"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Admin & Moderator Badges",
+      "description": "Print <hlt>format_badge(\"Admin\")</hlt> and <hlt>format_badge(\"Moderator\")</hlt>.",
+      "starter_code": "def format_badge(role=\"User\"):\n    return \"[\" + role + \"]\"\n\n# Stage 2: Custom roles\nprint(format_badge(\"Admin\"))\nprint(format_badge(\"Moderator\"))\n",
+      "intended_output": "[Admin]\n[Moderator]",
+      "ai_check": "format_badge_function"
+    }
+  ]
 }

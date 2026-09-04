@@ -1,8 +1,26 @@
 {
-  "title": "Integers & Strings Coding",
-  "topic": "2.2 • CODING EXERCISE",
-  "description": "Practice working with different data types! In the code editor below:<br/>1. Create a number variable <code>score = 100</code> (without quotes)<br/>2. Create a text variable <code>player = \"John\"</code> (with quotes)<br/>3. Print <code>score</code> on the first line and <code>player</code> on the second line.",
-  "intended_output": "100\nJohn",
-  "ai_check": "score_int_player_str",
-  "starter_code": "# 1. Create integer variable 'score' with value 100 (no quotes)\n# 2. Create string variable 'player' with value \"John\" (with quotes)\n# 3. Print both variables:\n\n"
+  "title": "Interactive Coding: Numbers vs Strings",
+  "subtitle": "Data Types in Practice",
+  "topic": "2.2 • MEMORY & TYPES CODE",
+  "description": "Practice working with numbers and strings across 2 interactive stages!",
+  "intended_output": "100",
+  "starter_code": "# Stage 1: Create score = 100 as an integer\n# Write your code below:\n\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Numeric Integer Variable",
+      "description": "Declare <hlt>score = 100</hlt> without quotes and print it using <hlt>print(score)</hlt>.",
+      "starter_code": "# Stage 1: Declare score = 100 and print(score)\n# Write your code below:\n\n",
+      "intended_output": "100",
+      "ai_check": "score_int_player_str"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Text String Variable",
+      "description": "Declare <hlt>player = \"John\"</hlt> with quotes and print it using <hlt>print(player)</hlt>.",
+      "starter_code": "# Stage 2: Declare player = \"John\" and print(player)\n# Write your code below:\n\n",
+      "intended_output": "John",
+      "ai_check": "score_int_player_str"
+    }
+  ]
 }

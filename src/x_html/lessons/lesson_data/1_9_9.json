@@ -1,10 +1,26 @@
 {
   "title": "Capstone 5: Class Grade Average & Stats Engine",
-  "topic": "9.2 • CAPSTONE ALGORITHM 5",
-  "description": "<strong>Real-World Algorithm: Academic Analytics & Statistics Engine</strong><br/>University grade calculation engines compute cohort averages, top scores, and total enrollment statistics.<br/><br/><strong>The Challenge:</strong><br/>The student marks list below is locked. In the editable section:<br/>1. Calculate total sum into <code>total_marks</code>.<br/>2. Compute <code>class_average = total_marks / len(marks)</code>.",
-  "locked_prefix": "# --- COHORT MARKS ROSTER (LOCKED) ---\nmarks = [80, 90, 70, 100, 60]\ntotal_marks = 0\n\n# --- WRITE YOUR STATISTICS CALCULATIONS BELOW ---\n",
-  "locked_suffix": "\n# --- AUDITED CLASS AVERAGE (LOCKED) ---\nprint(class_average)\n",
-  "starter_code": "# --- COHORT MARKS ROSTER (LOCKED) ---\nmarks = [80, 90, 70, 100, 60]\ntotal_marks = 0\n\n# --- WRITE YOUR STATISTICS CALCULATIONS BELOW ---\n\n\n# --- AUDITED CLASS AVERAGE (LOCKED) ---\nprint(class_average)\n",
-  "intended_output": "80.0",
-  "ai_check": "capstone_grade_analytics"
+  "subtitle": "Analytics & Statistical Computing",
+  "topic": "9.2 • CAPSTONE 5: GRADE ANALYTICS",
+  "description": "Compute class analytics across 2 interactive stages!",
+  "intended_output": "82.5\n98\n65",
+  "starter_code": "grades = [85, 92, 78, 65, 98, 77]\n# Stage 1: Calculate average, highest, and lowest score\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Aggregate Class Statistics",
+      "description": "Calculate class average <hlt>sum(grades) / len(grades)</hlt>, highest score, and lowest score. Print each on a new line.",
+      "starter_code": "grades = [85, 92, 78, 65, 98, 77]\navg = sum(grades) / len(grades)\nhighest = max(grades)\nlowest = min(grades)\n# Stage 1: Class stats\nprint(avg)\nprint(highest)\nprint(lowest)\n",
+      "intended_output": "82.5\n98\n65",
+      "ai_check": "capstone_grade_analytics"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Distinction Honors Count",
+      "description": "Count how many students scored <hlt>>= 90</hlt>. Print the honors count.",
+      "starter_code": "grades = [85, 92, 78, 65, 98, 77]\nhonors = 0\n# Stage 2: Distinction counter\nfor g in grades:\n    if g >= 90:\n        honors = honors + 1\nprint(honors)\n",
+      "intended_output": "2",
+      "ai_check": "capstone_grade_analytics"
+    }
+  ]
 }

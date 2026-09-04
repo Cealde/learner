@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Exponential Backoff Network Retry",
-  "topic": "5.2 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Exponential Backoff Network Retry</strong><br/>When cloud servers fail to connect, network clients double their waiting delay on each retry (1s, 2s, 4s, 8s) until a maximum retry count is reached.<br/><br/><strong>The Challenge:</strong><br/>The retry setup below is locked. In the editable section, write a <code>while</code> loop that runs while <code>attempt &lt;= 3</code>:<br/>- Multiply <code>delay = delay * 2</code><br/>- Increment <code>attempt = attempt + 1</code>",
-  "locked_prefix": "# --- NETWORK CLIENT RETRY CONFIG (LOCKED) ---\ndelay = 1\nattempt = 1\n\n# --- WRITE YOUR WHILE LOOP RETRY LOGIC BELOW ---\n",
-  "locked_suffix": "\n# --- FINAL DELAY VERIFICATION (LOCKED) ---\nprint(delay)\n",
-  "starter_code": "# --- NETWORK CLIENT RETRY CONFIG (LOCKED) ---\ndelay = 1\nattempt = 1\n\n# --- WRITE YOUR WHILE LOOP RETRY LOGIC BELOW ---\n\n\n# --- FINAL DELAY VERIFICATION (LOCKED) ---\nprint(delay)\n",
-  "intended_output": "8",
-  "ai_check": "exponential_backoff_algorithm"
+  "subtitle": "Resilient Microservice Communication",
+  "topic": "5.2 • ALGORITHM: EXPONENTIAL BACKOFF",
+  "description": "Simulate retry backoff intervals across 2 interactive stages!",
+  "intended_output": "1\n2\n4",
+  "starter_code": "delay = 1\nattempt = 1\n# Stage 1: Backoff retry loop\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Double Wait Intervals",
+      "description": "While <hlt>attempt <= 3:</hlt> print <hlt>delay</hlt>, multiply <hlt>delay = delay * 2</hlt>, and increment <hlt>attempt = attempt + 1</hlt>.",
+      "starter_code": "delay = 1\nattempt = 1\n# Stage 1: Backoff retry loop\nwhile attempt <= 3:\n    print(delay)\n    delay = delay * 2\n    attempt = attempt + 1\n",
+      "intended_output": "1\n2\n4",
+      "ai_check": "exponential_backoff_algorithm"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Max Cap Guard",
+      "description": "Run 5 attempts with delay capped at max 8 seconds using <hlt>min(delay * 2, 8)</hlt>.",
+      "starter_code": "delay = 1\nattempt = 1\n# Stage 2: Capped backoff\nwhile attempt <= 5:\n    print(delay)\n    delay = min(delay * 2, 8)\n    attempt = attempt + 1\n",
+      "intended_output": "1\n2\n4\n8\n8",
+      "ai_check": "exponential_backoff_algorithm"
+    }
+  ]
 }

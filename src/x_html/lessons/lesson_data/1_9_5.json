@@ -1,10 +1,26 @@
 {
   "title": "Capstone 1: Game Leaderboard Filter",
-  "topic": "9.2 • CAPSTONE ALGORITHM 1",
-  "description": "<strong>Real-World Algorithm: Arcade High-Score Leaderboard Qualifier</strong><br/>Multiplayer gaming servers filter top-tier players who scored above a qualifying cutoff threshold.<br/><br/><strong>The Challenge:</strong><br/>The player database below is locked. In the editable section, loop through <code>players</code>: for each player dictionary, if <code>p[\"score\"] &gt;= 80</code>, append their <code>p[\"name\"]</code> to <code>qualified_players</code>.",
-  "locked_prefix": "# --- ARCADE LEADERBOARD DATABASE (LOCKED) ---\nplayers = [\n    {\"name\": \"Kiran\", \"score\": 95},\n    {\"name\": \"Maya\", \"score\": 72},\n    {\"name\": \"Alex\", \"score\": 88},\n    {\"name\": \"Rohan\", \"score\": 60},\n    {\"name\": \"Tara\", \"score\": 84}\n]\nqualified_players = []\n\n# --- WRITE YOUR FILTERING LOOP BELOW ---\n",
-  "locked_suffix": "\n# --- QUALIFIED ROSTER (LOCKED) ---\nprint(qualified_players)\n",
-  "starter_code": "# --- ARCADE LEADERBOARD DATABASE (LOCKED) ---\nplayers = [\n    {\"name\": \"Kiran\", \"score\": 95},\n    {\"name\": \"Maya\", \"score\": 72},\n    {\"name\": \"Alex\", \"score\": 88},\n    {\"name\": \"Rohan\", \"score\": 60},\n    {\"name\": \"Tara\", \"score\": 84}\n]\nqualified_players = []\n\n# --- WRITE YOUR FILTERING LOOP BELOW ---\n\n\n# --- QUALIFIED ROSTER (LOCKED) ---\nprint(qualified_players)\n",
-  "intended_output": "['Kiran', 'Alex', 'Tara']",
-  "ai_check": "capstone_leaderboard_filter"
+  "subtitle": "Data Pipeline Filtering",
+  "topic": "9.2 • CAPSTONE 1: LEADERBOARD",
+  "description": "Build high-score filters across 2 interactive stages!",
+  "intended_output": "[120, 85, 95]",
+  "starter_code": "scores = [120, 45, 85, 30, 95]\nthreshold = 50\n# Stage 1: Filter high scores >= threshold\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: High Score Filter",
+      "description": "Collect all scores from <hlt>scores</hlt> that are <hlt>>= 50</hlt> into <hlt>high_scores</hlt>. Print <hlt>high_scores</hlt>.",
+      "starter_code": "scores = [120, 45, 85, 30, 95]\nthreshold = 50\nhigh_scores = []\n# Stage 1: Filter scores >= 50\nfor s in scores:\n    if s >= threshold:\n        high_scores.append(s)\nprint(high_scores)\n",
+      "intended_output": "[120, 85, 95]",
+      "ai_check": "capstone_leaderboard_filter"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Top Scorer Discovery",
+      "description": "Find the maximum score among the filtered scores and print it.",
+      "starter_code": "high_scores = [120, 85, 95]\n# Stage 2: Find maximum score\ntop = high_scores[0]\nfor s in high_scores:\n    if s > top:\n        top = s\nprint(top)\n",
+      "intended_output": "120",
+      "ai_check": "capstone_leaderboard_filter"
+    }
+  ]
 }

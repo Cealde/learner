@@ -1,8 +1,26 @@
 {
-  "title": "while Loop Counters (2 Stages)",
-  "topic": "5.2 • CODING EXERCISE",
-  "description": "Practice writing <code>while</code> loops across 2 stages:<br/>1. Create <code>c1 = 1</code>. Use a while loop to print <code>c1</code> while <code>c1 <= 3</code> (incrementing by 1 each step).<br/>2. Create <code>c2 = 3</code>. Use a while loop to print <code>c2</code> while <code>c2 >= 1</code> (decrementing by 1 each step).",
-  "intended_output": "1\n2\n3\n3\n2\n1",
-  "ai_check": "while_loop_two_stages",
-  "starter_code": "# Stage 1: Count UP 1 to 3 with while loop\nc1 = 1\n\n\n# Stage 2: Count DOWN 3 to 1 with while loop\nc2 = 3\n\n"
+  "title": "Interactive Coding: while Loop Counters",
+  "subtitle": "Condition-Driven Repetition",
+  "topic": "5.2 • WHILE LOOP COUNTERS CODE",
+  "description": "Master dynamic loop conditions across 2 interactive stages!",
+  "intended_output": "3\n2\n1\nLiftoff!",
+  "starter_code": "count = 3\n# Stage 1: Countdown while count > 0\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Rocket Countdown",
+      "description": "While <hlt>count > 0:</hlt> print <hlt>count</hlt> and decrement <hlt>count = count - 1</hlt>. Output <hlt>\"Liftoff!\"</hlt> afterwards.",
+      "starter_code": "count = 3\n# Stage 1: Countdown\nwhile count > 0:\n    print(count)\n    count = count - 1\nprint(\"Liftoff!\")\n",
+      "intended_output": "3\n2\n1\nLiftoff!",
+      "ai_check": "while_loop_two_stages"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Power Doubler",
+      "description": "Start <hlt>val = 1</hlt>. While <hlt>val <= 8:</hlt> print <hlt>val</hlt> and multiply <hlt>val = val * 2</hlt>.",
+      "starter_code": "val = 1\n# Stage 2: Exponential doubler\nwhile val <= 8:\n    print(val)\n    val = val * 2\n",
+      "intended_output": "1\n2\n4\n8",
+      "ai_check": "while_loop_two_stages"
+    }
+  ]
 }

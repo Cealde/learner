@@ -1,10 +1,26 @@
 {
   "title": "Algorithm Formula: Min-Max Normalization",
-  "topic": "3.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Min-Max Feature Normalization</strong><br/>In machine learning, data science, and game UI health/progress meters, algorithms scale numbers from any arbitrary range into a clean 0 to 100 percentage scale using the <strong>Min-Max Normalization</strong> formula:<br/><br/><strong>Mathematical Formula:</strong><br/><div class=\"math-formula-box\" style=\"margin: 8px 0; padding: 10px 18px; background: #0d1117; color: #fde047; border: 2px solid #000; border-radius: 6px; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 1.25rem; display: inline-flex; align-items: center; gap: 8px;\"><em>normalized</em> = <span style=\"display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 1.05rem; margin: 0 4px;\"><span style=\"border-bottom: 2px solid #fde047; padding: 0 4px;\"><em>val</em> &minus; <em>min_val</em></span><span style=\"padding: 0 4px;\"><em>max_val</em> &minus; <em>min_val</em></span></span> &times; 100</div><br/><br/><strong>The Challenge:</strong><br/>The setup variables below are locked. In the editable area, translate this mathematical formula into Python to calculate <code>normalized</code>.<br/><br/><em>Head-Scratcher Hint (BODMAS):</em> Division <code>/</code> executes before subtraction <code>-</code>. You must use brackets <code>()</code> around both subtractions so that the numerator and denominator subtract before dividing!",
-  "locked_prefix": "# --- DATA NORMALIZATION SETUP (LOCKED) ---\nval = 45\nmin_val = 20\nmax_val = 70\n\n# --- WRITE YOUR FORMULA BELOW ---\n",
-  "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(normalized)\n",
-  "starter_code": "# --- DATA NORMALIZATION SETUP (LOCKED) ---\nval = 45\nmin_val = 20\nmax_val = 70\n\n# --- WRITE YOUR FORMULA BELOW ---\nnormalized = \n\n# --- VERIFICATION (LOCKED) ---\nprint(normalized)\n",
-  "intended_output": "50.0",
-  "ai_check": "min_max_normalization_formula"
+  "subtitle": "Feature Scaling in Data Science",
+  "topic": "3.1 • ALGORITHM: NORMALIZATION",
+  "description": "Implement data normalization across 2 interactive stages!",
+  "intended_output": "40.0",
+  "starter_code": "val = 60.0\nmin_val = 20.0\nmax_val = 100.0\n# Stage 1: Compute deviation (val - min_val)\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Numerator Deviation",
+      "description": "Calculate the deviation from minimum: <hlt>print(val - min_val)</hlt>.",
+      "starter_code": "val = 60.0\nmin_val = 20.0\nmax_val = 100.0\n# Stage 1: Numerator deviation\nprint(val - min_val)\n",
+      "intended_output": "40.0",
+      "ai_check": "min_max_normalization_formula"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Full Min-Max Percentage",
+      "description": "Apply the complete formula with bracket precedence: <hlt>normalized = (val - min_val) / (max_val - min_val) * 100</hlt> and print.",
+      "starter_code": "val = 60.0\nmin_val = 20.0\nmax_val = 100.0\n# Stage 2: Full Normalization Formula\nnormalized = (val - min_val) / (max_val - min_val) * 100\nprint(normalized)\n",
+      "intended_output": "50.0",
+      "ai_check": "min_max_normalization_formula"
+    }
+  ]
 }

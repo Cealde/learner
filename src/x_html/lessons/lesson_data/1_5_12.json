@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: E-Commerce Shipping Fee Calculator",
-  "topic": "4.2 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: E-Commerce Dynamic Shipping Fee Calculator</strong><br/>Online store checkout engines determine delivery fees dynamically based on order value. Customers receive free shipping for high-value orders or pay tiered standard rates.<br/><br/><strong>Shipping Policy:</strong><br/>- If <code>order_total >= 100</code>: <code>shipping_fee = 0</code><br/>- Else if <code>order_total >= 50</code>: <code>shipping_fee = 10</code><br/>- Else: <code>shipping_fee = 25</code><br/><br/><strong>The Challenge:</strong><br/>The order data below is locked. In the editable area, write the if-elif-else logic to assign the correct <code>shipping_fee</code>.",
-  "locked_prefix": "# --- CHECKOUT CART DATA (LOCKED) ---\norder_total = 65\n\n# --- WRITE YOUR SHIPPING LOGIC BELOW ---\n",
-  "locked_suffix": "\n# --- RECEIPT SUMMARY (LOCKED) ---\nprint(shipping_fee)\n",
-  "starter_code": "# --- CHECKOUT CART DATA (LOCKED) ---\norder_total = 65\n\n# --- WRITE YOUR SHIPPING LOGIC BELOW ---\nshipping_fee = \n\n# --- RECEIPT SUMMARY (LOCKED) ---\nprint(shipping_fee)\n",
-  "intended_output": "10",
-  "ai_check": "ecommerce_shipping_calculator"
+  "subtitle": "Dynamic Pricing Rules",
+  "topic": "4.2 • ALGORITHM: SHIPPING FEE",
+  "description": "Calculate order logistics costs across 2 interactive stages!",
+  "intended_output": "0",
+  "starter_code": "cart_total = 75.0\n# Stage 1: Free shipping for orders >= 50.0\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Free Shipping Order",
+      "description": "Given <hlt>cart_total = 75.0</hlt>, if <hlt>cart_total >= 50.0</hlt> set <hlt>shipping = 0</hlt> else <hlt>shipping = 10</hlt>. Print <hlt>shipping</hlt>.",
+      "starter_code": "cart_total = 75.0\n# Stage 1: Eligible for Free Shipping\nif cart_total >= 50.0:\n    shipping = 0\nelse:\n    shipping = 10\nprint(shipping)\n",
+      "intended_output": "0",
+      "ai_check": "ecommerce_shipping_calculator"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Standard Shipping Order",
+      "description": "Given <hlt>cart_total = 30.0</hlt>, apply the same rule and print <hlt>shipping</hlt>.",
+      "starter_code": "cart_total = 30.0\n# Stage 2: Below threshold -> Standard shipping\nif cart_total >= 50.0:\n    shipping = 0\nelse:\n    shipping = 10\nprint(shipping)\n",
+      "intended_output": "10",
+      "ai_check": "ecommerce_shipping_calculator"
+    }
+  ]
 }

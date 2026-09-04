@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: IoT Telemetry Sensor Accumulator",
-  "topic": "5.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: IoT Sensor Data Accumulator</strong><br/>Industrial IoT edge gateways aggregate telemetry readings from sensors over time to calculate total energy consumption and fluid flow.<br/><br/><strong>The Challenge:</strong><br/>The sensor readings list below is locked. In the editable section, write a <code>for</code> loop to sum all numbers into the accumulator variable <code>total_energy</code>.",
-  "locked_prefix": "# --- IOT SENSOR READINGS (LOCKED) ---\nreadings = [12, 18, 25, 15, 30]\ntotal_energy = 0\n\n# --- WRITE YOUR ACCUMULATOR LOOP BELOW ---\n",
-  "locked_suffix": "\n# --- TELEMETRY SUMMARY (LOCKED) ---\nprint(total_energy)\n",
-  "starter_code": "# --- IOT SENSOR READINGS (LOCKED) ---\nreadings = [12, 18, 25, 15, 30]\ntotal_energy = 0\n\n# --- WRITE YOUR ACCUMULATOR LOOP BELOW ---\n\n\n# --- TELEMETRY SUMMARY (LOCKED) ---\nprint(total_energy)\n",
-  "intended_output": "100",
-  "ai_check": "sensor_accumulator_algorithm"
+  "subtitle": "Processing Streaming Data Batches",
+  "topic": "5.1 • ALGORITHM: IOT ACCUMULATOR",
+  "description": "Aggregate hardware telemetry readings across 2 interactive stages!",
+  "intended_output": "70.0",
+  "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\n# Stage 1: Loop and accumulate total\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Sum Telemetry Readings",
+      "description": "Loop over <hlt>readings</hlt> and accumulate into <hlt>total</hlt>. Print <hlt>total</hlt>.",
+      "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\n# Stage 1: Accumulate total\nfor val in readings:\n    total = total + val\nprint(total)\n",
+      "intended_output": "70.0",
+      "ai_check": "sensor_accumulator_algorithm"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Calculate Average Reading",
+      "description": "Compute mean average: <hlt>avg = total / len(readings)</hlt> and print <hlt>round(avg, 2)</hlt>.",
+      "starter_code": "readings = [22.5, 24.0, 23.5]\ntotal = 0.0\nfor val in readings:\n    total = total + val\n# Stage 2: Compute average\navg = total / len(readings)\nprint(round(avg, 2))\n",
+      "intended_output": "23.33",
+      "ai_check": "sensor_accumulator_algorithm"
+    }
+  ]
 }

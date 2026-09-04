@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Currency Exchange Converter Function",
-  "topic": "6.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Foreign Exchange Rate Engine</strong><br/>Global payment gateways convert amounts across international currencies using configurable spot exchange rates.<br/><br/><strong>The Challenge:</strong><br/>Define a function <code>convert_currency(amount, rate=83)</code> that returns <code>amount * rate</code>.<br/><br/>The verification calls below are locked.",
-  "locked_prefix": "# --- DEFINE YOUR CONVERTER FUNCTION BELOW ---\n",
-  "locked_suffix": "\n# --- VERIFICATION CALLS (LOCKED) ---\nprint(convert_currency(10))\nprint(convert_currency(5, 90))\n",
-  "starter_code": "# --- DEFINE YOUR CONVERTER FUNCTION BELOW ---\ndef convert_currency(amount, rate=83):\n    \n\n# --- VERIFICATION CALLS (LOCKED) ---\nprint(convert_currency(10))\nprint(convert_currency(5, 90))\n",
-  "intended_output": "830\n450",
-  "ai_check": "currency_converter_function"
+  "subtitle": "Financial Engineering Routine",
+  "topic": "6.1 • ALGORITHM: CURRENCY CONVERTER",
+  "description": "Build currency exchange helpers across 2 interactive stages!",
+  "intended_output": "830.0",
+  "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n# Stage 1: Call with 10 USD\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Default Exchange Rate",
+      "description": "Call <hlt>convert_usd_to_inr(10)</hlt> using default rate (83.0) and print result.",
+      "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n\n# Stage 1: Default rate (83.0)\nprint(convert_usd_to_inr(10))\n",
+      "intended_output": "830.0",
+      "ai_check": "currency_converter_function"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Custom Spot Rate",
+      "description": "Call <hlt>convert_usd_to_inr(50, 83.5)</hlt> with custom market rate and print result.",
+      "starter_code": "def convert_usd_to_inr(usd, rate=83.0):\n    return usd * rate\n\n# Stage 2: Custom market rate (83.5)\nprint(convert_usd_to_inr(50, 83.5))\n",
+      "intended_output": "4175.0",
+      "ai_check": "currency_converter_function"
+    }
+  ]
 }

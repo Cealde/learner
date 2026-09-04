@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Word Frequency Histogram Builder",
-  "topic": "7.2 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Search Indexer Word Frequency Counter</strong><br/>Search engines index articles by counting how frequently each word appears across texts.<br/><br/><strong>The Challenge:</strong><br/>The token list below is locked. In the editable section, write a <code>for</code> loop over <code>tokens</code> to populate the <code>counts</code> dictionary: for each <code>word</code>, increment <code>counts[word] = counts.get(word, 0) + 1</code>.",
-  "locked_prefix": "# --- TOKEN STREAM (LOCKED) ---\ntokens = [\"python\", \"code\", \"python\", \"fast\", \"python\", \"fast\"]\ncounts = {}\n\n# --- WRITE YOUR FREQUENCY COUNTER BELOW ---\n",
-  "locked_suffix": "\n# --- FREQUENCY MAP VERIFICATION (LOCKED) ---\nprint(counts)\n",
-  "starter_code": "# --- TOKEN STREAM (LOCKED) ---\ntokens = [\"python\", \"code\", \"python\", \"fast\", \"python\", \"fast\"]\ncounts = {}\n\n# --- WRITE YOUR FREQUENCY COUNTER BELOW ---\n\n\n# --- FREQUENCY MAP VERIFICATION (LOCKED) ---\nprint(counts)\n",
-  "intended_output": "{'python': 3, 'code': 1, 'fast': 2}",
-  "ai_check": "word_frequency_algorithm"
+  "subtitle": "Natural Language Processing Foundations",
+  "topic": "7.2 • ALGORITHM: WORD FREQUENCY",
+  "description": "Count occurrences of words across 2 interactive stages!",
+  "intended_output": "{'code': 3, 'debug': 1, 'run': 1}",
+  "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\n# Stage 1: Build frequency map\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Word Count Histogram",
+      "description": "Loop through <hlt>words</hlt> and increment counts in dict: <hlt>counts[w] = counts.get(w, 0) + 1</hlt>. Print <hlt>counts</hlt>.",
+      "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\n# Stage 1: Word frequency count\nfor w in words:\n    counts[w] = counts.get(w, 0) + 1\nprint(counts)\n",
+      "intended_output": "{'code': 3, 'debug': 1, 'run': 1}",
+      "ai_check": "word_frequency_algorithm"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Target Word Query",
+      "description": "Print the frequency of the word \"code\" from the dictionary: <hlt>print(counts[\"code\"])</hlt>.",
+      "starter_code": "words = [\"code\", \"debug\", \"code\", \"run\", \"code\"]\ncounts = {}\nfor w in words:\n    counts[w] = counts.get(w, 0) + 1\n# Stage 2: Query specific word frequency\nprint(counts[\"code\"])\n",
+      "intended_output": "3",
+      "ai_check": "word_frequency_algorithm"
+    }
+  ]
 }

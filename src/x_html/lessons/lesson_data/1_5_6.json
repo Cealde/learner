@@ -1,10 +1,26 @@
 {
   "title": "Algorithm: Network Firewall Packet Filter",
-  "topic": "4.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Network Security Firewall</strong><br/>Enterprise routers inspect inbound packet headers millions of times per second. If a packet matches a blocked IP address or malicious port, the packet is flagged.<br/><br/><strong>The Challenge:</strong><br/>The network packet data below is locked. In the editable section, write an <code>if</code> statement: if <code>port == 8080</code>, print <code>\"BLOCKED: Insecure Port Detected\"</code>.",
-  "locked_prefix": "# --- INBOUND NETWORK PACKET (LOCKED) ---\nsource_ip = \"192.168.1.105\"\nport = 8080\nprotocol = \"TCP\"\n\n# --- WRITE YOUR SECURITY RULE BELOW ---\n",
-  "locked_suffix": "\n# --- PACKET PROCESSED (LOCKED) ---\nprint(\"Packet Inspection Complete\")\n",
-  "starter_code": "# --- INBOUND NETWORK PACKET (LOCKED) ---\nsource_ip = \"192.168.1.105\"\nport = 8080\nprotocol = \"TCP\"\n\n# --- WRITE YOUR SECURITY RULE BELOW ---\n\n\n# --- PACKET PROCESSED (LOCKED) ---\nprint(\"Packet Inspection Complete\")\n",
-  "intended_output": "BLOCKED: Insecure Port Detected\nPacket Inspection Complete",
-  "ai_check": "firewall_packet_rule"
+  "subtitle": "Cybersecurity Rule Validation",
+  "topic": "4.1 • ALGORITHM: FIREWALL FILTER",
+  "description": "Inspect network traffic packets across 2 interactive stages!",
+  "intended_output": "ALLOW HTTP",
+  "starter_code": "port = 80\n# Stage 1: If port == 80, print \"ALLOW HTTP\"\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Inbound HTTP Inspection",
+      "description": "Check if <hlt>port == 80</hlt>. If true, output <hlt>\"ALLOW HTTP\"</hlt>.",
+      "starter_code": "port = 80\n# Stage 1: Check port == 80\nif port == 80:\n    print(\"ALLOW HTTP\")\n",
+      "intended_output": "ALLOW HTTP",
+      "ai_check": "firewall_packet_rule"
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Multi-Port HTTPS Filter",
+      "description": "Check if <hlt>port == 80 or port == 443</hlt> for secure web traffic. Output <hlt>\"ALLOW SECURE\"</hlt>.",
+      "starter_code": "port = 443\n# Stage 2: Check port == 80 or port == 443\nif port == 80 or port == 443:\n    print(\"ALLOW SECURE\")\n",
+      "intended_output": "ALLOW SECURE",
+      "ai_check": "firewall_packet_rule"
+    }
+  ]
 }

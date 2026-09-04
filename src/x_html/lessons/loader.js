@@ -2145,11 +2145,16 @@ export async function devCompleteLesson(targetLsn) {
       btn.style.borderColor = '#111111';
     });
 
-    // Code task output unlock
+    // Code task output unlock & stage pills update
     const termOut = document.getElementById('output');
     if (termOut) {
       termOut.innerHTML = '<span style="color: #22c55e; font-weight: bold;">[DEV TOOLS] Code validation passed with 100% test accuracy!</span>';
     }
+    const stepperBtns = document.querySelectorAll('.stage-pill-btn');
+    stepperBtns.forEach(btn => {
+      btn.style.background = '#86efac';
+      btn.textContent = btn.textContent.replace(/\[ACTIVE\]\s*/i, '[DONE] ');
+    });
   }
 
   // Update Header Progress Bar
