@@ -455,28 +455,57 @@ hlt:hover {
 }
 
 .q-dot {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   border: 2px solid var(--neo-black);
   background: var(--neo-white);
   box-shadow: 1.5px 1.5px 0 var(--neo-black);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .q-dot.active {
-  background: var(--neo-yellow);
-  transform: scale(1.2);
+  background: var(--neo-yellow) !important;
+  transform: scale(1.25);
+  box-shadow: 2px 2px 0 var(--neo-black);
 }
 
-.q-dot.completed {
+.q-dot.completed, .q-dot.completed-correct {
   background: var(--neo-green);
+}
+
+.q-dot.completed-incorrect {
+  background: var(--neo-red);
 }
 
 .mcq-action-bar {
   margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mcq-prev-q-btn {
+  background: var(--neo-white);
+  color: var(--neo-black);
+  border: var(--neo-border);
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-family: 'Title', 'Body', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--neo-black);
+  text-transform: uppercase;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.mcq-prev-q-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--neo-black);
+  background: var(--neo-bg);
 }
 
 .mcq-next-q-btn {
@@ -493,12 +522,24 @@ hlt:hover {
   text-transform: uppercase;
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   display: none;
+  margin-left: auto;
 }
 
 .mcq-next-q-btn:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--neo-black);
   background: #A7F3D0;
+}
+
+.mcq-option-btn.correct-highlight {
+  border: 3px solid #16a34a !important;
+  background: #dcfce7 !important;
+  color: #111111 !important;
+  box-shadow: 3px 3px 0 var(--neo-black);
+}
+
+.mcq-option-btn.review-mode {
+  cursor: pointer;
 }
 
 .mcq-question {

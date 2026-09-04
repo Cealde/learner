@@ -160,7 +160,8 @@ let currentProgress = {
   completed_subtopics: [],
   max_visited_subs: {},
   lesson_mistakes: {},
-  ai_breakdowns: {}
+  ai_breakdowns: {},
+  quiz_states: {}
 };
 
 export async function loadUserData() {
@@ -177,7 +178,8 @@ export async function loadUserData() {
           completed_subtopics: Array.isArray(prog.completed_subtopics) ? prog.completed_subtopics : [],
           max_visited_subs: (prog.max_visited_subs && typeof prog.max_visited_subs === 'object') ? prog.max_visited_subs : {},
           lesson_mistakes: (prog.lesson_mistakes && typeof prog.lesson_mistakes === 'object') ? prog.lesson_mistakes : {},
-          ai_breakdowns: (prog.ai_breakdowns && typeof prog.ai_breakdowns === 'object') ? prog.ai_breakdowns : {}
+          ai_breakdowns: (prog.ai_breakdowns && typeof prog.ai_breakdowns === 'object') ? prog.ai_breakdowns : {},
+          quiz_states: (prog.quiz_states && typeof prog.quiz_states === 'object') ? prog.quiz_states : {}
         };
       }
     } catch (err) {
@@ -188,6 +190,7 @@ export async function loadUserData() {
       const raw = localStorage.getItem('adhicode_user_progress');
       if (raw) currentProgress = JSON.parse(raw);
       if (!currentProgress.ai_breakdowns) currentProgress.ai_breakdowns = {};
+      if (!currentProgress.quiz_states) currentProgress.quiz_states = {};
     } catch (e) {}
   }
 }
@@ -198,6 +201,30 @@ function persistLocalFallback() {
       localStorage.setItem('adhicode_user_progress', JSON.stringify(currentProgress));
     } catch (e) {}
   }
+}
+
+export function getQuizState(spcl, lsn, sub) {
+  const key = `${spcl}_${lsn}_${sub}`;
+  if (currentProgress.quiz_states && currentProgress.quiz_states[key]) {
+    return currentProgress.quiz_states[key];
+  }
+  try {
+    const raw = localStorage.getItem(`adhicode_quiz_state_${key}`);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return null;
+}
+
+export function saveQuizState(spcl, lsn, sub, state) {
+  const key = `${spcl}_${lsn}_${sub}`;
+  if (!currentProgress.quiz_states) {
+    currentProgress.quiz_states = {};
+  }
+  currentProgress.quiz_states[key] = state;
+  try {
+    localStorage.setItem(`adhicode_quiz_state_${key}`, JSON.stringify(state));
+  } catch (e) {}
+  persistLocalFallback();
 }
 
 export function getCompletedQuizzes() {
@@ -983,7 +1010,9 @@ export function initSidebarNavigation(currentType) {
 
   // Track max visited step
   setMaxVisitedSub(spcl, lsn, sub);
-  if (currentType !== 4) {
+  // Only auto-mark completed for reading/info pages (Type 1 and Type 3)
+  // Code exercises (Type 2) and Quizzes (Type 4) require verified completion!
+  if (currentType !== 4 && currentType !== 2) {
     markQuizCompleted(spcl, lsn, sub);
   }
   const maxVisited = getMaxVisitedSub(spcl, lsn);
@@ -1075,6 +1104,11 @@ export function initSidebarNavigation(currentType) {
   const nextBtn = document.getElementById('next-btn');
   if (nextBtn) {
     nextBtn.onclick = async () => {
+      const isDone = isQuizCompleted(spcl, lsn, sub);
+      if ((currentType === 2 || currentType === 4) && !isDone) {
+        return; // Block skipping uncompleted code or quiz
+      }
+
       if (sub < sequence.length) {
         const nextSub = sub + 1;
         setMaxVisitedSub(spcl, lsn, nextSub);
@@ -1279,6 +1313,9 @@ async function initLessonPage() {
         nextBtn.disabled = true;
         nextBtn.style.opacity = '0.5';
         nextBtn.style.cursor = 'not-allowed';
+        nextBtn.style.backgroundColor = '#9CA3AF';
+        nextBtn.style.color = '#4B5563';
+        nextBtn.textContent = 'Run & Match Output to Continue';
         nextBtn.title = currentLang === 'ml' 
           ? 'കോഡ് പ്രവർത്തിപ്പിച്ച് ലക്ഷ്യമിട്ട ഫലം വരുമ്പോൾ ഇത് അൺലോക്കാകും' 
           : 'Run your code and match the target output to unlock';
@@ -1313,26 +1350,86 @@ function setupMultiQuestionQuiz(data) {
     return;
   }
 
-  let currentQuestionIdx = 0;
-  const sessionMistakes = [];
+  const { spcl, lsn, sub } = getQueryParams();
+  const lessonIdx = Math.max(0, lsn - 1);
+  const baseLen = (sylPy[lessonIdx] || sylPy[0]).length;
+  const isAIQuiz = sub > baseLen && ((sub - baseLen) % 2 === 0);
+
   const dotsContainer = document.getElementById('question-dots');
   const badge = document.getElementById('mcq-badge');
   const codeBox = document.querySelector('.mcq-code-box');
   const codeEl = document.querySelector('.mcq-code-box pre code');
   const optionsGroup = document.getElementById('options-group');
   const feedbackBox = document.getElementById('quiz-feedback');
+  const prevQBtn = document.getElementById('prev-question-btn');
   const nextQBtn = document.getElementById('next-question-btn');
   const nextBtn = document.getElementById('next-btn');
-  const { spcl, lsn, sub } = getQueryParams();
-  const lessonIdx = Math.max(0, lsn - 1);
-  const baseLen = (sylPy[lessonIdx] || sylPy[0]).length;
-  const isAIQuiz = sub > baseLen && ((sub - baseLen) % 2 === 0);
 
   const alreadyDone = isQuizCompleted(spcl, lsn, sub);
 
-  // If already done previously, allow Next Page immediately; otherwise lock until completed
+  // Load existing quiz state if present
+  let quizState = getQuizState(spcl, lsn, sub);
+  if (!quizState) {
+    quizState = {
+      completed: alreadyDone,
+      currentQuestionIdx: 0,
+      answers: {}
+    };
+  }
+  if (alreadyDone) {
+    quizState.completed = true;
+  }
+
+  const cleanExplanation = (text) => {
+    if (!text) return '';
+    return text
+      .replace(/<strong[^>]*>.*?<\/strong>\s*(<br\s*\/?>)?/gi, '')
+      .replace(/^([]|EXCELLENT!|Not quite!|SPOT ON!|\s)+/gi, '')
+      .trim();
+  };
+
+  function normalizeQuestionOptions(q) {
+    if (!q.options || !Array.isArray(q.options)) return [];
+    return q.options.map((opt, optIdx) => {
+      if (typeof opt === 'string') {
+        const isCorrect = (q.correct_answer ? opt === q.correct_answer : optIdx === 0);
+        return { text: opt, correct: isCorrect };
+      } else if (opt && typeof opt === 'object') {
+        return {
+          text: opt.text || opt.label || String(opt),
+          correct: opt.correct === true
+        };
+      }
+      return { text: String(opt), correct: false };
+    });
+  }
+
+  // If completed but answers were not tracked individually, pre-populate with default review data
+  if (quizState.completed) {
+    questions.forEach((q, i) => {
+      if (!quizState.answers[i]) {
+        const normOpts = normalizeQuestionOptions(q);
+        const correctOpt = normOpts.find(o => o.correct) || normOpts[0];
+        quizState.answers[i] = {
+          questionIdx: i,
+          shuffledOptions: normOpts,
+          selectedOptionText: correctOpt ? correctOpt.text : '',
+          isCorrect: true,
+          explCorrect: cleanExplanation(q.explanation_correct) || q.explanation_correct || '',
+          explIncorrect: cleanExplanation(q.explanation_incorrect) || q.explanation_incorrect || ''
+        };
+      }
+    });
+  }
+
+  let currentQuestionIdx = quizState.currentQuestionIdx || 0;
+  if (currentQuestionIdx >= questions.length) currentQuestionIdx = 0;
+
+  const sessionMistakes = [];
+
+  // Footer Next Page button state
   if (nextBtn) {
-    if (alreadyDone) {
+    if (quizState.completed || alreadyDone) {
       nextBtn.disabled = false;
       nextBtn.style.background = 'var(--neo-green)';
       nextBtn.style.color = 'var(--neo-black)';
@@ -1345,29 +1442,54 @@ function setupMultiQuestionQuiz(data) {
     }
   }
 
-  // Render question indicator dots
-  if (dotsContainer) {
-    dotsContainer.innerHTML = questions.map((_, i) => `
-      <span class="q-dot ${i === 0 ? 'active' : ''} ${alreadyDone ? 'completed' : ''}" id="q-dot-${i}"></span>
-    `).join('');
+  // Render question indicator dots with click support for exploration
+  function renderDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = questions.map((_, i) => {
+      const ans = quizState.answers && quizState.answers[i];
+      let statusClass = '';
+      if (ans) {
+        statusClass = ans.isCorrect ? 'completed-correct' : 'completed-incorrect';
+      } else if (quizState.completed || alreadyDone) {
+        statusClass = 'completed-correct';
+      }
+      const activeClass = (i === currentQuestionIdx) ? 'active' : '';
+      return `<span class="q-dot ${activeClass} ${statusClass}" id="q-dot-${i}" title="Question ${i + 1}"></span>`;
+    }).join('');
+
+    questions.forEach((_, i) => {
+      const dot = document.getElementById(`q-dot-${i}`);
+      if (dot) {
+        dot.onclick = () => {
+          const ans = quizState.answers && quizState.answers[i];
+          const answeredCount = Object.keys(quizState.answers || {}).length;
+          if (quizState.completed || alreadyDone || ans || i <= answeredCount) {
+            currentQuestionIdx = i;
+            quizState.currentQuestionIdx = currentQuestionIdx;
+            saveQuizState(spcl, lsn, sub, quizState);
+            renderQuestion(currentQuestionIdx);
+          }
+        };
+      }
+    });
   }
+
+  renderDots();
 
   function renderQuestion(idx) {
     const q = questions[idx];
     if (!q) return;
 
-    // Update Dots
-    questions.forEach((_, i) => {
-      const dot = document.getElementById(`q-dot-${i}`);
-      if (dot) {
-        dot.classList.remove('active');
-        if (i === idx) dot.classList.add('active');
-      }
-    });
+    currentQuestionIdx = idx;
+    renderDots();
 
     // Update Badge & Header
     if (badge) {
-      badge.textContent = q.badge || `QUESTION ${idx + 1} OF ${questions.length}`;
+      if (quizState.completed) {
+        badge.textContent = `QUIZ REVIEW • QUESTION ${idx + 1} OF ${questions.length}`;
+      } else {
+        badge.textContent = q.badge || `QUESTION ${idx + 1} OF ${questions.length}`;
+      }
     }
 
     // Update Question Text
@@ -1385,41 +1507,126 @@ function setupMultiQuestionQuiz(data) {
       }
     }
 
-    // Clear Feedback & Next Question Button
+    // Clear Feedback & Action Buttons
     if (feedbackBox) {
       feedbackBox.style.display = 'none';
       feedbackBox.className = 'mcq-feedback-box';
       feedbackBox.innerHTML = '';
     }
+    if (prevQBtn) {
+      prevQBtn.style.display = (idx > 0) ? 'inline-flex' : 'none';
+    }
     if (nextQBtn) {
       nextQBtn.style.display = 'none';
     }
 
-    // Render Options (with normalized format & randomized position)
-    if (optionsGroup && q.options && Array.isArray(q.options)) {
-      // Normalize each option to { text: string, correct: boolean }
-      const normalizedOptions = q.options.map((opt, optIdx) => {
-        if (typeof opt === 'string') {
-          const isCorrect = (q.correct_answer ? opt === q.correct_answer : optIdx === 0);
-          return { text: opt, correct: isCorrect };
-        } else if (opt && typeof opt === 'object') {
-          return {
-            text: opt.text || opt.label || String(opt),
-            correct: opt.correct === true
-          };
-        }
-        return { text: String(opt), correct: false };
-      });
+    const defaultPrefixes = ['A', 'B', 'C', 'D', 'E', 'F'];
+    const explCorrect = cleanExplanation(q.explanation_correct) || q.explanation_correct || '';
+    const explIncorrect = cleanExplanation(q.explanation_incorrect) || q.explanation_incorrect || '';
 
-      // Fisher-Yates shuffle on a cloned copy of normalized options
-      const shuffledOptions = [...normalizedOptions];
-      for (let i = shuffledOptions.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+    const existingAns = quizState.answers && quizState.answers[idx];
+
+    // ============================================================
+    // MODE 1: QUESTION ALREADY ANSWERED OR IN REVIEW MODE
+    // ============================================================
+    if (existingAns) {
+      const optsToRender = existingAns.shuffledOptions && existingAns.shuffledOptions.length > 0
+        ? existingAns.shuffledOptions
+        : normalizeQuestionOptions(q);
+
+      if (optionsGroup) {
+        optionsGroup.innerHTML = optsToRender.map((opt, optIdx) => {
+          const prefix = defaultPrefixes[optIdx] || String.fromCharCode(65 + optIdx);
+          const isSelected = (opt.text === existingAns.selectedOptionText);
+          let extraClass = 'review-mode';
+          if (isSelected) {
+            extraClass += existingAns.isCorrect ? ' selected-correct' : ' selected-incorrect';
+          } else if (opt.correct) {
+            extraClass += ' correct-highlight';
+          }
+
+          return `
+            <button type="button" class="mcq-option-btn ${extraClass}" data-correct="${opt.correct}" data-text="${opt.text}">
+              <span class="mcq-opt-prefix">${prefix}</span>
+              <span>${opt.text}</span>
+            </button>
+          `;
+        }).join('');
+
+        // Allow clicking options to explore why each option was right/wrong
+        const optionBtns = optionsGroup.querySelectorAll('.mcq-option-btn');
+        optionBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const isBtnCorrect = btn.getAttribute('data-correct') === 'true';
+            const btnText = btn.getAttribute('data-text');
+            if (feedbackBox) {
+              feedbackBox.style.display = 'block';
+              if (isBtnCorrect) {
+                feedbackBox.className = 'mcq-feedback-box correct';
+                feedbackBox.innerHTML = `
+                  <div style="font-weight: 900; margin-bottom: 4px;">CORRECT OPTION: "${btnText}"</div>
+                  <div>${explCorrect}</div>
+                `;
+              } else {
+                feedbackBox.className = 'mcq-feedback-box incorrect';
+                feedbackBox.innerHTML = `
+                  <div style="font-weight: 900; margin-bottom: 4px;">INCORRECT OPTION: "${btnText}"</div>
+                  ${explIncorrect ? `<div style="margin-bottom: 6px;">${explIncorrect}</div>` : ''}
+                  ${explCorrect ? `
+                    <div style="background: rgba(255, 255, 255, 0.2); padding: 8px 12px; border: 2px solid var(--neo-black); border-radius: 4px; margin-top: 6px;">
+                      <div style="font-weight: 800; margin-bottom: 4px;">Correct Answer Explanation:</div>
+                      <div>${explCorrect}</div>
+                    </div>
+                  ` : ''}
+                `;
+              }
+            }
+          });
+        });
       }
 
-      const defaultPrefixes = ['A', 'B', 'C', 'D', 'E', 'F'];
+      // Display default feedback for this answered question
+      if (feedbackBox) {
+        feedbackBox.style.display = 'block';
+        if (existingAns.isCorrect) {
+          feedbackBox.className = 'mcq-feedback-box correct';
+          feedbackBox.innerHTML = `
+            <div style="font-weight: 900; margin-bottom: 4px;">YOUR ANSWER: CORRECT</div>
+            <div>${explCorrect}</div>
+          `;
+        } else {
+          feedbackBox.className = 'mcq-feedback-box incorrect';
+          feedbackBox.innerHTML = `
+            <div style="font-weight: 900; margin-bottom: 4px;">YOUR ANSWER: WRONG</div>
+            ${explIncorrect ? `<div style="margin-bottom: 6px;">${explIncorrect}</div>` : ''}
+            ${explCorrect ? `
+              <div style="background: rgba(255, 255, 255, 0.2); padding: 8px 12px; border: 2px solid var(--neo-black); border-radius: 4px; margin-top: 6px;">
+                <div style="font-weight: 800; margin-bottom: 4px;">Correct Answer Explanation:</div>
+                <div>${explCorrect}</div>
+              </div>
+            ` : ''}
+          `;
+        }
+      }
 
+      if (idx < questions.length - 1 && nextQBtn) {
+        nextQBtn.style.display = 'inline-flex';
+        nextQBtn.textContent = 'Next Question →';
+      }
+      return;
+    }
+
+    // ============================================================
+    // MODE 2: ACTIVE UNANSWERED QUESTION
+    // ============================================================
+    const normalizedOptions = normalizeQuestionOptions(q);
+    const shuffledOptions = [...normalizedOptions];
+    for (let i = shuffledOptions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+    }
+
+    if (optionsGroup) {
       optionsGroup.innerHTML = shuffledOptions.map((opt, optIdx) => {
         const prefix = defaultPrefixes[optIdx] || String.fromCharCode(65 + optIdx);
         return `
@@ -1434,39 +1641,31 @@ function setupMultiQuestionQuiz(data) {
       optionBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
           const isCorrect = btn.getAttribute('data-correct') === 'true';
+          const chosenText = btn.querySelector('span:last-child')?.textContent || '';
+          const correctBtn = Array.from(optionBtns).find(b => b.getAttribute('data-correct') === 'true');
+          const correctText = correctBtn ? (correctBtn.querySelector('span:last-child')?.textContent || '') : '';
 
-          // Lock all option buttons immediately so user cannot retry
+          // Lock buttons
           optionBtns.forEach(b => {
             b.disabled = true;
             b.style.cursor = 'default';
           });
 
-          const currentDot = document.getElementById(`q-dot-${idx}`);
-          if (currentDot) {
-            currentDot.classList.add('completed');
-            if (!isCorrect) {
-              currentDot.style.background = 'var(--neo-red)';
-            }
-          }
-
-          // Find the correct option button to highlight it
-          const correctBtn = Array.from(optionBtns).find(b => b.getAttribute('data-correct') === 'true');
-
-          // Clean up explanation text (strip out legacy emoji badges / fluff if present in JSON)
-          const cleanExplanation = (text) => {
-            if (!text) return '';
-            return text
-              .replace(/<strong[^>]*>.*?<\/strong>\s*(<br\s*\/?>)?/gi, '')
-              .replace(/^([]|EXCELLENT!|Not quite!|SPOT ON!|\s)+/gi, '')
-              .trim();
+          // Save answer in state
+          quizState.answers[idx] = {
+            questionIdx: idx,
+            shuffledOptions,
+            selectedOptionText: chosenText,
+            isCorrect,
+            explCorrect,
+            explIncorrect
           };
+          saveQuizState(spcl, lsn, sub, quizState);
 
-          const explCorrect = cleanExplanation(q.explanation_correct) || q.explanation_correct || '';
-          const explIncorrect = cleanExplanation(q.explanation_incorrect) || q.explanation_incorrect || '';
+          renderDots();
 
           if (isCorrect) {
             btn.classList.add('selected-correct');
-
             if (feedbackBox) {
               feedbackBox.style.display = 'block';
               feedbackBox.className = 'mcq-feedback-box correct';
@@ -1478,12 +1677,9 @@ function setupMultiQuestionQuiz(data) {
           } else {
             btn.classList.add('selected-incorrect');
             if (correctBtn) {
-              correctBtn.classList.add('selected-correct');
+              correctBtn.classList.add('correct-highlight');
             }
 
-            // Record mistake into local learner intelligence log and track for this session
-            const chosenText = btn.querySelector('span:last-child')?.textContent || '';
-            const correctText = correctBtn ? (correctBtn.querySelector('span:last-child')?.textContent || '') : '';
             const mistakeItem = {
               spcl,
               lsn,
@@ -1496,7 +1692,6 @@ function setupMultiQuestionQuiz(data) {
               correct_answer: correctText,
               explanation: explCorrect
             };
-
             sessionMistakes.push(mistakeItem);
             recordMistake(mistakeItem);
 
@@ -1516,19 +1711,20 @@ function setupMultiQuestionQuiz(data) {
             }
           }
 
-          // In both cases, enable progression to the next question or next page
           if (idx < questions.length - 1) {
             if (nextQBtn) {
               nextQBtn.style.display = 'inline-flex';
-              nextQBtn.textContent = `Next Question (${idx + 2}/${questions.length}) ->`;
+              nextQBtn.textContent = `Next Question (${idx + 2}/${questions.length}) →`;
             }
           } else {
             // Completed all questions in the quiz!
+            quizState.completed = true;
+            saveQuizState(spcl, lsn, sub, quizState);
+
             if (isAIQuiz) {
               const currentRound = Math.floor((sub - baseLen) / 2);
               const nextRound = currentRound + 1;
               if (sessionMistakes.length > 0) {
-                // Made mistakes in this AI quiz round! Save new breakdown specifically for nextRound in memory
                 saveAiBreakdown(spcl, lsn, nextRound, sessionMistakes);
                 setRecordedMistakes(spcl, lsn, sessionMistakes);
                 markQuizCompleted(spcl, lsn, sub);
@@ -1551,7 +1747,6 @@ function setupMultiQuestionQuiz(data) {
                   };
                 }
               } else {
-                // 100% correct! Complete mastery achieved
                 clearRecordedMistakes(spcl, lsn);
                 markQuizCompleted(spcl, lsn, sub);
                 setMaxVisitedSub(spcl, lsn, sub + 1);
@@ -1584,13 +1779,11 @@ function setupMultiQuestionQuiz(data) {
                 }
               }
             } else {
-              // Base lesson quiz (e.g., sub=2 or sub=4)
               markQuizCompleted(spcl, lsn, sub);
               const currentMistakes = getRecordedMistakes(spcl, lsn);
               const isLastBaseStep = (sub === baseLen);
 
               if (isLastBaseStep && currentMistakes.length === 0) {
-                // User completed entire base lesson without any mistakes! Move on to next topic
                 setMaxVisitedSub(spcl, lsn, sub + 1);
                 const nextLessonNo = Math.max(Number(currentProgress.lesson_no) || 1, Number(lsn) + 1);
                 currentProgress.lesson_no = nextLessonNo;
@@ -1615,7 +1808,6 @@ function setupMultiQuestionQuiz(data) {
                   };
                 }
               } else if (isLastBaseStep && currentMistakes.length > 0) {
-                // User made mistakes during the lesson -> save Round 1 breakdown and unlock
                 saveAiBreakdown(spcl, lsn, 1, currentMistakes);
                 setMaxVisitedSub(spcl, lsn, sub + 1);
                 if (feedbackBox) {
@@ -1635,7 +1827,6 @@ function setupMultiQuestionQuiz(data) {
                   };
                 }
               } else {
-                // Intermediate base quiz (e.g. sub=2)
                 setMaxVisitedSub(spcl, lsn, sub + 1);
                 if (feedbackBox) {
                   feedbackBox.innerHTML += '<div style="margin-top: 10px; font-weight: 900;">Quiz finished! Click Next Page below to continue.</div>';
@@ -1665,6 +1856,8 @@ function setupMultiQuestionQuiz(data) {
     nextQBtn.onclick = () => {
       if (currentQuestionIdx < questions.length - 1) {
         currentQuestionIdx++;
+        quizState.currentQuestionIdx = currentQuestionIdx;
+        saveQuizState(spcl, lsn, sub, quizState);
         renderQuestion(currentQuestionIdx);
       }
     };
