@@ -413,7 +413,7 @@ export const MALAYALAM_LESSON_DATA = {
     "topic": "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
     "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">കോഡിംഗിലൂടെ കണക്കുകൂട്ടലുകൾ</h2>\n        <p class=\"section-lead\">\n          കമ്പ്യൂട്ടറുകൾ നിർമ്മിക്കപ്പെട്ടത് തന്നെ വേഗതയേറിയ കണക്കുകൂട്ടലുകൾക്ക് വേണ്ടിയാണ്. പൈത്തണിൽ സംഖ്യകളും <a href=\"1.html?spcl=1&lsn=3&sub=1&ref_from=1_4_1\" class=\"ref-jump-btn\">വേരിയബിളുകളും (പാഠം 2.1) ↗</a> ഉപയോഗിച്ച് കൂട്ടാനും (<code>+</code>) കുറയ്ക്കാനും (<code>-</code>) സാധിക്കും.\n        </p>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>സങ്കലനം മനസ്സിലാക്കാൻ രണ്ട് ഉദാഹരണങ്ങൾ</h4>\n          <p><strong>ഉദാഹരണം A — രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ:</strong> <code>x + y</code> എന്നത് <code>x</code> പെട്ടിയിലെ നമ്പറും <code>y</code> പെട്ടിയിലെ നമ്പറും എടുത്ത് കൂട്ടി ഒരു പുതിയ ഫല പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.</p>\n          <p><strong>ഉദാഹരണം B — ക്യാഷ് രജിസ്റ്റർ:</strong> ഓരോ വേരിയബിളും ഓരോ സാധനത്തിന്റെ വിലയാണ്. അവ കൂട്ടുന്നത് ഷോപ്പിംഗ് കാർട്ടിലെ ആകെ തുക കണക്കാക്കുന്നത് പോലെയാണ്.</p>\n        </div>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: സങ്കലനവും വ്യവകലനവും</div>\n          <pre><code># കൂട്ടൽ (Addition)\nprice1 = 50\nprice2 = 20\ntotal = price1 + price2\nprint(total)  # 70 കാണിക്കുന്നു\n\n# കുറയ്ക്കൽ (Subtraction / Discount)\ndiscount = 15\nfinal_price = total - discount\nprint(final_price)  # 55 കാണിക്കുന്നു</code></pre>\n        </div>\n\n        <h3 class=\"section-subheading\">ബ്രാക്കറ്റുകളും പ്രവർത്തന മുൻഗണനയും</h3>\n        <p>\n          കൂടുതൽ കണക്കുകൾ ചെയ്യുമ്പോൾ പൈത്തൺ ഇടതുനിന്ന് വലത്തോട്ട് പ്രവർത്തിക്കുന്നു. ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് നിശ്ചയിക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n        </p>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: ബ്രാക്കറ്റ് ഉപയോഗിക്കുമ്പോൾ</div>\n          <pre><code>result = (10 + 5) - 3\nprint(result)  # (15) - 3 = 12</code></pre>\n        </div>\n\n        <div class=\"neo-callout warning-callout\">\n          <h4>പ്രധാനം: നമ്പറുകളും ഉദ്ധരണികളും</h4>\n          <p><a href=\"1.html?spcl=1&lsn=3&sub=4&ref_from=1_4_1\" class=\"ref-jump-btn\">നമ്പറുകളും ടെക്സ്റ്റും (പാഠം 2.2) ↗</a> ഓർക്കുക: കണക്ക് ചെയ്യാൻ ഉദ്ധരണികൾ (quotes) ഇടരുത്. <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടാതെ <code>\"105\"</code> എന്ന് ഒട്ടിച്ചുവെക്കും!</p>\n        </div>\n      </div>\n    "
 },
-  '1_3_1': {
+  '1_4_1': {
     title: "വേരിയബിൾ എന്നാൽ എന്ത്?",
     subtitle: "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
     topic: "2.1 • വേരിയബിൾ",
@@ -461,7 +461,7 @@ export const MALAYALAM_LESSON_DATA = {
   </div>
 </div>`
   },
-  '1_3_2': {
+  '1_4_2': {
     title: "വേരിയബിൾ ക്വിസ്",
     topic: "2.1 • വേരിയബിൾ",
     questions: [
@@ -480,7 +480,7 @@ export const MALAYALAM_LESSON_DATA = {
       }
     ]
   },
-  '1_3_3': {
+  '1_4_3': {
     title: "വേരിയബിൾ കോഡിംഗ്",
     topic: "2.1 • കോഡിംഗ്",
     description: "name എന്ന വേരിയബിളിൽ 'Alice' ഉം age എന്നതിൽ 25 ഉം സൂക്ഷിച്ച് രണ്ടും print ചെയ്യുക.",

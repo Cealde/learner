@@ -1,122 +1,88 @@
 {
-  "title": "Variable Reassignment Quiz",
-  "topic": "2.3 • CHANGING VALUES",
+  "title": "Practice Quiz: String Concatenation",
+  "topic": "3.2 • PRACTICE & QUIZ",
   "questions": [
     {
-      "badge": "QUIZ • QUESTION 1 OF 4",
-      "question": "What will be printed to the screen when this code runs?",
-      "code": "age = 20\nage = 25\nprint(age)",
+      "badge": "STRING QUIZ • QUESTION 1 OF 6",
+      "question": "What is the output of the following concatenation?",
+      "code": "a = \"Super\"\nb = \"Hero\"\nprint(a + b)",
       "options": [
-        {
-          "prefix": "A",
-          "text": "25",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "20",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "20 25",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "Error: cannot assign age twice",
-          "correct": false
-        }
+        "SuperHero",
+        "Super Hero",
+        "\"SuperHero\"",
+        "Super+Hero"
       ],
-      "explanation_correct": "Correct! The second assignment overwrites the first. When print(age) runs, age holds 25.",
-      "explanation_incorrect": "Incorrect. The second line `age = 25` replaces the old value `20`. The print statement outputs `25`."
+      "correct_answer": "SuperHero",
+      "explanation_correct": "Correct! The + operator glues the two strings together directly without inserting any spaces automatically.",
+      "explanation_incorrect": "+ joins strings directly. Because no space \" \" was added, the result is SuperHero."
     },
     {
-      "badge": "QUIZ • QUESTION 2 OF 4",
-      "question": "How many values can a single standard variable hold at the exact same moment?",
-      "code": "",
+      "badge": "STRING QUIZ • QUESTION 2 OF 6",
+      "question": "How do you correctly join \"Welcome\" and \"Home\" with a space in between?",
       "options": [
-        {
-          "prefix": "A",
-          "text": "Only 1 value (the newest value replaces any previous value)",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "2 values",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "Unlimited values stored simultaneously",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "0 values",
-          "correct": false
-        }
+        "\"Welcome\" + \" \" + \"Home\"",
+        "\"Welcome\" + \"Home\"",
+        "\"Welcome\" , \"Home\"",
+        "\"Welcome\" + space + \"Home\""
       ],
-      "explanation_correct": "Correct! A variable box holds exactly one value at a time. Assigning a new value discards the old one.",
-      "explanation_incorrect": "Incorrect. A variable is like a physical box that holds exactly one item at a time. The new value replaces the old one."
+      "correct_answer": "\"Welcome\" + \" \" + \"Home\"",
+      "explanation_correct": "Correct! You must explicitly concatenate a space string \" \" between the two words.",
+      "explanation_incorrect": "To include a space in the joined string, write \"Welcome\" + \" \" + \"Home\"."
     },
     {
-      "badge": "QUIZ • QUESTION 3 OF 4",
-      "question": "Trace the values of `x` and `y`. What does the final line print?",
-      "code": "x = 10\ny = x\nx = 20\nprint(y)",
+      "badge": "STRING QUIZ • QUESTION 3 OF 6",
+      "question": "What is the output of print(\"5\" + \"10\")?",
+      "code": "print(\"5\" + \"10\")",
       "options": [
-        {
-          "prefix": "A",
-          "text": "10",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "20",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "x",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "Error",
-          "correct": false
-        }
+        "510",
+        "15",
+        "\"15\"",
+        "Error: Cannot add numbers in quotes"
       ],
-      "explanation_correct": "Correct! When `y = x` executed, x was 10, so y received 10. Changing x to 20 later does not change y.",
-      "explanation_incorrect": "Incorrect. When `y = x` ran, y took the value inside x at that moment (10). Changing x afterwards does not retroactively change y."
+      "correct_answer": "510",
+      "explanation_correct": "Correct! Because \"5\" and \"10\" are in quotation marks, they are strings. + concatenates them into \"510\".",
+      "explanation_incorrect": "Quotation marks make \"5\" and \"10\" strings. The + operator concatenates them into 510."
     },
     {
-      "badge": "QUIZ • QUESTION 4 OF 4",
-      "question": "What does the following code display?",
-      "code": "score = 0\nprint(score)\nscore = 50\nprint(score)",
+      "badge": "STRING QUIZ • QUESTION 4 OF 6",
+      "question": "What is the output of print(5 + 10)?",
+      "code": "print(5 + 10)",
       "options": [
-        {
-          "prefix": "A",
-          "text": "0 on the first line, 50 on the second line",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "50 on both lines",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "0 on both lines",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "50 on the first line, 0 on the second line",
-          "correct": false
-        }
+        "15",
+        "510",
+        "\"15\"",
+        "5+10"
       ],
-      "explanation_correct": "Correct! The first print runs when score is 0. Then score updates to 50, so the second print displays 50.",
-      "explanation_incorrect": "Incorrect. Python executes top to bottom: Line 2 prints 0, Line 3 changes score to 50, Line 4 prints 50."
+      "correct_answer": "15",
+      "explanation_correct": "Correct! 5 and 10 are integers without quotes, so + performs arithmetic addition.",
+      "explanation_incorrect": "Without quotes, 5 and 10 are integer numbers, so 5 + 10 = 15."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 5 OF 6",
+      "question": "What happens if you run: print(\"Player score: \" + 100)?",
+      "code": "print(\"Player score: \" + 100)",
+      "options": [
+        "TypeError: Python cannot concatenate str (text) and int (number) directly",
+        "Player score: 100",
+        "Player score: \"100\"",
+        "Player score: 0"
+      ],
+      "correct_answer": "TypeError: Python cannot concatenate str (text) and int (number) directly",
+      "explanation_correct": "Correct! In Python, you cannot join text and a number using + unless you convert the number to text using str(100).",
+      "explanation_incorrect": "Python raises a TypeError because you cannot directly concatenate a string and an integer."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 6 OF 6",
+      "question": "How can you safely combine a string and an integer variable score = 100?",
+      "options": [
+        "\"Score: \" + str(score)",
+        "\"Score: \" + score",
+        "\"Score: \" * score",
+        "str(\"Score: \") - score"
+      ],
+      "correct_answer": "\"Score: \" + str(score)",
+      "explanation_correct": "Correct! Wrapping the number in str(score) converts it into a string, allowing safe concatenation.",
+      "explanation_incorrect": "Use str(score) to convert the number into text before joining with +."
     }
   ]
 }

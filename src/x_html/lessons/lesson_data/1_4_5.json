@@ -1,10 +1,122 @@
 {
-  "title": "Algorithm Formula: Binary Search Midpoint",
-  "topic": "3.1 • ALGORITHM CHALLENGE",
-  "description": "<strong>Real-World Algorithm: Binary Search Midpoint</strong><br/>In computer science, <em>Binary Search</em> is one of the most important algorithms ever created, used in search engines and databases worldwide to look up data in milliseconds. To search through sorted items, the algorithm repeatedly finds the exact <strong>midpoint</strong> between the <code>low</code> and <code>high</code> bounds.<br/><br/><strong>The Challenge:</strong><br/>The setup code below has locked lines. In the editable middle area, write the formula to calculate <code>midpoint</code> as the exact average of <code>low</code> and <code>high</code>.<br/><br/><em>Head-Scratcher Hint:</em> Division <code>/</code> has higher precedence than addition <code>+</code>. Use brackets to add <code>low</code> and <code>high</code> before dividing by 2!",
-  "locked_prefix": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\n",
-  "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
-  "starter_code": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\nmidpoint = \n\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
-  "intended_output": "30.0",
-  "ai_check": "binary_search_midpoint_formula"
+  "title": "Data Types Quiz: Numbers vs Text",
+  "topic": "2.2 • INTEGERS VS STRINGS",
+  "questions": [
+    {
+      "badge": "QUIZ • QUESTION 1 OF 4",
+      "question": "Which of the following creates a NUMBER (Integer) variable in Python?",
+      "code": "",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "score = 100",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "score = \"100\"",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "score = '100'",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "score = (100)",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "Correct! Whole numbers written without quotes are treated as integers (numeric values).",
+      "explanation_incorrect": "Incorrect. Quotes (\"100\" or '100') make it a text string. To make a number, write the digits without quotes."
+    },
+    {
+      "badge": "QUIZ • QUESTION 2 OF 4",
+      "question": "What is the output of the following code snippet?",
+      "code": "print(\"5\" + \"5\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "55",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "10",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "5",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Error: cannot add text",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "Correct! Because \"5\" has quotes, Python treats both as text strings and glues them together (concatenation) to produce \"55\".",
+      "explanation_incorrect": "Incorrect. Quotes make \"5\" a text string. The + operator connects (concatenates) strings together into \"55\"."
+    },
+    {
+      "badge": "QUIZ • QUESTION 3 OF 4",
+      "question": "What happens if you write `name = Alice` without quotes around Alice?",
+      "code": "name = Alice",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Python crashes with a NameError because it searches for a variable named Alice",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Python automatically adds quotes and creates a string",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Python creates a number variable with value 0",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Python prints Alice to the screen",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "Correct! Words without quotes are treated as variable names. Since no variable named Alice exists, Python raises a NameError.",
+      "explanation_incorrect": "Incorrect. Any word without quotes is looked up as a variable. If it doesn't exist, Python raises NameError."
+    },
+    {
+      "badge": "QUIZ • QUESTION 4 OF 4",
+      "question": "You want to store a user's phone number. Why is storing it as a string (with quotes) usually preferred?",
+      "code": "phone = \"9876543210\"",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Phone numbers are text IDs that you never do math (like addition) on, and they can have leading zeros or hyphens",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Python numbers cannot hold more than 3 digits",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Strings take up zero memory in the computer",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Integer numbers are not allowed in Python programs",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "Correct! Phone numbers and zip codes are identifier codes, not mathematical quantities, so they are best stored as strings.",
+      "explanation_incorrect": "Incorrect. Phone numbers are identifiers rather than math values (you don't add phone numbers), so text format is ideal."
+    }
+  ]
 }
