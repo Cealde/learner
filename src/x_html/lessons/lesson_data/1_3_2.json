@@ -1,0 +1,58 @@
+{
+  "title": "Variable Fundamentals Quiz",
+  "topic": "2.1 • WHAT IS A VARIABLE?",
+  "questions": [
+    {
+      "badge": "QUIZ • QUESTION 1 OF 4",
+      "question": "What is the primary purpose of a variable in Python?",
+      "code": "",
+      "options": [
+        "A labeled storage box in memory that holds a value for later use",
+        "A command that immediately shuts down the computer",
+        "A physical cable connecting your monitor to the CPU",
+        "A special key on your keyboard that only types numbers"
+      ],
+      "explanation_correct": "Correct! A variable is a named reference in memory where you store a value to reuse later in your program.",
+      "explanation_incorrect": "Incorrect. A variable is a labeled storage box in computer memory that holds data."
+    },
+    {
+      "badge": "QUIZ • QUESTION 2 OF 4",
+      "question": "Which line of Python code correctly creates a variable named 'score' with the value 100?",
+      "code": "",
+      "options": [
+        "score = 100",
+        "100 = score",
+        "score == 100",
+        "variable score is 100"
+      ],
+      "explanation_correct": "Correct! The variable name always goes on the left side of the single '=' assignment operator, and the value goes on the right.",
+      "explanation_incorrect": "Incorrect. Remember the rule: the box name always goes on the LEFT side of '=', value on the RIGHT."
+    },
+    {
+      "badge": "QUIZ • QUESTION 3 OF 4",
+      "question": "If you write `age = 25`, what will `print(age)` display vs `print(\"age\")`?",
+      "code": "age = 25\nprint(age)\nprint(\"age\")",
+      "options": [
+        "print(age) displays 25, while print(\"age\") displays the word age",
+        "Both lines display 25",
+        "Both lines display the word age",
+        "It causes an error because quotes are never allowed"
+      ],
+      "explanation_correct": "Correct! print(age) without quotes opens the variable box and shows 25, while print(\"age\") in quotes treats it as plain text.",
+      "explanation_incorrect": "Incorrect. Without quotes, Python evaluates the variable name. With quotes, it prints the literal text."
+    },
+    {
+      "badge": "QUIZ • QUESTION 4 OF 4",
+      "question": "What happens if you try to `print(total)` before writing `total = 50`?",
+      "code": "print(total)\ntotal = 50",
+      "options": [
+        "Python crashes with a NameError because the box total has not been created yet",
+        "Python automatically guesses the value is 0",
+        "Python prints nothing and moves on silently",
+        "Python waits for you to type the value on the keyboard"
+      ],
+      "explanation_correct": "Correct! Python executes top-to-bottom. You cannot open a variable box before you create it.",
+      "explanation_incorrect": "Incorrect. Python executes in order from top to bottom. Trying to use an uncreated variable raises a NameError."
+    }
+  ]
+}

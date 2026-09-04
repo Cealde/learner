@@ -1,0 +1,7 @@
+{
+  "title": "Creating & Printing Variables",
+  "topic": "2.1 • CODING EXERCISE",
+  "description": "Let's create your first variables! In the editor below, create a variable named <code>name</code> with value <code>\"Alice\"</code> and a variable named <code>age</code> with value <code>25</code>. Then print <code>name</code> on the first line and <code>age</code> on the second line.",
+  "intended_output": "Alice\n25",
+  "starter_code": "# Create your variables below:\nname = \"Alice\"\nage = 25\n\n# Print the variables (without quotes around variable names):\nprint(name)\nprint(age)\n"
+}

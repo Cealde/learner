@@ -12,13 +12,13 @@ import {
 
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
 export const sylPy = [
-  [1, 4, 3, 4],             // Lesson 1: What is a PC (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
-  [1, 4, 3, 2, 4, 3, 4],    // Lesson 2: Programming (1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz)
-  [1, 2, 3, 4],             // Lesson 3: Variables
-  [1, 2, 4],                // Lesson 4: Math Functions
-  [1, 2, 4],                // Lesson 5: Lists
-  [1, 2, 4],                // Lesson 6: Conditions
-  [1, 2, 4]                 // Lesson 7: For Loop
+  [1, 4, 3, 4],                         // Lesson 1: What is a PC (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
+  [1, 4, 3, 2, 4, 3, 4],                // Lesson 2: Programming (1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz)
+  [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],       // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
+  [1, 2, 4],                            // Lesson 4: Math Functions
+  [1, 2, 4],                            // Lesson 5: Lists
+  [1, 2, 4],                            // Lesson 6: Conditions
+  [1, 2, 4]                             // Lesson 7: For Loop
 ];
 
 export const LANGUAGES = [
@@ -33,7 +33,52 @@ export function getQueryParams() {
   const lsn = parseInt(params.get('lsn') || '1', 10);
   const sub = parseInt(params.get('sub') || '1', 10);
   const spcl = params.get('spcl') || '1';
-  return { lsn, sub, spcl };
+  const ref_from = params.get('ref_from') || null;
+  return { lsn, sub, spcl, ref_from };
+}
+
+export function initReferenceReturnBanner() {
+  const { ref_from, spcl } = getQueryParams();
+  const existingBanner = document.getElementById('ref-return-banner');
+  if (existingBanner) existingBanner.remove();
+
+  if (!ref_from) return;
+
+  const parts = ref_from.split('_');
+  const fromSpcl = parts[0] || spcl;
+  const fromLsn = parts[1] || '1';
+  const fromSub = parts[2] || '1';
+
+  const isMl = currentLang === 'ml';
+  const tagText = isMl ? 'റഫറൻസ് മോഡ്' : 'REFERENCE MODE';
+  const descText = isMl ? 'മുൻ പാഠഭാഗം പരിശോധിക്കുന്നു' : 'Reviewing prior lesson';
+  const returnBtnText = isMl 
+    ? `← പാഠം ${fromLsn}.${fromSub} ലേക്ക് മടങ്ങുക ↩` 
+    : `← Return to Lesson ${fromLsn}.${fromSub} ↩`;
+
+  const banner = document.createElement('div');
+  banner.id = 'ref-return-banner';
+  banner.className = 'ref-return-banner';
+  banner.innerHTML = `
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="ref-return-tag">${tagText}</span>
+      <span class="ref-return-text">${descText}</span>
+    </div>
+    <button type="button" class="ref-return-btn" id="ref-return-btn">${returnBtnText}</button>
+  `;
+
+  document.body.appendChild(banner);
+
+  const returnBtn = document.getElementById('ref-return-btn');
+  if (returnBtn) {
+    returnBtn.onclick = () => {
+      const targetLsnIdx = Math.max(0, parseInt(fromLsn, 10) - 1);
+      const targetSeq = sylPy[targetLsnIdx] || sylPy[0];
+      const targetSubIdx = Math.max(1, Math.min(parseInt(fromSub, 10) || 1, targetSeq.length));
+      const targetTypeId = targetSeq[targetSubIdx - 1] || 1;
+      window.location.href = `${targetTypeId}.html?spcl=${fromSpcl}&lsn=${fromLsn}&sub=${targetSubIdx}`;
+    };
+  }
 }
 
 export function initLanguageDropup() {
@@ -914,6 +959,18 @@ export const ENGLISH_MODULE_NAMES = {
     '1.2 • print() Mastery Quiz',
     '1.3 • Running Your Code',
     '1.3 • Execution Order Quiz'
+  ],
+  3: [
+    '2.1 • What Is a Variable?',
+    '2.1 • Variable Fundamentals Quiz',
+    '2.1 • Creating Variables Code',
+    '2.2 • Numbers & Text (Types)',
+    '2.2 • Integers vs Strings Quiz',
+    '2.2 • Types & Memory Code',
+    '2.3 • Changing Variable Values',
+    '2.3 • Reassignment Quiz',
+    '2.3 • Updating Variables Code',
+    '2.3 • Complete Variables Mastery'
   ]
 };
 
@@ -1186,6 +1243,7 @@ async function initLessonPage() {
   const typeId = parseInt(currentPage.replace('.html', ''), 10) || 1;
 
   initSidebarNavigation(typeId);
+  initReferenceReturnBanner();
   const data = await fetchLessonJson();
 
   if (data) {

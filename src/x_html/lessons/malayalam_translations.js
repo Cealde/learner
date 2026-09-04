@@ -42,10 +42,96 @@ export const MALAYALAM_MODULE_NAMES = {
     '1.2 • print() ക്വിസ്',
     '1.3 • കോഡ് റൺ ചെയ്യുമ്പോൾ',
     '1.3 • പ്രവർത്തന ക്രമ ക്വിസ്'
+  ],
+  3: [
+    '2.1 • വേരിയബിൾ എന്നാൽ എന്ത്?',
+    '2.1 • വേരിയബിൾ ക്വിസ്',
+    '2.1 • വേരിയബിൾ കോഡിംഗ്',
+    '2.2 • നമ്പറുകളും ടെക്സ്റ്റും',
+    '2.2 • ഡാറ്റാ ടൈപ്പ് ക്വിസ്',
+    '2.2 • ഡാറ്റാ ടൈപ്പ് കോഡിംഗ്',
+    '2.3 • വേരിയബിൾ മാറ്റങ്ങൾ',
+    '2.3 • റീഅസൈൻമെന്റ് ക്വിസ്',
+    '2.3 • അപ്ഡേറ്റിംഗ് കോഡിംഗ്',
+    '2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്'
   ]
 };
 
 export const MALAYALAM_LESSON_DATA = {
+  '1_3_1': {
+    title: "വേരിയബിൾ എന്നാൽ എന്ത്?",
+    subtitle: "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
+    topic: "2.1 • വേരിയബിൾ",
+    body: `<div style="display: flex; flex-direction: column; gap: 18px; width: 100%;">
+  <div style="text-align: center; margin-bottom: 4px; width: 100%;">
+    <div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+      2.1 • വിവരങ്ങൾ സൂക്ഷിക്കൽ
+    </div>
+    <h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;">
+      എന്താണ് ഒരു <hlt>വേരിയബിൾ</hlt>?
+    </h1>
+    <p style="font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;">
+      കമ്പ്യൂട്ടർ മെമ്മറിയിൽ വിവരങ്ങൾ ഒരു പേരിൽ സൂക്ഷിച്ചുവെച്ച് പിന്നീട് ആവശ്യമുള്ളപ്പോൾ ഉപയോഗിക്കാനുള്ള വഴിയാണ് വേരിയബിൾ.
+    </p>
+  </div>
+
+  <div class="lesson-ref-card">
+    <div class="lesson-ref-header">
+      <span class="ref-badge">മുൻ അറിവുകൾ</span>
+      <span class="lesson-ref-title">മുൻ പാഠങ്ങളുമായി ബന്ധിപ്പിക്കാം</span>
+    </div>
+    <p class="lesson-ref-desc">
+      റാം (RAM) മെമ്മറി എങ്ങനെ ഡാറ്റ സൂക്ഷിക്കുന്നുവെന്നും print() കമാൻഡ് എങ്ങനെ പ്രവർത്തിക്കുന്നുവെന്നും ഓർക്കുക.
+    </p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <a href="1.html?spcl=1&lsn=1&sub=3&ref_from=1_3_1" class="ref-jump-btn">പാഠം 1.2: കമ്പ്യൂട്ടർ മെമ്മറി പരിശോധിക്കുക →</a>
+      <a href="1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_1" class="ref-jump-btn">പാഠം 2.2: print() കമാൻഡ് പരിശോധിക്കുക →</a>
+    </div>
+  </div>
+
+  <div style="background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;">
+    <span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">
+      ഉദാഹരണം A • ലേബൽ ചെയ്ത പെട്ടി
+    </span>
+    <h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">
+      പുറത്ത് പേരെഴുതിയ ഒരു പെട്ടി
+    </h2>
+    <p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">
+      ഒരു പെട്ടിയുടെ പുറത്ത് <hlt>age</hlt> എന്ന് ലേബൽ ഒട്ടിച്ച് അതിനുള്ളിൽ <hlt>25</hlt> എന്നെഴുതിയ പേപ്പർ ഇടുന്നതുപോലെയാണ് വേരിയബിൾ.
+    </p>
+    <div style="background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;">
+      age = <span style="color: #7ee787;">25</span><br/>
+      <span style="color: #79c0ff;">print</span>(age)  <span style="color: #8b949e;"># 'age' പെട്ടി തുറന്ന് 25 കാണിക്കുന്നു</span>
+    </div>
+  </div>
+</div>`
+  },
+  '1_3_2': {
+    title: "വേരിയബിൾ ക്വിസ്",
+    topic: "2.1 • വേരിയബിൾ",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 4",
+        question: "പൈത്തണിൽ ഒരു വേരിയബിളിൻ്റെ പ്രധാന ഉപയോഗം എന്താണ്?",
+        code: "",
+        options: [
+          "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിച്ചുവെക്കാനുള്ള പേരുള്ള ഒരു പെട്ടി",
+          "കമ്പ്യൂട്ടർ ഓഫ് ചെയ്യാനുള്ള കമാൻഡ്",
+          "മോണിറ്ററിലേക്ക് ഘടിപ്പിക്കുന്ന കേബിൾ",
+          "നമ്പറുകൾ മാത്രം ടൈപ്പ് ചെയ്യാനുള്ള കീബോർഡ് ബട്ടൺ"
+        ],
+        explanation_correct: "ശരിയുത്തരം! വേരിയബിൾ എന്നാൽ പിന്നീട് ഉപയോഗിക്കാനായി ഡാറ്റ സൂക്ഷിക്കുന്ന ഒരു ലേബൽ ചെയ്ത മെമ്മറി അറയാണ്.",
+        explanation_incorrect: "തെറ്റായ ഉത്തരം. വേരിയബിൾ എന്നാൽ മെമ്മറിയിൽ ഡാറ്റ സൂക്ഷിക്കാനുള്ള കണ്ടെയ്നറാണ്."
+      }
+    ]
+  },
+  '1_3_3': {
+    title: "വേരിയബിൾ കോഡിംഗ്",
+    topic: "2.1 • കോഡിംഗ്",
+    description: "name എന്ന വേരിയബിളിൽ 'Alice' ഉം age എന്നതിൽ 25 ഉം സൂക്ഷിച്ച് രണ്ടും print ചെയ്യുക.",
+    intended_output: "Alice\n25",
+    starter_code: "# വേരിയബിളുകൾ താഴെ നൽകുക:\nname = \"Alice\"\nage = 25\n\n# print ചെയ്യുക:\nprint(name)\nprint(age)\n"
+  },
   '1_1_1': {
     title: "കമ്പ്യൂട്ടർ ഒരു \"യന്ത്രം മാത്രം\"",
     subtitle: "കമ്പ്യൂട്ടറുകളെ മനസ്സിലാക്കാം",

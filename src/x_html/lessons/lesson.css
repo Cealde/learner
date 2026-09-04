@@ -661,9 +661,149 @@ hlt:hover {
   color: var(--neo-black);
 }
 
+/* ============================================================
+   CROSS-LESSON REFERENCE & RETURN NAVIGATION STYLES
+   ============================================================ */
+.ref-return-banner {
+  position: fixed;
+  top: 12px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--neo-yellow);
+  border: var(--neo-border);
+  box-shadow: 4px 4px 0 var(--neo-black);
+  padding: 8px 14px;
+  border-radius: 4px;
+  animation: slideInBanner 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInBanner {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.ref-return-tag {
+  display: inline-block;
+  background: var(--neo-black);
+  color: var(--neo-white);
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  font-family: 'Title', sans-serif;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+}
+
+.ref-return-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--neo-black);
+}
+
+.ref-return-btn {
+  background: var(--neo-blue);
+  color: var(--neo-white);
+  border: var(--neo-border-sm);
+  box-shadow: 2px 2px 0 var(--neo-black);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.ref-return-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--neo-black);
+  background: #1d4ed8;
+}
+
+/* Reference Callout Card in Lesson Info */
+.lesson-ref-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #EFF6FF;
+  border: 3px solid var(--neo-black);
+  box-shadow: 4px 4px 0 var(--neo-black);
+  padding: 14px 18px;
+  margin: 16px 0;
+  border-radius: 4px;
+}
+
+.lesson-ref-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ref-badge {
+  display: inline-block;
+  background: var(--neo-blue);
+  color: var(--neo-white);
+  border: 2px solid var(--neo-black);
+  box-shadow: 2px 2px 0 var(--neo-black);
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-family: 'Title', sans-serif;
+  font-weight: 900;
+}
+
+.lesson-ref-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--neo-black);
+}
+
+.lesson-ref-desc {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.ref-jump-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--neo-white);
+  color: var(--neo-black);
+  border: 2px solid var(--neo-black);
+  box-shadow: 3px 3px 0 var(--neo-black);
+  padding: 6px 14px;
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 4px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.ref-jump-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--neo-black);
+  background: var(--neo-yellow);
+}
+
 @media (max-width: 1100px) {
   .twin-main-grid {
     grid-template-columns: 1fr;
     overflow-y: auto;
+  }
+  .ref-return-banner {
+    top: 65px;
+    right: 12px;
   }
 }

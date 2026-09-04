@@ -1,0 +1,58 @@
+{
+  "title": "Variable Reassignment Quiz",
+  "topic": "2.3 • CHANGING VALUES",
+  "questions": [
+    {
+      "badge": "QUIZ • QUESTION 1 OF 4",
+      "question": "What will be printed to the screen when this code runs?",
+      "code": "age = 20\nage = 25\nprint(age)",
+      "options": [
+        "25",
+        "20",
+        "20 25",
+        "Error: cannot assign age twice"
+      ],
+      "explanation_correct": "Correct! The second assignment overwrites the first. When print(age) runs, age holds 25.",
+      "explanation_incorrect": "Incorrect. The second line `age = 25` replaces the old value `20`. The print statement outputs `25`."
+    },
+    {
+      "badge": "QUIZ • QUESTION 2 OF 4",
+      "question": "How many values can a single standard variable hold at the exact same moment?",
+      "code": "",
+      "options": [
+        "Only 1 value (the newest value replaces any previous value)",
+        "2 values",
+        "Unlimited values stored simultaneously",
+        "0 values"
+      ],
+      "explanation_correct": "Correct! A variable box holds exactly one value at a time. Assigning a new value discards the old one.",
+      "explanation_incorrect": "Incorrect. A variable is like a physical box that holds exactly one item at a time. The new value replaces the old one."
+    },
+    {
+      "badge": "QUIZ • QUESTION 3 OF 4",
+      "question": "Trace the values of `x` and `y`. What does the final line print?",
+      "code": "x = 10\ny = x\nx = 20\nprint(y)",
+      "options": [
+        "10",
+        "20",
+        "x",
+        "Error"
+      ],
+      "explanation_correct": "Correct! When `y = x` executed, x was 10, so y received 10. Changing x to 20 later does not change y.",
+      "explanation_incorrect": "Incorrect. When `y = x` ran, y took the value inside x at that moment (10). Changing x afterwards does not retroactively change y."
+    },
+    {
+      "badge": "QUIZ • QUESTION 4 OF 4",
+      "question": "What does the following code display?",
+      "code": "score = 0\nprint(score)\nscore = 50\nprint(score)",
+      "options": [
+        "0 on the first line, 50 on the second line",
+        "50 on both lines",
+        "0 on both lines",
+        "50 on the first line, 0 on the second line"
+      ],
+      "explanation_correct": "Correct! The first print runs when score is 0. Then score updates to 50, so the second print displays 50.",
+      "explanation_incorrect": "Incorrect. Python executes top to bottom: Line 2 prints 0, Line 3 changes score to 50, Line 4 prints 50."
+    }
+  ]
+}

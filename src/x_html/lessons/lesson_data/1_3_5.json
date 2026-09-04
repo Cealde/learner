@@ -1,0 +1,58 @@
+{
+  "title": "Data Types Quiz: Numbers vs Text",
+  "topic": "2.2 • INTEGERS VS STRINGS",
+  "questions": [
+    {
+      "badge": "QUIZ • QUESTION 1 OF 4",
+      "question": "Which of the following creates a NUMBER (Integer) variable in Python?",
+      "code": "",
+      "options": [
+        "score = 100",
+        "score = \"100\"",
+        "score = '100'",
+        "score = (100)"
+      ],
+      "explanation_correct": "Correct! Whole numbers written without quotes are treated as integers (numeric values).",
+      "explanation_incorrect": "Incorrect. Quotes (\"100\" or '100') make it a text string. To make a number, write the digits without quotes."
+    },
+    {
+      "badge": "QUIZ • QUESTION 2 OF 4",
+      "question": "What is the output of the following code snippet?",
+      "code": "print(\"5\" + \"5\")",
+      "options": [
+        "55",
+        "10",
+        "5",
+        "Error: cannot add text"
+      ],
+      "explanation_correct": "Correct! Because \"5\" has quotes, Python treats both as text strings and glues them together (concatenation) to produce \"55\".",
+      "explanation_incorrect": "Incorrect. Quotes make \"5\" a text string. The + operator connects (concatenates) strings together into \"55\"."
+    },
+    {
+      "badge": "QUIZ • QUESTION 3 OF 4",
+      "question": "What happens if you write `name = Alice` without quotes around Alice?",
+      "code": "name = Alice",
+      "options": [
+        "Python crashes with a NameError because it searches for a variable named Alice",
+        "Python automatically adds quotes and creates a string",
+        "Python creates a number variable with value 0",
+        "Python prints Alice to the screen"
+      ],
+      "explanation_correct": "Correct! Words without quotes are treated as variable names. Since no variable named Alice exists, Python raises a NameError.",
+      "explanation_incorrect": "Incorrect. Any word without quotes is looked up as a variable. If it doesn't exist, Python raises NameError."
+    },
+    {
+      "badge": "QUIZ • QUESTION 4 OF 4",
+      "question": "You want to store a user's phone number. Why is storing it as a string (with quotes) usually preferred?",
+      "code": "phone = \"9876543210\"",
+      "options": [
+        "Phone numbers are text IDs that you never do math (like addition) on, and they can have leading zeros or hyphens",
+        "Python numbers cannot hold more than 3 digits",
+        "Strings take up zero memory in the computer",
+        "Integer numbers are not allowed in Python programs"
+      ],
+      "explanation_correct": "Correct! Phone numbers and zip codes are identifier codes, not mathematical quantities, so they are best stored as strings.",
+      "explanation_incorrect": "Incorrect. Phone numbers are identifiers rather than math values (you don't add phone numbers), so text format is ideal."
+    }
+  ]
+}
