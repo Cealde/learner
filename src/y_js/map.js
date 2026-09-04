@@ -99,9 +99,9 @@ const MAP_POINTS = [
     { id: 'Math Functions',      x: 10,   z: 14,  iconSvg: '../assets/icons/maths.svg',  desc: 'Master arithmetic calculations, mathematical operators, and string concatenation.' },
     { id: 'Conditions',          x: -14,  z: -8,  iconSvg: '../assets/icons/if.svg',     desc: 'Control program execution flow using if, elif, and else statements with comparison logic.' },
     { id: 'Loops',               x: -38,  z: 18,  iconSvg: '../assets/icons/loop.svg',   desc: 'Automate repetitive workflows with for and while loops over sequences and conditions.' },
-    { id: 'Functions',           x: -62,  z: -6,  iconSvg: '../assets/icons/func.svg',   desc: 'Build modular, reusable functions with def, parameters, default arguments, and return values.' },
+    { id: 'Functions',           x: -62,  z: -6,  iconSvg: '../assets/icons/var.svg',   desc: 'Build modular, reusable functions with def, parameters, default arguments, and return values.' },
     { id: 'Lists & Dicts',       x: -86,  z: 22,  iconSvg: '../assets/icons/list.svg',   desc: 'Organize structured datasets using ordered Lists and fast Key-Value Dictionaries.' },
-    { id: 'Final Test',          x: -110, z: 2,   iconSvg: '../assets/icons/trophy.svg', desc: 'Comprehensive certification exam and real-world capstone algorithm challenges.' }
+    { id: 'Final Test',          x: -110, z: 2,   iconSvg: '../assets/icons/pc.svg', desc: 'Comprehensive certification exam and real-world capstone algorithm challenges.' }
 ];
 
 const WAVE_AMPLITUDE = 3.5;
@@ -560,4 +560,4 @@ window.addEventListener('keydown', (e) => {
         console.log('[DEV TOOLS] Shortcut triggered: Completing current map milestone...');
         devCompleteLesson();
     }
-});
+});
