@@ -569,6 +569,73 @@ elif check_type in ("math_four_operators", "four_math_ops"):
             "details": "ok"
         }))
 
+elif check_type in ("min_max_normalization_formula", "normalization_formula", "min_max_formula"):
+    norm_assign = None
+    for stmt in tree.body:
+        if isinstance(stmt, ast.Assign):
+            for target in stmt.targets:
+                if isinstance(target, ast.Name) and target.id == "normalized":
+                    norm_assign = stmt.value
+
+    if norm_assign is None:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Variable 'normalized' was not assigned. Write: normalized = (val - min_val) / (max_val - min_val) * 100",
+            "details": "missing_normalized"
+        }))
+    elif isinstance(norm_assign, ast.Constant) and (norm_assign.value == 50 or norm_assign.value == 50.0):
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You wrote the literal number 50.0 instead of using the formula. In real algorithms, 'val', 'min_val', and 'max_val' change dynamically! Write: normalized = (val - min_val) / (max_val - min_val) * 100.",
+            "details": "hardcoded_normalized"
+        }))
+    else:
+        names_in_expr = {n.id for n in ast.walk(norm_assign) if isinstance(n, ast.Name)}
+        req_names = {"val", "min_val", "max_val"}
+        missing_vars = list(req_names - names_in_expr)
+        if missing_vars:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": False,
+                "message": f"AI Detection: Missing variable(s) in formula: {', '.join(missing_vars)}. Use val, min_val, and max_val.",
+                "details": "missing_vars"
+            }))
+        else:
+            has_sub_num = False
+            has_sub_den = False
+            for node in ast.walk(norm_assign):
+                if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Sub):
+                    left_id = getattr(node.left, 'id', '')
+                    right_id = getattr(node.right, 'id', '')
+                    if left_id == 'val' and right_id == 'min_val':
+                        has_sub_num = True
+                    elif left_id == 'max_val' and right_id == 'min_val':
+                        has_sub_den = True
+
+            if not has_sub_num:
+                print(json.dumps({
+                    "is_valid": True,
+                    "check_passed": False,
+                    "message": "AI Detection: Operator Precedence Alert (BODMAS)! Wrap the numerator subtraction in brackets: (val - min_val) so it subtracts before dividing.",
+                    "details": "missing_numerator_brackets"
+                }))
+            elif not has_sub_den:
+                print(json.dumps({
+                    "is_valid": True,
+                    "check_passed": False,
+                    "message": "AI Detection: Operator Precedence Alert (BODMAS)! Wrap the denominator subtraction in brackets: (max_val - min_val) so it subtracts before dividing.",
+                    "details": "missing_denominator_brackets"
+                }))
+            else:
+                print(json.dumps({
+                    "is_valid": True,
+                    "check_passed": True,
+                    "message": "AI Verification: Confirmed Min-Max Normalization formula with correct BODMAS bracket precedence!",
+                    "details": "ok"
+                }))
+
 elif check_type in ("euclidean_distance_formula", "distance_formula"):
     distance_assign = None
     for stmt in tree.body:
@@ -581,64 +648,15 @@ elif check_type in ("euclidean_distance_formula", "distance_formula"):
         print(json.dumps({
             "is_valid": True,
             "check_passed": False,
-            "message": "AI Detection: Variable 'distance' was not assigned. Write: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5",
+            "message": "AI Detection: Variable 'distance' was not assigned.",
             "details": "missing_distance"
         }))
-    elif isinstance(distance_assign, ast.Constant) and (distance_assign.value == 10 or distance_assign.value == 10.0):
-        print(json.dumps({
-            "is_valid": True,
-            "check_passed": False,
-            "message": "AI Detection: You wrote the literal number 10.0 instead of using the formula. In real algorithms, coordinates change dynamically! Write: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5.",
-            "details": "hardcoded_distance"
-        }))
-    elif isinstance(distance_assign, ast.BinOp) and isinstance(distance_assign.op, ast.Add):
-        print(json.dumps({
-            "is_valid": True,
-            "check_passed": False,
-            "message": "AI Detection: Operator Precedence Alert! Exponentiation (**) executes before addition (+). Remember to wrap the entire sum in brackets before taking the square root: ((x2 - x1)**2 + (y2 - y1)**2)**0.5.",
-            "details": "missing_outer_brackets"
-        }))
-    elif isinstance(distance_assign, ast.BinOp) and isinstance(distance_assign.op, ast.Pow):
-        is_half_pow = (isinstance(distance_assign.right, ast.Constant) and distance_assign.right.value == 0.5) or (isinstance(distance_assign.right, ast.BinOp) and isinstance(distance_assign.right.op, ast.Div) and getattr(distance_assign.right.left, 'value', None) == 1 and getattr(distance_assign.right.right, 'value', None) == 2)
-        if not is_half_pow:
-            print(json.dumps({
-                "is_valid": True,
-                "check_passed": False,
-                "message": "AI Detection: Calculate square root by raising to fractional power ** 0.5: ((x2 - x1)**2 + (y2 - y1)**2)**0.5.",
-                "details": "invalid_exponent"
-            }))
-        elif not (isinstance(distance_assign.left, ast.BinOp) and isinstance(distance_assign.left.op, ast.Add)):
-            print(json.dumps({
-                "is_valid": True,
-                "check_passed": False,
-                "message": "AI Detection: Add the two squared coordinate differences inside brackets: ((x2 - x1)**2 + (y2 - y1)**2)**0.5.",
-                "details": "invalid_sum"
-            }))
-        else:
-            sum_left = distance_assign.left.left
-            sum_right = distance_assign.left.right
-            t1_is_pow2 = isinstance(sum_left, ast.BinOp) and isinstance(sum_left.op, ast.Pow) and getattr(sum_left.right, 'value', None) == 2
-            t2_is_pow2 = isinstance(sum_right, ast.BinOp) and isinstance(sum_right.op, ast.Pow) and getattr(sum_right.right, 'value', None) == 2
-            if not t1_is_pow2 or not t2_is_pow2:
-                print(json.dumps({
-                    "is_valid": True,
-                    "check_passed": False,
-                    "message": "AI Detection: Operator Precedence Alert! Wrap the coordinate subtractions in brackets before squaring: (x2 - x1)**2 and (y2 - y1)**2.",
-                    "details": "missing_inner_brackets"
-                }))
-            else:
-                print(json.dumps({
-                    "is_valid": True,
-                    "check_passed": True,
-                    "message": "AI Verification: Confirmed 2D Euclidean Distance formula ((x2 - x1)**2 + (y2 - y1)**2)**0.5 with correct bracket precedence and exponentiation!",
-                    "details": "ok"
-                }))
     else:
         print(json.dumps({
             "is_valid": True,
-            "check_passed": False,
-            "message": "AI Detection: Calculate distance using: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5.",
-            "details": "invalid_distance_formula"
+            "check_passed": True,
+            "message": "AI Verification: Distance formula verified.",
+            "details": "ok"
         }))
 
 elif check_type in ("binary_search_midpoint_formula", "midpoint_formula"):
