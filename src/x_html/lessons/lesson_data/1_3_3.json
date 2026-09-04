@@ -3,5 +3,6 @@
   "topic": "2.1 • CODING EXERCISE",
   "description": "Let's create your first variables! In the editor below, create a variable named <code>name</code> with value <code>\"Alice\"</code> and a variable named <code>age</code> with value <code>25</code>. Then print <code>name</code> on the first line and <code>age</code> on the second line.",
   "intended_output": "Alice\n25",
+  "ai_check": "create_name_age_vars",
   "starter_code": "# 1. Create variable 'name' with value \"Alice\"\n# 2. Create variable 'age' with value 25\n# 3. Print both variables (without quotes around variable names):\n\n"
 }

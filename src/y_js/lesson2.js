@@ -498,7 +498,8 @@ async function verifyOutput(actualOutput) {
   }
 
   // Inbuilt AI AST check if challenge specifies ai_check
-  if (currentChallenge && currentChallenge.ai_check) {
+  const aiCheckType = (currentChallenge && currentChallenge.ai_check) || (lessonData && lessonData.ai_check) || null;
+  if (aiCheckType) {
     const code = codeInput ? codeInput.value : '';
     let astCheckPassed = true;
     let astMessage = '';
@@ -507,7 +508,7 @@ async function verifyOutput(actualOutput) {
       try {
         const astRes = await invoke('verify_python_ast', {
           code,
-          checkType: currentChallenge.ai_check
+          checkType: aiCheckType
         });
         if (astRes && astRes.check_passed === false) {
           astCheckPassed = false;
@@ -519,7 +520,7 @@ async function verifyOutput(actualOutput) {
         console.warn('AST verification error:', e);
       }
     } else {
-      if (currentChallenge.ai_check === 'int_not_str_5' || currentChallenge.ai_check === 'int_5') {
+      if (aiCheckType === 'int_not_str_5' || aiCheckType === 'int_5') {
         if (/print\s*\(\s*["']5["']\s*\)/.test(code)) {
           astCheckPassed = false;
           astMessage = "AI Detection: You used quotation marks around '5' or \"5\". In Python, quotes create text (strings). To print an integer number, write print(5) without quotes!";
@@ -528,6 +529,72 @@ async function verifyOutput(actualOutput) {
           astMessage = "Did not find print(5). Make sure to write print(5) without quotes.";
         } else {
           astMessage = "AI Verification: Confirmed 5 is printed as an integer (int), not a string!";
+        }
+      } else if (aiCheckType === 'create_name_age_vars' || aiCheckType === 'variables_name_age') {
+        const hasNameVar = /name\s*=/.test(code);
+        const hasAgeVar = /age\s*=/.test(code);
+        const hasPrintName = /print\s*\(\s*name\s*\)/.test(code);
+        const hasPrintAge = /print\s*\(\s*age\s*\)/.test(code);
+        if (!hasNameVar) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'name' was not assigned. Create it like: name = \"Alice\"";
+        } else if (!hasAgeVar) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'age' was not assigned. Create it like: age = 25";
+        } else if (/print\s*\(\s*["']name["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You put quotation marks around 'name' in print(). Write print(name) without quotes to print the variable's value!";
+        } else if (/print\s*\(\s*["']age["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You put quotation marks around 'age' in print(). Write print(age) without quotes to print the variable's value!";
+        } else if (!hasPrintName || !hasPrintAge) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Make sure to print both variables: print(name) and print(age).";
+        } else {
+          astMessage = "AI Verification: Confirmed variables 'name' and 'age' are created and printed correctly!";
+        }
+      } else if (aiCheckType === 'score_int_player_str' || aiCheckType === 'variables_score_player') {
+        const hasScoreInt = /score\s*=\s*\d+/.test(code);
+        const hasScoreStr = /score\s*=\s*["']\d+["']/.test(code);
+        const hasPlayer = /player\s*=\s*["'][^"']+["']/.test(code);
+        const hasPrintScore = /print\s*\(\s*score\s*\)/.test(code);
+        const hasPrintPlayer = /print\s*\(\s*player\s*\)/.test(code);
+        if (hasScoreStr) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: 'score' was assigned with quotes as text. For integer numbers, write score = 100 without quotes!";
+        } else if (!hasScoreInt) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'score' was not assigned as a number: score = 100";
+        } else if (!hasPlayer) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'player' was not assigned as text: player = \"John\"";
+        } else if (/print\s*\(\s*["']score["']\s*\)/.test(code) || /print\s*\(\s*["']player["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You put quotation marks around the variable name in print(). Write print(score) and print(player) without quotes!";
+        } else if (!hasPrintScore || !hasPrintPlayer) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Make sure to print both variables: print(score) and print(player).";
+        } else {
+          astMessage = "AI Verification: Confirmed integer 'score' and string 'player' are created and printed correctly!";
+        }
+      } else if (aiCheckType === 'score_reassign_0_50' || aiCheckType === 'variable_reassign') {
+        const hasScore0 = /score\s*=\s*0/.test(code);
+        const hasScore50 = /score\s*=\s*50/.test(code);
+        const printCount = (code.match(/print\s*\(\s*score\s*\)/g) || []).length;
+        if (/print\s*\(\s*0\s*\)/.test(code) || /print\s*\(\s*50\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You wrote print(0) or print(50) directly. The goal is to update a variable! Create score = 0, print(score), update score = 50, and print(score) again.";
+        } else if (!hasScore0) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Start by creating score = 0.";
+        } else if (!hasScore50) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Update the variable to 50: score = 50.";
+        } else if (printCount < 2) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Print the score after setting it to 0, and print(score) again after updating it to 50.";
+        } else {
+          astMessage = "AI Verification: Confirmed variable 'score' is created, printed, updated to 50, and printed again!";
         }
       }
     }
@@ -770,6 +837,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const data = await fetchLessonJson();
+    lessonData = data;
     if (data && data.challenges && Array.isArray(data.challenges) && data.challenges.length > 0) {
       activeChallenges = data.challenges;
       currentChallengeIdx = 0;
