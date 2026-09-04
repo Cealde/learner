@@ -1,6 +1,238 @@
 {
-  "title": "What Happens When Code Runs?",
-  "subtitle": "Programs, Memory & Bugs",
-  "topic": "0.3 • RUNNING CODE",
-  "body": "<div style=\"display: flex; flex-direction: column; gap: 20px; width: 100%;\"><div style=\"text-align: center; margin-bottom: 8px; width: 100%;\"><div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">0.3 • Running Code</div><h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;\">What Happens When <hlt>Code Runs?</hlt></h1><p style=\"font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;\"><hlt>Write → Run → Observe → Debug</hlt> — let's see what is happening inside a running program.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">1. Write & Run</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">Your Program Starts Moving</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">A program is a set of instructions. When you click <hlt>Run</hlt>, the computer starts executing those instructions. As it runs, the program moves through its instructions and performs the work you asked for.</p></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">2. Memory</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">A Place to Keep Things</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">While a program is running, the computer needs memory to keep track of the values and information it is working with. A variable gives us a convenient name for a value.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">score = <span style=\"color: #7ee787;\">100</span><br/>name = <span style=\"color: #a5d6ff;\">\"Alex\"</span></div></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">3. Bugs</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">When Code Doesn't Do What You Intended</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">A <hlt>bug</hlt> is a problem in a program that causes it to behave differently from what we intended. Some bugs stop the program with an error. Others let the program run but produce the wrong result.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">price = <span style=\"color: #7ee787;\">10</span><br/>quantity = <span style=\"color: #7ee787;\">3</span><br/>total = price + quantity <span style=\"color: #8b949e;\"># Bug: we wanted 30</span></div></div><div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">4. Debugging</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">Become a Code Detective</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">Debugging means finding and understanding bugs. Instead of guessing, we can watch the program while it runs and inspect what is happening.</p><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 12px;\"><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace;\">Breakpoint</strong><br/>Pause the program at a chosen line.</div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace;\">Step</strong><br/>Run one small piece of the program at a time.</div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace;\">Inspect</strong><br/>Look at the current values in memory.</div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace;\">Find the Bug</strong><br/>Compare what happened with what you expected.</div></div></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\">Key Takeaway: <hlt>Running code lets the computer do the work; debugging lets you stop, look inside, and understand what happened.</hlt></p></div></div>"
+  "title": "Practice Quiz: Running Code & Debugging",
+  "topic": "0.2 • RUNNING CODE",
+  "questions": [
+    {
+      "badge": "MODULE QUIZ • QUESTION 1 OF 8",
+      "question": "What happens when you press Run on a program?",
+      "code": "print(\"Hello!\")\n# Press Run to execute the program.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "The computer starts executing the program's instructions.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "The computer permanently saves every value in the program.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "The computer automatically fixes every mistake in the code.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "The computer turns the program into a physical device.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>Running a program means the computer begins executing the instructions in that program.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Run starts execution. It does not automatically fix mistakes or turn the program into hardware."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 2 OF 8",
+      "question": "Why does a running program need memory?",
+      "code": "score = 100\nname = \"Alex\"\n# Values must be kept track of while the program runs.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "To keep track of values and information the program is currently using.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "To make the monitor display a larger image.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "To replace the computer's processor.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "To automatically write missing lines of code.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>A running program needs memory to keep track of values and information it is working with.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Memory is used to hold information the running program needs; it does not replace the processor or write code for you."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 3 OF 8",
+      "question": "In this code, what does the variable score represent while the program is running?",
+      "code": "score = 100\nprint(score)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "A name used to refer to the value 100.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "A command that permanently stores 100 on the hard drive.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "A breakpoint that pauses the program.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "A programming language used to run the code.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>💡 NICE!</strong><br/>The variable name score refers to the value 100 in the running program.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>score is a variable name referring to the value 100; it is not a breakpoint, language, or disk command."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 4 OF 8",
+      "question": "What is a bug in a program?",
+      "code": "price = 10\nquantity = 3\ntotal = price + quantity\n# We intended a different calculation.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "A problem that makes a program behave differently from what was intended.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "A special command that makes programs run faster.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "A type of computer memory used for storing variables.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "A button used to start a program.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🐛 CORRECT!</strong><br/>A bug is a problem in a program that causes its behavior to differ from what the programmer intended.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>A bug is a problem in the program's behavior, not a command, memory type, or Run button."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 5 OF 8",
+      "question": "What is debugging?",
+      "code": "# Find out why the result is wrong\nprint(\"Investigate!\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Finding and understanding problems in a program.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Making a computer physically faster.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Deleting every variable from memory.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Writing code without ever running it.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🔍 GREAT JOB!</strong><br/>Debugging is the process of finding and understanding bugs so you can fix the program.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Debugging is about investigating problems in code and understanding why the program behaves incorrectly."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 6 OF 8",
+      "question": "What does a breakpoint do?",
+      "code": "score = 100\nname = \"Alex\"\nprint(score)\n# Imagine placing a breakpoint on print(score)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "It pauses the program at a chosen point so you can inspect what is happening.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "It permanently deletes the line where it is placed.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "It automatically changes incorrect code into correct code.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It makes every instruction run at the same time.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>⏸️ SPOT ON!</strong><br/>A breakpoint pauses execution at a chosen point, giving you a chance to look at the program's current state.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>A breakpoint is for pausing execution so you can investigate. It does not delete or rewrite code."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 7 OF 8",
+      "question": "Why would you step through a program while debugging?",
+      "code": "a = 5\nb = 10\nc = a + b\nprint(c)\n# Step through these lines one at a time.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "To watch the program execute one small part at a time.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "To skip all of the program's instructions.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "To permanently stop the program from running.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "To automatically remove all bugs.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>👣 NICE!</strong><br/>Stepping lets you execute the program one piece at a time and observe what changes.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Stepping is a way to observe execution gradually. It does not skip everything, permanently stop the program, or automatically fix bugs."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 8 OF 8",
+      "question": "What can you learn by inspecting variables while a program is paused?",
+      "code": "price = 10\nquantity = 3\ntotal = 13\n# The debugger shows the current values.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "What values the program currently has in memory.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "What the programmer will write in the future.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "How much electricity the monitor is using.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Which programming language will be invented next.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>Inspecting variables lets you see the values the program currently has while it is paused.",
+      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Variable inspection is useful because it shows the program's current state and the values it is working with."
+    }
+  ]
 }

@@ -13,7 +13,7 @@ function getInvoke() {
 }
 
 const SYLLABUS_MAP = [
-    [1, 4, 2, 3, 4], // Lesson 1: 0.1 Intro, 0.1 Quiz, 0.2 Code Task, 0.3 Running Code, 0.3 Debugging Quiz
+    [1, 4, 3, 4], // Lesson 1: 0.1 Intro, 0.1 Quiz, 0.2 Info, 0.2 Quiz
     [2, 3, 4],    // Lesson 2
     [1, 2, 3, 4], // Lesson 3
     [1, 2, 4]     // Lesson 4

@@ -10,7 +10,7 @@ import {
 
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
 export const sylPy = [
-  [1, 4, 2, 3, 4], // Lesson 1 Sequence (0.1 Intro -> 0.1 Quiz -> 0.2 Code Task -> 0.3 Running Code -> 0.3 Debugging Quiz)
+  [1, 4, 3, 4], // Lesson 1 Sequence (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
   [2, 3, 4],       // Lesson 2 Sequence
   [1, 2, 3, 4],    // Lesson 3 Sequence
   [1, 2, 4]        // Lesson 4 Sequence
@@ -798,7 +798,7 @@ export function initSidebarNavigation(currentType) {
 
   // Track max visited step
   setMaxVisitedSub(spcl, lsn, sub);
-  if (currentType !== 4 && currentType !== 2) {
+  if (currentType !== 4) {
     markQuizCompleted(spcl, lsn, sub);
   }
   const maxVisited = getMaxVisitedSub(spcl, lsn);
@@ -811,9 +811,8 @@ export function initSidebarNavigation(currentType) {
       : [
           '0.1 • The Dumb Machine',
           '0.1 • Fundamentals Quiz',
-          '0.2 • Python Coding Task',
-          '0.3 • Running Code',
-          '0.3 • Debugging Quiz'
+          '0.2 • Running Code',
+          '0.2 • Debugging Quiz'
         ];
 
     sequence.forEach((typeId, index) => {
