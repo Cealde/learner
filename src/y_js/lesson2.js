@@ -27,25 +27,7 @@ let currentStepIdx = -1;
 let isDebugging = false;
 
 // Starter Python code for Lesson 2
-const STARTER_CODE = `# Lesson 2: Variables & Step-by-Step Execution
-# Click the gutter to set breakpoints, then click "Debug" or "Step"
-
-item_name = "Quantum Battery"
-unit_price = 45.50
-quantity = 3
-
-subtotal = unit_price * quantity
-discount = 10.00
-total_price = subtotal - discount
-
-print(f"Purchased: {quantity}x {item_name}")
-print(f"Total Bill: \${total_price:.2f}")
-
-# Loop example to observe variable changes
-for step in range(1, 4):
-    bonus = step * 5
-    print(f"Step {step}: bonus = {bonus}")
-`;
+const STARTER_CODE = `#Enter Code Here`
 
 // ============================================================
 // SYNTAX HIGHLIGHTING ENGINE
@@ -128,6 +110,121 @@ function updateHighlighting() {
   highlightContent.innerHTML = highlightPython(codeInput.value) + '\n';
 }
 
+// ============================================================
+// AUTO BRACKET COMPLETION & INDENTATION ENGINE
+// ============================================================
+
+const PAIRS = {
+  '(': ')',
+  '[': ']',
+  '{': '}',
+  '"': '"',
+  "'": "'"
+};
+const CLOSING = new Set([')', ']', '}', '"', "'"]);
+
+function handleEditorKeyDown(e) {
+  const start = codeInput.selectionStart;
+  const end = codeInput.selectionEnd;
+  const val = codeInput.value;
+  const hasSelection = start !== end;
+  const selectedText = val.substring(start, end);
+
+  // 1. Tab Key: Insert 4 spaces
+  if (e.key === 'Tab') {
+    e.preventDefault();
+    if (!hasSelection) {
+      document.execCommand('insertText', false, '    ');
+    } else {
+      document.execCommand('insertText', false, '    ' + selectedText);
+    }
+    updateGutter();
+    updateHighlighting();
+    return;
+  }
+
+  // 2. Auto-close opening brackets & quotes
+  if (PAIRS[e.key]) {
+    const openChar = e.key;
+    const closeChar = PAIRS[openChar];
+
+    if (hasSelection) {
+      e.preventDefault();
+      const wrapped = openChar + selectedText + closeChar;
+      document.execCommand('insertText', false, wrapped);
+      codeInput.setSelectionRange(start + 1, end + 1);
+      updateGutter();
+      updateHighlighting();
+      return;
+    } else {
+      // If typing quote and current char is the identical quote, step over
+      if ((openChar === '"' || openChar === "'") && val[start] === openChar) {
+        e.preventDefault();
+        codeInput.setSelectionRange(start + 1, start + 1);
+        return;
+      }
+      e.preventDefault();
+      document.execCommand('insertText', false, openChar + closeChar);
+      codeInput.setSelectionRange(start + 1, start + 1);
+      updateGutter();
+      updateHighlighting();
+      return;
+    }
+  }
+
+  // 3. Skip over closing brackets
+  if (CLOSING.has(e.key) && !hasSelection) {
+    if (val[start] === e.key) {
+      e.preventDefault();
+      codeInput.setSelectionRange(start + 1, start + 1);
+      return;
+    }
+  }
+
+  // 4. Backspace pair deletion (e.g. (|) -> deletes both)
+  if (e.key === 'Backspace' && !hasSelection && start > 0) {
+    const prevChar = val[start - 1];
+    const nextChar = val[start];
+    if (PAIRS[prevChar] && PAIRS[prevChar] === nextChar) {
+      e.preventDefault();
+      codeInput.value = val.substring(0, start - 1) + val.substring(start + 1);
+      codeInput.setSelectionRange(start - 1, start - 1);
+      updateGutter();
+      updateHighlighting();
+      return;
+    }
+  }
+
+  // 5. Enter key auto-indentation & colon block expansion
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const lineStart = val.lastIndexOf('\n', start - 1) + 1;
+    const currentLine = val.substring(lineStart, start);
+    const matchIndent = currentLine.match(/^\s*/);
+    const indent = matchIndent ? matchIndent[0] : '';
+
+    const charBefore = val[start - 1];
+    const charAfter = val[start];
+
+    // Splitting between matching braces e.g. {|} or (|)
+    if (PAIRS[charBefore] && PAIRS[charBefore] === charAfter) {
+      const extraIndent = indent + '    ';
+      const insertStr = '\n' + extraIndent + '\n' + indent;
+      document.execCommand('insertText', false, insertStr);
+      codeInput.setSelectionRange(start + 1 + extraIndent.length, start + 1 + extraIndent.length);
+    } else if (currentLine.trimEnd().endsWith(':')) {
+      // Auto-indent after colon in Python
+      const newIndent = indent + '    ';
+      document.execCommand('insertText', false, '\n' + newIndent);
+    } else {
+      document.execCommand('insertText', false, '\n' + indent);
+    }
+    updateGutter();
+    updateHighlighting();
+    return;
+  }
+}
+
 function initEditor() {
   if (codeInput) {
     codeInput.value = STARTER_CODE;
@@ -137,6 +234,7 @@ function initEditor() {
       updateGutter();
       updateHighlighting();
     });
+    codeInput.addEventListener('keydown', handleEditorKeyDown);
     codeInput.addEventListener('scroll', syncScroll);
   }
 }
@@ -274,12 +372,72 @@ function renderVariables(localsMap) {
 }
 
 // ============================================================
+// OUTPUT VERIFICATION & NEXT PAGE UNLOCK
+// ============================================================
+
+const urlParams = new URLSearchParams(window.location.search);
+const special = urlParams.get('spcl') || '1';
+const lesson = urlParams.get('lsn') || '2';
+const subset = urlParams.get('sub');
+
+const nextBtn = document.getElementById('next-btn');
+
+function normalizeOutput(text) {
+  return (text || '')
+    .replace(/\r\n/g, '\n')
+    .split('\n')
+    .map(line => line.trimEnd())
+    .join('\n')
+    .trim();
+}
+
+async function verifyOutput(actualOutput) {
+  const candidateFiles = [
+    `lesson_data/${special}_${lesson}_${subset}_op.txt`,
+  ];
+
+  let expectedRaw = null;
+  for (const filePath of candidateFiles) {
+    try {
+      const response = await fetch(filePath);
+      if (response.ok) {
+        expectedRaw = await response.text();
+        break;
+      }
+    } catch (e) {
+      // Try next candidate
+    }
+  }
+
+  if (expectedRaw === null) {
+    console.warn('No expected output file found to verify against.');
+    return false;
+  }
+
+  const cleanActual = normalizeOutput(actualOutput);
+  const cleanExpected = normalizeOutput(expectedRaw);
+
+  if (cleanActual === cleanExpected) {
+    appendTerminal('\n SUCCESS: Output matches expected results!', 'term-line-info');
+    if (nextBtn) {
+      nextBtn.style.display = 'inline-flex';
+      nextBtn.disabled = false;
+    }
+    return true;
+  } else {
+    appendTerminal('\n Output does not match expected result. Keep experimenting!', 'term-line-err');
+    return false;
+  }
+}
+
+// ============================================================
 // RUN DIRECTLY
 // ============================================================
 async function runCode() {
   if (!invoke) {
-    appendTerminal('[Demo Mode] Tauri IPC not detected. Running simulated output:\n' +
-      'Purchased: 3x Quantum Battery\nTotal Bill: $126.50\nStep 1: bonus = 5\nStep 2: bonus = 10\nStep 3: bonus = 15', 'term-line-out');
+    const demoOutput = 'Purchased: 3x Quantum Battery\nTotal Bill: $126.50\nStep 1: bonus = 5\nStep 2: bonus = 10\nStep 3: bonus = 15';
+    appendTerminal('[Demo Mode] Simulated output:\n' + demoOutput, 'term-line-out');
+    await verifyOutput(demoOutput);
     return;
   }
 
@@ -301,6 +459,7 @@ async function runCode() {
     if (result.success) {
       setStatus('Completed', 'running');
       appendTerminal(`[Process exited with code ${result.exit_code ?? 0}]`, 'term-line-info');
+      await verifyOutput(result.stdout);
     } else {
       setStatus('Error', 'error');
       appendTerminal(`[Process failed with exit code ${result.exit_code ?? 1}]`, 'term-line-err');
@@ -412,13 +571,18 @@ function continueExecution() {
   applyStep(currentStepIdx);
 }
 
-function finishDebugging() {
+async function finishDebugging() {
   clearLineHighlights();
   setStatus('Debug Session Finished', 'running');
   appendTerminal('\n[Execution Finished]', 'term-line-info');
   btnStep.disabled = true;
   btnContinue.disabled = true;
   isDebugging = false;
+
+  const finalStdout = debugSteps.length > 0 ? debugSteps[debugSteps.length - 1].stdout : '';
+  if (finalStdout) {
+    await verifyOutput(finalStdout);
+  }
 }
 
 function resetDebugger() {
@@ -443,6 +607,11 @@ btnReset?.addEventListener('click', () => {
   appendTerminal('Output cleared. Debugger reset.', 'term-line-info');
 });
 btnClearOutput?.addEventListener('click', clearTerminal);
+
+nextBtn?.addEventListener('click', () => {
+  const nextLessonNum = parseInt(lesson, 10) + 1;
+  window.location.href = `${nextLessonNum}.html`;
+});
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {

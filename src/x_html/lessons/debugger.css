@@ -78,6 +78,25 @@
   color: #f1f5f9;
 }
 
+.btn-next {
+  background: #38bdf8;
+  color: #0b1120;
+  font-weight: 700;
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+.btn-next:hover {
+  background: #7dd3fc;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.7);
+}
+
+@keyframes pulseGlow {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
 .tool-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
@@ -164,6 +183,7 @@
   font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
   font-size: 14px;
   line-height: 22px;
+  color: #fff;
 }
 
 .gutter {
