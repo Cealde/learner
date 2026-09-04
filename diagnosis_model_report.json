@@ -1,0 +1,24 @@
+{
+  "architecture": "65 concept-specific classifiers using word+character TF-IDF and Logistic Regression",
+  "runtime_diagnosis": "Machine Learning",
+  "gemini_role": "Synthetic dataset generation and later natural-language teaching only",
+  "concepts": 65,
+  "misconception_classes": 131,
+  "concept_label_groups": 196,
+  "dataset_records": 2940,
+  "train_records": 1960,
+  "validation_records": 392,
+  "test_records": 588,
+  "validation": {
+    "accuracy": 0.5994897959183674,
+    "macro_precision": 0.592956592956593,
+    "macro_recall": 0.6402680652680653,
+    "macro_f1": 0.5958789136175027
+  },
+  "test": {
+    "accuracy": 0.5969387755102041,
+    "macro_precision": 0.6072786245690437,
+    "macro_recall": 0.6327505827505827,
+    "macro_f1": 0.5897910969734174
+  }
+}

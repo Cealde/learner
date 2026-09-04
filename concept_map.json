@@ -1,0 +1,103 @@
+{
+  "0.1": [
+    "literal_instruction_execution",
+    "instruction_precision",
+    "input_process_output",
+    "task_decomposition"
+  ],
+  "0.2": [
+    "programming_language_purpose",
+    "human_to_machine_instructions",
+    "python_as_programming_language"
+  ],
+  "1.1": [
+    "python_environment",
+    "code_editor",
+    "basic_setup"
+  ],
+  "1.2": [
+    "print_statement",
+    "displaying_output",
+    "print_syntax"
+  ],
+  "1.3": [
+    "program_execution",
+    "running_python_code",
+    "reading_program_output"
+  ],
+  "2.1": [
+    "variable_concept",
+    "variable_assignment",
+    "variable_naming"
+  ],
+  "2.2": [
+    "integer_type",
+    "string_type",
+    "number_vs_text"
+  ],
+  "2.3": [
+    "variable_reassignment",
+    "state_change",
+    "assignment_tracing"
+  ],
+  "3.1": [
+    "addition",
+    "subtraction",
+    "arithmetic_expressions",
+    "expression_evaluation"
+  ],
+  "3.2": [
+    "string_concatenation",
+    "combining_text",
+    "concatenation_errors"
+  ],
+  "4.1": [
+    "if_statement",
+    "boolean_condition",
+    "conditional_execution",
+    "indentation"
+  ],
+  "4.2": [
+    "if_else",
+    "two_way_decision",
+    "branch_selection",
+    "conditional_tracing"
+  ],
+  "5.1": [
+    "for_loop",
+    "iteration",
+    "range",
+    "loop_variable",
+    "for_loop_tracing"
+  ],
+  "5.2": [
+    "while_loop",
+    "loop_condition",
+    "iteration_update",
+    "infinite_loop",
+    "while_loop_tracing"
+  ],
+  "6.1": [
+    "function_concept",
+    "function_definition",
+    "function_call",
+    "function_body"
+  ],
+  "6.2": [
+    "code_reuse",
+    "modularity",
+    "function_benefits"
+  ],
+  "7.1": [
+    "list_concept",
+    "list_creation",
+    "list_access",
+    "list_iteration"
+  ],
+  "7.2": [
+    "dictionary_concept",
+    "key_value_pairs",
+    "dictionary_access",
+    "dictionary_usage"
+  ]
+}

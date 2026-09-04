@@ -1,0 +1,616 @@
+{
+  "concept_mastery": {
+    "literal_instruction_execution": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "instruction_precision": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "input_process_output": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "task_decomposition": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "programming_language_purpose": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "human_to_machine_instructions": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "python_as_programming_language": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "python_environment": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "code_editor": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "basic_setup": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "print_statement": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "displaying_output": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "print_syntax": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "program_execution": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "running_python_code": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "reading_program_output": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "variable_concept": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "variable_assignment": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "variable_naming": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "integer_type": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "string_type": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "number_vs_text": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "variable_reassignment": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "state_change": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "assignment_tracing": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "addition": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "subtraction": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "arithmetic_expressions": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "expression_evaluation": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "string_concatenation": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "combining_text": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "concatenation_errors": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "if_statement": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "boolean_condition": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "conditional_execution": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "indentation": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "if_else": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "two_way_decision": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "branch_selection": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "conditional_tracing": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "for_loop": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "iteration": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "range": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "loop_variable": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "for_loop_tracing": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "while_loop": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "loop_condition": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "iteration_update": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "infinite_loop": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "while_loop_tracing": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "function_concept": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "function_definition": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "function_call": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "function_body": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "code_reuse": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "modularity": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "function_benefits": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "list_concept": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "list_creation": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "list_access": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "list_iteration": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "dictionary_concept": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "key_value_pairs": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "dictionary_access": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    },
+    "dictionary_usage": {
+      "mastery": 0.0,
+      "attempts": 0,
+      "correct_attempts": 0,
+      "active_misconceptions": [],
+      "resolved_misconceptions": [],
+      "_resolution_evidence": {}
+    }
+  },
+  "topic_state": {
+    "0.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "0.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "1.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "1.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "1.3": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "2.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "2.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "2.3": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "3.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "3.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "4.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "4.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "5.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "5.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "6.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "6.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "7.1": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    },
+    "7.2": {
+      "level": "beginner",
+      "status": "not_started",
+      "attempts": 0
+    }
+  }
+}

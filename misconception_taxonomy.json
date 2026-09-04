@@ -1,0 +1,656 @@
+{
+  "literal_instruction_execution": [
+    {
+      "label": "expects_machine_to_infer_intent",
+      "description": "Learner believes the computer can infer what the programmer intended."
+    },
+    {
+      "label": "ignores_literal_instruction_order",
+      "description": "Learner believes exact written instruction order does not matter."
+    }
+  ],
+  "instruction_precision": [
+    {
+      "label": "vague_instruction_is_sufficient",
+      "description": "Learner believes vague instructions are enough for a computer."
+    },
+    {
+      "label": "precision_not_required",
+      "description": "Learner believes programming instructions do not need exact details."
+    }
+  ],
+  "input_process_output": [
+    {
+      "label": "confuses_input_and_output",
+      "description": "Learner confuses information entering a system with produced results."
+    },
+    {
+      "label": "omits_processing_stage",
+      "description": "Learner believes input becomes output without processing."
+    }
+  ],
+  "task_decomposition": [
+    {
+      "label": "solves_task_as_one_step",
+      "description": "Learner treats a complex task as one indivisible step."
+    },
+    {
+      "label": "decomposition_order_confusion",
+      "description": "Learner breaks a task into steps but places them in an incorrect logical order."
+    }
+  ],
+  "programming_language_purpose": [
+    {
+      "label": "programming_language_only_for_math",
+      "description": "Learner believes programming languages are only used for calculations."
+    },
+    {
+      "label": "programming_language_is_human_language",
+      "description": "Learner believes a programming language behaves exactly like ordinary natural language."
+    }
+  ],
+  "human_to_machine_instructions": [
+    {
+      "label": "computer_understands_natural_language_directly",
+      "description": "Learner believes computers directly understand unrestricted human language."
+    },
+    {
+      "label": "code_not_needed_for_instructions",
+      "description": "Learner believes formal code is unnecessary for giving machine instructions."
+    }
+  ],
+  "python_as_programming_language": [
+    {
+      "label": "python_is_only_an_application",
+      "description": "Learner believes Python is merely an application rather than a programming language."
+    },
+    {
+      "label": "python_not_used_to_write_programs",
+      "description": "Learner does not recognize Python as a language for writing executable programs."
+    }
+  ],
+  "python_environment": [
+    {
+      "label": "python_environment_is_code",
+      "description": "Learner confuses the execution environment with the Python program itself."
+    },
+    {
+      "label": "environment_not_required",
+      "description": "Learner believes Python code can always run without a Python environment or interpreter."
+    }
+  ],
+  "code_editor": [
+    {
+      "label": "editor_executes_code_by_itself",
+      "description": "Learner believes a code editor alone executes Python code."
+    },
+    {
+      "label": "editor_and_interpreter_same",
+      "description": "Learner confuses a code editor with the Python interpreter."
+    }
+  ],
+  "basic_setup": [
+    {
+      "label": "installation_not_required",
+      "description": "Learner assumes Python can always run without installation or environment setup."
+    },
+    {
+      "label": "setup_steps_order_confusion",
+      "description": "Learner misunderstands the basic order of installing, opening an editor, and running code."
+    }
+  ],
+  "print_statement": [
+    {
+      "label": "print_changes_variable_value",
+      "description": "Learner believes print() changes the stored value of a variable."
+    },
+    {
+      "label": "print_only_accepts_text",
+      "description": "Learner believes print() can display only strings."
+    }
+  ],
+  "displaying_output": [
+    {
+      "label": "output_is_same_as_input",
+      "description": "Learner confuses program output with user input."
+    },
+    {
+      "label": "output_not_visible_until_saved",
+      "description": "Learner believes output must be stored in a variable before it can be displayed."
+    }
+  ],
+  "print_syntax": [
+    {
+      "label": "missing_parentheses_in_print",
+      "description": "Learner omits required parentheses in Python print()."
+    },
+    {
+      "label": "quotes_required_for_all_print_values",
+      "description": "Learner believes every value passed to print() must be inside quotation marks."
+    }
+  ],
+  "program_execution": [
+    {
+      "label": "code_runs_without_execution",
+      "description": "Learner believes written code produces results without being executed."
+    },
+    {
+      "label": "execution_order_random",
+      "description": "Learner believes Python normally executes statements in random order."
+    }
+  ],
+  "running_python_code": [
+    {
+      "label": "run_command_not_needed",
+      "description": "Learner believes typing code automatically runs it in all environments."
+    },
+    {
+      "label": "runs_wrong_file_confusion",
+      "description": "Learner misunderstands which Python file is being executed."
+    }
+  ],
+  "reading_program_output": [
+    {
+      "label": "reads_code_instead_of_output",
+      "description": "Learner reports the source code rather than the result it produces."
+    },
+    {
+      "label": "output_order_confusion",
+      "description": "Learner predicts displayed output in the wrong order."
+    }
+  ],
+  "variable_concept": [
+    {
+      "label": "variable_is_permanent_value",
+      "description": "Learner believes a variable can never change once assigned."
+    },
+    {
+      "label": "variable_is_literal_container_name",
+      "description": "Learner confuses the variable name with the value stored in it."
+    }
+  ],
+  "variable_assignment": [
+    {
+      "label": "assignment_direction_reversed",
+      "description": "Learner interprets x = 5 as assigning x into 5."
+    },
+    {
+      "label": "assignment_means_equality_test",
+      "description": "Learner confuses assignment with checking equality."
+    }
+  ],
+  "variable_naming": [
+    {
+      "label": "variable_name_can_start_digit",
+      "description": "Learner believes Python variable names may begin with a digit."
+    },
+    {
+      "label": "spaces_allowed_in_variable_names",
+      "description": "Learner believes spaces may appear directly inside a variable name."
+    }
+  ],
+  "integer_type": [
+    {
+      "label": "integer_requires_quotes",
+      "description": "Learner believes integer values must be written inside quotation marks."
+    },
+    {
+      "label": "integer_can_contain_decimal",
+      "description": "Learner believes values with decimal points are integers."
+    }
+  ],
+  "string_type": [
+    {
+      "label": "string_without_quotes_is_text",
+      "description": "Learner believes arbitrary text without quotes is automatically a string."
+    },
+    {
+      "label": "string_is_numeric_when_digits_inside",
+      "description": "Learner believes a quoted sequence of digits behaves automatically as a number."
+    }
+  ],
+  "number_vs_text": [
+    {
+      "label": "quoted_number_is_numeric",
+      "description": "Learner believes a quoted number is numerically equivalent to an integer."
+    },
+    {
+      "label": "number_and_string_operations_same",
+      "description": "Learner believes numbers and strings behave identically in expressions."
+    }
+  ],
+  "variable_reassignment": [
+    {
+      "label": "reassignment_keeps_old_value",
+      "description": "Learner believes assigning a new value does not replace the old one."
+    },
+    {
+      "label": "reassignment_creates_second_variable",
+      "description": "Learner believes assigning again to the same name creates a separate variable."
+    }
+  ],
+  "state_change": [
+    {
+      "label": "state_never_changes",
+      "description": "Learner does not recognize that a variable's stored value can change over time."
+    },
+    {
+      "label": "state_change_is_automatic",
+      "description": "Learner believes variable state changes without executing an assignment."
+    }
+  ],
+  "assignment_tracing": [
+    {
+      "label": "uses_initial_value_after_reassignment",
+      "description": "Learner keeps using the first assigned value after a later reassignment."
+    },
+    {
+      "label": "assignment_trace_order_confusion",
+      "description": "Learner traces assignments in the wrong execution order."
+    }
+  ],
+  "addition": [
+    {
+      "label": "addition_concatenates_numbers",
+      "description": "Learner treats numeric addition like string concatenation."
+    },
+    {
+      "label": "addition_operand_confusion",
+      "description": "Learner incorrectly identifies the values participating in an addition."
+    }
+  ],
+  "subtraction": [
+    {
+      "label": "subtraction_order_ignored",
+      "description": "Learner believes a-b and b-a give the same result."
+    },
+    {
+      "label": "subtraction_used_on_strings",
+      "description": "Learner believes ordinary string values can be directly subtracted."
+    }
+  ],
+  "arithmetic_expressions": [
+    {
+      "label": "left_to_right_only",
+      "description": "Learner ignores operator precedence and evaluates strictly left to right."
+    },
+    {
+      "label": "operator_precedence_confusion",
+      "description": "Learner applies arithmetic operators in an incorrect precedence order."
+    }
+  ],
+  "expression_evaluation": [
+    {
+      "label": "expression_not_reduced_to_value",
+      "description": "Learner does not recognize that an expression evaluates to a resulting value."
+    },
+    {
+      "label": "uses_wrong_intermediate_result",
+      "description": "Learner makes an incorrect intermediate calculation while evaluating an expression."
+    }
+  ],
+  "string_concatenation": [
+    {
+      "label": "concatenation_performs_numeric_addition",
+      "description": "Learner believes joining strings adds their numeric meanings."
+    },
+    {
+      "label": "concatenation_inserts_space_automatically",
+      "description": "Learner believes concatenation automatically inserts spaces."
+    }
+  ],
+  "combining_text": [
+    {
+      "label": "text_combines_without_operator",
+      "description": "Learner believes separate string variables combine automatically."
+    },
+    {
+      "label": "mixed_types_combine_directly",
+      "description": "Learner believes strings and integers can always be concatenated without conversion."
+    }
+  ],
+  "concatenation_errors": [
+    {
+      "label": "ignores_type_error_in_concatenation",
+      "description": "Learner expects string + integer to work without conversion."
+    },
+    {
+      "label": "uses_subtraction_for_text_joining",
+      "description": "Learner uses an inappropriate operator to combine strings."
+    }
+  ],
+  "if_statement": [
+    {
+      "label": "if_runs_unconditionally",
+      "description": "Learner believes the body of an if statement always runs."
+    },
+    {
+      "label": "if_requires_else",
+      "description": "Learner believes every if statement must have an else block."
+    }
+  ],
+  "boolean_condition": [
+    {
+      "label": "condition_must_be_number",
+      "description": "Learner believes a condition must specifically be a numeric value."
+    },
+    {
+      "label": "true_false_mean_text",
+      "description": "Learner treats True and False as ordinary strings rather than boolean results."
+    }
+  ],
+  "conditional_execution": [
+    {
+      "label": "both_paths_execute",
+      "description": "Learner believes all conditional blocks execute regardless of the condition."
+    },
+    {
+      "label": "condition_checked_after_body",
+      "description": "Learner believes the body executes before the condition is tested."
+    }
+  ],
+  "indentation": [
+    {
+      "label": "indentation_is_optional",
+      "description": "Learner believes indentation has no structural meaning in Python."
+    },
+    {
+      "label": "wrong_block_indentation",
+      "description": "Learner places a statement in the wrong conditional or loop block."
+    }
+  ],
+  "if_else": [
+    {
+      "label": "if_and_else_both_execute",
+      "description": "Learner believes both branches of if/else execute."
+    },
+    {
+      "label": "else_has_own_condition",
+      "description": "Learner believes else requires another explicit condition."
+    }
+  ],
+  "two_way_decision": [
+    {
+      "label": "two_way_decision_runs_two_results",
+      "description": "Learner believes a two-way decision chooses both outcomes."
+    },
+    {
+      "label": "decision_not_based_on_condition",
+      "description": "Learner does not associate branch choice with the evaluated condition."
+    }
+  ],
+  "branch_selection": [
+    {
+      "label": "selects_branch_by_position",
+      "description": "Learner chooses a branch based on its position rather than condition truth."
+    },
+    {
+      "label": "reverses_true_false_branch",
+      "description": "Learner executes the else branch when the condition is true and vice versa."
+    }
+  ],
+  "conditional_tracing": [
+    {
+      "label": "incorrect_condition_trace",
+      "description": "Learner evaluates a condition incorrectly while tracing."
+    },
+    {
+      "label": "incorrect_branch_output",
+      "description": "Learner predicts output from the wrong branch."
+    }
+  ],
+  "for_loop": [
+    {
+      "label": "for_loop_missing_structure",
+      "description": "The learner forgets the colon or indentation required to form a valid for loop."
+    },
+    {
+      "label": "loop_body_scope_confusion",
+      "description": "The learner cannot distinguish statements inside the loop body from statements that run after the loop."
+    }
+  ],
+  "iteration": [
+    {
+      "label": "iteration_processes_all_at_once",
+      "description": "The learner believes iteration processes the entire collection simultaneously instead of one item per pass."
+    },
+    {
+      "label": "iteration_order_confusion",
+      "description": "The learner believes items may be processed randomly or skipped rather than visited sequentially."
+    }
+  ],
+  "range": [
+    {
+      "label": "range_endpoint_inclusive",
+      "description": "The learner believes the ending value of range is included."
+    },
+    {
+      "label": "range_count_confusion",
+      "description": "The learner incorrectly determines how many iterations a range will produce."
+    }
+  ],
+  "loop_variable": [
+    {
+      "label": "loop_variable_is_collection",
+      "description": "The learner believes the loop variable contains the entire collection instead of the current single item."
+    },
+    {
+      "label": "loop_variable_is_list_name",
+      "description": "The learner confuses the loop variable with the name of the collection being iterated over."
+    },
+    {
+      "label": "loop_variable_never_changes",
+      "description": "The learner believes the loop variable keeps the same value throughout all iterations."
+    }
+  ],
+  "for_loop_tracing": [
+    {
+      "label": "incorrect_iteration_trace",
+      "description": "The learner cannot correctly track the loop variable and output from one iteration to the next."
+    },
+    {
+      "label": "incorrect_final_output",
+      "description": "The learner predicts the wrong complete output after tracing all iterations of the loop."
+    }
+  ],
+  "while_loop": [
+    {
+      "label": "while_runs_fixed_times",
+      "description": "Learner believes a while loop always runs a predetermined number of times."
+    },
+    {
+      "label": "while_condition_checked_once",
+      "description": "Learner believes the while condition is checked only before the first iteration."
+    }
+  ],
+  "loop_condition": [
+    {
+      "label": "loop_continues_when_false",
+      "description": "Learner believes a loop continues even after its condition becomes false."
+    },
+    {
+      "label": "condition_not_rechecked",
+      "description": "Learner believes the loop condition is not reevaluated after each iteration."
+    }
+  ],
+  "iteration_update": [
+    {
+      "label": "update_not_needed",
+      "description": "Learner believes a changing loop variable does not need to be updated."
+    },
+    {
+      "label": "update_direction_confusion",
+      "description": "Learner updates the loop variable in a direction that prevents the intended termination."
+    }
+  ],
+  "infinite_loop": [
+    {
+      "label": "infinite_loop_caused_by_many_iterations",
+      "description": "Learner believes any loop with many iterations is automatically infinite."
+    },
+    {
+      "label": "fails_to_recognize_unchanged_condition",
+      "description": "Learner does not recognize that an unchanged true condition can cause an infinite loop."
+    }
+  ],
+  "while_loop_tracing": [
+    {
+      "label": "incorrect_while_iteration_count",
+      "description": "Learner predicts the wrong number of while-loop iterations."
+    },
+    {
+      "label": "incorrect_while_state_trace",
+      "description": "Learner incorrectly tracks variable values through a while loop."
+    }
+  ],
+  "function_concept": [
+    {
+      "label": "function_is_variable",
+      "description": "Learner confuses a function with a stored ordinary value."
+    },
+    {
+      "label": "function_runs_when_defined",
+      "description": "Learner believes defining a function automatically executes its body."
+    }
+  ],
+  "function_definition": [
+    {
+      "label": "missing_def_structure",
+      "description": "Learner omits or misuses def, parentheses, colon, or indentation."
+    },
+    {
+      "label": "definition_executes_body",
+      "description": "Learner believes the statements inside a function execute immediately at definition time."
+    }
+  ],
+  "function_call": [
+    {
+      "label": "function_call_without_parentheses",
+      "description": "Learner believes referring to a function name always calls it."
+    },
+    {
+      "label": "function_call_redefines_function",
+      "description": "Learner believes calling a function creates a new definition."
+    }
+  ],
+  "function_body": [
+    {
+      "label": "function_body_scope_confusion",
+      "description": "Learner cannot distinguish code inside the function from code outside it."
+    },
+    {
+      "label": "function_body_runs_without_call",
+      "description": "Learner believes the function body executes even when the function is never called."
+    }
+  ],
+  "code_reuse": [
+    {
+      "label": "reuse_means_copy_paste_only",
+      "description": "Learner believes code reuse only means manually copying code."
+    },
+    {
+      "label": "functions_do_not_reduce_repetition",
+      "description": "Learner does not understand that functions can eliminate repeated code."
+    }
+  ],
+  "modularity": [
+    {
+      "label": "modularity_means_one_large_function",
+      "description": "Learner believes modularity means putting all logic into one function."
+    },
+    {
+      "label": "modules_have_no_separation_role",
+      "description": "Learner does not understand breaking a problem into independent reusable parts."
+    }
+  ],
+  "function_benefits": [
+    {
+      "label": "functions_only_make_code_shorter",
+      "description": "Learner believes functions are useful only for reducing line count."
+    },
+    {
+      "label": "functions_not_reusable",
+      "description": "Learner believes a function is intended to be used only once."
+    }
+  ],
+  "list_concept": [
+    {
+      "label": "list_holds_only_one_item",
+      "description": "Learner believes a list can store only one value."
+    },
+    {
+      "label": "list_elements_must_be_unique",
+      "description": "Learner believes duplicate values cannot appear in a list."
+    }
+  ],
+  "list_creation": [
+    {
+      "label": "list_requires_parentheses",
+      "description": "Learner uses parentheses instead of square brackets for basic list creation."
+    },
+    {
+      "label": "commas_not_required_in_list",
+      "description": "Learner believes list elements do not need separators."
+    }
+  ],
+  "list_access": [
+    {
+      "label": "list_index_starts_at_one",
+      "description": "Learner believes the first list item is at index 1."
+    },
+    {
+      "label": "index_is_the_value",
+      "description": "Learner confuses an element's index with the element value."
+    }
+  ],
+  "list_iteration": [
+    {
+      "label": "iteration_returns_indices_only",
+      "description": "Learner believes iterating directly over a list always gives indices."
+    },
+    {
+      "label": "list_iteration_skips_items",
+      "description": "Learner incorrectly believes normal list iteration skips some elements."
+    }
+  ],
+  "dictionary_concept": [
+    {
+      "label": "dictionary_is_ordered_list_of_values",
+      "description": "Learner treats a dictionary as if it were a simple list indexed only by position."
+    },
+    {
+      "label": "dictionary_has_no_keys",
+      "description": "Learner does not understand that dictionary values are associated with keys."
+    }
+  ],
+  "key_value_pairs": [
+    {
+      "label": "key_and_value_are_same",
+      "description": "Learner believes a dictionary key and its corresponding value are identical concepts."
+    },
+    {
+      "label": "duplicate_keys_store_multiple_values_automatically",
+      "description": "Learner believes duplicate dictionary keys automatically preserve multiple separate values."
+    }
+  ],
+  "dictionary_access": [
+    {
+      "label": "dictionary_access_uses_position",
+      "description": "Learner accesses dictionary items by positional index instead of key."
+    },
+    {
+      "label": "dictionary_key_quotes_always_optional",
+      "description": "Learner believes string dictionary keys never require quotation marks."
+    }
+  ],
+  "dictionary_usage": [
+    {
+      "label": "dictionary_used_only_for_numbers",
+      "description": "Learner believes dictionaries are only suitable for numeric values."
+    },
+    {
+      "label": "dictionary_unsuitable_for_lookup",
+      "description": "Learner does not recognize dictionaries as structures for key-based lookup."
+    }
+  ]
+}

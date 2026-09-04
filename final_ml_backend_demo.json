@@ -1,0 +1,46 @@
+{
+  "adaptive_tutor_demo": {
+    "adaptive_result": {
+      "topic_id": "5.1",
+      "concept": "range",
+      "diagnosis": {
+        "concept": "range",
+        "is_correct": false,
+        "misconception_label": "range_endpoint_inclusive",
+        "confidence": 0.5142,
+        "diagnosis_source": "trained_ml_model"
+      },
+      "learner_state": {
+        "mastery": 0.0,
+        "attempts": 1,
+        "correct_attempts": 0,
+        "active_misconceptions": [
+          "range_endpoint_inclusive"
+        ],
+        "resolved_misconceptions": []
+      },
+      "misconception_event": {
+        "event": "misconception_activated",
+        "label": "range_endpoint_inclusive"
+      },
+      "adaptive_decision": {
+        "action": "remediation",
+        "level": "beginner",
+        "reason": "active_misconception"
+      }
+    },
+    "teaching": {
+      "concept": "range",
+      "level": "beginner",
+      "adaptive_action": "remediation",
+      "language": "mixed",
+      "response": "Appo ingane alla! `range(1, 5)` ennathil last value aaya 5 **include cheyyilla**. \n\nPython-il `range(start, stop)` use cheyyumpol, `stop` value-inu munpulla number vareyeyullu numbers varoo. Athukondu `range(1, 5)` ennathu `1, 2, 3, 4` enniva matrame tharu, 5 varilla.\n\nIthupole, `range(1, 4)` ennathu run cheythal ethra numbers kittum, athinte values enthennanu?"
+    }
+  },
+  "doubt_chatbot_demo": {
+    "topic_id": "5.1",
+    "concept": "range",
+    "language": "mixed",
+    "response": "Python-il `range` use cheyyumbol athu last number exclude cheyyanu (stop value-kku munpu nirthum) ennath oru common doubt aanu! Athinulla main reason, programming-il nammal eppozhum **zero-il ninnu** count start cheyyunnathaakunnu (zero-based indexing).\n\nE.g., `range(3)` ennu koduthal, ithu 3 items count cheyyukayaanu ചെയ്യുന്നത്: `0, 1, 2`. \n\nIthinte oru convenience enthaann vechal, ninte list-inte length `3` aanenkil, `range(len(my_list))` ennath nerekk `0, 2` (or 0, 1, 2) items-ilekku straight aayi eduthu tharum. Last number-um koode include cheyyanam ennu undel, stop value oru number kooduthal kodukkuka—like `range(1, 4)` ennal 1, 2, 3 kittum."
+  }
+}
