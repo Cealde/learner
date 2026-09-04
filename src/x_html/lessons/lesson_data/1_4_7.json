@@ -1,0 +1,8 @@
+{
+  "title": "String Concatenation Practice",
+  "topic": "3.2 • CODING EXERCISE",
+  "description": "Practice joining strings together!<br/>1. Create variable <code>first_name = \"Alan\"</code><br/>2. Create variable <code>last_name = \"Turing\"</code><br/>3. Create variable <code>full_name = first_name + \" \" + last_name</code><br/>4. Print <code>full_name</code>.",
+  "intended_output": "Alan Turing",
+  "ai_check": "string_concat_greeting",
+  "starter_code": "# 1. Create first_name = \"Alan\"\n# 2. Create last_name = \"Turing\"\n# 3. Combine with a space into full_name and print it:\n\n"
+}

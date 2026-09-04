@@ -54,10 +54,365 @@ export const MALAYALAM_MODULE_NAMES = {
     '2.3 • റീഅസൈൻമെന്റ് ക്വിസ്',
     '2.3 • അപ്ഡേറ്റിംഗ് കോഡിംഗ്',
     '2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്'
+  ],
+  4: [
+    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
+    '3.1 • മാത്സ് & മുൻഗണനാ ക്വിസ്',
+    '3.1 • ഗുണനവും ഹരണവും',
+    '3.1 • 4 ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
+    '3.1 • അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല',
+    '3.2 • വാക്കുകൾ കൂട്ടിച്ചേർക്കൽ (Strings)',
+    '3.2 • സ്ട്രിംഗ് കോഡിംഗ്',
+    '3.2 • സ്ട്രിംഗ് ക്വിസ്',
+    '3.2 • അൽഗോരിതം: API URL ബിൽഡർ',
+    '3.2 • മാത്സ് & സ്ട്രിംഗ്സ് സമഗ്ര ക്വിസ്'
   ]
 };
 
 export const MALAYALAM_LESSON_DATA = {
+  "1_4_10": {
+    "title": "മാത്സ് & സ്ട്രിംഗ്സ് സമഗ്ര ക്വിസ്",
+    "topic": "3.2 • സമഗ്ര ക്വിസ്",
+    "questions": [
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
+            "question": "print((20 - 4) * 2) ന്റെ ഫലം എന്താണ്?",
+            "code": "print((20 - 4) * 2)",
+            "options": [
+                "32",
+                "12",
+                "24",
+                "40"
+            ],
+            "correct_answer": "32",
+            "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റ് ആദ്യം നടക്കുന്നു: (20 - 4) = 16, തുടർന്ന് 16 * 2 = 32.",
+            "explanation_incorrect": "ബ്രാക്കറ്റ് ആദ്യം: (20 - 4) = 16, ശേഷം 16 * 2 = 32."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
+            "question": "print(20 - 4 * 2) ന്റെ ഫലം എന്താണ്?",
+            "code": "print(20 - 4 * 2)",
+            "options": [
+                "12",
+                "32",
+                "24",
+                "16"
+            ],
+            "correct_answer": "12",
+            "explanation_correct": "ശരിയാണ്! ഗുണനം ആദ്യം നടക്കുന്നു: 4 * 2 = 8, ശേഷം 20 - 8 = 12.",
+            "explanation_incorrect": "ഗുണനം ആദ്യം: 4 * 2 = 8, ശേഷം 20 - 8 = 12."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
+            "question": "പൈത്തണിൽ / ചിഹ്നം ഉപയോഗിച്ച് ഹരിക്കുമ്പോൾ കിട്ടുന്ന ഡാറ്റാ ടൈപ്പ് ഏതാണ്?",
+            "code": "result = 15 / 3\nprint(result)",
+            "options": [
+                "5.0 (ഫ്ലോട്ട് / Float)",
+                "5 (ഇൻ്റിജർ)",
+                "\"5\"",
+                "Error"
+            ],
+            "correct_answer": "5.0 (ഫ്ലോട്ട് / Float)",
+            "explanation_correct": "ശരിയാണ്! പൈത്തണിൽ ഹരണ ഫലം എപ്പോഴും ഫ്ലോട്ട് (5.0) ആണ്.",
+            "explanation_incorrect": "ഹരണം എപ്പോഴും ഫ്ലോട്ട് (5.0) നൽകുന്നു."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
+            "question": "print(\"5\" + \"5\") ഉം print(5 + 5) ഉം എന്ത് നൽകുന്നു?",
+            "options": [
+                "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
+                "രണ്ട് വരിയിലും 10",
+                "രണ്ട് വരിയിലും 55",
+                "ആദ്യ വരിയിൽ 10, രണ്ടാം വരിയിൽ 55"
+            ],
+            "correct_answer": "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
+            "explanation_correct": "ശരിയാണ്! സ്ട്രിംഗുകൾ ഒട്ടിച്ച് 55 ആവുകയും നമ്പറുകൾ കൂട്ടി 10 ആവുകയും ചെയ്യുന്നു.",
+            "explanation_incorrect": "\"5\" + \"5\" = 55, 5 + 5 = 10."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
+            "question": "(low + high) / 2 എന്നതിൽ ബ്രാക്കറ്റ് എന്തിനാണ് നിർബന്ധമാക്കുന്നത്?",
+            "options": [
+                "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
+                "പൈത്തൺ ബ്രാക്കറ്റില്ലാതെ പ്രവർത്തിക്കാത്തതിനാൽ",
+                "ഫലം ഇൻ്റിജറാക്കാൻ",
+                "വേരിയബിൾ മറയ്ക്കാൻ"
+            ],
+            "correct_answer": "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
+            "explanation_correct": "ശരിയാണ്! ഹരണത്തിന് സങ്കലനത്തേക്കാൾ മുൻഗണനയുള്ളതിനാൽ high / 2 ആദ്യം നടക്കാതിരിക്കാൻ ബ്രാക്കറ്റ് നിർബന്ധമാണ്.",
+            "explanation_incorrect": "ഹരണത്തിന്റെ മുൻഗണന മറികടക്കാൻ ബ്രാക്കറ്റ് വേണം."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
+            "question": "user = \"Ada\" ഉം role = \"Admin\" ഉം ആയാൽ user + \" (\" + role + \")\" എന്ത് നൽകും?",
+            "code": "user = \"Ada\"\nrole = \"Admin\"\nprint(user + \" (\" + role + \")\")",
+            "options": [
+                "Ada (Admin)",
+                "Ada(Admin)",
+                "\"Ada (Admin)\"",
+                "Ada Admin"
+            ],
+            "correct_answer": "Ada (Admin)",
+            "explanation_correct": "ശരിയാണ്! ഓരോ ഭാഗവും ക്രമമായി ചേർന്ന് Ada (Admin) എന്ന് ലഭിക്കുന്നു.",
+            "explanation_incorrect": "Ada + \" (\" + Admin + \")\" = Ada (Admin)."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
+            "question": "a = 5, b = 2, c = a * b + 1. c യുടെ മൂല്യം എത്രയാണ്?",
+            "code": "a = 5\nb = 2\nc = a * b + 1\nprint(c)",
+            "options": [
+                "11",
+                "15",
+                "10",
+                "12"
+            ],
+            "correct_answer": "11",
+            "explanation_correct": "ശരിയാണ്! 5 * 2 = 10, തുടർന്ന് 10 + 1 = 11.",
+            "explanation_incorrect": "ഗുണനം ആദ്യം: 5 * 2 = 10, ശേഷം 10 + 1 = 11."
+        },
+        {
+            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
+            "question": "പൈത്തൺ സ്ട്രിംഗ് കോൺകാറ്റിനേഷനെക്കുറിച്ച് തെറ്റായ പ്രസ്താവന ഏതാണ്?",
+            "options": [
+                "പൈത്തൺ വാക്കുകൾക്കിടയിൽ തനിയെ സ്പേസ് ചേർക്കും",
+                "ഒന്നിലധികം + ഉപയോഗിച്ച് പല വാക്കുകൾ ഒട്ടിക്കാം",
+                "സ്ട്രിംഗും ഇൻ്റിജറും നേരിട്ട് കൂട്ടിയാൽ TypeError വരും",
+                "str() ഉപയോഗിച്ച് നമ്പറുകളെ സ്ട്രിംഗാക്കാം"
+            ],
+            "correct_answer": "പൈത്തൺ വാക്കുകൾക്കിടയിൽ തനിയെ സ്പേസ് ചേർക്കും",
+            "explanation_correct": "ശരിയാണ്! പൈത്തൺ ഒരിക്കലും തനിയെ സ്പേസ് ചേർക്കില്ല; സ്പേസ് നമ്മൾ നൽകണം.",
+            "explanation_incorrect": "പൈത്തൺ തനിയെ സ്പേസ് നൽകില്ല എന്നത് തെറ്റായ പ്രസ്താവനയാണ്."
+        }
+    ]
+},
+  "1_4_9": {
+    "title": "അൽഗോരിതം: API URL ബിൽഡർ",
+    "topic": "3.2 • അൽഗോരിതം ചലഞ്ച്",
+    "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ഡൈനാമിക് API URL നിർമ്മാണം</strong><br/>സെർച്ച് എഞ്ചിനുകളും ആപ്പുകളും ഇൻ്റർനെറ്റിൽ നിന്ന് ഡാറ്റ എടുക്കാൻ API URL നിർമ്മിക്കുന്നത് സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ വഴിയാണ്.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള കോഡിൽ സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ ഉപയോഗിച്ച് <code>url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query</code> എന്ന് എഴുതുക.<br/>പ്രതീക്ഷിക്കുന്ന ഫലം: <code>https://api.learner.dev/search?q=python</code>",
+    "locked_prefix": "# --- API CLIENT PARAMETERS (LOCKED) ---\nprotocol = \"https\"\ndomain = \"api.learner.dev\"\nendpoint = \"search\"\nquery = \"python\"\n\n# --- WRITE YOUR CONCATENATION FORMULA BELOW ---\n",
+    "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(url)\n",
+    "starter_code": "# --- API CLIENT PARAMETERS (LOCKED) ---\nprotocol = \"https\"\ndomain = \"api.learner.dev\"\nendpoint = \"search\"\nquery = \"python\"\n\n# --- WRITE YOUR CONCATENATION FORMULA BELOW ---\nurl = \n\n# --- VERIFICATION (LOCKED) ---\nprint(url)\n",
+    "intended_output": "https://api.learner.dev/search?q=python",
+    "ai_check": "api_url_builder_algorithm"
+},
+  "1_4_8": {
+    "title": "സ്ട്രിംഗ് ക്വിസ്",
+    "topic": "3.2 • പരിശീലന ക്വിസ്",
+    "questions": [
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 1 / 6",
+            "question": "ഇതിന്റെ ഫലം എന്തായിരിക്കും?",
+            "code": "a = \"Super\"\nb = \"Hero\"\nprint(a + b)",
+            "options": [
+                "SuperHero",
+                "Super Hero",
+                "\"SuperHero\"",
+                "Super+Hero"
+            ],
+            "correct_answer": "SuperHero",
+            "explanation_correct": "ശരിയാണ്! പൈത്തൺ തനിയെ സ്പേസ് ചേർക്കില്ല, നേരിട്ട് ഒട്ടിക്കുന്നു.",
+            "explanation_incorrect": "സ്പേസ് ഇല്ലാതെ SuperHero എന്ന് ലഭിക്കുന്നു."
+        },
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 2 / 6",
+            "question": "\"Welcome\", \"Home\" എന്നിവ സ്പേസോടെ എങ്ങനെ ശരിയായി ചേർക്കാം?",
+            "options": [
+                "\"Welcome\" + \" \" + \"Home\"",
+                "\"Welcome\" + \"Home\"",
+                "\"Welcome\" , \"Home\"",
+                "\"Welcome\" + space + \"Home\""
+            ],
+            "correct_answer": "\"Welcome\" + \" \" + \"Home\"",
+            "explanation_correct": "ശരിയാണ്! നടുവിൽ \" \" എന്ന സ്പേസ് സ്ട്രിംഗ് ചേർക്കണം.",
+            "explanation_incorrect": "\"Welcome\" + \" \" + \"Home\" എന്ന് എഴുതണം."
+        },
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 3 / 6",
+            "question": "print(\"5\" + \"10\") ന്റെ ഫലം എന്താണ്?",
+            "code": "print(\"5\" + \"10\")",
+            "options": [
+                "510",
+                "15",
+                "\"15\"",
+                "Error"
+            ],
+            "correct_answer": "510",
+            "explanation_correct": "ശരിയാണ്! ഉദ്ധരണികളിലുള്ളതിനാൽ സ്ട്രിംഗുകൾ ഒട്ടിച്ച് 510 എന്ന് വരുന്നു.",
+            "explanation_incorrect": "\"5\", \"10\" എന്നിവ സ്ട്രിംഗുകളാണ്. ഫലം 510."
+        },
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 4 / 6",
+            "question": "print(5 + 10) ന്റെ ഫലം എന്താണ്?",
+            "code": "print(5 + 10)",
+            "options": [
+                "15",
+                "510",
+                "\"15\"",
+                "5+10"
+            ],
+            "correct_answer": "15",
+            "explanation_correct": "ശരിയാണ്! ഉദ്ധരണികളില്ലാത്തതിനാൽ സംഖ്യാ സങ്കലനം നടന്ന് 15 വരുന്നു.",
+            "explanation_incorrect": "5 + 10 = 15."
+        },
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 5 / 6",
+            "question": "print(\"Player score: \" + 100) റൺ ചെയ്താൽ എന്ത് സംഭവിക്കും?",
+            "code": "print(\"Player score: \" + 100)",
+            "options": [
+                "TypeError: ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല",
+                "Player score: 100",
+                "Player score: \"100\"",
+                "Player score: 0"
+            ],
+            "correct_answer": "TypeError: ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല",
+            "explanation_correct": "ശരിയാണ്! TypeError ഉണ്ടാകുന്നു. str(100) എന്ന് മാറ്റണം.",
+            "explanation_incorrect": "പൈത്തൺ TypeError നൽകുന്നു."
+        },
+        {
+            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 6 / 6",
+            "question": "score = 100 എന്ന വേരിയബിൾ ടെക്സ്റ്റുമായി എങ്ങനെ സുരക്ഷിതമായി ഒട്ടിക്കാം?",
+            "options": [
+                "\"Score: \" + str(score)",
+                "\"Score: \" + score",
+                "\"Score: \" * score",
+                "str(\"Score: \") - score"
+            ],
+            "correct_answer": "\"Score: \" + str(score)",
+            "explanation_correct": "ശരിയാണ്! str(score) നമ്പറിനെ സ്ട്രിംഗാക്കി മാറ്റുന്നു.",
+            "explanation_incorrect": "\"Score: \" + str(score) ഉപയോഗിക്കുക."
+        }
+    ]
+},
+  "1_4_7": {
+    "title": "സ്ട്രിംഗ് കോഡിംഗ്",
+    "topic": "3.2 • കോഡിംഗ് പരിശീലനം",
+    "description": "സ്ട്രിംഗുകൾ കൂട്ടിച്ചേർക്കാൻ പരിശീലിക്കുക!<br/>1. <code>first_name = \"Alan\"</code> ഉണ്ടാക്കുക<br/>2. <code>last_name = \"Turing\"</code> ഉണ്ടാക്കുക<br/>3. സ്പേസ് ചേർത്ത് <code>full_name = first_name + \" \" + last_name</code> ഉണ്ടാക്കുക<br/>4. <code>full_name</code> പ്രിന്റ് ചെയ്യുക.",
+    "intended_output": "Alan Turing",
+    "ai_check": "string_concat_greeting",
+    "starter_code": "# 1. Create first_name = \"Alan\"\n# 2. Create last_name = \"Turing\"\n# 3. Combine with a space into full_name and print it:\n\n"
+},
+  "1_4_6": {
+    "title": "വാക്കുകൾ കൂട്ടിച്ചേർക്കൽ (Strings)",
+    "topic": "3.2 • സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ",
+    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">+ ചിഹ്നം ഉപയോഗിച്ച് വാക്കുകൾ ഒട്ടിക്കുക</h2>\n        <p class=\"section-lead\">\n          പൈത്തണിൽ <code>+</code> ചിഹ്നം നമ്പറുകൾ കൂട്ടാൻ മാത്രമല്ല, സ്ട്രിംഗുകളെ (വാക്കുകളെ) തമ്മിൽ ഒട്ടിച്ചുചേർക്കാനും ഉപയോഗിക്കുന്നു. ഇതിനെ <strong>സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ</strong> എന്ന് വിളിക്കുന്നു.\n        </p>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>പശയുടെ ഉദാഹരണം</h4>\n          <p>പേപ്പർ സ്ട്രിപ്പുകൾ പശ വെച്ച് ഒട്ടിക്കുന്നത് പോലെയാണ് <code>+</code> ചിഹ്നം. വാക്കുകൾക്കിടയിൽ സ്പേസ് വേണമെങ്കിൽ നടുവിൽ <code>\" \"</code> ചേർക്കണം!</p>\n        </div>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: സ്ട്രിംഗ് ഒട്ടിക്കൽ</div>\n          <pre><code>first = \"Good\"\nsecond = \"Morning\"\n\n# സ്പേസ് ഇല്ലാതെ\nprint(first + second)          # \"GoodMorning\"\n\n# സ്പേസ് ചേർത്ത്\nprint(first + \" \" + second)    # \"Good Morning\"</code></pre>\n        </div>\n\n        <h3 class=\"section-subheading\">നമ്പറുകളും ടെക്സ്റ്റും തമ്മിലുള്ള വ്യത്യാസം</h3>\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">വ്യത്യാസം ശ്രദ്ധിക്കുക</div>\n          <pre><code># 1. നമ്പറുകൾ: ഗണിത സങ്കലനം\nprint(10 + 20)      # 30\n\n# 2. സ്ട്രിംഗുകൾ: വാക്കുകൾ ഒട്ടിക്കൽ\nprint(\"10\" + \"20\")  # 1020</code></pre>\n        </div>\n\n        <div class=\"neo-callout warning-callout\">\n          <h4>str() ഉപയോഗിച്ച് നമ്പറുകളെ ടെക്സ്റ്റാക്കുക</h4>\n          <p>ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല. അതിനായി <code>str(5)</code> ഉപയോഗിച്ച് നമ്പറിനെ ടെക്സ്റ്റാക്കി മാറ്റണം: <code>\"Level \" + str(5)</code> എന്നത് <code>\"Level 5\"</code> നൽകുന്നു.</p>\n        </div>\n      </div>\n    "
+},
+  "1_4_5": {
+    "title": "അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല",
+    "topic": "3.1 • അൽഗോരിതം ചലഞ്ച്",
+    "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ബൈനറി സെർച്ച് മിഡ്പോയിന്റ്</strong><br/>ഡാറ്റാബേസുകളിലും സെർച്ച് എഞ്ചിനുകളിലും വിവരങ്ങൾ വേഗത്തിൽ കണ്ടെത്താൻ ഉപയോഗിക്കുന്ന പ്രധാന അൽഗോരിതമാണ് ബൈനറി സെർച്ച്. ഇതിൽ കൃത്യമായ മധ്യബിന്ദു (midpoint) കണ്ടെത്താൻ <code>(low + high) / 2</code> ഫോർമുല ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള കോഡിൽ <code>low = 10</code>, <code>high = 50</code> ലോക്ക് ചെയ്തിരിക്കുന്നു. നടുവിലെ വരിയിൽ ബ്രാക്കറ്റ് ഉപയോഗിച്ച് <code>midpoint = (low + high) / 2</code> എന്ന് എഴുതുക.",
+    "locked_prefix": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\n",
+    "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
+    "starter_code": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\nmidpoint = \n\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
+    "intended_output": "30.0",
+    "ai_check": "binary_search_midpoint_formula"
+},
+  "1_4_4": {
+    "title": "4 ചിഹ്നങ്ങളുടെ കോഡിംഗ്",
+    "topic": "3.1 • കോഡിംഗ് പരിശീലനം",
+    "description": "നാല് അടിസ്ഥാന കണക്കുകൂട്ടലുകളും പരിശീലിക്കുക!<br/>1. <code>a = 20</code>, <code>b = 4</code> ഉണ്ടാക്കുക<br/>2. <code>add_res = a + b</code> പ്രിന്റ് ചെയ്യുക<br/>3. <code>sub_res = a - b</code> പ്രിന്റ് ചെയ്യുക<br/>4. <code>mul_res = a * b</code> പ്രിന്റ് ചെയ്യുക<br/>5. <code>div_res = a / b</code> പ്രിന്റ് ചെയ്യുക<br/>6. <code>combo = (a + b) * 2</code> പ്രിന്റ് ചെയ്യുക.",
+    "intended_output": "24\n16\n80\n5.0\n48",
+    "ai_check": "math_four_operators",
+    "starter_code": "# 1. Create variables a = 20 and b = 4\n# 2. Calculate and print addition, subtraction, multiplication, division\n# 3. Calculate combo = (a + b) * 2 and print it:\n\n"
+},
+  "1_4_3": {
+    "title": "ഗുണനവും ഹരണവും",
+    "topic": "3.1 • ഗുണനവും ഹരണവും",
+    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">ഗുണന, ഹരണ ചിഹ്നങ്ങൾ</h2>\n        <p class=\"section-lead\">\n          പൈത്തണിൽ ഗുണനത്തിന് <code>*</code> (ആസ്റ്ററിസ്ക്) ചിഹ്നവും ഹരണത്തിന് <code>/</code> (സ്ലാഷ്) ചിഹ്നവുമാണ് ഉപയോഗിക്കുന്നത്.\n        </p>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണങ്ങൾ</div>\n          <pre><code># ഗുണനം (Multiplication)\nlength = 10\nwidth = 5\narea = length * width\nprint(area)  # 50 കാണിക്കുന്നു\n\n# ഹരണം (Division)\ntotal_score = 100\nplayers = 4\nscore_per_player = total_score / players\nprint(score_per_player)  # 25.0 കാണിക്കുന്നു</code></pre>\n        </div>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>പ്രധാന നിയമം: ഹരണം എപ്പോഴും ഫ്ലോട്ട് (Float) നൽകുന്നു</h4>\n          <p>പൈത്തണിൽ ഒറ്റ സ്ലാഷ് <code>/</code> ഉപയോഗിച്ച് ഹരിക്കുമ്പോൾ കിട്ടുന്ന ഫലം എപ്പോഴും ദശാംശ സംഖ്യയായിരിക്കും (ഉദാഹരണത്തിന് <code>25.0</code>).</p>\n        </div>\n\n        <h3 class=\"section-subheading\">പ്രവർത്തന ക്രമം (BODMAS / PEMDAS)</h3>\n        <p>പൈത്തൺ കണക്കുകൾ ചെയ്യുമ്പോൾ പാലിക്കുന്ന കർശന മുൻഗണനാ ക്രമം:</p>\n        <ol style=\"font-weight: 700; margin-left: 20px; line-height: 1.8;\">\n          <li><strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> — ഒന്നാമത്</li>\n          <li><strong>ഗുണനവും <code>*</code> ഹരണവും <code>/</code></strong> — രണ്ടാമത്</li>\n          <li><strong>സങ്കലനവും <code>+</code> വ്യവകലനവും <code>-</code></strong> — മൂന്നാമത്</li>\n        </ol>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ബ്രാക്കറ്റിന്റെ വ്യത്യാസം മനസ്സിലാക്കുക</div>\n          <pre><code># ബ്രാക്കറ്റ് ഇല്ലാതെ: ഹരണം ആദ്യം നടക്കുന്നു\nresult1 = 10 + 50 / 2\n# 50 / 2 = 25.0, ശേഷം 10 + 25.0 = 35.0\nprint(result1)  # 35.0\n\n# ബ്രാക്കറ്റോടെ: സങ്കലനം ആദ്യം നടക്കുന്നു\nresult2 = (10 + 50) / 2\n# (10 + 50) = 60, ശേഷം 60 / 2 = 30.0\nprint(result2)  # 30.0</code></pre>\n        </div>\n      </div>\n    "
+},
+  "1_4_2": {
+    "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ ക്വിസ്",
+    "topic": "3.1 • പരിശീലന ക്വിസ്",
+    "questions": [
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 1 / 6",
+            "question": "ഈ പൈത്തൺ കോഡിന്റെ ഫലം എന്തായിരിക്കും?",
+            "code": "x = 10\ny = 5\nresult = x + y\nprint(result)",
+            "options": [
+                "15",
+                "105",
+                "x + y",
+                "result"
+            ],
+            "correct_answer": "15",
+            "explanation_correct": "ശരിയാണ്! x = 10, y = 5 ആണ്. x + y എന്നത് 10 + 5 = 15 കണക്കാക്കി പ്രിന്റ് ചെയ്യുന്നു.",
+            "explanation_incorrect": "x, y എന്നിവ ഇൻ്റിജറുകളാണ്. 10 + 5 = 15."
+        },
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 2 / 6",
+            "question": "ഈ കുറയ്ക്കൽ കോഡിന്റെ ഫലം എന്താണ്?",
+            "code": "total = 100\ndiscount = 35\npayable = total - discount\nprint(payable)",
+            "options": [
+                "65",
+                "75",
+                "135",
+                "-35"
+            ],
+            "correct_answer": "65",
+            "explanation_correct": "ശരിയാണ്! 100 - 35 = 65.",
+            "explanation_incorrect": "100 - 35 = 65 ആണ് ഫലം."
+        },
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 3 / 6",
+            "question": "ഈ കോഡ് പരിശോധിക്കുക. z എന്ത് പ്രിന്റ് ചെയ്യും?",
+            "code": "x = 10\ny = 5\nz = x + y\nx = 20\nprint(z)",
+            "options": [
+                "15",
+                "25",
+                "20",
+                "30"
+            ],
+            "correct_answer": "15",
+            "explanation_correct": "മികച്ച ഉത്തരം! ആ വരി പ്രവർത്തിച്ച സമയത്തെ ഫലമായ 15 ആണ് z സൂക്ഷിക്കുന്നത്. പിന്നീട് x മാറ്റിയാലും z തനിയെ മാറില്ല!",
+            "explanation_incorrect": "z = x + y പ്രവർത്തിച്ചപ്പോൾ x = 10 ആയിരുന്നു, അതിനാൽ z = 15 തന്നെയാണ്."
+        },
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 4 / 6",
+            "question": "പൈത്തൺ 10 - 5 + 2 എങ്ങനെയാണ് കണക്കാക്കുന്നത്?",
+            "code": "print(10 - 5 + 2)",
+            "options": [
+                "7 (ഇടത്തുനിന്ന് വലത്തോട്ട്: 10 - 5 = 5, തുടർന്ന് 5 + 2 = 7)",
+                "3 (വലത്തുനിന്ന് ഇടത്തോട്ട്)",
+                "17",
+                "Error"
+            ],
+            "correct_answer": "7 (ഇടത്തുനിന്ന് വലത്തോട്ട്: 10 - 5 = 5, തുടർന്ന് 5 + 2 = 7)",
+            "explanation_correct": "ശരിയാണ്! തുല്യ മുൻഗണനയുള്ളതിനാൽ ഇടതുനിന്ന് വലത്തോട്ട് കണക്കാക്കുന്നു.",
+            "explanation_incorrect": "(10 - 5) = 5, തുടർന്ന് 5 + 2 = 7."
+        },
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 5 / 6",
+            "question": "കണക്കുകൂട്ടലുകളിൽ ബ്രാക്കറ്റുകൾ () എന്തിനാണ് ഉപയോഗിക്കുന്നത്?",
+            "options": [
+                "പ്രത്യേക പ്രവർത്തനങ്ങൾ ആദ്യം നടപ്പിലാക്കാൻ നിർബന്ധിക്കാൻ",
+                "നമ്പറുകളെ വാക്കുകളാക്കാൻ",
+                "എല്ലാ കണക്കുകൾക്കും ബ്രാക്കറ്റ് നിർബന്ധമായതിനാൽ",
+                "മെമ്മറി ലാഭിക്കാൻ"
+            ],
+            "correct_answer": "പ്രത്യേക പ്രവർത്തനങ്ങൾ ആദ്യം നടപ്പിലാക്കാൻ നിർബന്ധിക്കാൻ",
+            "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റിനുള്ളിലെ കണക്കുകളാണ് പൈത്തൺ ആദ്യം ചെയ്യുന്നത്.",
+            "explanation_incorrect": "ബ്രാക്കറ്റുകൾ ഉപയോഗിച്ച് പ്രവർത്തന മുൻഗണന മാറ്റാൻ സാധിക്കും."
+        },
+        {
+            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 6 / 6",
+            "question": "ടെക്സ്റ്റും നമ്പറും കൂട്ടാൻ ശ്രമിച്ചാൽ എന്ത് സംഭവിക്കും: age = \"25\" and bonus = 5?",
+            "code": "age = \"25\"\nbonus = 5\nprint(age + bonus)",
+            "options": [
+                "TypeError: പൈത്തണിൽ ടെക്സ്റ്റും നമ്പറും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല",
+                "30",
+                "\"255\"",
+                "0"
+            ],
+            "correct_answer": "TypeError: പൈത്തണിൽ ടെക്സ്റ്റും നമ്പറും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല",
+            "explanation_correct": "ശരിയാണ്! വ്യത്യസ്ത ഡാറ്റാ ടൈപ്പുകൾ തമ്മിൽ നേരിട്ട് + ഉപയോഗിക്കാൻ കഴിയില്ല.",
+            "explanation_incorrect": "ഇത് TypeError ഉണ്ടാക്കുന്നു. കണക്ക് ചെയ്യാൻ ഉദ്ധരണി നീക്കണം."
+        }
+    ]
+},
+  "1_4_1": {
+    "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
+    "topic": "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
+    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">കോഡിംഗിലൂടെ കണക്കുകൂട്ടലുകൾ</h2>\n        <p class=\"section-lead\">\n          കമ്പ്യൂട്ടറുകൾ നിർമ്മിക്കപ്പെട്ടത് തന്നെ വേഗതയേറിയ കണക്കുകൂട്ടലുകൾക്ക് വേണ്ടിയാണ്. പൈത്തണിൽ സംഖ്യകളും <a href=\"1.html?spcl=1&lsn=3&sub=1&ref_from=1_4_1\" class=\"ref-jump-btn\">വേരിയബിളുകളും (പാഠം 2.1) ↗</a> ഉപയോഗിച്ച് കൂട്ടാനും (<code>+</code>) കുറയ്ക്കാനും (<code>-</code>) സാധിക്കും.\n        </p>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>സങ്കലനം മനസ്സിലാക്കാൻ രണ്ട് ഉദാഹരണങ്ങൾ</h4>\n          <p><strong>ഉദാഹരണം A — രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ:</strong> <code>x + y</code> എന്നത് <code>x</code> പെട്ടിയിലെ നമ്പറും <code>y</code> പെട്ടിയിലെ നമ്പറും എടുത്ത് കൂട്ടി ഒരു പുതിയ ഫല പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.</p>\n          <p><strong>ഉദാഹരണം B — ക്യാഷ് രജിസ്റ്റർ:</strong> ഓരോ വേരിയബിളും ഓരോ സാധനത്തിന്റെ വിലയാണ്. അവ കൂട്ടുന്നത് ഷോപ്പിംഗ് കാർട്ടിലെ ആകെ തുക കണക്കാക്കുന്നത് പോലെയാണ്.</p>\n        </div>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: സങ്കലനവും വ്യവകലനവും</div>\n          <pre><code># കൂട്ടൽ (Addition)\nprice1 = 50\nprice2 = 20\ntotal = price1 + price2\nprint(total)  # 70 കാണിക്കുന്നു\n\n# കുറയ്ക്കൽ (Subtraction / Discount)\ndiscount = 15\nfinal_price = total - discount\nprint(final_price)  # 55 കാണിക്കുന്നു</code></pre>\n        </div>\n\n        <h3 class=\"section-subheading\">ബ്രാക്കറ്റുകളും പ്രവർത്തന മുൻഗണനയും</h3>\n        <p>\n          കൂടുതൽ കണക്കുകൾ ചെയ്യുമ്പോൾ പൈത്തൺ ഇടതുനിന്ന് വലത്തോട്ട് പ്രവർത്തിക്കുന്നു. ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് നിശ്ചയിക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n        </p>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: ബ്രാക്കറ്റ് ഉപയോഗിക്കുമ്പോൾ</div>\n          <pre><code>result = (10 + 5) - 3\nprint(result)  # (15) - 3 = 12</code></pre>\n        </div>\n\n        <div class=\"neo-callout warning-callout\">\n          <h4>പ്രധാനം: നമ്പറുകളും ഉദ്ധരണികളും</h4>\n          <p><a href=\"1.html?spcl=1&lsn=3&sub=4&ref_from=1_4_1\" class=\"ref-jump-btn\">നമ്പറുകളും ടെക്സ്റ്റും (പാഠം 2.2) ↗</a> ഓർക്കുക: കണക്ക് ചെയ്യാൻ ഉദ്ധരണികൾ (quotes) ഇടരുത്. <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടാതെ <code>\"105\"</code> എന്ന് ഒട്ടിച്ചുവെക്കും!</p>\n        </div>\n      </div>\n    "
+},
   '1_3_1': {
     title: "വേരിയബിൾ എന്നാൽ എന്ത്?",
     subtitle: "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",

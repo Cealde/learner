@@ -1,0 +1,8 @@
+{
+  "title": "Four Math Operators Coding",
+  "topic": "3.1 • CODING EXERCISE",
+  "description": "Practice using all four basic math operators in Python!<br/>1. Create <code>a = 20</code> and <code>b = 4</code><br/>2. Create <code>add_res = a + b</code> and print it<br/>3. Create <code>sub_res = a - b</code> and print it<br/>4. Create <code>mul_res = a * b</code> and print it<br/>5. Create <code>div_res = a / b</code> and print it<br/>6. Create <code>combo = (a + b) * 2</code> and print it.",
+  "intended_output": "24\n16\n80\n5.0\n48",
+  "ai_check": "math_four_operators",
+  "starter_code": "# 1. Create variables a = 20 and b = 4\n# 2. Calculate and print addition, subtraction, multiplication, division\n# 3. Calculate combo = (a + b) * 2 and print it:\n\n"
+}

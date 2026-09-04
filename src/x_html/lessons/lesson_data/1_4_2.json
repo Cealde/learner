@@ -1,0 +1,89 @@
+{
+  "title": "Practice Quiz: Basic Math Operations",
+  "topic": "3.1 • PRACTICE & QUIZ",
+  "questions": [
+    {
+      "badge": "MATH QUIZ • QUESTION 1 OF 6",
+      "question": "What is the output of the following Python code?",
+      "code": "x = 10\ny = 5\nresult = x + y\nprint(result)",
+      "options": [
+        "15",
+        "105",
+        "x + y",
+        "result"
+      ],
+      "correct_answer": "15",
+      "explanation_correct": "Correct! x holds 10 and y holds 5. x + y computes 10 + 5 = 15, which is stored in result and printed.",
+      "explanation_incorrect": "x and y are integer variables holding 10 and 5. x + y computes 15."
+    },
+    {
+      "badge": "MATH QUIZ • QUESTION 2 OF 6",
+      "question": "What is the output of this subtraction operation?",
+      "code": "total = 100\ndiscount = 35\npayable = total - discount\nprint(payable)",
+      "options": [
+        "65",
+        "75",
+        "135",
+        "-35"
+      ],
+      "correct_answer": "65",
+      "explanation_correct": "Correct! 100 - 35 = 65.",
+      "explanation_incorrect": "total is 100 and discount is 35. 100 - 35 gives 65."
+    },
+    {
+      "badge": "MATH QUIZ • QUESTION 3 OF 6",
+      "question": "Consider this tracing puzzle. What does this code print?",
+      "code": "x = 10\ny = 5\nz = x + y\nx = 20\nprint(z)",
+      "options": [
+        "15",
+        "25",
+        "20",
+        "30"
+      ],
+      "correct_answer": "15",
+      "explanation_correct": "Spot on! Variable z stores the RESULT of x + y (15) computed at that specific moment. Changing x later does NOT recalculate z automatically!",
+      "explanation_incorrect": "In Python, variables store the calculated value at the moment the line runs. When z = x + y ran, x was 10, so z stores 15."
+    },
+    {
+      "badge": "MATH QUIZ • QUESTION 4 OF 6",
+      "question": "How does Python evaluate: print(10 - 5 + 2)?",
+      "code": "print(10 - 5 + 2)",
+      "options": [
+        "7 (evaluates left-to-right: 10 - 5 = 5, then 5 + 2 = 7)",
+        "3 (evaluates right-to-left: 5 + 2 = 7, then 10 - 7 = 3)",
+        "17",
+        "Error: Cannot mix + and -"
+      ],
+      "correct_answer": "7 (evaluates left-to-right: 10 - 5 = 5, then 5 + 2 = 7)",
+      "explanation_correct": "Correct! + and - have equal precedence, so Python evaluates them sequentially from left to right: (10 - 5) + 2 = 5 + 2 = 7.",
+      "explanation_incorrect": "+ and - are evaluated left to right in Python: (10 - 5) = 5, then 5 + 2 = 7."
+    },
+    {
+      "badge": "MATH QUIZ • QUESTION 5 OF 6",
+      "question": "Why do we use brackets () in mathematical expressions in Python?",
+      "options": [
+        "To force specific operations to evaluate first before other operators",
+        "To convert numbers into strings",
+        "Because Python requires brackets on all math lines",
+        "To make numbers print faster"
+      ],
+      "correct_answer": "To force specific operations to evaluate first before other operators",
+      "explanation_correct": "Correct! Brackets have the highest precedence, allowing you to explicitly control calculation order.",
+      "explanation_incorrect": "Brackets () group operations so that Python calculates whatever is inside them first."
+    },
+    {
+      "badge": "MATH QUIZ • QUESTION 6 OF 6",
+      "question": "What happens if you try to add an integer to a string variable: age = \"25\" and bonus = 5?",
+      "code": "age = \"25\"\nbonus = 5\nprint(age + bonus)",
+      "options": [
+        "TypeError: Python cannot add a string (text) and an integer (number) directly",
+        "30",
+        "\"255\"",
+        "0"
+      ],
+      "correct_answer": "TypeError: Python cannot add a string (text) and an integer (number) directly",
+      "explanation_correct": "Correct! In Python, types are strict. To do math, remove quotes from 25 or convert it to an integer.",
+      "explanation_incorrect": "\"25\" is a string (text) and 5 is an integer. Python raises a TypeError when trying to add them directly."
+    }
+  ]
+}

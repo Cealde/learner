@@ -1,0 +1,10 @@
+{
+  "title": "Algorithm Formula: Binary Search Midpoint",
+  "topic": "3.1 • ALGORITHM CHALLENGE",
+  "description": "<strong>Real-World Algorithm: Binary Search Midpoint</strong><br/>In computer science, <em>Binary Search</em> is one of the most important algorithms ever created, used in search engines and databases worldwide to look up data in milliseconds. To search through sorted items, the algorithm repeatedly finds the exact <strong>midpoint</strong> between the <code>low</code> and <code>high</code> bounds.<br/><br/><strong>The Challenge:</strong><br/>The setup code below has locked lines. In the editable middle area, write the formula to calculate <code>midpoint</code> as the exact average of <code>low</code> and <code>high</code>.<br/><br/><em>Head-Scratcher Hint:</em> Division <code>/</code> has higher precedence than addition <code>+</code>. Use brackets to add <code>low</code> and <code>high</code> before dividing by 2!",
+  "locked_prefix": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\n",
+  "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
+  "starter_code": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\nmidpoint = \n\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
+  "intended_output": "30.0",
+  "ai_check": "binary_search_midpoint_formula"
+}

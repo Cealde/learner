@@ -140,12 +140,46 @@ const PAIRS = {
 };
 const CLOSING = new Set([')', ']', '}', '"', "'"]);
 
+function getLockedData() {
+  const currentChallenge = (activeChallenges && activeChallenges.length > 0) ? activeChallenges[currentChallengeIdx] : null;
+  const prefix = (currentChallenge && currentChallenge.locked_prefix) || (lessonData && lessonData.locked_prefix) || '';
+  const suffix = (currentChallenge && currentChallenge.locked_suffix) || (lessonData && lessonData.locked_suffix) || '';
+  return { prefix, suffix };
+}
+
 function handleEditorKeyDown(e) {
   const start = codeInput.selectionStart;
   const end = codeInput.selectionEnd;
   const val = codeInput.value;
   const hasSelection = start !== end;
   const selectedText = val.substring(start, end);
+  const { prefix, suffix } = getLockedData();
+
+  // Guard locked prefix & suffix regions
+  if (prefix && val.startsWith(prefix)) {
+    if (e.key === 'Backspace' && start <= prefix.length && !hasSelection) {
+      e.preventDefault();
+      return;
+    }
+    if (start < prefix.length && !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+      e.preventDefault();
+      codeInput.setSelectionRange(prefix.length, prefix.length);
+      return;
+    }
+  }
+
+  if (suffix && val.endsWith(suffix)) {
+    const suffixStart = val.length - suffix.length;
+    if (e.key === 'Delete' && end >= suffixStart && !hasSelection) {
+      e.preventDefault();
+      return;
+    }
+    if (end > suffixStart && !['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+      e.preventDefault();
+      codeInput.setSelectionRange(suffixStart, suffixStart);
+      return;
+    }
+  }
 
   // 1. Tab Key: Insert 4 spaces
   if (e.key === 'Tab') {
@@ -250,6 +284,13 @@ function initEditor() {
     updateGutter();
     updateHighlighting();
     codeInput.addEventListener('input', () => {
+      const { prefix, suffix } = getLockedData();
+      if (prefix && !codeInput.value.startsWith(prefix)) {
+        codeInput.value = prefix + codeInput.value.replace(/^#\s*--- SYSTEM SETUP[\s\S]*?YOUR FORMULA \(EDIT BELOW\) ---\n?/i, '');
+      }
+      if (suffix && !codeInput.value.endsWith(suffix)) {
+        codeInput.value = codeInput.value.replace(/\n?#\s*--- VERIFICATION[\s\S]*$/i, '') + suffix;
+      }
       updateGutter();
       updateHighlighting();
     });
@@ -595,6 +636,75 @@ async function verifyOutput(actualOutput) {
           astMessage = "AI Detection: Print the score after setting it to 0, and print(score) again after updating it to 50.";
         } else {
           astMessage = "AI Verification: Confirmed variable 'score' is created, printed, updated to 50, and printed again!";
+        }
+      } else if (aiCheckType === 'math_four_operators' || aiCheckType === 'four_math_ops') {
+        const hasAdd = /\+/.test(code);
+        const hasSub = /-/.test(code);
+        const hasMult = /\*/.test(code);
+        const hasDiv = /\//.test(code);
+        const hasBracketCombo = /\([^)]*[\+\-][^)]*\)\s*\*|\*\s*\([^)]*[\+\-][^)]*\)/.test(code);
+
+        if (!hasAdd || !hasSub || !hasMult || !hasDiv) {
+          const missing = [];
+          if (!hasAdd) missing.push('+');
+          if (!hasSub) missing.push('-');
+          if (!hasMult) missing.push('*');
+          if (!hasDiv) missing.push('/');
+          astCheckPassed = false;
+          astMessage = `AI Detection: Missing arithmetic operator(s): ${missing.join(', ')}. Practice addition (+), subtraction (-), multiplication (*), and division (/)!`;
+        } else if (!hasBracketCombo) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Remember to compute the combined expression with brackets: (a + b) * 2.";
+        } else {
+          astMessage = "AI Verification: Confirmed all 4 math operators (+, -, *, /) and bracketed combo expression are calculated and printed correctly!";
+        }
+      } else if (aiCheckType === 'binary_search_midpoint_formula' || aiCheckType === 'midpoint_formula') {
+        if (/midpoint\s*=\s*30(?:\.0)?\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You wrote the literal number 30 instead of using the formula. In real algorithms, 'low' and 'high' change dynamically! Write: midpoint = (low + high) / 2.";
+        } else if (/midpoint\s*=\s*low\s*\+\s*high\s*\/\s*2/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Operator Precedence Alert! Division (/) executes before addition (+), calculating 10 + (50 / 2) = 35.0 instead of 30.0. Use brackets: midpoint = (low + high) / 2.";
+        } else if (!/midpoint\s*=\s*\(\s*(?:low\s*\+\s*high|high\s*\+\s*low)\s*\)\s*\/\/?\s*2/.test(code) && !/midpoint\s*=\s*low\s*\+\s*\(\s*(?:high\s*-\s*low)\s*\)\s*\/\/?\s*2/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Calculate the midpoint between low and high using: midpoint = (low + high) / 2.";
+        } else {
+          astMessage = "AI Verification: Confirmed Binary Search midpoint formula (low + high) / 2 with correct bracket precedence!";
+        }
+      } else if (aiCheckType === 'string_concat_greeting' || aiCheckType === 'concat_first_last') {
+        if (/full_name\s*=\s*["']Alan Turing["']/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You wrote the literal text \"Alan Turing\" directly. Combine the variables: full_name = first_name + \" \" + last_name.";
+        } else if (!/full_name\s*=/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'full_name' was not assigned. Create it like: full_name = first_name + \" \" + last_name.";
+        } else if (!/first_name/.test(code) || !/last_name/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Make sure to concatenate the variables first_name and last_name.";
+        } else if (!/first_name\s*\+\s*["']\s+["']\s*\+\s*last_name/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing space between words! When joining strings with +, Python does not insert spaces automatically. Write: full_name = first_name + \" \" + last_name.";
+        } else {
+          astMessage = "AI Verification: Confirmed string concatenation with space separator!";
+        }
+      } else if (aiCheckType === 'api_url_builder_algorithm' || aiCheckType === 'url_builder') {
+        if (/url\s*=\s*["']https:\/\/api\.learner\.dev\/search\?q=python["']/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You wrote the literal URL string directly. In real web engines, parameters are dynamic! Use string concatenation: url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query.";
+        } else if (!/url\s*=/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'url' was not assigned. Construct it using string concatenation with the parameter variables.";
+        } else {
+          const hasProto = /protocol/.test(code);
+          const hasDomain = /domain/.test(code);
+          const hasEndpoint = /endpoint/.test(code);
+          const hasQuery = /query/.test(code);
+          if (!hasProto || !hasDomain || !hasEndpoint || !hasQuery) {
+            astCheckPassed = false;
+            astMessage = "AI Detection: Missing required variable(s) in URL assembly. Ensure protocol, domain, endpoint, and query are concatenated.";
+          } else {
+            astMessage = "AI Verification: Confirmed dynamic API URL assembly using string concatenation!";
+          }
         }
       }
     }

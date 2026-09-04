@@ -1,0 +1,88 @@
+{
+  "title": "Practice Quiz: String Concatenation",
+  "topic": "3.2 • PRACTICE & QUIZ",
+  "questions": [
+    {
+      "badge": "STRING QUIZ • QUESTION 1 OF 6",
+      "question": "What is the output of the following concatenation?",
+      "code": "a = \"Super\"\nb = \"Hero\"\nprint(a + b)",
+      "options": [
+        "SuperHero",
+        "Super Hero",
+        "\"SuperHero\"",
+        "Super+Hero"
+      ],
+      "correct_answer": "SuperHero",
+      "explanation_correct": "Correct! The + operator glues the two strings together directly without inserting any spaces automatically.",
+      "explanation_incorrect": "+ joins strings directly. Because no space \" \" was added, the result is SuperHero."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 2 OF 6",
+      "question": "How do you correctly join \"Welcome\" and \"Home\" with a space in between?",
+      "options": [
+        "\"Welcome\" + \" \" + \"Home\"",
+        "\"Welcome\" + \"Home\"",
+        "\"Welcome\" , \"Home\"",
+        "\"Welcome\" + space + \"Home\""
+      ],
+      "correct_answer": "\"Welcome\" + \" \" + \"Home\"",
+      "explanation_correct": "Correct! You must explicitly concatenate a space string \" \" between the two words.",
+      "explanation_incorrect": "To include a space in the joined string, write \"Welcome\" + \" \" + \"Home\"."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 3 OF 6",
+      "question": "What is the output of print(\"5\" + \"10\")?",
+      "code": "print(\"5\" + \"10\")",
+      "options": [
+        "510",
+        "15",
+        "\"15\"",
+        "Error: Cannot add numbers in quotes"
+      ],
+      "correct_answer": "510",
+      "explanation_correct": "Correct! Because \"5\" and \"10\" are in quotation marks, they are strings. + concatenates them into \"510\".",
+      "explanation_incorrect": "Quotation marks make \"5\" and \"10\" strings. The + operator concatenates them into 510."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 4 OF 6",
+      "question": "What is the output of print(5 + 10)?",
+      "code": "print(5 + 10)",
+      "options": [
+        "15",
+        "510",
+        "\"15\"",
+        "5+10"
+      ],
+      "correct_answer": "15",
+      "explanation_correct": "Correct! 5 and 10 are integers without quotes, so + performs arithmetic addition.",
+      "explanation_incorrect": "Without quotes, 5 and 10 are integer numbers, so 5 + 10 = 15."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 5 OF 6",
+      "question": "What happens if you run: print(\"Player score: \" + 100)?",
+      "code": "print(\"Player score: \" + 100)",
+      "options": [
+        "TypeError: Python cannot concatenate str (text) and int (number) directly",
+        "Player score: 100",
+        "Player score: \"100\"",
+        "Player score: 0"
+      ],
+      "correct_answer": "TypeError: Python cannot concatenate str (text) and int (number) directly",
+      "explanation_correct": "Correct! In Python, you cannot join text and a number using + unless you convert the number to text using str(100).",
+      "explanation_incorrect": "Python raises a TypeError because you cannot directly concatenate a string and an integer."
+    },
+    {
+      "badge": "STRING QUIZ • QUESTION 6 OF 6",
+      "question": "How can you safely combine a string and an integer variable score = 100?",
+      "options": [
+        "\"Score: \" + str(score)",
+        "\"Score: \" + score",
+        "\"Score: \" * score",
+        "str(\"Score: \") - score"
+      ],
+      "correct_answer": "\"Score: \" + str(score)",
+      "explanation_correct": "Correct! Wrapping the number in str(score) converts it into a string, allowing safe concatenation.",
+      "explanation_incorrect": "Use str(score) to convert the number into text before joining with +."
+    }
+  ]
+}

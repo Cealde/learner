@@ -1,0 +1,115 @@
+{
+  "title": "Comprehensive Math & Strings Mastery Quiz",
+  "topic": "3.2 • COMPREHENSIVE QUIZ",
+  "questions": [
+    {
+      "badge": "FINAL QUIZ • QUESTION 1 OF 8",
+      "question": "What is the output of this expression: print((20 - 4) * 2)?",
+      "code": "print((20 - 4) * 2)",
+      "options": [
+        "32",
+        "12",
+        "24",
+        "40"
+      ],
+      "correct_answer": "32",
+      "explanation_correct": "Correct! Brackets evaluate first: (20 - 4) = 16, then 16 * 2 = 32.",
+      "explanation_incorrect": "Brackets evaluate first: (20 - 4) = 16, then 16 * 2 = 32."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 2 OF 8",
+      "question": "What is the output of: print(20 - 4 * 2)?",
+      "code": "print(20 - 4 * 2)",
+      "options": [
+        "12",
+        "32",
+        "24",
+        "16"
+      ],
+      "correct_answer": "12",
+      "explanation_correct": "Correct! Multiplication * has higher precedence than subtraction -, so 4 * 2 = 8 is calculated first, then 20 - 8 = 12.",
+      "explanation_incorrect": "Multiplication happens before subtraction: 4 * 2 = 8, then 20 - 8 = 12."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 3 OF 8",
+      "question": "What data type does the single slash division operator / produce in Python?",
+      "code": "result = 15 / 3\nprint(result)",
+      "options": [
+        "5.0 (a float)",
+        "5 (an integer)",
+        "\"5\"",
+        "Error"
+      ],
+      "correct_answer": "5.0 (a float)",
+      "explanation_correct": "Correct! In Python, single division / always returns a floating-point number with a decimal point (5.0).",
+      "explanation_incorrect": "In Python, / always outputs a float (5.0), not an integer."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 4 OF 8",
+      "question": "What is the output of print(\"5\" + \"5\") versus print(5 + 5)?",
+      "options": [
+        "55 on first line, 10 on second line",
+        "10 on both lines",
+        "55 on both lines",
+        "10 on first line, 55 on second line"
+      ],
+      "correct_answer": "55 on first line, 10 on second line",
+      "explanation_correct": "Correct! Quotes create strings which concatenate into 55, while numbers without quotes add up to 10.",
+      "explanation_incorrect": "\"5\" + \"5\" concatenates to 55, and 5 + 5 evaluates to 10."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 5 OF 8",
+      "question": "In the binary search midpoint formula (low + high) / 2, why are brackets mandatory?",
+      "options": [
+        "Without brackets, high / 2 would be evaluated first due to division operator precedence",
+        "Because Python math expressions cannot run without brackets",
+        "To convert the result into an integer",
+        "To make the variables invisible"
+      ],
+      "correct_answer": "Without brackets, high / 2 would be evaluated first due to division operator precedence",
+      "explanation_correct": "Correct! Division / has higher precedence than addition +, so without brackets low + high / 2 calculates low + (high / 2).",
+      "explanation_incorrect": "Brackets force addition before division, preventing high / 2 from running first."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 6 OF 8",
+      "question": "If user = \"Ada\" and role = \"Admin\", what does user + \" (\" + role + \")\" produce?",
+      "code": "user = \"Ada\"\nrole = \"Admin\"\nprint(user + \" (\" + role + \")\")",
+      "options": [
+        "Ada (Admin)",
+        "Ada(Admin)",
+        "\"Ada (Admin)\"",
+        "Ada Admin"
+      ],
+      "correct_answer": "Ada (Admin)",
+      "explanation_correct": "Correct! It concatenates \"Ada\", \" (\", \"Admin\", and \")\" to produce Ada (Admin).",
+      "explanation_incorrect": "The parts are joined in sequence: Ada + \" (\" + Admin + \")\" = Ada (Admin)."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 7 OF 8",
+      "question": "Given a = 5, b = 2, c = a * b + 1. What is the value of c?",
+      "code": "a = 5\nb = 2\nc = a * b + 1\nprint(c)",
+      "options": [
+        "11",
+        "15",
+        "10",
+        "12"
+      ],
+      "correct_answer": "11",
+      "explanation_correct": "Correct! a * b = 10, then 10 + 1 = 11.",
+      "explanation_incorrect": "Multiplication evaluates first: 5 * 2 = 10, then 10 + 1 = 11."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 8 OF 8",
+      "question": "Which statement about Python string concatenation is FALSE?",
+      "options": [
+        "Python automatically adds spaces between concatenated strings",
+        "You can concatenate multiple strings together using multiple + operators",
+        "Concatenating a string and an int directly results in a TypeError",
+        "You can convert an integer to a string using str()"
+      ],
+      "correct_answer": "Python automatically adds spaces between concatenated strings",
+      "explanation_correct": "Correct! Python never adds spaces automatically; you must explicitly include \" \" if spaces are needed.",
+      "explanation_incorrect": "Python does NOT add spaces automatically when concatenating strings."
+    }
+  ]
+}

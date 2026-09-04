@@ -1,15 +1,5 @@
 {
-  "title": "Practice Quiz: String Operations",
-  "topic": "PRACTICE & QUIZ",
-  "badge": "MODULE QUIZ • QUESTION 1 OF 1",
-  "question": "What will be printed to the console by the following Python program?",
-  "code": "a = \"20\"\nb = 5\nresult = a * 2 + str(b)\nprint(result)",
-  "options": [
-    { "prefix": "A", "text": "\"20205\" (str)", "correct": true },
-    { "prefix": "B", "text": "45 (int)", "correct": false },
-    { "prefix": "C", "text": "\"405\" (str)", "correct": false },
-    { "prefix": "D", "text": "TypeError: incompatible types", "correct": false }
-  ],
-  "explanation_correct": "<strong>EXCELLENT!</strong><br/><code>\"20\" * 2</code> repeats the string to <code>\"2020\"</code>, and concatenating <code>str(5)</code> yields <code>\"20205\"</code>.",
-  "explanation_incorrect": "<strong>Not quite!</strong><br/>Remember that multiplying a string repeats it (e.g. <code>\"hi\" * 2</code> becomes <code>\"hihi\"</code>), rather than performing arithmetic addition. Try again!"
+  "title": "Basic Math Operations",
+  "topic": "3.1 • BASIC MATH OPERATIONS",
+  "body": "\n    <div class=\"content-section\">\n      <h2 class=\"section-heading\">Doing Math with Code</h2>\n      <p class=\"section-lead\">\n        Computers were originally invented to do lightning-fast mathematics. In Python, you can perform addition (<code>+</code>) and subtraction (<code>-</code>) using numbers and <a href=\"1.html?spcl=1&lsn=3&sub=1&ref_from=1_4_1\" class=\"ref-jump-btn\">Variables (Lesson 2.1) ↗</a>.\n      </p>\n\n      <div class=\"neo-callout info-callout\">\n        <h4>Two Mental Models for Addition</h4>\n        <p><strong>Analogy A — Two Boxes Added:</strong> <code>x + y</code> takes the number out of box <code>x</code>, takes the number out of box <code>y</code>, adds them, and stores the total in a new result box.</p>\n        <p><strong>Analogy B — A Cash Register:</strong> Each variable represents an item's price. Adding variables is like the cash register totaling up your shopping cart.</p>\n      </div>\n\n      <div class=\"code-demo-box\">\n        <div class=\"code-demo-header\">Example: Addition & Subtraction</div>\n        <pre><code># Addition\nprice1 = 50\nprice2 = 20\ntotal = price1 + price2\nprint(total)  # Displays 70\n\n# Subtraction (Discount)\ndiscount = 15\nfinal_price = total - discount\nprint(final_price)  # Displays 55</code></pre>\n      </div>\n\n      <h3 class=\"section-subheading\">Brackets and Evaluation Order</h3>\n      <p>\n        When you write complex math, Python evaluates expressions from left to right for operators of equal priority. You can use <strong>brackets <code>()</code></strong> to group parts together and tell Python which calculation to do first:\n      </p>\n\n      <div class=\"code-demo-box\">\n        <div class=\"code-demo-header\">Example: Using Brackets</div>\n        <pre><code>result = (10 + 5) - 3\nprint(result)  # (15) - 3 = 12</code></pre>\n      </div>\n\n      <div class=\"neo-callout warning-callout\">\n        <h4>Important: Numbers vs Quotes</h4>\n        <p>Remember from <a href=\"1.html?spcl=1&lsn=3&sub=4&ref_from=1_4_1\" class=\"ref-jump-btn\">Integers vs Strings (Lesson 2.2) ↗</a>: Numbers for math must NOT have quotes. Writing <code>\"10\" + \"5\"</code> will glue the text together as <code>\"105\"</code> instead of doing math!</p>\n      </div>\n    </div>\n  "
 }

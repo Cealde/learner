@@ -527,6 +527,199 @@ elif check_type in ("score_reassign_0_50", "variable_reassign"):
                 "details": "missing_second_print"
             }))
 
+elif check_type in ("math_four_operators", "four_math_ops"):
+    ops_found = set()
+    has_bracket_combo = False
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.BinOp):
+            if isinstance(node.op, ast.Add):
+                ops_found.add("+")
+            elif isinstance(node.op, ast.Sub):
+                ops_found.add("-")
+            elif isinstance(node.op, ast.Mult):
+                ops_found.add("*")
+                if isinstance(node.left, ast.BinOp) and isinstance(node.left.op, ast.Add):
+                    has_bracket_combo = True
+                elif isinstance(node.right, ast.BinOp) and isinstance(node.right.op, ast.Add):
+                    has_bracket_combo = True
+            elif isinstance(node.op, ast.Div):
+                ops_found.add("/")
+
+    missing_ops = [op for op in ["+", "-", "*", "/"] if op not in ops_found]
+    if missing_ops:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": f"AI Detection: Missing arithmetic operator(s): {', '.join(missing_ops)}. Practice addition (+), subtraction (-), multiplication (*), and division (/)!",
+            "details": "missing_operator"
+        }))
+    elif not has_bracket_combo:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Remember to compute the combined expression with brackets: (a + b) * 2.",
+            "details": "missing_combo_brackets"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed all 4 math operators (+, -, *, /) and bracketed combo expression are calculated and printed correctly!",
+            "details": "ok"
+        }))
+
+elif check_type in ("binary_search_midpoint_formula", "midpoint_formula"):
+    midpoint_assign = None
+    for stmt in tree.body:
+        if isinstance(stmt, ast.Assign):
+            for target in stmt.targets:
+                if isinstance(target, ast.Name) and target.id == "midpoint":
+                    midpoint_assign = stmt.value
+
+    if midpoint_assign is None:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Variable 'midpoint' was not assigned. Write: midpoint = (low + high) / 2",
+            "details": "missing_midpoint"
+        }))
+    elif isinstance(midpoint_assign, ast.Constant) and (midpoint_assign.value == 30 or midpoint_assign.value == 30.0):
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You wrote the literal number 30 instead of using the formula. In real algorithms, 'low' and 'high' change dynamically! Write: midpoint = (low + high) / 2.",
+            "details": "hardcoded_midpoint"
+        }))
+    elif isinstance(midpoint_assign, ast.BinOp) and isinstance(midpoint_assign.op, ast.Add) and isinstance(midpoint_assign.right, ast.BinOp) and isinstance(midpoint_assign.right.op, (ast.Div, ast.FloorDiv)):
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Operator Precedence Alert! Division (/) executes before addition (+), calculating 10 + (50 / 2) = 35.0 instead of 30.0. Use brackets: midpoint = (low + high) / 2.",
+            "details": "missing_brackets_precedence"
+        }))
+    else:
+        is_valid_formula = False
+        if isinstance(midpoint_assign, ast.BinOp) and isinstance(midpoint_assign.op, (ast.Div, ast.FloorDiv)):
+            if isinstance(midpoint_assign.left, ast.BinOp) and isinstance(midpoint_assign.left.op, ast.Add):
+                left_names = {getattr(midpoint_assign.left.left, 'id', ''), getattr(midpoint_assign.left.right, 'id', '')}
+                if "low" in left_names and "high" in left_names:
+                    is_valid_formula = True
+
+        if is_valid_formula:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": True,
+                "message": "AI Verification: Confirmed Binary Search midpoint formula (low + high) / 2 with correct bracket precedence!",
+                "details": "ok"
+            }))
+        else:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": False,
+                "message": "AI Detection: Calculate the midpoint between low and high using: midpoint = (low + high) / 2.",
+                "details": "invalid_midpoint_formula"
+            }))
+
+elif check_type in ("string_concat_greeting", "concat_first_last"):
+    full_name_assign = None
+    for stmt in tree.body:
+        if isinstance(stmt, ast.Assign):
+            for target in stmt.targets:
+                if isinstance(target, ast.Name) and target.id == "full_name":
+                    full_name_assign = stmt.value
+
+    if full_name_assign is None:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Variable 'full_name' was not assigned. Create it like: full_name = first_name + \" \" + last_name.",
+            "details": "missing_full_name"
+        }))
+    elif isinstance(full_name_assign, ast.Constant) and full_name_assign.value == "Alan Turing":
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You wrote the literal text \"Alan Turing\" directly. Combine the variables: full_name = first_name + \" \" + last_name.",
+            "details": "hardcoded_string"
+        }))
+    else:
+        has_space_concat = False
+        names_in_expr = set()
+
+        for node in ast.walk(full_name_assign):
+            if isinstance(node, ast.Name):
+                names_in_expr.add(node.id)
+            elif isinstance(node, ast.Constant) and node.value == " ":
+                has_space_concat = True
+
+        if not ("first_name" in names_in_expr and "last_name" in names_in_expr):
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": False,
+                "message": "AI Detection: Make sure to concatenate the variables first_name and last_name.",
+                "details": "missing_vars_in_concat"
+            }))
+        elif not has_space_concat:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": False,
+                "message": "AI Detection: Missing space between words! When joining strings with +, Python does not insert spaces automatically. Write: full_name = first_name + \" \" + last_name.",
+                "details": "missing_space"
+            }))
+        else:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": True,
+                "message": "AI Verification: Confirmed string concatenation with space separator!",
+                "details": "ok"
+            }))
+
+elif check_type in ("api_url_builder_algorithm", "url_builder"):
+    url_assign = None
+    for stmt in tree.body:
+        if isinstance(stmt, ast.Assign):
+            for target in stmt.targets:
+                if isinstance(target, ast.Name) and target.id == "url":
+                    url_assign = stmt.value
+
+    if url_assign is None:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Variable 'url' was not assigned. Construct it using string concatenation with the parameter variables.",
+            "details": "missing_url"
+        }))
+    elif isinstance(url_assign, ast.Constant) and url_assign.value == "https://api.learner.dev/search?q=python":
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You wrote the literal URL string directly. In real web engines, parameters are dynamic! Use string concatenation: url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query.",
+            "details": "hardcoded_url"
+        }))
+    else:
+        names_in_url = set()
+        for node in ast.walk(url_assign):
+            if isinstance(node, ast.Name):
+                names_in_url.add(node.id)
+
+        required_vars = {"protocol", "domain", "endpoint", "query"}
+        missing_vars = [v for v in required_vars if v not in names_in_url]
+        if missing_vars:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": False,
+                "message": f"AI Detection: Missing parameter variable(s) in URL formula: {', '.join(missing_vars)}. Concatenate all four components: protocol, domain, endpoint, and query.",
+                "details": "missing_url_vars"
+            }))
+        else:
+            print(json.dumps({
+                "is_valid": True,
+                "check_passed": True,
+                "message": "AI Verification: Confirmed dynamic API URL construction using string concatenation!",
+                "details": "ok"
+            }))
+
 else:
     print(json.dumps({
         "is_valid": True,
