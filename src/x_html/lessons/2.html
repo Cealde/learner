@@ -3,63 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 2: Python Debugger Workspace - Adhicode</title>
+    <title>LESSON 02: PYTHON DEBUGGING - ADHICODE</title>
     <link rel="stylesheet" href="lesson.css" />
     <link rel="stylesheet" href="debugger.css" />
     <script type="module" src="../../y_js/lesson2.js" defer></script>
   </head>
 
-  <body>
-    <!-- Top Header -->
-    <header class="lesson-header">
-      <div class="header-left">
-        <button class="back-btn" onclick="window.location.href = '../journey.html'">
-          ← Back to Map
+  <body class="lesson-page">
+    <div class="bg-grid"></div>
+
+    <!-- Neo-Brutalist Top Bar -->
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button type="button" class="back-map-btn" onclick="window.location.href = '../journey.html'">
+          ← BACK TO MAP
         </button>
-        <div class="lesson-title-group">
-          <h1>Lesson 2: Python Execution & Debugging</h1>
-          <p>Inspect variables, set breakpoints, and trace code step-by-step</p>
+        <div class="topbar-brand">
+          <img src="../../assets/logo.svg" alt="Adhicode Logo" class="topbar-logo" />
+          <span class="topbar-name">ADHICODE</span>
         </div>
+      </div>
+
+      <div class="topbar-center">
+        <span class="lesson-pill">LESSON 02</span>
+        <span class="lesson-header-title">PYTHON EXECUTION & DEBUGGING</span>
+      </div>
+
+      <div class="topbar-right">
+        <div class="progress-bar-container" title="Lesson completion progress">
+          <span class="progress-text">PROGRESS 35%</span>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: 35%;"></div>
+          </div>
+        </div>
+        <button type="button" class="exit-btn" onclick="window.location.href = '../journey.html'">EXIT</button>
       </div>
     </header>
 
-    <!-- Debugger Toolbar -->
+    <!-- Neo-Brutalist Hero Header -->
+    <section class="lesson-intro">
+      <div class="intro-content">
+        <div class="sticker-tag">DEBUGGER WORKSPACE</div>
+        <h1 class="intro-heading">PYTHON EXECUTION & DEBUGGING</h1>
+        <p class="intro-desc">Inspect variables, set breakpoints, and trace code step-by-step.</p>
+      </div>
+      <div class="intro-concepts">
+        <span class="concept-item">[ EXECUTION FLOW ]</span>
+        <span class="concept-item">[ VARIABLES STATE ]</span>
+        <span class="concept-item">[ BREAKPOINTS ]</span>
+        <span class="concept-item">[ STEP TRACE ]</span>
+      </div>
+    </section>
+
+    <!-- Tactile Debug Toolbar -->
     <div class="toolbar">
       <div class="toolbar-buttons">
-        <button id="btn-run" class="tool-btn btn-run" title="Run entire script">
-          Run
+        <button id="btn-run" class="tool-btn btn-run" title="Run script to completion">
+          ▶ RUN CODE
         </button>
+
         <button id="btn-debug" class="tool-btn btn-debug" title="Start step-by-step debugger">
-          Debug
+          🐞 DEBUG
         </button>
-        <button id="btn-step" class="tool-btn btn-step" title="Step to next line">
-          Step
+
+        <button id="btn-step" class="tool-btn btn-step" title="Execute next single line">
+          ↷ STEP
         </button>
-        <button id="btn-continue" class="tool-btn btn-continue" title="Continue to next breakpoint">
-          Continue
+
+        <button id="btn-continue" class="tool-btn btn-continue" title="Continue execution to next breakpoint">
+          ⏩ CONTINUE
         </button>
-        <button id="btn-reset" class="tool-btn btn-reset" title="Reset state">
-          Reset
+
+        <button id="btn-reset" class="tool-btn btn-reset" title="Reset state to initial">
+          ↺ RESET
         </button>
-        <button id="next-btn" class="tool-btn btn-next hidden" style="display: none;" title="Proceed to next lesson">
-          Next Lesson →
+
+        <button id="next-btn" class="tool-btn btn-next" style="display: none;" title="Proceed to next lesson">
+          NEXT LESSON →
         </button>
       </div>
 
       <div class="status-badge">
         <span id="status-dot" class="status-dot"></span>
-        <span id="status-text">Ready</span>
+        <span id="status-text">READY</span>
       </div>
     </div>
 
     <!-- Main Workspace Split Grid -->
     <main class="workspace-grid">
-      <!-- Left Panel: Python Code Editor -->
+      <!-- Left Panel: Dark Editor in Neo-Brutalist Frame -->
       <section class="panel editor-panel">
         <div class="panel-header">
-          <span>Python Code Editor</span>
-          <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">Click gutter to toggle breakpoints</span>
+          <div class="panel-header-title">
+            <span>PYTHON EDITOR</span>
+          </div>
+          <span class="gutter-tip">Click line number to toggle breakpoint</span>
         </div>
+
         <div class="editor-container">
           <div id="gutter" class="gutter"></div>
           <div class="editor-wrapper">
@@ -70,23 +110,25 @@
         </div>
       </section>
 
-      <!-- Right Panel: Variables Inspector + Output Console -->
+      <!-- Right Panel: Variables Inspector + Terminal Output Console -->
       <div class="right-split">
         <!-- Variables Inspector -->
         <section class="panel variables-panel">
           <div class="panel-header">
-            <span>Variables Inspector</span>
+            <div class="panel-header-title">
+              <span>VARIABLES INSPECTOR</span>
+            </div>
           </div>
           <div class="vars-table-wrapper">
             <div id="empty-vars-msg" class="empty-vars">
-              No active variables. Click "Debug" or "Step" to inspect memory state.
+              No active variables. Click "DEBUG" or "STEP" to inspect memory state.
             </div>
             <table class="vars-table">
               <thead>
                 <tr>
-                  <th>Variable</th>
-                  <th>Type</th>
-                  <th>Value</th>
+                  <th>VARIABLE</th>
+                  <th>TYPE</th>
+                  <th>VALUE</th>
                 </tr>
               </thead>
               <tbody id="vars-tbody"></tbody>
@@ -94,20 +136,33 @@
           </div>
         </section>
 
-        <!-- Output Box / Terminal Console -->
+        <!-- Terminal Output Box -->
         <section class="panel output-panel">
           <div class="panel-header">
-            <span>Output Console</span>
+            <div class="panel-header-title">
+              <span>OUTPUT CONSOLE</span>
+            </div>
             <div class="panel-actions">
-              <button id="btn-clear-output" type="button">Clear</button>
+              <button id="btn-clear-output" type="button" class="btn-clear">CLEAR</button>
             </div>
           </div>
           <div id="terminal-box" class="terminal-box">
-            <div class="term-line-info">Python 3.13 Interactive Environment Ready.</div>
-            <div class="term-line-info">Click "Run" or "Debug" to execute code.</div>
+            <div class="term-line-info">> Python 3.13 Interactive Environment Ready.</div>
+            <div class="term-line-info">> Click "RUN" or "DEBUG" to execute code.</div>
           </div>
         </section>
       </div>
     </main>
+
+    <!-- Neo-Brutalist Bottom Bar -->
+    <footer class="lesson-footer">
+      <button type="button" class="nav-prev-btn" onclick="window.location.href = '1.html'">
+        ← PREVIOUS LESSON
+      </button>
+      <span class="lesson-step-count">LESSON 2 OF 5</span>
+      <button type="button" class="nav-next-btn" onclick="window.location.href = '1.html?spcl=1&lsn=3&sub=1'">
+        NEXT LESSON →
+      </button>
+    </footer>
   </body>
 </html>

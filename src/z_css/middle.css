@@ -7,6 +7,152 @@
   src: url('../assets/fonts/Manrope.ttf') format('truetype');
 }
 
-h1 {
-  font-family: Title;
+:root {
+  --neo-bg: #F5F1E8;
+  --neo-black: #111111;
+  --neo-white: #FFFFFF;
+  --neo-blue: #2563EB;
+  --neo-yellow: #FFD43B;
+  --neo-green: #7CFF6B;
+  
+  --neo-border: 3px solid #111111;
+  --neo-border-lg: 4px solid #111111;
+  --neo-shadow-lg: 8px 8px 0 #111111;
+  --neo-shadow-xl: 10px 10px 0 #111111;
+  --neo-radius: 4px;
+
+  font-family: 'Body', sans-serif;
+}
+
+body.middle-page {
+  min-height: 100vh;
+  background-color: var(--neo-bg);
+  color: var(--neo-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.middle-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
+  padding: 24px;
+}
+
+.workspace-card {
+  background: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--neo-shadow-xl);
+}
+
+.workspace-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--neo-yellow);
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  box-shadow: 3px 3px 0 var(--neo-black);
+  font-family: 'Title', sans-serif;
+  font-size: 0.8rem;
+  color: var(--neo-black);
+  margin-bottom: 24px;
+}
+
+.brand-icon {
+  height: 20px;
+  width: auto;
+}
+
+.user-heading {
+  font-family: 'Title', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: var(--neo-black);
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.name-sub {
+  font-size: 1.1rem;
+  color: var(--neo-blue);
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.workspace-welcome {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #444444;
+  margin-bottom: 32px;
+}
+
+.actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-radius: var(--neo-radius);
+  font-family: 'Title', sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: var(--neo-border);
+  box-shadow: 5px 5px 0 var(--neo-black);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.primary-btn {
+  background: var(--neo-blue);
+  color: var(--neo-white);
+}
+
+.primary-btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.primary-btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+.secondary-btn {
+  background: var(--neo-white);
+  color: var(--neo-black);
+}
+
+.secondary-btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.secondary-btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--neo-black);
 }

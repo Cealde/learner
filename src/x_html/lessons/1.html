@@ -2,21 +2,121 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="lesson.css" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Active Profile - Adhicode</title>
+    <title>Lesson Twin: Variables - Adhicode</title>
+    <link rel="stylesheet" href="lesson.css" />
     <script type="module" src="loader.js" defer></script>
   </head>
 
-  <body>
-    <main>
-        <h1 class="topic-title">Lesson Twin</h1>
+  <body class="lesson-twin-page">
+    <div class="bg-glow-top"></div>
 
-        <div id="content">
+    <!-- Header Navigation -->
+    <header class="twin-header">
+      <div class="twin-header-left">
+        <button type="button" class="back-journey-btn" onclick="window.location.href = '../journey.html'">
+          ← Learning Journey
+        </button>
+        <div class="header-divider"></div>
+        <span class="twin-badge">LESSON TWIN</span>
+        <div class="topic-pill">Topic: <strong id="topic-name">VARIABLES</strong></div>
+      </div>
 
+      <div class="twin-header-right">
+        <div class="twin-progress">
+          <span class="progress-label">Progress 72%</span>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" style="width: 72%;"></div>
+          </div>
         </div>
+        <button type="button" class="exit-btn" onclick="window.location.href = '../journey.html'">Exit Lesson</button>
+      </div>
+    </header>
+
+    <!-- Main 3-Column Layout -->
+    <main class="twin-main-grid">
+      <!-- Left Sidebar: Lesson Navigation -->
+      <aside class="twin-sidebar">
+        <h3 class="sidebar-title">LESSON MODULES</h3>
+        <nav class="module-nav">
+          <button type="button" class="nav-item active" data-sec="1">
+            <span class="nav-num">01</span>
+            <span class="nav-label">What are Variables</span>
+          </button>
+          <button type="button" class="nav-item" data-sec="2">
+            <span class="nav-num">02</span>
+            <span class="nav-label">Declaring Variables</span>
+          </button>
+          <button type="button" class="nav-item" data-sec="3">
+            <span class="nav-num">03</span>
+            <span class="nav-label">Data Types</span>
+          </button>
+          <button type="button" class="nav-item" data-sec="4">
+            <span class="nav-num">04</span>
+            <span class="nav-label">Assigning Values</span>
+          </button>
+          <button type="button" class="nav-item" data-sec="5">
+            <span class="nav-num">05</span>
+            <span class="nav-label">Interactive Practice</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-tip-card">
+          <h4>PRO TIP</h4>
+          <p>Variables act as named containers stored in system memory to hold data values.</p>
+        </div>
+      </aside>
+
+      <!-- Center: Main Lesson Content -->
+      <section class="twin-content-container">
+        <div id="content" class="lesson-rich-body">
+          <!-- Dynamic Content Loaded by loader.js -->
+        </div>
+      </section>
+
+      <!-- Right: Interactive Companion Panel -->
+      <aside class="twin-companion">
+        <div class="companion-card">
+          <div class="card-badge">PRACTICE QUIZ</div>
+          <h3 class="quiz-title">WHAT WILL THIS OUTPUT?</h3>
+
+          <div class="code-preview-box">
+            <pre><code><span class="token-keyword">let</span> x = <span class="token-number">10</span>;
+<span class="token-keyword">let</span> y = <span class="token-number">5</span>;
+
+console.<span class="token-builtin">log</span>(x + y);</code></pre>
+          </div>
+
+          <div class="quiz-options" id="quiz-options-group">
+            <button type="button" class="option-btn" data-val="10">[ 10 ]</button>
+            <button type="button" class="option-btn" data-val="15">[ 15 ]</button>
+            <button type="button" class="option-btn" data-val="50">[ 50 ]</button>
+            <button type="button" class="option-btn" data-val="105">[ 105 ]</button>
+          </div>
+
+          <div id="quiz-feedback" class="quiz-feedback" style="display: none;"></div>
+        </div>
+
+        <div class="companion-card progress-summary-card">
+          <h3>MODULE PROGRESS</h3>
+          <div class="progress-stat">
+            <span class="stat-number">4 / 5</span>
+            <span class="stat-desc">Topics Completed</span>
+          </div>
+          <div class="progress-bar-track large">
+            <div class="progress-bar-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+      </aside>
     </main>
-    <button id="next-btn">Next Page</button>
+
+    <!-- Bottom Action Footer -->
+    <footer class="twin-footer">
+      <button type="button" class="nav-prev-btn" onclick="window.location.href = '../journey.html'">
+        ← Learning Journey
+      </button>
+      <span class="footer-lesson-info">Lesson 1: Introduction to Variables</span>
+      <button id="next-btn" class="nav-next-btn">Next Page →</button>
+    </footer>
   </body>
 </html>
