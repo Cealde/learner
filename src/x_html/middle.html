@@ -2,27 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../z_css/middle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Active Profile - Adhicode</title>
+    <title>Active Workspace - Adhicode</title>
+    <link rel="stylesheet" href="../z_css/middle.css" />
     <script type="module" src="../y_js/middle.js" defer></script>
   </head>
 
-  <body>
-    <h1>Welcome to AdhiCode</h1>
+  <body class="middle-page">
+    <div class="bg-glow"></div>
+    <div class="bg-grid"></div>
+
     <main class="middle-container">
-      <div class="profile-card-modal">
-        <h1 id="display-username"></h1>
-        <div id="display-name-container" class="display-name" style="display: none;">
+      <div class="workspace-card">
+        <div class="workspace-badge">
+          <img src="../assets/logo.svg" alt="Adhicode" class="brand-icon" />
+          <span>ACTIVE WORKSPACE</span>
+        </div>
+
+        <h1 id="display-username" class="user-heading">Learner Profile</h1>
+
+        <div id="display-name-container" class="name-sub" style="display: none;">
           <span id="display-name"></span>
         </div>
 
+        <p class="workspace-welcome">Ready to resume your Python learning journey?</p>
+
         <div class="actions-group">
           <a href="journey.html" class="action-btn primary-btn">
-            Enter Journey Map
+            ENTER JOURNEY MAP →
           </a>
           <button id="switch-profile-btn" type="button" class="action-btn secondary-btn">
-            Switch Profile
+            Switch Workspace
           </button>
         </div>
       </div>

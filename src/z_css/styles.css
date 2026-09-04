@@ -8,89 +8,548 @@
 }
 
 :root {
-  font-family: Body;
-  font-size: 25px;
-  line-height: 24px;
-  font-weight: 400;
+  --neo-bg: #F5F1E8;
+  --neo-black: #111111;
+  --neo-white: #FFFFFF;
+  --neo-blue: #2563EB;
+  --neo-yellow: #FFD43B;
+  --neo-red: #FF4D4D;
+  --neo-green: #7CFF6B;
+  --neo-purple: #B58CFF;
 
-  color: #000000;
-  background-color: #f6f6f6;
+  --neo-border-sm: 2px solid #111111;
+  --neo-border: 3px solid #111111;
+  --neo-border-lg: 4px solid #111111;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --neo-shadow-sm: 3px 3px 0 #111111;
+  --neo-shadow: 5px 5px 0 #111111;
+  --neo-shadow-lg: 8px 8px 0 #111111;
+  --neo-shadow-xl: 10px 10px 0 #111111;
+
+  --neo-radius: 4px;
+
+  font-family: 'Body', -apple-system, sans-serif;
+  color: var(--neo-black);
+  background-color: var(--neo-bg);
+  box-sizing: border-box;
 }
 
-.container {
+*, *::before, *::after {
+  box-sizing: inherit;
   margin: 0;
-  padding-top: 2vh;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--neo-bg);
+  color: var(--neo-black);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Atmosphere - Raw Minimal Grid Lines */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* App Layout Container */
+.app-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styling */
+.brand-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 28px 36px;
+  background: var(--neo-yellow);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  box-shadow: var(--neo-shadow-xl);
+  max-width: 720px;
+  width: 100%;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: var(--neo-black);
+  color: var(--neo-white);
+  border: var(--neo-border-sm);
+  border-radius: var(--neo-radius);
+  margin-bottom: 16px;
+  box-shadow: var(--neo-shadow-sm);
+}
+
+.brand-logo {
+  height: 20px;
+  width: auto;
+  filter: invert(1);
+}
+
+.brand-name {
+  font-family: 'Title', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.header-title {
+  font-family: 'Title', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: var(--neo-black);
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--neo-black);
+}
+
+/* Status Notification Toast */
+.status-toast {
+  padding: 14px 24px;
+  border-radius: var(--neo-radius);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow);
+  animation: fadeIn 0.15s ease-out;
+}
+.status-toast.error {
+  background: var(--neo-red);
+  color: var(--neo-white);
+}
+.status-toast.success {
+  background: var(--neo-green);
+  color: var(--neo-black);
+}
+
+/* Profiles Container & Grid */
+.profiles-container {
+  width: 100%;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  width: 100%;
+}
+
+/* Profile Card - Neo-Brutalist Tactile Panel */
+.profile-card {
+  position: relative;
+  background: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-lg);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.profile-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0 var(--neo-black);
+}
+
+.profile-card:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+/* Profile Card Top Section */
+.profile-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--neo-radius);
+  background: var(--neo-blue);
+  color: var(--neo-white);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-sm);
+  font-family: 'Title', sans-serif;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status Pill Stickers */
+.status-pill {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border: var(--neo-border-sm);
+  border-radius: var(--neo-radius);
+  letter-spacing: 0.5px;
+  box-shadow: 2px 2px 0 var(--neo-black);
+  text-transform: uppercase;
+}
+
+.status-pill.protected {
+  background: var(--neo-yellow);
+  color: var(--neo-black);
+}
+
+.status-pill.available {
+  background: var(--neo-green);
+  color: var(--neo-black);
+}
+
+/* Profile Info */
+.profile-info {
+  margin-bottom: 16px;
+}
+
+.profile-username {
+  font-family: 'Title', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--neo-black);
+  margin-bottom: 4px;
+}
+
+.profile-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #555555;
+}
+
+/* Profile Card Footer */
+.profile-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: var(--neo-border);
+}
+
+.open-label {
+  font-family: 'Title', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--neo-black);
+}
+
+.card-arrow {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--neo-black);
+  transition: transform 0.15s ease;
+}
+
+.profile-card:hover .card-arrow {
+  transform: translateX(6px);
+}
+
+/* Delete Profile Button */
+.delete-profile-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--neo-radius);
+  border: var(--neo-border-sm);
+  background: var(--neo-red);
+  color: var(--neo-white);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--neo-black);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  z-index: 2;
+}
+
+.delete-profile-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--neo-black);
+}
+
+.delete-profile-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+/* Create Workspace Card */
+.profile-card.create-card {
+  border: var(--neo-border-lg);
+  background: var(--neo-purple);
+  color: var(--neo-black);
+  align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 32px 24px;
 }
 
-.logo {
-  height: 10vw;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
+.create-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--neo-radius);
+  background: var(--neo-yellow);
+  border: var(--neo-border);
+  box-shadow: var(--neo-shadow-sm);
+  color: var(--neo-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
 }
 
-.title-container {
-  border: 1px solid black;
-  height: 20vw;
-  width: 80%;
-  border-radius: 40px;
-  margin-top: 1vw;
-  background-color: #feffa989;
-  align-self: center;
+.create-card:hover {
+  background: #C49EFF;
 }
 
-h1 {
+/* Empty Profiles Container Card */
+.empty-profiles-card {
+  grid-column: 1 / -1;
+  background: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  padding: 60px 40px;
   text-align: center;
-  font-family: Title;
-  font-size: 3vw;
+  box-shadow: var(--neo-shadow-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* ============================================================ */
-/* FRONTEND DEVS BLUEPRINT - PROFILE & DASHBOARD STYLES        */
-/* ============================================================ */
-
-#status-msg {
-  /* Status / notification styling */
+.empty-icon-glow {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--neo-radius);
+  background: var(--neo-yellow);
+  border: var(--neo-border);
+  color: var(--neo-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: var(--neo-shadow);
 }
 
-#profiles-section {
-  /* Profiles section container styling */
+.empty-title {
+  font-family: 'Title', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
 }
 
-#profiles-grid {
-  /* Profiles grid / list layout styling */
+.empty-sub {
+  color: var(--neo-black);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
-.profile-card {
-  /* Profile card item styling */
+/* Modal Backdrops & Neo-Brutalist Card */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
 }
 
-#dashboard-section {
-  /* Active profile dashboard styling */
+.modal-card {
+  background: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  padding: 32px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: var(--neo-shadow-xl);
 }
 
-#add-modal {
-  /* Add profile modal / popup styling */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
-#add-profile-form {
-  /* Add profile form elements styling */
+.modal-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--neo-radius);
+  background: var(--neo-yellow);
+  border: var(--neo-border-sm);
+  color: var(--neo-black);
+  font-size: 1.4rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 var(--neo-black);
 }
 
-#password-modal {
-  /* Password prompt modal / popup styling */
+.modal-header h2 {
+  font-family: 'Title', sans-serif;
+  font-size: 1.3rem;
+  color: var(--neo-black);
 }
 
-#password-form {
-  /* Password form elements styling */
+.modal-desc {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #444444;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  color: var(--neo-black);
+  letter-spacing: 0.5px;
+}
+
+.form-group .required {
+  color: var(--neo-red);
+}
+
+.form-group .optional {
+  color: #666666;
+  font-family: 'Body', sans-serif;
+  font-weight: normal;
+}
+
+.form-group input {
+  background: var(--neo-white);
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  box-shadow: 4px 4px 0 var(--neo-black);
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--neo-black);
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--neo-blue);
+  box-shadow: 4px 4px 0 var(--neo-blue);
+}
+
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* Button Base Styles - Neo Brutalist Chunky Buttons */
+.btn-primary {
+  background: var(--neo-blue);
+  color: var(--neo-white);
+  font-family: 'Title', sans-serif;
+  font-size: 0.85rem;
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  padding: 12px 22px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--neo-black);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-primary:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.btn-primary:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+.btn-secondary {
+  background: var(--neo-white);
+  color: var(--neo-black);
+  font-family: 'Title', sans-serif;
+  font-size: 0.85rem;
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  padding: 12px 22px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 var(--neo-black);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-secondary:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.btn-secondary:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-layout {
+    padding: 20px 16px;
+  }
+  .brand-header {
+    padding: 20px;
+  }
+  .header-title {
+    font-size: 1.6rem;
+  }
+  .profiles-grid {
+    grid-template-columns: 1fr;
+  }
 }
