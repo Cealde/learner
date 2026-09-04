@@ -44,456 +44,39 @@ export const MALAYALAM_MODULE_NAMES = {
     '1.3 • പ്രവർത്തന ക്രമ ക്വിസ്'
   ],
   3: [
-    '2.1 • വേരിയബിൾ എന്നാൽ എന്ത്?',
-    '2.1 • വേരിയബിൾ ക്വിസ്',
-    '2.1 • വേരിയബിൾ കോഡിംഗ്',
-    '2.2 • നമ്പറുകളും ടെക്സ്റ്റും',
-    '2.2 • ഡാറ്റാ ടൈപ്പ് ക്വിസ്',
-    '2.2 • ഡാറ്റാ ടൈപ്പ് കോഡിംഗ്',
-    '2.3 • വേരിയബിൾ മാറ്റങ്ങൾ',
-    '2.3 • റീഅസൈൻമെന്റ് ക്വിസ്',
-    '2.3 • അപ്ഡേറ്റിംഗ് കോഡിംഗ്',
-    '2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്'
+    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
+    '3.1 • കണക്കും മുൻഗണനയും ക്വിസ്',
+    '3.1 • ഗുണനവും ഹരണവും',
+    '3.1 • നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
+    '3.1 • അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല',
+    '3.2 • വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ',
+    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്',
+    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്',
+    '3.2 • അൽഗോരിതം: എപിഐ യുആർഎൽ നിർമ്മാണം',
+    '3.2 • കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്'
   ],
   4: [
-    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
-    '3.1 • മാത്സ് & മുൻഗണനാ ക്വിസ്',
-    '3.1 • ഗുണനവും ഹരണവും',
-    '3.1 • 4 ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
-    '3.1 • അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല',
-    '3.2 • വാക്കുകൾ കൂട്ടിച്ചേർക്കൽ (Strings)',
-    '3.2 • സ്ട്രിംഗ് കോഡിംഗ്',
-    '3.2 • സ്ട്രിംഗ് ക്വിസ്',
-    '3.2 • അൽഗോരിതം: API URL ബിൽഡർ',
-    '3.2 • മാത്സ് & സ്ട്രിംഗ്സ് സമഗ്ര ക്വിസ്'
+    '2.1 • എന്താണ് വേരിയബിൾ?',
+    '2.1 • വേരിയബിൾ അടിസ്ഥാന ക്വിസ്',
+    '2.1 • വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്',
+    '2.2 • സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)',
+    '2.2 • സംഖ്യകളും വാചകങ്ങളും ക്വിസ്',
+    '2.2 • മെമ്മറിയും ടൈപ്പുകളും കോഡ്',
+    '2.3 • പെട്ടിയിലെ മൂല്യം മാറ്റൽ',
+    '2.3 • മൂല്യം മാറ്റൽ ക്വിസ്',
+    '2.3 • വേരിയബിളുകൾ പുതുക്കൽ കോഡ്',
+    '2.3 • വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്'
   ]
 };
 
 export const MALAYALAM_LESSON_DATA = {
-  "1_4_10": {
-    "title": "മാത്സ് & സ്ട്രിംഗ്സ് സമഗ്ര ക്വിസ്",
-    "topic": "3.2 • സമഗ്ര ക്വിസ്",
-    "questions": [
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
-            "question": "print((20 - 4) * 2) ന്റെ ഫലം എന്താണ്?",
-            "code": "print((20 - 4) * 2)",
-            "options": [
-                "32",
-                "12",
-                "24",
-                "40"
-            ],
-            "correct_answer": "32",
-            "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റ് ആദ്യം നടക്കുന്നു: (20 - 4) = 16, തുടർന്ന് 16 * 2 = 32.",
-            "explanation_incorrect": "ബ്രാക്കറ്റ് ആദ്യം: (20 - 4) = 16, ശേഷം 16 * 2 = 32."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
-            "question": "print(20 - 4 * 2) ന്റെ ഫലം എന്താണ്?",
-            "code": "print(20 - 4 * 2)",
-            "options": [
-                "12",
-                "32",
-                "24",
-                "16"
-            ],
-            "correct_answer": "12",
-            "explanation_correct": "ശരിയാണ്! ഗുണനം ആദ്യം നടക്കുന്നു: 4 * 2 = 8, ശേഷം 20 - 8 = 12.",
-            "explanation_incorrect": "ഗുണനം ആദ്യം: 4 * 2 = 8, ശേഷം 20 - 8 = 12."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
-            "question": "പൈത്തണിൽ / ചിഹ്നം ഉപയോഗിച്ച് ഹരിക്കുമ്പോൾ കിട്ടുന്ന ഡാറ്റാ ടൈപ്പ് ഏതാണ്?",
-            "code": "result = 15 / 3\nprint(result)",
-            "options": [
-                "5.0 (ഫ്ലോട്ട് / Float)",
-                "5 (ഇൻ്റിജർ)",
-                "\"5\"",
-                "Error"
-            ],
-            "correct_answer": "5.0 (ഫ്ലോട്ട് / Float)",
-            "explanation_correct": "ശരിയാണ്! പൈത്തണിൽ ഹരണ ഫലം എപ്പോഴും ഫ്ലോട്ട് (5.0) ആണ്.",
-            "explanation_incorrect": "ഹരണം എപ്പോഴും ഫ്ലോട്ട് (5.0) നൽകുന്നു."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
-            "question": "print(\"5\" + \"5\") ഉം print(5 + 5) ഉം എന്ത് നൽകുന്നു?",
-            "options": [
-                "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
-                "രണ്ട് വരിയിലും 10",
-                "രണ്ട് വരിയിലും 55",
-                "ആദ്യ വരിയിൽ 10, രണ്ടാം വരിയിൽ 55"
-            ],
-            "correct_answer": "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
-            "explanation_correct": "ശരിയാണ്! സ്ട്രിംഗുകൾ ഒട്ടിച്ച് 55 ആവുകയും നമ്പറുകൾ കൂട്ടി 10 ആവുകയും ചെയ്യുന്നു.",
-            "explanation_incorrect": "\"5\" + \"5\" = 55, 5 + 5 = 10."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
-            "question": "(low + high) / 2 എന്നതിൽ ബ്രാക്കറ്റ് എന്തിനാണ് നിർബന്ധമാക്കുന്നത്?",
-            "options": [
-                "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
-                "പൈത്തൺ ബ്രാക്കറ്റില്ലാതെ പ്രവർത്തിക്കാത്തതിനാൽ",
-                "ഫലം ഇൻ്റിജറാക്കാൻ",
-                "വേരിയബിൾ മറയ്ക്കാൻ"
-            ],
-            "correct_answer": "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
-            "explanation_correct": "ശരിയാണ്! ഹരണത്തിന് സങ്കലനത്തേക്കാൾ മുൻഗണനയുള്ളതിനാൽ high / 2 ആദ്യം നടക്കാതിരിക്കാൻ ബ്രാക്കറ്റ് നിർബന്ധമാണ്.",
-            "explanation_incorrect": "ഹരണത്തിന്റെ മുൻഗണന മറികടക്കാൻ ബ്രാക്കറ്റ് വേണം."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
-            "question": "user = \"Ada\" ഉം role = \"Admin\" ഉം ആയാൽ user + \" (\" + role + \")\" എന്ത് നൽകും?",
-            "code": "user = \"Ada\"\nrole = \"Admin\"\nprint(user + \" (\" + role + \")\")",
-            "options": [
-                "Ada (Admin)",
-                "Ada(Admin)",
-                "\"Ada (Admin)\"",
-                "Ada Admin"
-            ],
-            "correct_answer": "Ada (Admin)",
-            "explanation_correct": "ശരിയാണ്! ഓരോ ഭാഗവും ക്രമമായി ചേർന്ന് Ada (Admin) എന്ന് ലഭിക്കുന്നു.",
-            "explanation_incorrect": "Ada + \" (\" + Admin + \")\" = Ada (Admin)."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
-            "question": "a = 5, b = 2, c = a * b + 1. c യുടെ മൂല്യം എത്രയാണ്?",
-            "code": "a = 5\nb = 2\nc = a * b + 1\nprint(c)",
-            "options": [
-                "11",
-                "15",
-                "10",
-                "12"
-            ],
-            "correct_answer": "11",
-            "explanation_correct": "ശരിയാണ്! 5 * 2 = 10, തുടർന്ന് 10 + 1 = 11.",
-            "explanation_incorrect": "ഗുണനം ആദ്യം: 5 * 2 = 10, ശേഷം 10 + 1 = 11."
-        },
-        {
-            "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
-            "question": "പൈത്തൺ സ്ട്രിംഗ് കോൺകാറ്റിനേഷനെക്കുറിച്ച് തെറ്റായ പ്രസ്താവന ഏതാണ്?",
-            "options": [
-                "പൈത്തൺ വാക്കുകൾക്കിടയിൽ തനിയെ സ്പേസ് ചേർക്കും",
-                "ഒന്നിലധികം + ഉപയോഗിച്ച് പല വാക്കുകൾ ഒട്ടിക്കാം",
-                "സ്ട്രിംഗും ഇൻ്റിജറും നേരിട്ട് കൂട്ടിയാൽ TypeError വരും",
-                "str() ഉപയോഗിച്ച് നമ്പറുകളെ സ്ട്രിംഗാക്കാം"
-            ],
-            "correct_answer": "പൈത്തൺ വാക്കുകൾക്കിടയിൽ തനിയെ സ്പേസ് ചേർക്കും",
-            "explanation_correct": "ശരിയാണ്! പൈത്തൺ ഒരിക്കലും തനിയെ സ്പേസ് ചേർക്കില്ല; സ്പേസ് നമ്മൾ നൽകണം.",
-            "explanation_incorrect": "പൈത്തൺ തനിയെ സ്പേസ് നൽകില്ല എന്നത് തെറ്റായ പ്രസ്താവനയാണ്."
-        }
-    ]
-},
-  "1_4_9": {
-    "title": "അൽഗോരിതം: API URL ബിൽഡർ",
-    "topic": "3.2 • അൽഗോരിതം ചലഞ്ച്",
-    "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ഡൈനാമിക് API URL നിർമ്മാണം</strong><br/>സെർച്ച് എഞ്ചിനുകളും ആപ്പുകളും ഇൻ്റർനെറ്റിൽ നിന്ന് ഡാറ്റ എടുക്കാൻ API URL നിർമ്മിക്കുന്നത് സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ വഴിയാണ്.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള കോഡിൽ സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ ഉപയോഗിച്ച് <code>url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query</code> എന്ന് എഴുതുക.<br/>പ്രതീക്ഷിക്കുന്ന ഫലം: <code>https://api.learner.dev/search?q=python</code>",
-    "locked_prefix": "# --- API CLIENT PARAMETERS (LOCKED) ---\nprotocol = \"https\"\ndomain = \"api.learner.dev\"\nendpoint = \"search\"\nquery = \"python\"\n\n# --- WRITE YOUR CONCATENATION FORMULA BELOW ---\n",
-    "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(url)\n",
-    "starter_code": "# --- API CLIENT PARAMETERS (LOCKED) ---\nprotocol = \"https\"\ndomain = \"api.learner.dev\"\nendpoint = \"search\"\nquery = \"python\"\n\n# --- WRITE YOUR CONCATENATION FORMULA BELOW ---\nurl = \n\n# --- VERIFICATION (LOCKED) ---\nprint(url)\n",
-    "intended_output": "https://api.learner.dev/search?q=python",
-    "ai_check": "api_url_builder_algorithm"
-},
-  "1_4_8": {
-    "title": "സ്ട്രിംഗ് ക്വിസ്",
-    "topic": "3.2 • പരിശീലന ക്വിസ്",
-    "questions": [
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 1 / 6",
-            "question": "ഇതിന്റെ ഫലം എന്തായിരിക്കും?",
-            "code": "a = \"Super\"\nb = \"Hero\"\nprint(a + b)",
-            "options": [
-                "SuperHero",
-                "Super Hero",
-                "\"SuperHero\"",
-                "Super+Hero"
-            ],
-            "correct_answer": "SuperHero",
-            "explanation_correct": "ശരിയാണ്! പൈത്തൺ തനിയെ സ്പേസ് ചേർക്കില്ല, നേരിട്ട് ഒട്ടിക്കുന്നു.",
-            "explanation_incorrect": "സ്പേസ് ഇല്ലാതെ SuperHero എന്ന് ലഭിക്കുന്നു."
-        },
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 2 / 6",
-            "question": "\"Welcome\", \"Home\" എന്നിവ സ്പേസോടെ എങ്ങനെ ശരിയായി ചേർക്കാം?",
-            "options": [
-                "\"Welcome\" + \" \" + \"Home\"",
-                "\"Welcome\" + \"Home\"",
-                "\"Welcome\" , \"Home\"",
-                "\"Welcome\" + space + \"Home\""
-            ],
-            "correct_answer": "\"Welcome\" + \" \" + \"Home\"",
-            "explanation_correct": "ശരിയാണ്! നടുവിൽ \" \" എന്ന സ്പേസ് സ്ട്രിംഗ് ചേർക്കണം.",
-            "explanation_incorrect": "\"Welcome\" + \" \" + \"Home\" എന്ന് എഴുതണം."
-        },
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 3 / 6",
-            "question": "print(\"5\" + \"10\") ന്റെ ഫലം എന്താണ്?",
-            "code": "print(\"5\" + \"10\")",
-            "options": [
-                "510",
-                "15",
-                "\"15\"",
-                "Error"
-            ],
-            "correct_answer": "510",
-            "explanation_correct": "ശരിയാണ്! ഉദ്ധരണികളിലുള്ളതിനാൽ സ്ട്രിംഗുകൾ ഒട്ടിച്ച് 510 എന്ന് വരുന്നു.",
-            "explanation_incorrect": "\"5\", \"10\" എന്നിവ സ്ട്രിംഗുകളാണ്. ഫലം 510."
-        },
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 4 / 6",
-            "question": "print(5 + 10) ന്റെ ഫലം എന്താണ്?",
-            "code": "print(5 + 10)",
-            "options": [
-                "15",
-                "510",
-                "\"15\"",
-                "5+10"
-            ],
-            "correct_answer": "15",
-            "explanation_correct": "ശരിയാണ്! ഉദ്ധരണികളില്ലാത്തതിനാൽ സംഖ്യാ സങ്കലനം നടന്ന് 15 വരുന്നു.",
-            "explanation_incorrect": "5 + 10 = 15."
-        },
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 5 / 6",
-            "question": "print(\"Player score: \" + 100) റൺ ചെയ്താൽ എന്ത് സംഭവിക്കും?",
-            "code": "print(\"Player score: \" + 100)",
-            "options": [
-                "TypeError: ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല",
-                "Player score: 100",
-                "Player score: \"100\"",
-                "Player score: 0"
-            ],
-            "correct_answer": "TypeError: ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല",
-            "explanation_correct": "ശരിയാണ്! TypeError ഉണ്ടാകുന്നു. str(100) എന്ന് മാറ്റണം.",
-            "explanation_incorrect": "പൈത്തൺ TypeError നൽകുന്നു."
-        },
-        {
-            "badge": "സ്ട്രിംഗ് ക്വിസ് • ചോദ്യം 6 / 6",
-            "question": "score = 100 എന്ന വേരിയബിൾ ടെക്സ്റ്റുമായി എങ്ങനെ സുരക്ഷിതമായി ഒട്ടിക്കാം?",
-            "options": [
-                "\"Score: \" + str(score)",
-                "\"Score: \" + score",
-                "\"Score: \" * score",
-                "str(\"Score: \") - score"
-            ],
-            "correct_answer": "\"Score: \" + str(score)",
-            "explanation_correct": "ശരിയാണ്! str(score) നമ്പറിനെ സ്ട്രിംഗാക്കി മാറ്റുന്നു.",
-            "explanation_incorrect": "\"Score: \" + str(score) ഉപയോഗിക്കുക."
-        }
-    ]
-},
-  "1_4_7": {
-    "title": "സ്ട്രിംഗ് കോഡിംഗ്",
-    "topic": "3.2 • കോഡിംഗ് പരിശീലനം",
-    "description": "സ്ട്രിംഗുകൾ കൂട്ടിച്ചേർക്കാൻ പരിശീലിക്കുക!<br/>1. <code>first_name = \"Alan\"</code> ഉണ്ടാക്കുക<br/>2. <code>last_name = \"Turing\"</code> ഉണ്ടാക്കുക<br/>3. സ്പേസ് ചേർത്ത് <code>full_name = first_name + \" \" + last_name</code> ഉണ്ടാക്കുക<br/>4. <code>full_name</code> പ്രിന്റ് ചെയ്യുക.",
-    "intended_output": "Alan Turing",
-    "ai_check": "string_concat_greeting",
-    "starter_code": "# 1. Create first_name = \"Alan\"\n# 2. Create last_name = \"Turing\"\n# 3. Combine with a space into full_name and print it:\n\n"
-},
-  "1_4_6": {
-    "title": "വാക്കുകൾ കൂട്ടിച്ചേർക്കൽ (Strings)",
-    "topic": "3.2 • സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ",
-    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">+ ചിഹ്നം ഉപയോഗിച്ച് വാക്കുകൾ ഒട്ടിക്കുക</h2>\n        <p class=\"section-lead\">\n          പൈത്തണിൽ <code>+</code> ചിഹ്നം നമ്പറുകൾ കൂട്ടാൻ മാത്രമല്ല, സ്ട്രിംഗുകളെ (വാക്കുകളെ) തമ്മിൽ ഒട്ടിച്ചുചേർക്കാനും ഉപയോഗിക്കുന്നു. ഇതിനെ <strong>സ്ട്രിംഗ് കോൺകാറ്റിനേഷൻ</strong> എന്ന് വിളിക്കുന്നു.\n        </p>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>പശയുടെ ഉദാഹരണം</h4>\n          <p>പേപ്പർ സ്ട്രിപ്പുകൾ പശ വെച്ച് ഒട്ടിക്കുന്നത് പോലെയാണ് <code>+</code> ചിഹ്നം. വാക്കുകൾക്കിടയിൽ സ്പേസ് വേണമെങ്കിൽ നടുവിൽ <code>\" \"</code> ചേർക്കണം!</p>\n        </div>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: സ്ട്രിംഗ് ഒട്ടിക്കൽ</div>\n          <pre><code>first = \"Good\"\nsecond = \"Morning\"\n\n# സ്പേസ് ഇല്ലാതെ\nprint(first + second)          # \"GoodMorning\"\n\n# സ്പേസ് ചേർത്ത്\nprint(first + \" \" + second)    # \"Good Morning\"</code></pre>\n        </div>\n\n        <h3 class=\"section-subheading\">നമ്പറുകളും ടെക്സ്റ്റും തമ്മിലുള്ള വ്യത്യാസം</h3>\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">വ്യത്യാസം ശ്രദ്ധിക്കുക</div>\n          <pre><code># 1. നമ്പറുകൾ: ഗണിത സങ്കലനം\nprint(10 + 20)      # 30\n\n# 2. സ്ട്രിംഗുകൾ: വാക്കുകൾ ഒട്ടിക്കൽ\nprint(\"10\" + \"20\")  # 1020</code></pre>\n        </div>\n\n        <div class=\"neo-callout warning-callout\">\n          <h4>str() ഉപയോഗിച്ച് നമ്പറുകളെ ടെക്സ്റ്റാക്കുക</h4>\n          <p>ടെക്സ്റ്റും നമ്പറും നേരിട്ട് ഒട്ടിക്കാൻ കഴിയില്ല. അതിനായി <code>str(5)</code> ഉപയോഗിച്ച് നമ്പറിനെ ടെക്സ്റ്റാക്കി മാറ്റണം: <code>\"Level \" + str(5)</code> എന്നത് <code>\"Level 5\"</code> നൽകുന്നു.</p>\n        </div>\n      </div>\n    "
-},
-  "1_4_5": {
-    "title": "അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല",
-    "topic": "3.1 • അൽഗോരിതം ചലഞ്ച്",
-    "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ബൈനറി സെർച്ച് മിഡ്പോയിന്റ്</strong><br/>ഡാറ്റാബേസുകളിലും സെർച്ച് എഞ്ചിനുകളിലും വിവരങ്ങൾ വേഗത്തിൽ കണ്ടെത്താൻ ഉപയോഗിക്കുന്ന പ്രധാന അൽഗോരിതമാണ് ബൈനറി സെർച്ച്. ഇതിൽ കൃത്യമായ മധ്യബിന്ദു (midpoint) കണ്ടെത്താൻ <code>(low + high) / 2</code> ഫോർമുല ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള കോഡിൽ <code>low = 10</code>, <code>high = 50</code> ലോക്ക് ചെയ്തിരിക്കുന്നു. നടുവിലെ വരിയിൽ ബ്രാക്കറ്റ് ഉപയോഗിച്ച് <code>midpoint = (low + high) / 2</code> എന്ന് എഴുതുക.",
-    "locked_prefix": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\n",
-    "locked_suffix": "\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
-    "starter_code": "# --- BINARY SEARCH SETUP (LOCKED) ---\nlow = 10\nhigh = 50\n\n# --- WRITE YOUR FORMULA BELOW ---\nmidpoint = \n\n# --- VERIFICATION (LOCKED) ---\nprint(midpoint)\n",
-    "intended_output": "30.0",
-    "ai_check": "binary_search_midpoint_formula"
-},
-  "1_4_4": {
-    "title": "4 ചിഹ്നങ്ങളുടെ കോഡിംഗ്",
-    "topic": "3.1 • കോഡിംഗ് പരിശീലനം",
-    "description": "നാല് അടിസ്ഥാന കണക്കുകൂട്ടലുകളും പരിശീലിക്കുക!<br/>1. <code>a = 20</code>, <code>b = 4</code> ഉണ്ടാക്കുക<br/>2. <code>add_res = a + b</code> പ്രിന്റ് ചെയ്യുക<br/>3. <code>sub_res = a - b</code> പ്രിന്റ് ചെയ്യുക<br/>4. <code>mul_res = a * b</code> പ്രിന്റ് ചെയ്യുക<br/>5. <code>div_res = a / b</code> പ്രിന്റ് ചെയ്യുക<br/>6. <code>combo = (a + b) * 2</code> പ്രിന്റ് ചെയ്യുക.",
-    "intended_output": "24\n16\n80\n5.0\n48",
-    "ai_check": "math_four_operators",
-    "starter_code": "# 1. Create variables a = 20 and b = 4\n# 2. Calculate and print addition, subtraction, multiplication, division\n# 3. Calculate combo = (a + b) * 2 and print it:\n\n"
-},
-  "1_4_3": {
-    "title": "ഗുണനവും ഹരണവും",
-    "topic": "3.1 • ഗുണനവും ഹരണവും",
-    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">ഗുണന, ഹരണ ചിഹ്നങ്ങൾ</h2>\n        <p class=\"section-lead\">\n          പൈത്തണിൽ ഗുണനത്തിന് <code>*</code> (ആസ്റ്ററിസ്ക്) ചിഹ്നവും ഹരണത്തിന് <code>/</code> (സ്ലാഷ്) ചിഹ്നവുമാണ് ഉപയോഗിക്കുന്നത്.\n        </p>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണങ്ങൾ</div>\n          <pre><code># ഗുണനം (Multiplication)\nlength = 10\nwidth = 5\narea = length * width\nprint(area)  # 50 കാണിക്കുന്നു\n\n# ഹരണം (Division)\ntotal_score = 100\nplayers = 4\nscore_per_player = total_score / players\nprint(score_per_player)  # 25.0 കാണിക്കുന്നു</code></pre>\n        </div>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>പ്രധാന നിയമം: ഹരണം എപ്പോഴും ഫ്ലോട്ട് (Float) നൽകുന്നു</h4>\n          <p>പൈത്തണിൽ ഒറ്റ സ്ലാഷ് <code>/</code> ഉപയോഗിച്ച് ഹരിക്കുമ്പോൾ കിട്ടുന്ന ഫലം എപ്പോഴും ദശാംശ സംഖ്യയായിരിക്കും (ഉദാഹരണത്തിന് <code>25.0</code>).</p>\n        </div>\n\n        <h3 class=\"section-subheading\">പ്രവർത്തന ക്രമം (BODMAS / PEMDAS)</h3>\n        <p>പൈത്തൺ കണക്കുകൾ ചെയ്യുമ്പോൾ പാലിക്കുന്ന കർശന മുൻഗണനാ ക്രമം:</p>\n        <ol style=\"font-weight: 700; margin-left: 20px; line-height: 1.8;\">\n          <li><strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> — ഒന്നാമത്</li>\n          <li><strong>ഗുണനവും <code>*</code> ഹരണവും <code>/</code></strong> — രണ്ടാമത്</li>\n          <li><strong>സങ്കലനവും <code>+</code> വ്യവകലനവും <code>-</code></strong> — മൂന്നാമത്</li>\n        </ol>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ബ്രാക്കറ്റിന്റെ വ്യത്യാസം മനസ്സിലാക്കുക</div>\n          <pre><code># ബ്രാക്കറ്റ് ഇല്ലാതെ: ഹരണം ആദ്യം നടക്കുന്നു\nresult1 = 10 + 50 / 2\n# 50 / 2 = 25.0, ശേഷം 10 + 25.0 = 35.0\nprint(result1)  # 35.0\n\n# ബ്രാക്കറ്റോടെ: സങ്കലനം ആദ്യം നടക്കുന്നു\nresult2 = (10 + 50) / 2\n# (10 + 50) = 60, ശേഷം 60 / 2 = 30.0\nprint(result2)  # 30.0</code></pre>\n        </div>\n      </div>\n    "
-},
-  "1_4_2": {
-    "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ ക്വിസ്",
-    "topic": "3.1 • പരിശീലന ക്വിസ്",
-    "questions": [
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 1 / 6",
-            "question": "ഈ പൈത്തൺ കോഡിന്റെ ഫലം എന്തായിരിക്കും?",
-            "code": "x = 10\ny = 5\nresult = x + y\nprint(result)",
-            "options": [
-                "15",
-                "105",
-                "x + y",
-                "result"
-            ],
-            "correct_answer": "15",
-            "explanation_correct": "ശരിയാണ്! x = 10, y = 5 ആണ്. x + y എന്നത് 10 + 5 = 15 കണക്കാക്കി പ്രിന്റ് ചെയ്യുന്നു.",
-            "explanation_incorrect": "x, y എന്നിവ ഇൻ്റിജറുകളാണ്. 10 + 5 = 15."
-        },
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 2 / 6",
-            "question": "ഈ കുറയ്ക്കൽ കോഡിന്റെ ഫലം എന്താണ്?",
-            "code": "total = 100\ndiscount = 35\npayable = total - discount\nprint(payable)",
-            "options": [
-                "65",
-                "75",
-                "135",
-                "-35"
-            ],
-            "correct_answer": "65",
-            "explanation_correct": "ശരിയാണ്! 100 - 35 = 65.",
-            "explanation_incorrect": "100 - 35 = 65 ആണ് ഫലം."
-        },
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 3 / 6",
-            "question": "ഈ കോഡ് പരിശോധിക്കുക. z എന്ത് പ്രിന്റ് ചെയ്യും?",
-            "code": "x = 10\ny = 5\nz = x + y\nx = 20\nprint(z)",
-            "options": [
-                "15",
-                "25",
-                "20",
-                "30"
-            ],
-            "correct_answer": "15",
-            "explanation_correct": "മികച്ച ഉത്തരം! ആ വരി പ്രവർത്തിച്ച സമയത്തെ ഫലമായ 15 ആണ് z സൂക്ഷിക്കുന്നത്. പിന്നീട് x മാറ്റിയാലും z തനിയെ മാറില്ല!",
-            "explanation_incorrect": "z = x + y പ്രവർത്തിച്ചപ്പോൾ x = 10 ആയിരുന്നു, അതിനാൽ z = 15 തന്നെയാണ്."
-        },
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 4 / 6",
-            "question": "പൈത്തൺ 10 - 5 + 2 എങ്ങനെയാണ് കണക്കാക്കുന്നത്?",
-            "code": "print(10 - 5 + 2)",
-            "options": [
-                "7 (ഇടത്തുനിന്ന് വലത്തോട്ട്: 10 - 5 = 5, തുടർന്ന് 5 + 2 = 7)",
-                "3 (വലത്തുനിന്ന് ഇടത്തോട്ട്)",
-                "17",
-                "Error"
-            ],
-            "correct_answer": "7 (ഇടത്തുനിന്ന് വലത്തോട്ട്: 10 - 5 = 5, തുടർന്ന് 5 + 2 = 7)",
-            "explanation_correct": "ശരിയാണ്! തുല്യ മുൻഗണനയുള്ളതിനാൽ ഇടതുനിന്ന് വലത്തോട്ട് കണക്കാക്കുന്നു.",
-            "explanation_incorrect": "(10 - 5) = 5, തുടർന്ന് 5 + 2 = 7."
-        },
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 5 / 6",
-            "question": "കണക്കുകൂട്ടലുകളിൽ ബ്രാക്കറ്റുകൾ () എന്തിനാണ് ഉപയോഗിക്കുന്നത്?",
-            "options": [
-                "പ്രത്യേക പ്രവർത്തനങ്ങൾ ആദ്യം നടപ്പിലാക്കാൻ നിർബന്ധിക്കാൻ",
-                "നമ്പറുകളെ വാക്കുകളാക്കാൻ",
-                "എല്ലാ കണക്കുകൾക്കും ബ്രാക്കറ്റ് നിർബന്ധമായതിനാൽ",
-                "മെമ്മറി ലാഭിക്കാൻ"
-            ],
-            "correct_answer": "പ്രത്യേക പ്രവർത്തനങ്ങൾ ആദ്യം നടപ്പിലാക്കാൻ നിർബന്ധിക്കാൻ",
-            "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റിനുള്ളിലെ കണക്കുകളാണ് പൈത്തൺ ആദ്യം ചെയ്യുന്നത്.",
-            "explanation_incorrect": "ബ്രാക്കറ്റുകൾ ഉപയോഗിച്ച് പ്രവർത്തന മുൻഗണന മാറ്റാൻ സാധിക്കും."
-        },
-        {
-            "badge": "മാത്സ് ക്വിസ് • ചോദ്യം 6 / 6",
-            "question": "ടെക്സ്റ്റും നമ്പറും കൂട്ടാൻ ശ്രമിച്ചാൽ എന്ത് സംഭവിക്കും: age = \"25\" and bonus = 5?",
-            "code": "age = \"25\"\nbonus = 5\nprint(age + bonus)",
-            "options": [
-                "TypeError: പൈത്തണിൽ ടെക്സ്റ്റും നമ്പറും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല",
-                "30",
-                "\"255\"",
-                "0"
-            ],
-            "correct_answer": "TypeError: പൈത്തണിൽ ടെക്സ്റ്റും നമ്പറും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല",
-            "explanation_correct": "ശരിയാണ്! വ്യത്യസ്ത ഡാറ്റാ ടൈപ്പുകൾ തമ്മിൽ നേരിട്ട് + ഉപയോഗിക്കാൻ കഴിയില്ല.",
-            "explanation_incorrect": "ഇത് TypeError ഉണ്ടാക്കുന്നു. കണക്ക് ചെയ്യാൻ ഉദ്ധരണി നീക്കണം."
-        }
-    ]
-},
-  "1_4_1": {
-    "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
-    "topic": "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
-    "body": "\n      <div class=\"content-section\">\n        <h2 class=\"section-heading\">കോഡിംഗിലൂടെ കണക്കുകൂട്ടലുകൾ</h2>\n        <p class=\"section-lead\">\n          കമ്പ്യൂട്ടറുകൾ നിർമ്മിക്കപ്പെട്ടത് തന്നെ വേഗതയേറിയ കണക്കുകൂട്ടലുകൾക്ക് വേണ്ടിയാണ്. പൈത്തണിൽ സംഖ്യകളും <a href=\"1.html?spcl=1&lsn=3&sub=1&ref_from=1_4_1\" class=\"ref-jump-btn\">വേരിയബിളുകളും (പാഠം 2.1) ↗</a> ഉപയോഗിച്ച് കൂട്ടാനും (<code>+</code>) കുറയ്ക്കാനും (<code>-</code>) സാധിക്കും.\n        </p>\n\n        <div class=\"neo-callout info-callout\">\n          <h4>സങ്കലനം മനസ്സിലാക്കാൻ രണ്ട് ഉദാഹരണങ്ങൾ</h4>\n          <p><strong>ഉദാഹരണം A — രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ:</strong> <code>x + y</code> എന്നത് <code>x</code> പെട്ടിയിലെ നമ്പറും <code>y</code> പെട്ടിയിലെ നമ്പറും എടുത്ത് കൂട്ടി ഒരു പുതിയ ഫല പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.</p>\n          <p><strong>ഉദാഹരണം B — ക്യാഷ് രജിസ്റ്റർ:</strong> ഓരോ വേരിയബിളും ഓരോ സാധനത്തിന്റെ വിലയാണ്. അവ കൂട്ടുന്നത് ഷോപ്പിംഗ് കാർട്ടിലെ ആകെ തുക കണക്കാക്കുന്നത് പോലെയാണ്.</p>\n        </div>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: സങ്കലനവും വ്യവകലനവും</div>\n          <pre><code># കൂട്ടൽ (Addition)\nprice1 = 50\nprice2 = 20\ntotal = price1 + price2\nprint(total)  # 70 കാണിക്കുന്നു\n\n# കുറയ്ക്കൽ (Subtraction / Discount)\ndiscount = 15\nfinal_price = total - discount\nprint(final_price)  # 55 കാണിക്കുന്നു</code></pre>\n        </div>\n\n        <h3 class=\"section-subheading\">ബ്രാക്കറ്റുകളും പ്രവർത്തന മുൻഗണനയും</h3>\n        <p>\n          കൂടുതൽ കണക്കുകൾ ചെയ്യുമ്പോൾ പൈത്തൺ ഇടതുനിന്ന് വലത്തോട്ട് പ്രവർത്തിക്കുന്നു. ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് നിശ്ചയിക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n        </p>\n\n        <div class=\"code-demo-box\">\n          <div class=\"code-demo-header\">ഉദാഹരണം: ബ്രാക്കറ്റ് ഉപയോഗിക്കുമ്പോൾ</div>\n          <pre><code>result = (10 + 5) - 3\nprint(result)  # (15) - 3 = 12</code></pre>\n        </div>\n\n        <div class=\"neo-callout warning-callout\">\n          <h4>പ്രധാനം: നമ്പറുകളും ഉദ്ധരണികളും</h4>\n          <p><a href=\"1.html?spcl=1&lsn=3&sub=4&ref_from=1_4_1\" class=\"ref-jump-btn\">നമ്പറുകളും ടെക്സ്റ്റും (പാഠം 2.2) ↗</a> ഓർക്കുക: കണക്ക് ചെയ്യാൻ ഉദ്ധരണികൾ (quotes) ഇടരുത്. <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടാതെ <code>\"105\"</code> എന്ന് ഒട്ടിച്ചുവെക്കും!</p>\n        </div>\n      </div>\n    "
-},
-  '1_4_1': {
-    title: "വേരിയബിൾ എന്നാൽ എന്ത്?",
-    subtitle: "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
-    topic: "2.1 • വേരിയബിൾ",
-    body: `<div style="display: flex; flex-direction: column; gap: 18px; width: 100%;">
-  <div style="text-align: center; margin-bottom: 4px; width: 100%;">
-    <div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
-      2.1 • വിവരങ്ങൾ സൂക്ഷിക്കൽ
-    </div>
-    <h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;">
-      എന്താണ് ഒരു <hlt>വേരിയബിൾ</hlt>?
-    </h1>
-    <p style="font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;">
-      കമ്പ്യൂട്ടർ മെമ്മറിയിൽ വിവരങ്ങൾ ഒരു പേരിൽ സൂക്ഷിച്ചുവെച്ച് പിന്നീട് ആവശ്യമുള്ളപ്പോൾ ഉപയോഗിക്കാനുള്ള വഴിയാണ് വേരിയബിൾ.
-    </p>
-  </div>
-
-  <div class="lesson-ref-card">
-    <div class="lesson-ref-header">
-      <span class="ref-badge">മുൻ അറിവുകൾ</span>
-      <span class="lesson-ref-title">മുൻ പാഠങ്ങളുമായി ബന്ധിപ്പിക്കാം</span>
-    </div>
-    <p class="lesson-ref-desc">
-      റാം (RAM) മെമ്മറി എങ്ങനെ ഡാറ്റ സൂക്ഷിക്കുന്നുവെന്നും print() കമാൻഡ് എങ്ങനെ പ്രവർത്തിക്കുന്നുവെന്നും ഓർക്കുക.
-    </p>
-    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-      <a href="1.html?spcl=1&lsn=1&sub=3&ref_from=1_3_1" class="ref-jump-btn">പാഠം 1.2: കമ്പ്യൂട്ടർ മെമ്മറി പരിശോധിക്കുക →</a>
-      <a href="1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_1" class="ref-jump-btn">പാഠം 2.2: print() കമാൻഡ് പരിശോധിക്കുക →</a>
-    </div>
-  </div>
-
-  <div style="background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;">
-    <span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">
-      ഉദാഹരണം A • ലേബൽ ചെയ്ത പെട്ടി
-    </span>
-    <h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">
-      പുറത്ത് പേരെഴുതിയ ഒരു പെട്ടി
-    </h2>
-    <p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">
-      ഒരു പെട്ടിയുടെ പുറത്ത് <hlt>age</hlt> എന്ന് ലേബൽ ഒട്ടിച്ച് അതിനുള്ളിൽ <hlt>25</hlt> എന്നെഴുതിയ പേപ്പർ ഇടുന്നതുപോലെയാണ് വേരിയബിൾ.
-    </p>
-    <div style="background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;">
-      age = <span style="color: #7ee787;">25</span><br/>
-      <span style="color: #79c0ff;">print</span>(age)  <span style="color: #8b949e;"># 'age' പെട്ടി തുറന്ന് 25 കാണിക്കുന്നു</span>
-    </div>
-  </div>
-</div>`
-  },
-  '1_4_2': {
-    title: "വേരിയബിൾ ക്വിസ്",
-    topic: "2.1 • വേരിയബിൾ",
-    questions: [
-      {
-        badge: "ക്വിസ് • ചോദ്യം 1 / 4",
-        question: "പൈത്തണിൽ ഒരു വേരിയബിളിൻ്റെ പ്രധാന ഉപയോഗം എന്താണ്?",
-        code: "",
-        options: [
-          "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിച്ചുവെക്കാനുള്ള പേരുള്ള ഒരു പെട്ടി",
-          "കമ്പ്യൂട്ടർ ഓഫ് ചെയ്യാനുള്ള കമാൻഡ്",
-          "മോണിറ്ററിലേക്ക് ഘടിപ്പിക്കുന്ന കേബിൾ",
-          "നമ്പറുകൾ മാത്രം ടൈപ്പ് ചെയ്യാനുള്ള കീബോർഡ് ബട്ടൺ"
-        ],
-        explanation_correct: "ശരിയുത്തരം! വേരിയബിൾ എന്നാൽ പിന്നീട് ഉപയോഗിക്കാനായി ഡാറ്റ സൂക്ഷിക്കുന്ന ഒരു ലേബൽ ചെയ്ത മെമ്മറി അറയാണ്.",
-        explanation_incorrect: "തെറ്റായ ഉത്തരം. വേരിയബിൾ എന്നാൽ മെമ്മറിയിൽ ഡാറ്റ സൂക്ഷിക്കാനുള്ള കണ്ടെയ്നറാണ്."
-      }
-    ]
-  },
-  '1_4_3': {
-    title: "വേരിയബിൾ കോഡിംഗ്",
-    topic: "2.1 • കോഡിംഗ്",
-    description: "name എന്ന വേരിയബിളിൽ 'Alice' ഉം age എന്നതിൽ 25 ഉം സൂക്ഷിച്ച് രണ്ടും print ചെയ്യുക.",
-    intended_output: "Alice\n25",
-    starter_code: "# 1. 'name' എന്നതിൽ \"Alice\" എന്ന് നൽകുക\n# 2. 'age' എന്നതിൽ 25 എന്ന് നൽകുക\n# 3. രണ്ടും print ചെയ്യുക:\n\n"
-  },
-  '1_1_1': {
+  "1_1_1": {
     title: "കമ്പ്യൂട്ടർ ഒരു \"യന്ത്രം മാത്രം\"",
     subtitle: "കമ്പ്യൂട്ടറുകളെ മനസ്സിലാക്കാം",
     topic: "0.1 • കമ്പ്യൂട്ടർ അടിസ്ഥാനതത്വങ്ങൾ",
     body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">0.1 • കമ്പ്യൂട്ടർ അടിസ്ഥാനങ്ങൾ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">കമ്പ്യൂട്ടർ ഒരു <hlt>"യന്ത്രം മാത്രം"</hlt></h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 580px;"><hlt>കമ്പ്യൂട്ടറുകൾ സ്വയം ചിന്തിക്കില്ല</hlt>—നാം നൽകുന്ന നിർദ്ദേശങ്ങൾ അവ മിന്നൽ വേഗത്തിൽ അനുസരിക്കുന്നു.</p></div><div style="background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">1. സാമാന്യബുദ്ധി ഇല്ല</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">കമ്പ്യൂട്ടറുകൾക്ക് അർത്ഥം മനസ്സിലാകില്ല</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;">നിങ്ങൾ എന്താണ് ഉദ്ദേശിച്ചതെന്ന് കമ്പ്യൂട്ടറിന് സ്വയം മനസ്സിലാകില്ല. വിട്ടുപോയ പടികൾ സ്വയം ഊഹിച്ചെടുക്കാനും കഴിയില്ല. നമ്മൾ കൃത്യമായി നൽകിയ നിർദ്ദേശങ്ങൾ മാത്രമേ അത് ചെയ്യുകയുള്ളൂ.</p></div><div style="background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">2. കൃത്യമായ നിർദ്ദേശങ്ങൾ</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">ഓരോ പടിയും പ്രധാനമാണ്</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;">ഒരു കാര്യം ചെയ്യാൻ കമ്പ്യൂട്ടറിനോട് പറയുമ്പോൾ ഓരോ ഘട്ടവും കൃത്യമായിരിക്കണം. മനുഷ്യർക്ക് സ്വാഭാവികമായി തോന്നുന്ന ലളിതമായ കാര്യങ്ങൾ പോലും കമ്പ്യൂട്ടറിന് ചെറിയ ചെറിയ പടികളായി പറഞ്ഞു കൊടുക്കണം.</p></div><div style="background: #86efac; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">3. ബുദ്ധിയുള്ളതായി തോന്നുന്നത് എന്തുകൊണ്ട്?</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">മിന്നൽ വേഗത</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;">ലളിതമായ ദശലക്ഷക്കണക്കിന് കണക്കുകൂട്ടലുകൾ കമ്പ്യൂട്ടറുകൾക്ക് അതിവേഗത്തിൽ ചെയ്യാൻ സാധിക്കും. അതുകൊണ്ടാണ് അവയ്ക്ക് വലിയ ബുദ്ധിയുണ്ടെന്ന് നമുക്ക് തോന്നുന്നത്.</p></div><div style="background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;"><p style="font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;">പ്രധാന ആശയം: കമ്പ്യൂട്ടർ ഒരു <hlt>അനുസരണയുള്ള യന്ത്രമാണ്</hlt>—നാം നൽകുന്ന നിർദ്ദേശങ്ങൾ കൃത്യമായി അനുസരിക്കുകയാണ് അതിൻ്റെ ശക്തി.</p></div></div>`
   },
-  '1_1_2': {
+  "1_1_2": {
     title: "പരിശീലന ക്വിസ്: കമ്പ്യൂട്ടർ അടിസ്ഥാനങ്ങൾ",
     topic: "0.1 • കമ്പ്യൂട്ടർ അടിസ്ഥാനതത്വങ്ങൾ",
     questions: [
@@ -603,13 +186,13 @@ export const MALAYALAM_LESSON_DATA = {
       }
     ]
   },
-  '1_1_3': {
+  "1_1_3": {
     title: "കോഡ് റൺ ചെയ്യുമ്പോൾ എന്താണ് സംഭവിക്കുന്നത്?",
     subtitle: "പ്രോഗ്രാമുകൾ, മെമ്മറി & ബഗുകൾ",
     topic: "0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
     body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">കോഡ് റൺ ചെയ്യുമ്പോൾ <hlt>എന്താണ് സംഭവിക്കുന്നത്?</hlt></h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;"><hlt>എഴുതുക → റൺ ചെയ്യുക → നിരീക്ഷിക്കുക → ഡീബഗ്ഗ് ചെയ്യുക</hlt> — പ്രവർത്തിക്കുന്ന പ്രോഗ്രാമിനുള്ളിൽ എന്താണ് സംഭവിക്കുന്നതെന്ന് കാണാം.</p></div><div style="background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">1. എഴുതുക & റൺ ചെയ്യുക</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">പ്രോഗ്രാം പ്രവർത്തനം ആരംഭിക്കുന്നു</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;">നിർദ്ദേശങ്ങളുടെ ഒരു കൂട്ടമാണ് പ്രോഗ്രാം. നിങ്ങൾ <hlt>Run</hlt> ക്ലിക്ക് ചെയ്യുമ്പോൾ, കമ്പ്യൂട്ടർ ആ നിർദ്ദേശങ്ങൾ ഓരോന്നായി ചെയ്യാൻ തുടങ്ങുന്നു.</p></div><div style="background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">2. മെമ്മറി</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">വിവരങ്ങൾ സൂക്ഷിക്കുന്ന സ്ഥലം</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">പ്രോഗ്രാം പ്രവർത്തിക്കുമ്പോൾ അതിലെ വിവരങ്ങളും വിലകളും ഓർത്തുവെക്കാൻ മെമ്മറി ആവശ്യമാണ്. ഒരു വിവരത്തിന് നാം നൽകുന്ന പേരാണ് വേരിയബിൾ (Variable).</p><div style="background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;">score = <span style="color: #7ee787;">100</span><br/>name = <span style="color: #a5d6ff;">\"Alex\"</span></div></div><div style="background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">3. ബഗുകൾ (Bugs)</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">ഉദ്ദേശിച്ച ഫലം ലഭിക്കാതെ വരുമ്പോൾ</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">കോഡിലെ പിശകുകൾ കാരണം പ്രോഗ്രാം തെറ്റായി പ്രവർത്തിക്കുന്നതിനെയാണ് <hlt>ബഗ് (Bug)</hlt> എന്ന് വിളിക്കുന്നത്. ചില ബഗുകൾ തെറ്റായ ഫലം തരുമ്പോൾ ചിലത് പ്രോഗ്രാം നിലച്ചുപോകാൻ കാരണമാകുന്നു.</p><div style="background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;">price = <span style="color: #7ee787;">10</span><br/>quantity = <span style="color: #7ee787;">3</span><br/>total = price + quantity <span style="color: #8b949e;"># ബഗ്: ഗുണിക്കേണ്ടതിനു പകരം കൂട്ടി</span></div></div><div style="background: #86efac; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;"><span style="display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;">4. ഡീബഗ്ഗിംഗ് (Debugging)</span><h2 style="font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;">കോഡ് ഡിറ്റക്ടീവാകാം</h2><p style="font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;">കോഡിലെ തെറ്റുകൾ കണ്ടെത്തി പരിഹരിക്കുന്ന പ്രക്രിയയാണ് ഡീബഗ്ഗിംഗ്. ഊഹിക്കുന്നതിന് പകരം, പ്രോഗ്രാം വരി വരിയായി പ്രവർത്തിപ്പിച്ച് നമുക്ക് ഉള്ളിൽ നടക്കുന്ന കാര്യങ്ങൾ നിരീക്ഷിക്കാം.</p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;"><div style="background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;"><strong style="font-family: 'Title', monospace;">ബ്രേക്ക്പോയിൻ്റ് (Breakpoint)</strong><br/>ഒരു പ്രത്യേക വരിയിൽ പ്രോഗ്രാം താൽക്കാലികമായി നിർത്തുക.</div><div style="background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;"><strong style="font-family: 'Title', monospace;">സ്റ്റെപ്പ് (Step)</strong><br/>ഓരോ വരിയായി പടിപടിയായി റൺ ചെയ്യുക.</div><div style="background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;"><strong style="font-family: 'Title', monospace;">പരിശോധന (Inspect)</strong><br/>മെമ്മറിയിലെ തത്സമയ വേരിയബിൾ മൂല്യങ്ങൾ കാണുക.</div><div style="background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;"><strong style="font-family: 'Title', monospace;">ബഗ് കണ്ടെത്തുക (Find Bug)</strong><br/>പ്രതീക്ഷിച്ച ഫലവും ലഭിച്ച ഫലവും താരതമ്യം ചെയ്യുക.</div></div></div><div style="background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;"><p style="font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;">പ്രധാന സന്ദേശം: <hlt>കോഡ് റൺ ചെയ്യുന്നത് കമ്പ്യൂട്ടറിനെക്കൊണ്ട് പണിയെടുപ്പിക്കാനാണ്; ഡീബഗ്ഗിംഗ് ഉള്ളിൽ നടക്കുന്ന കാര്യങ്ങൾ മനസ്സിലാക്കാനാണ്.</hlt></p></div></div>`
   },
-  '1_1_4': {
+  "1_1_4": {
     title: "പരിശീലന ക്വിസ്: കോഡ് റൺ ചെയ്യലും ഡീബഗ്ഗിംഗും",
     topic: "0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
     questions: [
@@ -718,7 +301,1094 @@ export const MALAYALAM_LESSON_DATA = {
         explanation_incorrect: "<strong>അവസാന ചോദ്യം ഒന്നുകൂടി പരിശോധിക്കൂ!</strong><br/>വേരിയബിളുകൾ നിലവിലെ വിവരങ്ങളാണ് കാണിക്കുന്നത്."
       }
     ]
-  }
+  },
+  "1_2_1": {
+    title: "കോഡ് എഡിറ്ററും നിയന്ത്രണങ്ങളും",
+    subtitle: "കൺട്രോളുകൾ, ഡീബഗ്ഗിംഗ്, ഔട്ട്പുട്ട്",
+    topic: "1.1 • കോഡ് എഡിറ്റർ",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.1 • എഡിറ്റർ കൺട്രോളുകൾ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">നിങ്ങളുടെ <hlt>കോഡിംഗ് കൺട്രോൾ ഡെക്ക്</hlt></h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">നിങ്ങളുടെ ആദ്യ പൈത്തൺ പ്രോഗ്രാം എഴുതുന്നതിന് മുൻപ്, എഡിറ്ററിലെ പ്രധാന ബട്ടണുകൾ എന്തൊക്കെയാണെന്ന് പരിചയപ്പെടാം.</p></div><div style="background: #ffffff; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 6px; padding: 18px; box-sizing: border-box;"><div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #111111; padding-bottom: 10px; margin-bottom: 14px;"><span style="font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;"> വർക്ക്സ്പേസ് രൂപരേഖ</span><span style="background: #fef08a; border: 2px solid #111111; padding: 2px 8px; font-size: 11px; font-weight: 800;">Adhicode IDE</span></div><div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px;"><div style=\"background: #f8fafc; border: 2px solid #111111; padding: 14px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 13px; color: #1e293b; margin-bottom: 8px; text-transform: uppercase;\">ഇടത് കോളം: കോഡ് എഡിറ്റർ</div><div style=\"background: #0f172a; color: #f8fafc; padding: 10px 12px; font-family: monospace; font-size: 12px; border-radius: 4px; border: 2px solid #111111; line-height: 1.6;\"><span style=\"color: #ef4444; font-weight: bold;\">● 1</span> | <span style=\"color: #38bdf8;\">name</span> = <span style=\"color: #a7f3d0;\">\"Alex\"</span><br/><span style=\"color: #64748b;\">&nbsp; 2</span> | <span style=\"color: #38bdf8;\">score</span> = <span style=\"color: #facc15;\">100</span><br/><span style=\"color: #ef4444; font-weight: bold;\">● 3</span> | <span style=\"color: #38bdf8;\">total</span> = score + 50</div><p style=\"font-size: 12px; color: #334155; margin: 8px 0 0 0; font-weight: 600;\"><strong style=\"color: #ef4444;\">● ബ്രേക്ക്പോയിൻ്റ്:</strong> വരിയുടെ നമ്പറിൽ ക്ലിക്ക് ചെയ്താൽ അവിടെ പ്രോഗ്രാം താൽക്കാലികമായി നിൽക്കും.</p></div><div style=\"display: flex; flex-direction: column; gap: 8px;\"><div style=\"background: #e0e7ff; border: 2px solid #111111; padding: 10px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 12px; text-transform: uppercase;\">മെമ്മറിയും വേരിയബിളുകളും</div><p style=\"font-size: 11px; font-weight: 600; color: #1e1b4b; margin: 4px 0 0 0;\">കംപ്യൂട്ടർ മെമ്മറിയിലുള്ള വേരിയബിളുകൾ, അവയുടെ ടൈപ്പ്, വില എന്നിവ കാണിക്കുന്നു.</p></div><div style=\"background: #dcfce7; border: 2px solid #111111; padding: 10px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 12px; text-transform: uppercase;\">ഔട്ട്പുട്ട് കൺസോൾ</div><p style=\"font-size: 11px; font-weight: 600; color: #064e3b; margin: 4px 0 0 0;\">പ്രോഗ്രാം ഫലങ്ങളും ലോഗുകളും സിസ്റ്റം എറർ മെസ്സേജുകളും ഇവിടെ പ്രത്യക്ഷപ്പെടുന്നു.</p></div></div></div></div><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 14px;\"><div style=\"background: #bbf7d0; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">RUN</span><strong style=\"font-size: 15px; text-transform: uppercase;\">റൺ ചെയ്യുക</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">പ്രോഗ്രാമിലെ എല്ലാ നിർദ്ദേശങ്ങളും മുകളിൽ നിന്ന് താഴേക്ക് സാധാരണ വേഗതയിൽ റൺ ചെയ്യുന്നു.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">DEBUG</span><strong style=\"font-size: 15px; text-transform: uppercase;\">ഡീബഗ്ഗിംഗ്</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">ഓരോ വരിയായി നിരീക്ഷിച്ച് പ്രവർത്തിപ്പിക്കുന്നു. ബ്രേക്ക്പോയിൻ്റുകളിൽ തനിയെ നിന്നുതരുന്നു.</p></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">STEP</span><strong style=\"font-size: 15px; text-transform: uppercase;\">അടുത്ത വരി (Step)</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">കൃത്യമായി <strong>ഒരു വരി മാത്രം</strong> മുന്നോട്ട് പ്രവർത്തിപ്പിച്ച് വേരിയബിളുകളിലെ മാറ്റങ്ങൾ കാട്ടിത്തരുന്നു.</p></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">↺ RESET</span><strong style=\"font-size: 15px; text-transform: uppercase;\">റീസെറ്റ്</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">മെമ്മറി ക്ലിയർ ചെയ്ത് ഒന്നാം വരിയിൽ നിന്ന് വീണ്ടും തുടങ്ങാൻ സഹായിക്കുന്നു.</p></div></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\"> ചുരുക്കം: <hlt>Run</hlt> സാധാരണ ഫലം കാണാനും <hlt>Debug & Step</hlt> കോഡിന്റെ പ്രവർത്തനം ഇഴകീറി പരിശോധിക്കാനും സഹായിക്കുന്നു!</p></div></div>`
+  },
+  "1_2_2": {
+    title: "പരിശീലന ക്വിസ്: കോഡ് എഡിറ്റർ നിയന്ത്രണങ്ങൾ",
+    topic: "1.1 • കോഡ് എഡിറ്റർ",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "കോഡ് എഡിറ്ററിലെ \"Run\" ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ എന്ത് സംഭവിക്കുന്നു?",
+        code: "# Press Run\ngreeting = \"Welcome to Python\"",
+        options: [
+          {
+            prefix: "A",
+            text: "പ്രോഗ്രാമിലെ എല്ലാ നിർദ്ദേശങ്ങളും മുകളിൽ നിന്ന് താഴേക്ക് സാധാരണ വേഗതയിൽ കമ്പ്യൂട്ടർ റൺ ചെയ്യുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "എല്ലാ വരികളിലും തനിയെ നിന്ന് ഉപയോക്താവിനോട് ചോദിക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "കോഡ് മുഴുവൻ ഡിലീറ്റ് ചെയ്ത് വിൻഡോ അടയ്ക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "പൈത്തൺ കോഡിനെ ഒരു ചിത്രമാക്കി മാറ്റുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "റൺ ബട്ടൺ കോഡ് മുകളിൽ നിന്ന് താഴേക്ക് തുടർച്ചയായി പ്രവർത്തിപ്പിക്കുന്നു.",
+        explanation_incorrect: "റൺ മുഴുവൻ കോഡും പൂർണ്ണ വേഗതയിൽ റൺ ചെയ്യുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "വരിയുടെ നമ്പറിൽ ക്ലിക്ക് ചെയ്ത് ബ്രേക്ക്പോയിൻ്റ് (●) ഇടുമ്പോൾ എന്ത് സംഭവിക്കുന്നു?",
+        code: "● 1 | name = \"Alex\"\n  2 | score = 100",
+        options: [
+          {
+            prefix: "A",
+            text: "ഡീബഗ്ഗിംഗ് സമയത്ത് ആ വരിയിൽ എത്തുമ്പോൾ പ്രോഗ്രാം താൽക്കാലികമായി നിർത്തുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ആ വരി പൈത്തൺ എന്നെന്നേക്കുമായി ഒഴിവാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ആ വരി 10 തവണ ആവർത്തിക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "ആ വരിക്ക് പാസ്‌വേഡ് നൽകുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "മെമ്മറി പരിശോധിക്കാനായി പ്രോഗ്രാം താൽക്കാലികമായി നിർത്താനാണ് ബ്രേക്ക്പോയിൻ്റ്.",
+        explanation_incorrect: "ബ്രേക്ക്പോയിൻ്റുകൾ ഡീബഗ്ഗർ പരിശോധനയ്ക്കായി താൽക്കാലികമായി നിർത്താൻ സഹായിക്കുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "\"Step\" () ബട്ടൺ എങ്ങനെയാണ് പ്രവർത്തിക്കുന്നത്?",
+        code: "step_1 = \"Setup\"\nstep_2 = \"Process\"\nstep_3 = \"Display\"",
+        options: [
+          {
+            prefix: "A",
+            text: "കൃത്യമായി അടുത്ത ഒരു വരി മാത്രം റൺ ചെയ്ത് വേരിയബിളുകൾ കാണാൻ സഹായിക്കുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ബാക്കിയുള്ള എല്ലാ വരികളും ഒഴിവാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "മുൻപത്തെ വരിയിലേക്ക് തിരിച്ചുപോകുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "കംപ്യൂട്ടർ ഓഫ് ചെയ്യുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "സ്റ്റെപ്പ് ബട്ടൺ കൃത്യമായി ഒരു വരി മാത്രം പ്രവർത്തിപ്പിക്കുന്നു.",
+        explanation_incorrect: "സ്റ്റെപ്പിംഗ് ഓരോ വരിയായി മെമ്മറിയിലെ മാറ്റങ്ങൾ കാണാൻ സഹായിക്കുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "പ്രോഗ്രാമിലെ വേരിയബിളുകളുടെ തത്സമയ വിലകളും ടൈപ്പുകളും എവിടെയാണ് കാണാൻ കഴിയുക?",
+        code: "score = 100\nbonus = 25\ntotal = score + bonus",
+        options: [
+          {
+            prefix: "A",
+            text: "വലത് വശത്തുള്ള Memory & Variables ടേബിളിൽ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "കീബോർഡ് ക്രമീകരണങ്ങളിൽ.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ബ്രൗസർ ഹിസ്റ്ററിയിൽ.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "റീസൈക്കിൾ ബിന്നിൽ.",
+            correct: false
+          }
+        ],
+        explanation_correct: "വേരിയബിൾ ഇൻസ്പെക്ടർ ടേബിളിൽ എല്ലാ വേരിയബിളുകളുടെയും തത്സമയ വിലകൾ കാണാം.",
+        explanation_incorrect: "എഡിറ്ററിലെ മെമ്മറി ടേബിളിലാണ് വേരിയബിളുകളുടെ വിവരങ്ങൾ ലഭ്യമാകുന്നത്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ഔട്ട്പുട്ട് കൺസോളിന്റെ പ്രധാന ധർമ്മം എന്താണ്?",
+        code: "status = \"Program finished\"",
+        options: [
+          {
+            prefix: "A",
+            text: "പ്രോഗ്രാം ഫലങ്ങളും സ്റ്റാറ്റസ് ലോഗുകളും എറർ മെസ്സേജുകളും സ്ക്രീനിൽ കാണിക്കുക.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "3D ആനിമേഷൻ തനിയെ ഉണ്ടാക്കുക.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ഹാർഡ് ഡിസ്ക് ഫോർമാറ്റ് ചെയ്യുക.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "നിങ്ങൾക്കായി കോഡ് ടൈപ്പ് ചെയ്യുക.",
+            correct: false
+          }
+        ],
+        explanation_correct: "പ്രോഗ്രാം പ്രിൻ്റ് ചെയ്യുന്ന വിവരങ്ങൾ കാണിക്കുന്നത് ഔട്ട്പുട്ട് കൺസോളിലാണ്.",
+        explanation_incorrect: "ഔട്ട്പുട്ട് കൺസോൾ സ്ക്രീനിലേക്ക് പ്രിൻ്റ് ചെയ്യുന്ന വിവരങ്ങൾ കാട്ടിത്തരുന്നു."
+      }
+    ]
+  },
+  "1_2_3": {
+    title: "print() കമാൻഡ് — നിങ്ങളുടെ ആദ്യ മാന്ത്രികം",
+    subtitle: "സ്ക്രീനിൽ വിവരങ്ങൾ കാണിക്കാം",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.2 • പൈത്തൺ അടിസ്ഥാനം</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">The <hlt>print()</hlt> കമാൻഡ് — നിങ്ങളുടെ ആദ്യ മാന്ത്രികം</h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">പ്രോഗ്രാമിംഗിൽ സ്ക്രീനിലേക്ക് വിവരങ്ങൾ കാട്ടാൻ ഉപയോഗിക്കുന്ന കമാൻഡാണ് <hlt>print()</hlt>.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">1. പോസ്റ്റ് ബോക്സ് ഉപമ</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">സ്ക്രീനിലേക്ക് സന്ദേശങ്ങൾ അയക്കാം</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\"><hlt>print()</hlt> കമാൻഡിനെ ഔട്ട്പുട്ട് സ്ക്രീനിലേക്കുള്ള ഒരു തപാൽ പെട്ടിയായി സങ്കൽപ്പിക്കാം. ബ്രാക്കറ്റിനുള്ളിൽ നിങ്ങൾ നൽകുന്നതെന്തും സ്ക്രീനിൽ കൃത്യമായി ലഭിക്കും.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Hellow\"</span>) &nbsp;<span style=\"color: #8b949e;\"># ഫലം: Hellow</span></div></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">2. അക്ഷരങ്ങളും (Strings) സംഖ്യകളും (Integers)</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">ക്വോട്ടുകൾ പ്രധാനം!</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">പൈത്തണിൽ വാക്കുകൾ എല്ലായ്പ്പോഴും കൊട്ടേഷൻ മാർക്കുകളിൽ നൽകണം (<hlt>\"...\"</hlt>). ഇത് <strong>സ്ട്രിംഗ് (str)</strong> ആണ്. എന്നാൽ <hlt>5</hlt> പോലെയുള്ള യഥാർത്ഥ സംഖ്യകൾക്ക് കൊട്ടേഷൻ ആവശ്യമില്ല!</p><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 12px;\"><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace; color: #0284c7;\">വാക്കുകൾ / സ്ട്രിംഗ് (str)</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #f1f5f9; padding: 6px; border-radius: 3px;\">print(\"Hellow\")</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">കൊട്ടേഷൻസ് പൈത്തണിനോട് പറയുന്നു: 'ഇത് വെറും അക്ഷരങ്ങളാണ്.'</p></div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace; color: #16a34a;\">സംഖ്യ / ഇൻ്റിജർ (int)</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #f1f5f9; padding: 6px; border-radius: 3px;\">print(5)</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">കൊട്ടേഷൻസ് ഇല്ല! കണക്കുകൂട്ടാൻ സാധിക്കുന്ന സംഖ്യയാണിത്.</p></div></div></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">3. പ്രധാന പിശകുകൾ</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">ഈ തെറ്റുകൾ ഒഴിവാക്കുക!</h2><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 12px;\"><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"color: #dc2626; font-size: 13px;\">ക്ലോസിംഗ് കോട്ട് ഇല്ല → SyntaxError</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #fef2f2; padding: 6px; border-radius: 3px; color: #991b1b;\">print(\"Hellow)</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">തുടക്കത്തിലെ കോട്ടിന് തുല്യമായി ഒടുക്കത്തിലും കോട്ട് വേണം. വിട്ടുപോയാൽ എറർ വരും.</p></div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"color: #d97706; font-size: 13px;\">വാക്കുകൾക്ക് കോട്ട് ഇല്ലെങ്കിൽ → NameError</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #fffbeb; padding: 6px; border-radius: 3px; color: #92400e;\">print(Hellow)</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">കോട്ട് ഇല്ലാതെ എഴുതിയാൽ പൈത്തൺ അതിനെ വേരിയബിൾ ആയി കരുതും, നിർവ്വചിച്ചിട്ടില്ലെങ്കിൽ NameError നൽകും.</p></div></div></div><div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">4. അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യൽ</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">അക്ഷരങ്ങൾ നിരയായി</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">അക്ഷരങ്ങൾ ഇടവിട്ട് പ്രിൻ്റ് ചെയ്യാൻ <hlt>print(\"P Y T H O N\")</hlt> എന്ന് എഴുതാവുന്നതാണ്.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"P Y T H O N\"</span>)<br/><span style=\"color: #8b949e;\"># ഔട്ട്പുട്ടിൽ അക്ഷരങ്ങൾ കൃത്യമായി പ്രത്യക്ഷപ്പെടും!</span></div></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\"> കോഡിംഗിന് തയ്യാറാകൂ: അടുത്ത പേജിൽ 3 ലൈവ് ചലഞ്ചുകൾ പൂർത്തിയാക്കുക!</p></div></div>`
+  },
+  "1_2_4": {
+    title: "ഇന്ററാക്ടീവ് കോഡിംഗ്: print() മാന്ത്രികം",
+    subtitle: "നിങ്ങളുടെ ആദ്യ പൈത്തൺ പ്രോഗ്രാമുകൾ",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    description: "താഴെയുള്ള 3 ഘട്ടങ്ങളും വിജയകരമായി പൂർത്തിയാക്കി <hlt>print()</hlt> കമാൻഡ് സ്വായത്തമാക്കൂ!",
+    intended_output: "Hellow",
+    starter_code: "# ഘട്ടം 1: Hellow എന്ന് പ്രിൻ്റ് ചെയ്യുക\n# താഴെ കോഡ് എഴുതി Run ക്ലിക്ക് ചെയ്യുക:\n\n",
+    challenges: [
+      {
+        stage: 1,
+        title: "ഘട്ടം 1: \"Hellow\" പ്രിൻ്റ് ചെയ്യുക",
+        description: "<hlt>print()</hlt> കമാൻഡ് ഉപയോഗിച്ച് കൺസോളിലേക്ക് <hlt>\"Hellow\"</hlt> എന്ന് പ്രിൻ്റ് ചെയ്യുക.",
+        starter_code: "# ഘട്ടം 1: Hellow എന്ന് പ്രിൻ്റ് ചെയ്യുക\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "Hellow",
+        ai_check: null
+      },
+      {
+        stage: 2,
+        title: "ഘട്ടം 2: സംഖ്യ 5 ഒരു ഇൻ്റിജറായി പ്രിൻ്റ് ചെയ്യുക",
+        description: "ഇനി സംഖ്യ <hlt>5</hlt> പ്രിൻ്റ് ചെയ്യുക. പൈത്തണിൽ സംഖ്യകൾക്ക് കൊട്ടേഷൻസ് നൽകരുത്! നിങ്ങൾ കൊട്ടേഷൻ ഇല്ലാതെയാണോ എഴുതിയതെന്ന് നമ്മുടെ <strong>ഇൻബിൽറ്റ് AI</strong> പരിശോധിക്കും.",
+        starter_code: "# ഘട്ടം 2: സംഖ്യ 5 ഇൻ്റിജറായി പ്രിൻ്റ് ചെയ്യുക (Quotes ഇല്ലാതെ!)\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "5",
+        ai_check: "int_not_str_5"
+      },
+      {
+        stage: 3,
+        title: "ഘട്ടം 3: അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യുക",
+        description: "ഇടവിട്ട അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യുക: <hlt>P Y T H O N</hlt>. <hlt>print(\"P Y T H O N\")</hlt> എന്ന് എഴുതി Run ക്ലിക്ക് ചെയ്യുക!",
+        starter_code: "# ഘട്ടം 3: അക്ഷര ശ്രേണി പ്രിൻ്റ് ചെയ്യുക\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "P Y T H O N",
+        ai_check: null
+      }
+    ]
+  },
+  "1_2_5": {
+    title: "പരിശീലന ക്വിസ്: print() കമാൻഡും ഡാറ്റാ ടൈപ്പുകളും",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "താഴെ പറയുന്നവയിൽ \"Hellow\" എന്ന് കൃത്യമായി പ്രിൻ്റ് ചെയ്യുന്നത് ഏതാണ്?",
+        code: "# ശരിയായ വാക്യം തിരഞ്ഞെടുക്കുക:",
+        options: [
+          {
+            prefix: "A",
+            text: "print(\"Hellow\")",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "Print(Hellow)",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "output \"Hellow\"",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "echo << \"Hellow\"",
+            correct: false
+          }
+        ],
+        explanation_correct: "പൈത്തണിലെ print() സ്മോൾ ലെറ്ററിലാണ് തുടങ്ങുന്നത്, ഒപ്പം കൊട്ടേഷൻസിൽ വാക്ക് നൽകണം.",
+        explanation_incorrect: "പൈത്തൺ കേസ്-സെൻസിറ്റീവ് ആണ്, അതിനാൽ print(\"Hellow\") എന്ന് ചെറിയ അക്ഷരത്തിൽ എഴുതണം."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "print(5) ഉം print(\"5\") ഉം തമ്മിലുള്ള പ്രധാന വ്യത്യാസം എന്താണ്?",
+        code: "print(5)    # A\nprint(\"5\")  # B",
+        options: [
+          {
+            prefix: "A",
+            text: "5 എന്നത് കണക്കുകൂട്ടാൻ കഴിയുന്ന ഇൻ്റിജർ (int) ആണ്, \"5\" എന്നത് ഒരു അക്ഷര സ്ട്രിംഗ് (str) ആണ്.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "print(5) എറർ ഉണ്ടാക്കുന്നു കാരണം സംഖ്യകൾ പ്രിൻ്റ് ചെയ്യാൻ കഴിയില്ല.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "print(\"5\") 5 ശൂന്യമായ വരികൾ പ്രിൻ്റ് ചെയ്യുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "പൈത്തൺ മെമ്മറിയിൽ ഇവ രണ്ടും തമ്മിൽ യാതൊരു വ്യത്യാസവുമില്ല.",
+            correct: false
+          }
+        ],
+        explanation_correct: "ക്വോട്ടുകളില്ലാത്ത സംഖ്യകൾ ഇൻ്റിജറുകളായാണ് (int) കമ്പ്യൂട്ടർ മെമ്മറിയിൽ സൂക്ഷിക്കുന്നത്.",
+        explanation_incorrect: "5 എന്നത് ഇൻ്റിജറും \"5\" എന്നത് സ്ട്രിംഗുമാണ്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "ഈ കോഡ് റൺ ചെയ്യുമ്പോൾ പൈത്തൺ എറർ കാണിക്കുന്നത് എന്തുകൊണ്ട്?",
+        code: "print(\"Hellow)",
+        options: [
+          {
+            prefix: "A",
+            text: "തുടങ്ങിയ കൊട്ടേഷൻ മാർക്ക് അവസാനിപ്പിച്ചിട്ടില്ല (Unterminated string).",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "\"Hellow\" എന്നത് പൈത്തൺ കീവേഡ് അല്ലാത്തതുകൊണ്ട്.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ ഇരട്ട കൊട്ടേഷൻസ് പിന്തുണയ്ക്കാത്തതുകൊണ്ട്.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "ഒന്നാമത്തെ വരിയിൽ print() ഉപയോഗിക്കാൻ പറ്റാത്തതുകൊണ്ട്.",
+            correct: false
+          }
+        ],
+        explanation_correct: "തുടങ്ങിയ ക്വോട്ട് അടയ്ക്കാതിരുന്നാൽ സിന്റാക്സ് എറർ സംഭവിക്കുന്നു.",
+        explanation_incorrect: "ക്വോട്ടേഷൻ മാർക്കുകൾ എപ്പോഴും ജോഡിയായി വരണം."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "P Y T H O N എന്ന അക്ഷരങ്ങൾ കൃത്യമായി ഔട്ട്പുട്ട് ചെയ്യാൻ ഏതാണ് ശരിയായ രീതി?",
+        code: "# Target: P Y T H O N",
+        options: [
+          {
+            prefix: "A",
+            text: "print(\"P Y T H O N\")",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "print(P, Y, T, H, O, N)",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "sequence[\"P Y T H O N\"]",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "letter_display(P-Y-T-H-O-N)",
+            correct: false
+          }
+        ],
+        explanation_correct: "അക്ഷരങ്ങൾ ക്വോട്ടുകളിൽ നൽകിയാൽ സ്ക്രീനിൽ കൃത്യമായി തെളിയും.",
+        explanation_incorrect: "ക്വോട്ടുകളില്ലാതെ എഴുതിയാൽ പൈത്തൺ അവയെ വേരിയബിളുകളായി തെറ്റിദ്ധരിക്കും."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ക്വോട്ടുകൾ ഇല്ലാതെ print(Hellow) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
+        code: "print(Hellow)",
+        options: [
+          {
+            prefix: "A",
+            text: "Hellow എന്നത് ഒരു വേരിയബിൾ ആണെന്ന് കരുതി NameError കാണിക്കും.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "പൈത്തൺ തനിയെ ക്വോട്ടുകൾ ചേർത്ത് പ്രിൻ്റ് ചെയ്യും.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ അത് മറ്റൊരു ഭാഷയിലേക്ക് മാറ്റും.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "കംപ്യൂട്ടർ റീസ്റ്റാർട്ട് ആകും.",
+            correct: false
+          }
+        ],
+        explanation_correct: "ക്വോട്ടുകളില്ലാത്ത വാക്കുകളെ വേരിയബിളുകളായാണ് പൈത്തൺ കരുതുന്നത്. വേരിയബിൾ ഇല്ലെങ്കിൽ NameError വരും.",
+        explanation_incorrect: "മുൻകൂട്ടി നിർവ്വചിക്കാത്ത പേരുകൾക്ക് പൈത്തൺ NameError നൽകുന്നു."
+      }
+    ]
+  },
+  "1_2_6": {
+    title: "കോഡ് റൺ ചെയ്യുമ്പോൾ സംഭവിക്കുന്നത് എന്ത്?",
+    subtitle: "മുകളിൽ നിന്ന് താഴേക്കുള്ള പ്രവർത്തന ക്രമം",
+    topic: "1.3 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.3 • പ്രോഗ്രാം ഫ്ലോ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">പ്രവർത്തന <hlt>ക്രമം</hlt> (Order of Execution)</h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">നിങ്ങൾ Run ക്ലിക്ക് ചെയ്യുമ്പോൾ കമ്പ്യൂട്ടർ എങ്ങനെയാണ് ഓരോ വരിയും പ്രവർത്തിപ്പിക്കുന്നത് എന്ന് നോക്കാം.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">1. മുകളിൽ നിന്ന് താഴേക്ക്</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">പുസ്തകം വായിക്കുന്നത് പോലെ</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">നാം പുസ്തകം വായിക്കുന്നത് പോലെ പൈത്തൺ <strong>മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി</strong> മാത്രമേ കോഡ് വായിക്കുകയുള്ളൂ. അത് സ്വയം വരികൾ ചാടിക്കടക്കില്ല.</p><div style=\"display: flex; flex-direction: column; gap: 8px;\"><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #0284c7;\">വരി 1: print(\"First\")</span><span style=\"font-size: 12px; font-weight: 800; background: #e0f2fe; border: 1px solid #111111; padding: 2px 8px;\">[1] ആദ്യം റൺ ചെയ്യുന്നു</span></div><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #16a34a;\">വരി 2: print(\"Second\")</span><span style=\"font-size: 12px; font-weight: 800; background: #dcfce7; border: 1px solid #111111; padding: 2px 8px;\">[2] രണ്ടാമത് റൺ ചെയ്യുന്നു</span></div><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #d97706;\">വരി 3: print(\"Third\")</span><span style=\"font-size: 12px; font-weight: 800; background: #fef3c7; border: 1px solid #111111; padding: 2px 8px;\">[3] അവസാനം റൺ ചെയ്യുന്നു</span></div></div></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">2. ക്രമം ഫലത്തെ മാറ്റുന്നു</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">വരികളുടെ ക്രമം പ്രധാനം</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">വരികളുടെ ക്രമം മാറ്റി എഴുതിയാൽ ഔട്ട്പുട്ടിലെ ക്രമവും ഉടൻ മാറും. കമ്പ്യൂട്ടർ എഴുതിയ അതേ ക്രമം പിന്തുടരുന്നു.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Game Over\"</span>)<br/><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Welcome Player 1\"</span>)<br/><span style=\"color: #8b949e;\"># വരി 1 ലുള്ള 'Game Over' ആണ് ആദ്യം പ്രിൻ്റ് ആകുന്നത്!</span></div></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">3. എറർ വന്നാൽ എന്ത് സംഭവിക്കും?</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">തൽക്ഷണം നിൽക്കുന്നു</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">രണ്ടാമത്തെ വരിയിൽ ഒരു എറർ വന്നാൽ അതിന് മുമ്പുള്ള വരികൾ റൺ ആകുമെങ്കിലും രണ്ടാമത്തെ വരിയിൽ വെച്ച് പ്രോഗ്രാം നിലയ്ക്കുകയും താഴെയുള്ള വരികൾ റൺ ആകാതിരിക്കുകയും ചെയ്യുന്നു.</p></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\">പ്രധാന നിയമം: പൈത്തൺ പ്രോഗ്രാമുകൾ <hlt>തുടർച്ചയായ ക്രമത്തിലാണ്</hlt> പ്രവർത്തിക്കുന്നത്—വരി 1 തീർന്നതിന് ശേഷമേ വരി 2 തുടങ്ങൂ!</p></div></div>`
+  },
+  "1_2_7": {
+    title: "പരിശീലന ക്വിസ്: പ്രവർത്തന ക്രമവും പ്രോഗ്രാം ഫ്ലോയും",
+    topic: "1.3 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "പൈത്തൺ ഇന്റർപ്രെറ്റർ ഏത് ക്രമത്തിലാണ് നിർദ്ദേശങ്ങൾ പ്രവർത്തിപ്പിക്കുന്നത്?",
+        code: "# പൈത്തൺ പ്രവർത്തന നിയമം:",
+        options: [
+          {
+            prefix: "A",
+            text: "മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി ക്രമത്തിൽ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ചെറിയ വരികൾ ആദ്യം തിരഞ്ഞെടുത്ത് ക്രമരഹിതമായി.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "താഴെ നിന്ന് മുകളിലേക്ക് റിവേഴ്സ് ആയി.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "എല്ലാ വരികളും ഒരേ സമയം ഒരൊറ്റ നിമിഷത്തിൽ.",
+            correct: false
+          }
+        ],
+        explanation_correct: "പൈത്തൺ മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി കൃത്യമായ ക്രമത്തിൽ പ്രവർത്തിക്കുന്നു.",
+        explanation_incorrect: "പൈത്തൺ വരി 1 ൽ തുടങ്ങി താഴേക്ക് ക്രമമായി പോകുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "ഈ സ്ക്രിപ്റ്റ് റൺ ചെയ്യുമ്പോൾ കൺസോളിൽ എന്ത് ലഭിക്കും?",
+        code: "print(\"Morning\")\nprint(\"Afternoon\")\nprint(\"Evening\")",
+        options: [
+          {
+            prefix: "A",
+            text: "Morning\nAfternoon\nEvening",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "Evening\nAfternoon\nMorning",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "Morning Afternoon Evening (എല്ലാം ഒരൊറ്റ വരിയിൽ)",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "Afternoon\nEvening\nMorning",
+            correct: false
+          }
+        ],
+        explanation_correct: "ഓരോ print() ഉം പുതിയ വരിയിൽ എഴുതിയ അതേ ക്രമത്തിൽ പ്രത്യക്ഷപ്പെടുന്നു.",
+        explanation_incorrect: "എഴുതിയ അതേ മുകളിൽ നിന്ന് താഴേക്കുള്ള ക്രമത്തിലാണ് പ്രിൻ്റ് ആകുന്നത്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "വരി 2 ൽ ഒരു സിന്റാക്സ് എറർ ഉണ്ടായാൽ എന്ത് സംഭവിക്കും?",
+        code: "print(\"Line 1\")\nprint(\"Line 2\"   # ക്ലോസിംഗ് ബ്രാക്കറ്റ് ഇല്ല\nprint(\"Line 3\")",
+        options: [
+          {
+            prefix: "A",
+            text: "പൈത്തൺ പ്രവർത്തനം നിർത്തി എറർ കാട്ടുന്നു; വരി 3 റൺ ആകില്ല.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "വരി 2 ലെ എറർ അവഗണിച്ച് വരി 3 റൺ ചെയ്യുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ ബ്രാക്കറ്റ് സ്വയം ശരിയാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "വരി 3 ആദ്യം റൺ ചെയ്യുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "എറർ കണ്ടാൽ പൈത്തൺ ഉടൻ നിൽക്കും, പിന്നീടുള്ള വരികൾ പ്രവർത്തിക്കില്ല.",
+        explanation_incorrect: "തടസ്സമില്ലാത്ത എററുകൾ വന്നാൽ പിന്നീടുള്ള വരികൾ റൺ ആകില്ല."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "ഈ കോഡിന്റെ ഔട്ട്പുട്ട് എന്തായിരിക്കും?",
+        code: "print(10)\nprint(20)",
+        options: [
+          {
+            prefix: "A",
+            text: "10\n20",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "30",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "20\n10",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "10 20",
+            correct: false
+          }
+        ],
+        explanation_correct: "ആദ്യം 10 പ്രിൻ്റ് ചെയ്യുന്നു, ശേഷം അടുത്ത വരിയിൽ 20 പ്രിൻ്റ് ചെയ്യുന്നു.",
+        explanation_incorrect: "ഇവ രണ്ടും വെവ്വേറെ print കമാൻഡുകൾ ആയതിനാൽ 10 ഉം 20 ഉം വെവ്വേറെ വരികളിൽ വരുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ശരിയോ തെറ്റോ: പ്രധാന്യത്തിന്റെ അടിസ്ഥാനത്തിൽ പൈത്തൺ വരികളുടെ ക്രമം സ്വയം മാറ്റുമോ?",
+        code: "price = 100\nprint(price)\nname = \"Laptop\"",
+        options: [
+          {
+            prefix: "A",
+            text: "തെറ്റ് — പൈത്തൺ നിങ്ങൾ എഴുതിയ ക്രമം മാത്രമേ അനുസരിക്കൂ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ശരി — പ്രധാന വേരിയബിളുകൾ പൈത്തൺ സ്വയം മുകളിലേക്ക് മാറ്റും.",
+            correct: false
+          }
+        ],
+        explanation_correct: "കമ്പ്യൂട്ടറുകൾക്ക് 'പ്രാധാന്യം' എന്ന സങ്കല്പമില്ല; എഴുതിയ ക്രമത്തിൽ മാത്രം പ്രവർത്തിക്കുന്നു!",
+        explanation_incorrect: "പൈത്തൺ ഒരിക്കലും വരികളുടെ ക്രമം സ്വയം മാറ്റില്ല."
+      }
+    ]
+  },
+  "1_3_1": {
+      "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
+      "subtitle": "സങ്കലനം, വ്യവകലനം & ബ്രാക്കറ്റുകൾ",
+      "topic": "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.1 • കണക്കുകൂട്ടലുകൾ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      കമ്പ്യൂട്ടറിലൂടെ <hlt>കണക്ക്</hlt> ചെയ്യാം\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      മിന്നൽ വേഗത്തിൽ കണക്കുകൂട്ടലുകൾ നടത്താനാണ് കമ്പ്യൂട്ടറുകൾ കണ്ടുപിടിച്ചത്. പൈത്തണിൽ സങ്കലനവും (+) വ്യവകലനവും (-) നേരിട്ട് ചെയ്യാവുന്നതാണ്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      മുൻ അധ്യായങ്ങളിൽ print() സ്‌ക്രീനിൽ കാണിക്കുന്നതും വേരിയബിളുകൾ മെമ്മറിയിൽ സൂക്ഷിക്കുന്നതും നാം പഠിച്ചു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=4&sub=1&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: എന്താണ് വേരിയബിൾ? (പാഠം 4.1) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ സംഖ്യകൾ എടുത്ത് കൂട്ടുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      <code>x + y</code> എന്നത് x പെട്ടിയിലെയും y പെട്ടിയിലെയും സംഖ്യകൾ എടുത്ത് കൂട്ടി പുതിയൊരു റിസൾട്ട് പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      price1 = <span style=\"color: #7ee787;\">50</span><br/>\n      price2 = <span style=\"color: #7ee787;\">20</span><br/>\n      total = price1 + price2<br/>\n      <span style=\"color: #79c0ff;\">print</span>(total)  <span style=\"color: #8b949e;\"># total പെട്ടി തുറന്ന് ഫലം 70 നൽകുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ക്യാഷ് രജിസ്റ്ററും ഡിസ്കൗണ്ടും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ആകെ തുകയിൽ നിന്ന് ഡിസ്കൗണ്ട് കുറയ്ക്കൽ\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഓരോ വേരിയബിളും സാധനങ്ങളുടെ വിലയെ സൂചിപ്പിക്കുന്നു. അവ കൂട്ടിച്ചേർത്ത് ഡിസ്കൗണ്ട് തുക കുറയ്ക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      total = <span style=\"color: #7ee787;\">70</span><br/>\n      discount = <span style=\"color: #7ee787;\">15</span><br/>\n      final_price = total - discount<br/>\n      <span style=\"color: #79c0ff;\">print</span>(final_price)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fed7aa; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      മുൻഗണനാ ക്രമം • ബ്രാക്കറ്റുകൾ ()\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് തീരുമാനിക്കാം\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      പൈത്തണിൽ ഏത് ഭാഗം ആദ്യം കണക്കുകൂട്ടണമെന്ന് വ്യക്തമാക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      result = (<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">5</span>) - <span style=\"color: #7ee787;\">3</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(result)  <span style=\"color: #8b949e;\"># (15) - 3 = 12</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ശ്രദ്ധിക്കുക • സംഖ്യകളും കോട്ടുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>കണക്കുകൂട്ടാൻ സംഖ്യകൾ:</strong> സംഖ്യകൾ കോട്ടുകളില്ലാതെ എഴുതുക: <code>10 + 5 = 15</code>.</li>\n      <li><strong>കോട്ടുകൾ വാചകമാക്കും:</strong> <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടിച്ചേർത്ത് <code>\"105\"</code> എന്ന വാചകമാക്കും!</li>\n    </ul>\n  </div>\n</div>"
+  },
+  "1_3_2": {
+      "title": "കണക്കും മുൻഗണനയും ക്വിസ്",
+      "topic": "3.1 • കണക്ക് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "ഇനിപ്പറയുന്ന പൈത്തൺ കോഡിന്റെ ഔട്ട്പുട്ട് എന്താണ്?",
+              "code": "a = 15\nb = 5\nprint(a + b)",
+              "options": [
+                  "20",
+                  "155",
+                  "\"20\"",
+                  "Error"
+              ],
+              "correct_answer": "20",
+              "explanation_correct": "ശരിയാണ്! a + b എന്നത് 15 + 5 കൂട്ടി 20 നൽകുന്നു.",
+              "explanation_incorrect": "a + b എന്നത് സംഖ്യകളുടെ സങ്കലനമാണ് (15 + 5 = 20)."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "ഇനിപ്പറയുന്ന കോഡ് പ്രവർത്തിപ്പിക്കുമ്പോൾ എന്ത് പ്രിന്റ് ചെയ്യും?",
+              "code": "result = (10 + 20) - 5\nprint(result)",
+              "options": [
+                  "25",
+                  "30",
+                  "15",
+                  "35"
+              ],
+              "correct_answer": "25",
+              "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റിനുള്ളിലെ (10 + 20) = 30 ആദ്യം നടക്കുന്നു, തുടർന്ന് 30 - 5 = 25.",
+              "explanation_incorrect": "ബ്രാക്കറ്റ് ആദ്യം കണക്കാക്കുന്നു: (10 + 20) = 30, ശേഷം 30 - 5 = 25."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "print(\"10\" + \"5\") എന്നതും print(10 + 5) എന്നതും തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?",
+              "options": [
+                  "ആദ്യത്തേത് \"105\" എന്നും രണ്ടാമത്തേത് 15 എന്നും പ്രിന്റ് ചെയ്യുന്നു",
+                  "രണ്ടും 15 പ്രിന്റ് ചെയ്യുന്നു",
+                  "രണ്ടും \"105\" പ്രിന്റ് ചെയ്യുന്നു",
+                  "ആദ്യത്തേതിൽ എറർ വരുന്നു"
+              ],
+              "correct_answer": "ആദ്യത്തേത് \"105\" എന്നും രണ്ടാമത്തേത് 15 എന്നും പ്രിന്റ് ചെയ്യുന്നു",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകളിലുള്ളവ സ്ട്രിംഗുകളായി ഒട്ടിച്ചേരുന്നു (\"105\"), സംഖ്യകൾ പരസ്പരം കൂട്ടപ്പെടുന്നു (15).",
+              "explanation_incorrect": "കോട്ടുകൾ ഉള്ളപ്പോൾ \"105\" എന്നും കോട്ടുകൾ ഇല്ലാത്തപ്പോൾ 15 എന്നും ഫലം ലഭിക്കുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "പൈത്തണിൽ കണക്കുകൂട്ടലുകളിൽ ഏതിനാണ് ഏറ്റവും ഉയർന്ന മുൻഗണന?",
+              "options": [
+                  "ബ്രാക്കറ്റുകൾ ()",
+                  "സങ്കലനം +",
+                  "വ്യവകലനം -",
+                  "വേരിയബിൾ പേരുകൾ"
+              ],
+              "correct_answer": "ബ്രാക്കറ്റുകൾ ()",
+              "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റുകൾക്കുള്ളിലെ ഭാഗമാണ് പൈത്തൺ എപ്പോഴും ആദ്യം കണക്കുകൂട്ടുന്നത്.",
+              "explanation_incorrect": "എല്ലാ ഓപ്പറേറ്റർമാരേക്കാളും ഉയർന്ന മുൻഗണന ബ്രാക്കറ്റുകൾക്കാണ് ()."
+          }
+      ]
+  },
+  "1_3_3": {
+      "title": "ഗുണനവും ഹരണവും",
+      "subtitle": "ചിഹ്നങ്ങളും പ്രവർത്തന മുൻഗണനയും",
+      "topic": "3.1 • ഗുണനവും ഹരണവും",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.1 • ഗുണനവും ഹരണവും\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      ഗുണനം, <hlt>ഹരണം</hlt> & മുൻഗണന\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      പൈത്തണിൽ ഗുണനത്തിന് <code>*</code> ചിഹ്നവും ഹരണത്തിന് <code>/</code> ചിഹ്നവുമാണ് ഉപയോഗിക്കുന്നത്.\n    </p>\n  </div>\n\n  <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 16px;\">\n    <div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഗുണനം (*)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">ആസ്റ്ററിസ്ക് ചിഹ്നം</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        രണ്ട് സംഖ്യകൾ ഗുണിക്കാൻ ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        length = <span style=\"color: #7ee787;\">10</span><br/>\n        width = <span style=\"color: #7ee787;\">5</span><br/>\n        area = length * width<br/>\n        <span style=\"color: #79c0ff;\">print</span>(area)  <span style=\"color: #8b949e;\"># ഫലം: 50</span>\n      </div>\n    </div>\n\n    <div style=\"background: #c4b5fd; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഹരണം (/) • ഫ്ലോട്ട് റിസൾട്ട്\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">സ്ലാഷ് ചിഹ്നം</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        പൈത്തണിലെ ഹരണം <code>/</code> എപ്പോഴും ദശാംശ സംഖ്യ (Float) നൽകുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        total = <span style=\"color: #7ee787;\">100</span><br/>\n        players = <span style=\"color: #7ee787;\">4</span><br/>\n        each = total / players<br/>\n        <span style=\"color: #79c0ff;\">print</span>(each)  <span style=\"color: #8b949e;\"># ഫലം: 25.0</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      മുൻഗണനാ ക്രമം • BODMAS\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഏത് ചിഹ്നത്തിനാണ് ആദ്യം മുൻഗണന?\n    </h2>\n    <div style=\"display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;\">\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        1. ബ്രാക്കറ്റുകൾ ()\n      </div>\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        2. ഗുണനം * & ഹരണം /\n      </div>\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        3. സങ്കലനം + & വ്യവകലനം -\n      </div>\n    </div>\n\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      <span style=\"color: #8b949e;\"># ബ്രാക്കറ്റില്ലാതെ: 50 / 2 ആദ്യം നടക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">50</span> / <span style=\"color: #7ee787;\">2</span>)    <span style=\"color: #8b949e;\"># 10 + 25.0 = 35.0</span><br/><br/>\n      <span style=\"color: #8b949e;\"># ബ്രാക്കറ്റോടെ: (10 + 50) ആദ്യം നടക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>((<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">50</span>) / <span style=\"color: #7ee787;\">2</span>)  <span style=\"color: #8b949e;\"># 60 / 2 = 30.0</span>\n    </div>\n  </div>\n</div>"
+  },
+  "1_3_4": {
+      "title": "നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്",
+      "description": "നാല് അടിസ്ഥാന കണക്ക് ചിഹ്നങ്ങളും (+) (-) (*) (/) ബ്രാക്കറ്റുകളും ഉപയോഗിച്ച് കണക്കുകൂട്ടലുകൾ നടത്തുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>a</code>, <code>b</code> എന്നിവയുടെ സങ്കലനം, വ്യവകലനം, ഗുണനം, ഹരണം, കൂടാതെ <code>(a + b) * 2</code> എന്നിവ കണക്കാക്കി പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "30\n10\n200\n2.0\n60"
+  },
+  "1_3_5": {
+      "title": "അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല",
+      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം:</strong> ബൈനറി സെർച്ച് (Binary Search) പോലെയുള്ള കമ്പ്യൂട്ടർ അൽഗോരിതങ്ങളിൽ നടുവിലെ പോയിന്റ് കണ്ടെത്താൻ മിഡ്പോയിന്റ് ഫോർമുല <code>(low + high) / 2</code> ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള ഫോർമുല വരിയിൽ <code>midpoint = (low + high) / 2</code> എന്ന് എഴുതി കൃത്യമായ ഫലം കണ്ടെത്തുക.",
+      "intended_output": "30.0"
+  },
+  "1_3_6": {
+      "title": "വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ",
+      "subtitle": "+ ചിഹ്നം ഉപയോഗിച്ച് സ്ട്രിംഗുകൾ ചേർക്കുന്നു",
+      "topic": "3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.2 • വാചകങ്ങൾ കൈകാര്യം ചെയ്യൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      <hlt>വാചകങ്ങൾ</hlt> കൂട്ടിച്ചേർക്കൽ (+)\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      പൈത്തണിൽ പ്ലസ് <code>+</code> ചിഹ്നം സംഖ്യകൾ കൂട്ടാൻ മാത്രമല്ല, വാചകങ്ങൾ (Strings) പരസ്പരം ഒട്ടിച്ചു ചേർക്കാനും ഉപയോഗിക്കുന്നു!\n    </p>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      പശയുടെ ഉദാഹരണം\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      കടലാസ് കഷണങ്ങൾ ഒട്ടിക്കുന്നത് പോലെ\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      വാക്കുകൾക്കിടയിൽ ഇടവേള (സ്പേസ്) വേണമെങ്കിൽ, നടുവിൽ <code>\" \"</code> ചേർക്കണം:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      first = <span style=\"color: #a5d6ff;\">\"Good\"</span><br/>\n      second = <span style=\"color: #a5d6ff;\">\"Morning\"</span><br/><br/>\n      <span style=\"color: #8b949e;\"># സ്പേസ് ഇല്ലാതെ:</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(first + second)          <span style=\"color: #8b949e;\"># ഫലം: \"GoodMorning\"</span><br/><br/>\n      <span style=\"color: #8b949e;\"># സ്പേസ് നൽകി:</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(first + <span style=\"color: #a5d6ff;\">\" \"</span> + second)    <span style=\"color: #8b949e;\"># ഫലം: \"Good Morning\"</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fbcfe8; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഡാറ്റാ ടൈപ്പുകളുടെ വ്യത്യാസം\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഒരേ ചിഹ്നം (+), വ്യത്യസ്ത ഫലം\n    </h2>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      <span style=\"color: #8b949e;\"># 1. സംഖ്യകൾ: ഗണിത സങ്കലനം</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">20</span>)      <span style=\"color: #8b949e;\"># ഫലം: 30</span><br/><br/>\n      <span style=\"color: #8b949e;\"># 2. വാചകങ്ങൾ: കൂട്ടിച്ചേർക്കൽ</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #a5d6ff;\">\"10\"</span> + <span style=\"color: #a5d6ff;\">\"20\"</span>)  <span style=\"color: #8b949e;\"># ഫലം: \"1020\"</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fed7aa; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ടൈപ്പ് മാറ്റം • str()\n    </span>\n    <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">വാചകവും സംഖ്യയും കൂട്ടിച്ചേർക്കൽ</h3>\n    <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.5;\">\n      വാചകവും സംഖ്യയും നേരിട്ട് കൂട്ടിച്ചേർക്കാൻ കഴിയില്ല. അതിനായി <code>str()</code> ഉപയോഗിച്ച് സംഖ്യയെ വാചകമാക്കി മാറ്റുക:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n      level = <span style=\"color: #7ee787;\">5</span><br/>\n      message = <span style=\"color: #a5d6ff;\">\"Level: \"</span> + <span style=\"color: #79c0ff;\">str</span>(level)<br/>\n      <span style=\"color: #79c0ff;\">print</span>(message)  <span style=\"color: #8b949e;\"># ഫലം: \"Level: 5\"</span>\n    </div>\n  </div>\n</div>"
+  },
+  "1_3_7": {
+      "title": "സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്",
+      "description": "<code>first_name</code>, <code>last_name</code> എന്നിവ നടുവിൽ സ്പേസ് നൽകി <code>full_name</code> ആയി കൂട്ടിച്ചേർത്ത് പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>full_name = first_name + \" \" + last_name</code>",
+      "intended_output": "Alan Turing"
+  },
+  "1_3_8": {
+      "title": "സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്",
+      "topic": "3.2 • സ്ട്രിംഗ് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "print(\"Super\" + \"Hero\") എന്നതിന്റെ ഔട്ട്പുട്ട് എന്താണ്?",
+              "options": [
+                  "SuperHero",
+                  "Super Hero",
+                  "Super+Hero",
+                  "Error"
+              ],
+              "correct_answer": "SuperHero",
+              "explanation_correct": "ശരിയാണ്! പൈത്തൺ സ്വമേധയാ സ്പേസ് ചേർക്കില്ല, നേരിട്ട് ഒട്ടിച്ചേർക്കും.",
+              "explanation_incorrect": "സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കലിൽ നമ്മൾ സ്പേസ് നൽകിയില്ലെങ്കിൽ \"SuperHero\" എന്ന് നേരിട്ട് ഒട്ടിച്ചേരും."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "വാക്കുകൾക്കിടയിൽ സ്പേസ് വേണമെങ്കിൽ ഏത് രീതിയാണ് ശരി?",
+              "options": [
+                  "first + \" \" + second",
+                  "first + second",
+                  "first ++ second",
+                  "first space second"
+              ],
+              "correct_answer": "first + \" \" + second",
+              "explanation_correct": "ശരിയാണ്! നടുവിൽ ഒരു സ്പേസ് സ്ട്രിംഗ് (\" \") കൂട്ടിച്ചേർക്കണം.",
+              "explanation_incorrect": "വാക്കുകൾക്കിടയിൽ സ്പേസ് ലഭിക്കാൻ first + \" \" + second എന്ന് എഴുതണം."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "print(\"Level: \" + 5) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
+              "options": [
+                  "TypeError (ടെക്സ്റ്റും സംഖ്യയും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല)",
+                  "\"Level: 5\" പ്രിന്റ് ചെയ്യും",
+                  "\"Level: \" പ്രിന്റ് ചെയ്യും",
+                  "5 പ്രിന്റ് ചെയ്യും"
+              ],
+              "correct_answer": "TypeError (ടെക്സ്റ്റും സംഖ്യയും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല)",
+              "explanation_correct": "ശരിയാണ്! പൈത്തണിൽ സ്ട്രിംഗും ഇൻ്റിജറും നേരിട്ട് കൂട്ടാൻ കഴിയില്ല, str(5) ഉപയോഗിക്കണം.",
+              "explanation_incorrect": "സ്ട്രിംഗും നമ്പറും നേരിട്ട് കൂട്ടിച്ചേർക്കാൻ കഴിയില്ല; str(5) ഉപയോഗിക്കണം."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "സംഖ്യയെ സ്ട്രിംഗാക്കി മാറ്റാൻ ഏത് ഫംഗ്ഷനാണ് ഉപയോഗിക്കുന്നത്?",
+              "options": [
+                  "str()",
+                  "text()",
+                  "string()",
+                  "word()"
+              ],
+              "correct_answer": "str()",
+              "explanation_correct": "ശരിയാണ്! str() ഫംഗ്ഷൻ ഏത് ഡാറ്റയെയും സ്ട്രിംഗാക്കി മാറ്റുന്നു.",
+              "explanation_incorrect": "പൈത്തണിൽ str(5) ആണ് സംഖ്യയെ സ്ട്രിംഗാക്കി മാറ്റാൻ ഉപയോഗിക്കുന്നത്."
+          }
+      ]
+  },
+  "1_3_9": {
+      "title": "അൽഗോരിതം: എപിഐ യുആർഎൽ നിർമ്മാണം",
+      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം:</strong> വെബ് ആപ്പുകളിലും സെർച്ച് എഞ്ചിനുകളിലും സെർവർ റിക്വസ്റ്റ് URL നിർമ്മിക്കാൻ സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> <code>protocol</code>, <code>domain</code>, <code>endpoint</code>, <code>query</code> എന്നിവ ഉപയോഗിച്ച് <code>url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query</code> നിർമ്മിച്ച് പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "https://api.learner.dev/search?q=python"
+  },
+  "1_3_10": {
+      "title": "കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്",
+      "topic": "3.2 • സമഗ്ര ക്വിസ്",
+      "questions": [
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
+              "question": "print((20 - 4) * 2) ന്റെ ഫലം എന്താണ്?",
+              "code": "print((20 - 4) * 2)",
+              "options": [
+                  "32",
+                  "12",
+                  "24",
+                  "40"
+              ],
+              "correct_answer": "32",
+              "explanation_correct": "ശരിയാണ്! ബ്രാക്കറ്റ് ആദ്യം നടക്കുന്നു: (20 - 4) = 16, തുടർന്ന് 16 * 2 = 32.",
+              "explanation_incorrect": "ബ്രാക്കറ്റ് ആദ്യം: (20 - 4) = 16, ശേഷം 16 * 2 = 32."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
+              "question": "print(20 - 4 * 2) ന്റെ ഫലം എന്താണ്?",
+              "code": "print(20 - 4 * 2)",
+              "options": [
+                  "12",
+                  "32",
+                  "24",
+                  "16"
+              ],
+              "correct_answer": "12",
+              "explanation_correct": "ശരിയാണ്! ഗുണനം ആദ്യം നടക്കുന്നു: 4 * 2 = 8, ശേഷം 20 - 8 = 12.",
+              "explanation_incorrect": "ഗുണനം ആദ്യം: 4 * 2 = 8, ശേഷം 20 - 8 = 12."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
+              "question": "പൈത്തണിൽ / ചിഹ്നം ഉപയോഗിച്ച് ഹരിക്കുമ്പോൾ കിട്ടുന്ന ഡാറ്റാ ടൈപ്പ് ഏതാണ്?",
+              "code": "result = 15 / 3\nprint(result)",
+              "options": [
+                  "5.0 (ഫ്ലോട്ട് / Float)",
+                  "5 (ഇൻ്റിജർ)",
+                  "\"5\"",
+                  "Error"
+              ],
+              "correct_answer": "5.0 (ഫ്ലോട്ട് / Float)",
+              "explanation_correct": "ശരിയാണ്! പൈത്തണിൽ ഹരണ ഫലം എപ്പോഴും ഫ്ലോട്ട് (5.0) ആണ്.",
+              "explanation_incorrect": "ഹരണം എപ്പോഴും ഫ്ലോട്ട് (5.0) നൽകുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
+              "question": "print(\"5\" + \"5\") ഉം print(5 + 5) ഉം എന്ത് നൽകുന്നു?",
+              "options": [
+                  "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
+                  "രണ്ട് വരിയിലും 10",
+                  "രണ്ട് വരിയിലും 55",
+                  "ആദ്യ വരിയിൽ 10, രണ്ടാം വരിയിൽ 55"
+              ],
+              "correct_answer": "ആദ്യ വരിയിൽ 55, രണ്ടാം വരിയിൽ 10",
+              "explanation_correct": "ശരിയാണ്! സ്ട്രിംഗുകൾ ഒട്ടിച്ച് 55 ആവുകയും നമ്പറുകൾ കൂട്ടി 10 ആവുകയും ചെയ്യുന്നു.",
+              "explanation_incorrect": "\"5\" + \"5\" = 55, 5 + 5 = 10."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
+              "question": "(low + high) / 2 എന്നതിൽ ബ്രാക്കറ്റ് എന്തിനാണ് നിർബന്ധമാക്കുന്നത്?",
+              "options": [
+                  "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
+                  "പൈത്തൺ ബ്രാക്കറ്റില്ലാതെ പ്രവർത്തിക്കാത്തതിനാൽ",
+                  "ഫലം ഇൻ്റിജറാക്കാൻ",
+                  "വേരിയബിൾ മറയ്ക്കാൻ"
+              ],
+              "correct_answer": "ബ്രാക്കറ്റില്ലെങ്കിൽ ഹരണം ആദ്യം നടന്ന് high / 2 എന്ന് കണക്കാക്കും",
+              "explanation_correct": "ശരിയാണ്! ഹരണത്തിന് സങ്കലനത്തേക്കാൾ മുൻഗണനയുള്ളതിനാൽ high / 2 ആദ്യം നടക്കാതിരിക്കാൻ ബ്രാക്കറ്റ് നിർബന്ധമാണ്.",
+              "explanation_incorrect": "ഹരണത്തിന്റെ മുൻഗണന മറികടക്കാൻ ബ്രാക്കറ്റ് വേണം."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
+              "question": "user = \"Ada\" ഉം role = \"Admin\" ഉം ആയാൽ user + \" (\" + role + \")\" എന്ത് നൽകും?",
+              "code": "user = \"Ada\"\nrole = \"Admin\"\nprint(user + \" (\" + role + \")\")",
+              "options": [
+                  "Ada (Admin)",
+                  "Ada Admin",
+                  "Ada(Admin)",
+                  "Error"
+              ],
+              "correct_answer": "Ada (Admin)",
+              "explanation_correct": "ശരിയാണ്! എല്ലാ ഭാഗങ്ങളും സ്പേസും ബ്രാക്കറ്റും സഹിതം കൂട്ടിച്ചേർക്കപ്പെടുന്നു.",
+              "explanation_incorrect": "ശരിയായ ഫോർമാറ്റ് Ada (Admin) ആണ്."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
+              "question": "ഇനിപ്പറയുന്നവയിൽ ഏതാണ് സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കലിന് ഉദാഹരണം?",
+              "options": [
+                  "\"Hello\" + \" World\"",
+                  "50 + 20",
+                  "10 * 3",
+                  "\"50\" * 2"
+              ],
+              "correct_answer": "\"Hello\" + \" World\"",
+              "explanation_correct": "ശരിയാണ്! രണ്ട് സ്ട്രിംഗുകൾ + വഴി കൂട്ടിച്ചേർക്കുന്നതാണ് സ്ട്രിംഗ് കോൺകാറ്റനേഷൻ.",
+              "explanation_incorrect": "\"Hello\" + \" World\" ആണ് സ്ട്രിംഗ് കോൺകാറ്റനേഷൻ."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
+              "question": "score = 100 ആയാൽ \"Score: \" + str(score) നൽകുന്ന ഫലം എന്താണ്?",
+              "code": "score = 100\nprint(\"Score: \" + str(score))",
+              "options": [
+                  "Score: 100",
+                  "Score: 100.0",
+                  "TypeError",
+                  "100"
+              ],
+              "correct_answer": "Score: 100",
+              "explanation_correct": "ശരിയാണ്! str(score) വഴി 100 ടെക്സ്റ്റായി മാറുകയും സുരക്ഷിതമായി കൂട്ടിച്ചേർക്കപ്പെടുകയും ചെയ്യുന്നു.",
+              "explanation_incorrect": "\"Score: 100\" എന്നാണ് ശരിയായ ഫലം."
+          }
+      ]
+  },
+  "1_4_1": {
+      "title": "എന്താണ് വേരിയബിൾ?",
+      "subtitle": "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
+      "topic": "2.1 • എന്താണ് വേരിയബിൾ?",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.1 • വിവരങ്ങൾ സൂക്ഷിക്കൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      എന്താണ് ഒരു <hlt>വേരിയബിൾ</hlt>?\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      കമ്പ്യൂട്ടർ മെമ്മറിയിൽ വിവരങ്ങൾ ഒരു പേരിൽ സൂക്ഷിച്ചുവെക്കാനും പിന്നീട് ആവശ്യമുള്ളപ്പോൾ തിരിച്ചെടുക്കാനും വേരിയബിളുകൾ സഹായിക്കുന്നു.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      കമ്പ്യൂട്ടർ റാമിൽ വിവരങ്ങൾ താൽക്കാലികമായി സൂക്ഷിക്കുന്നതും print() കമാൻഡും മുൻ പാഠങ്ങളിൽ നാം കണ്ടു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=1&sub=3&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: കമ്പ്യൂട്ടർ മെമ്മറിയും റാമും (പാഠം 1.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • ലേബൽ ചെയ്ത പെട്ടി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പുറത്ത് പേരെഴുതിയ ഒരു പെട്ടി\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഒരു പെട്ടിയുടെ പുറത്ത് <hlt>age</hlt> എന്ന് ലേബൽ ഒട്ടിച്ച് അതിനുള്ളിൽ <hlt>25</hlt> എന്ന പേപ്പർ വെയ്ക്കുന്നത് സങ്കൽപ്പിക്കുക. പിന്നീട് ആ സംഖ്യ വേണമെങ്കിൽ <hlt>age</hlt> എന്ന പെട്ടി തുറന്നാൽ മതി.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># 'age' പെട്ടി തുറന്ന് 25 കാണിക്കുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ഇരട്ടപ്പേര്\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഒരു മൂല്യത്തിന് നൽകുന്ന വിളിപ്പേര്\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      നീണ്ട വിവരങ്ങൾ വീണ്ടും വീണ്ടും എഴുതുന്നതിന് പകരം ഒരു ചെല്ലപ്പേര് നൽകുന്നു. ഉദാഹരണത്തിന് <hlt>\"Kochi\"</hlt> എന്ന വിവരത്തിന് <hlt>city</hlt> എന്ന് പേര് നൽകൽ:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      city = <span style=\"color: #a5d6ff;\">\"Kochi\"</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(city)  <span style=\"color: #8b949e;\"># ഔട്ട്പുട്ട്: Kochi</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      നിയമങ്ങളും മുൻകരുതലുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>ഇടതും വലതും:</strong> പെട്ടിയുടെ പേര് എപ്പോഴും ഇടത്തും, അതിനുള്ളിലെ മൂല്യം വലത്തുമായിരിക്കണം: <hlt>age = 25</hlt>.</li>\n      <li><strong>കോട്ടുകൾ ശ്രദ്ധിക്കുക:</strong> <hlt>print(age)</hlt> പെട്ടിയിലെ 25 കാണിക്കും. എന്നാൽ <hlt>print(\"age\")</hlt> \"age\" എന്ന വാക്ക് പ്രിന്റ് ചെയ്യും.</li>\n      <li><strong>ഉണ്ടാക്കിയ ശേഷം ഉപയോഗിക്കുക:</strong> പെട്ടി നിർമ്മിക്കുന്നതിന് മുൻപ് print(age) എന്ന് വിളിച്ചാൽ പൈത്തൺ NameError നൽകും.</li>\n    </ul>\n  </div>\n</div>"
+  },
+  "1_4_2": {
+      "title": "വേരിയബിൾ അടിസ്ഥാന ക്വിസ്",
+      "topic": "2.1 • വേരിയബിൾ ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "Python-ൽ ശരിയായ രീതിയിൽ വേരിയബിൾ ഉണ്ടാക്കുന്നത് എങ്ങനെയാണ്?",
+              "options": [
+                  "age = 25",
+                  "25 = age",
+                  "variable age 25",
+                  "int age: 25"
+              ],
+              "correct_answer": "age = 25",
+              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം.",
+              "explanation_incorrect": "വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം (age = 25)."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "print(name) എന്നതും print(\"name\") എന്നതും തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?",
+              "options": [
+                  "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
+                  "രണ്ടും ഒരേ ഫലം നൽകുന്നു",
+                  "രണ്ടും 'name' എന്ന വാക്ക് കാണിക്കുന്നു",
+                  "print(name) എറർ നൽകുന്നു"
+              ],
+              "correct_answer": "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ വേരിയബിൾ പേര് നൽകുമ്പോൾ അതിനുള്ളിലെ ഡാറ്റ ലഭിക്കുന്നു.",
+              "explanation_incorrect": "കോട്ടുകളില്ലാതെ എഴുതുമ്പോൾ പെട്ടി തുറന്ന് അതിലെ വിവരവും, കോട്ടുകളോടെ എഴുതുമ്പോൾ ആ വാക്കും വരുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു വേരിയബിൾ നിർമ്മിക്കുന്നതിന് മുൻപ് print(score) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
+              "options": [
+                  "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
+                  "0 എന്ന് പ്രിന്റ് ചെയ്യും",
+                  "\"score\" എന്ന് പ്രിന്റ് ചെയ്യും",
+                  "None എന്ന് പ്രിന്റ് ചെയ്യും"
+              ],
+              "correct_answer": "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
+              "explanation_correct": "ശരിയാണ്! പെട്ടി ഉണ്ടാക്കുന്നതിന് മുൻപ് തുറക്കാൻ ശ്രമിച്ചാൽ NameError ലഭിക്കും.",
+              "explanation_incorrect": "നിലവിലില്ലാത്ത വേരിയബിൾ ഉപയോഗിക്കുമ്പോൾ NameError വരുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "വേരിയബിളിനെ എന്തുമായാണ് ഏറ്റവും നന്നായി ഉപമിക്കാൻ കഴിയുക?",
+              "options": [
+                  "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
+                  "കമ്പ്യൂട്ടറിന്റെ പവർ ബട്ടൺ",
+                  "ഒരു പ്രിന്റർ മെഷീൻ",
+                  "ഒരു കീബോർഡ് കീ"
+              ],
+              "correct_answer": "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
+              "explanation_correct": "ശരിയാണ്! ഒരു ലേബൽ ചെയ്ത പെട്ടി പോലെയാണ് വേരിയബിൾ.",
+              "explanation_incorrect": "വിവരങ്ങൾ പേരിട്ട് സൂക്ഷിക്കുന്ന പെട്ടിയാണ് വേരിയബിൾ."
+          }
+      ]
+  },
+  "1_4_3": {
+      "title": "വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്",
+      "description": "നിങ്ങളുടെ സ്വന്തം വേരിയബിളുകൾ നിർമ്മിച്ച് പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>name = \"Alice\"</code> എന്നും <code>age = 25</code> എന്നും നിർമ്മിച്ച് രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "Alice\n25"
+  },
+  "1_4_4": {
+      "title": "സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)",
+      "subtitle": "ഇൻ്റിജറുകളും സ്ട്രിംഗുകളും",
+      "topic": "2.2 • ഡാറ്റാ ടൈപ്പുകൾ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.2 • സംഖ്യകളും വാചകങ്ങളും\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      സംഖ്യകളും <hlt>വാചകങ്ങളും</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      സംഖ്യകളെയും (Numbers) വാചകങ്ങളെയും (Text) പൈത്തൺ വ്യത്യസ്തമായാണ് കൈകാര്യം ചെയ്യുന്നത്. കോട്ടുകൾ ഉണ്ടോ ഇല്ലയോ എന്നതാണ് ഡാറ്റാ ടൈപ്പ് നിശ്ചയിക്കുന്നത്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      രണ്ടാം അധ്യായത്തിൽ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ ഇരട്ട കോട്ടുകളിൽ പൊതിയണമെന്ന് നാം കണ്ടു.\n    </p>\n    <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_4_4\" class=\"ref-jump-btn\">റിവ്യൂ: print() ലെ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ (പാഠം 2.2) →</a>\n  </div>\n\n  <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 16px;\">\n    <div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഇൻ്റിജറുകൾ (സംഖ്യകൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകൾ ഇല്ല</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        കണക്കുകൂട്ടലുകൾക്കായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        score = <span style=\"color: #7ee787;\">100</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(5 + 5)  <span style=\"color: #8b949e;\"># ഫലം: 10</span>\n      </div>\n    </div>\n\n    <div style=\"background: #fbcfe8; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        സ്ട്രിംഗുകൾ (വാചകങ്ങൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകളിൽ പൊതിഞ്ഞത്</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        പേരുകൾക്കും വാക്കുകൾക്കുമായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        player = <span style=\"color: #a5d6ff;\">\"John\"</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #a5d6ff;\">\"5\"</span> + <span style=\"color: #a5d6ff;\">\"5\"</span>)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം • ഐഡി കാർഡും വില ടാഗും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 19px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      വില ടാഗുകളാണ് കൂട്ടിച്ചേർക്കുന്നത്, പേരുകളല്ല\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">\n      ഐഡി കാർഡിലെ പേര് ടെക്സ്റ്റ് ആണ്—രണ്ട് പേരുകൾ നാം തമ്മിൽ കൂട്ടില്ല. എന്നാൽ സാധനങ്ങളുടെ വില സംഖ്യയാണ്—അവ കൂട്ടിച്ചേർക്കാം.\n    </p>\n  </div>\n</div>"
+  },
+  "1_4_5": {
+      "title": "സംഖ്യകളും വാചകങ്ങളും ക്വിസ്",
+      "topic": "2.2 • ഡാറ്റാ ടൈപ്പ് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "ഇനിപ്പറയുന്നവയിൽ ഏതാണ് ഇൻ്റിജർ (പൂർണ്ണസംഖ്യ)?",
+              "options": [
+                  "100",
+                  "\"100\"",
+                  "'100'",
+                  "score_100"
+              ],
+              "correct_answer": "100",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ എഴുതുന്ന സംഖ്യയാണ് ഇൻ്റിജർ.",
+              "explanation_incorrect": "കോട്ടുകളില്ലാത്ത 100 ആണ് ഇൻ്റിജർ."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "print(10 + 20) ഉം print(\"10\" + \"20\") ഉം എന്ത് നൽകുന്നു?",
+              "options": [
+                  "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
+                  "രണ്ടും 30 നൽകുന്നു",
+                  "രണ്ടും 1020 നൽകുന്നു",
+                  "രണ്ടാമത്തേതിൽ എറർ വരുന്നു"
+              ],
+              "correct_answer": "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
+              "explanation_correct": "ശരിയാണ്! നമ്പറുകൾ കൂട്ടി 30 ആവുകയും സ്ട്രിംഗുകൾ ചേർത്ത് 1020 ആവുകയും ചെയ്യുന്നു.",
+              "explanation_incorrect": "10 + 20 = 30, \"10\" + \"20\" = \"1020\"."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു ഫോൺ നമ്പർ പൈത്തണിൽ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നത് എന്തുകൊണ്ട്?",
+              "options": [
+                  "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
+                  "പൈത്തണിന് വലിയ സംഖ്യകൾ സൂക്ഷിക്കാൻ കഴിയില്ല",
+                  "ഫോൺ നമ്പറുകൾക്ക് വിലയില്ലാത്തതിനാൽ",
+                  "എറർ ഒഴിവാക്കാൻ"
+              ],
+              "correct_answer": "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
+              "explanation_correct": "ശരിയാണ്! ഗണിതക്രിയകൾ ചെയ്യാത്ത ഐഡന്റിഫയറുകൾ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നു.",
+              "explanation_incorrect": "ഗണിതക്രിയകൾ വേണ്ടാത്തതിനാലാണ് ഫോൺ നമ്പർ സ്ട്രിംഗാക്കുന്നത്."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "age = \"25\" എന്ന് എഴുതിയാൽ അത് എന്ത് ഡാറ്റാ ടൈപ്പാണ്?",
+              "options": [
+                  "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
+                  "ഇൻ്റിജർ (Integer - സംഖ്യ)",
+                  "ഫ്ലോട്ട് (Float)",
+                  "ബൂളിയൻ (Boolean)"
+              ],
+              "correct_answer": "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളതിനാൽ ഇത് സ്ട്രിംഗ് ആണ്.",
+              "explanation_incorrect": "കോട്ടുകൾ നൽകിയാൽ അത് സ്ട്രിംഗ് ആയി മാറും."
+          }
+      ]
+  },
+  "1_4_6": {
+      "title": "മെമ്മറിയും ടൈപ്പുകളും കോഡ്",
+      "description": "സംഖ്യയും ടെക്സ്റ്റും വേരിയബിളുകളാക്കി മാറ്റി പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>score = 100</code> (ഇൻ്റിജർ) എന്നും <code>player = \"John\"</code> (സ്ട്രിംഗ്) എന്നും നൽകി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "100\nJohn"
+  },
+  "1_4_7": {
+      "title": "പെട്ടിയിലെ മൂല്യം മാറ്റൽ",
+      "subtitle": "വേരിയബിളുകൾ റീഅസൈൻ ചെയ്യൽ",
+      "topic": "2.3 • മൂല്യം മാറ്റൽ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.3 • മൂല്യം മാറ്റൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ മൂല്യം <hlt>മാറ്റാം</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      വേരിയബിളുകൾ സ്ഥിരമല്ല. പെട്ടിയിലെ പഴയ സാധനം മാറ്റി പുതിയത് വെയ്ക്കുന്നത് പോലെ എപ്പോൾ വേണമെങ്കിലും അവയിലെ മൂല്യം മാറ്റാം (Reassignment).\n    </p>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • സാധനം മാറ്റിവെയ്ക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ലേബൽ നിലനിൽക്കുന്നു, ഉള്ളിലെ മൂല്യം മാറുന്നു\n    </h2>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 25</span><br/><br/>\n      age = <span style=\"color: #7ee787;\">30</span>     <span style=\"color: #8b949e;\"># പഴയ 25 മാറ്റി പുതിയ 30 വെയ്ക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 30</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • വൈറ്റ്ബോർഡ് അനലോഗി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      മായ്ച്ചു കളഞ്ഞ് പുതിയത് എഴുതുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      വേരിയബിൾ എന്നത് വൈറ്റ്ബോർഡിൽ എഴുതിയത് പോലെയാണ്—പഴയത് മായ്ച്ച് പുതിയത് എഴുതാം.\n    </p>\n  </div>\n</div>"
+  },
+  "1_4_8": {
+      "title": "മൂല്യം മാറ്റൽ ക്വിസ്",
+      "topic": "2.3 • റീഅസൈൻമെന്റ് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "ഇനിപ്പറയുന്ന കോഡ് എന്ത് പ്രിന്റ് ചെയ്യും?",
+              "code": "x = 5\nx = 10\nprint(x)",
+              "options": [
+                  "10",
+                  "5",
+                  "5 10",
+                  "15"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! ഏറ്റവും ഒടുവിൽ മാറ്റിയെഴുതിയ മൂല്യമായ 10 ആണ് പെട്ടിയിലുള്ളത്.",
+              "explanation_incorrect": "x ന്റെ മൂല്യം 10 ആയി അപ്ഡേറ്റ് ചെയ്യപ്പെട്ടു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "ഇനിപ്പറയുന്ന കോഡിന്റെ ഔട്ട്പുട്ട് എന്താണ്?",
+              "code": "score = 0\nprint(score)\nscore = 50\nprint(score)",
+              "options": [
+                  "ആദ്യം 0, പിന്നീട് 50",
+                  "രണ്ട് തവണയും 50",
+                  "രണ്ട് തവണയും 0",
+                  "50 മാത്രം"
+              ],
+              "correct_answer": "ആദ്യം 0, പിന്നീട് 50",
+              "explanation_correct": "ശരിയാണ്! ഓരോ വരിയും ക്രമമായി പ്രവർത്തിക്കുന്നു.",
+              "explanation_incorrect": "ആദ്യം 0 പ്രിന്റ് ചെയ്യുകയും, പിന്നീട് മാറ്റിയ ശേഷം 50 പ്രിന്റ് ചെയ്യുകയും ചെയ്യുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു വേരിയബിളിൽ ഒരേസമയം എത്ര മൂല്യങ്ങൾ സൂക്ഷിക്കാം?",
+              "options": [
+                  "ഒരു മൂല്യം മാത്രം",
+                  "രണ്ട് മൂല്യങ്ങൾ",
+                  "പഴയതും പുതിയതും ഒരുമിച്ച്",
+                  "അൺലിമിറ്റഡ്"
+              ],
+              "correct_answer": "ഒരു മൂല്യം മാത്രം",
+              "explanation_correct": "ശരിയാണ്! ഒരു പെട്ടിയിൽ ഒരേസമയം ഒരു സാധനം മാത്രമേ ഇരിക്കൂ.",
+              "explanation_incorrect": "ഒരു വേരിയബിളിന് ഒരു സമയം ഒരു മൂല്യം മാത്രമേ ഉണ്ടാകൂ."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "x = 10; y = x; x = 20 ആയാൽ y ന്റെ മൂല്യം എന്താണ്?",
+              "code": "x = 10\ny = x\nx = 20\nprint(y)",
+              "options": [
+                  "10",
+                  "20",
+                  "30",
+                  "Error"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! y = x നടക്കുമ്പോൾ x ൽ 10 ആയിരുന്നു, പിന്നീട് x മാറിയാലും y മാറില്ല.",
+              "explanation_incorrect": "y = x നൽകിയപ്പോൾ y ലേക്ക് 10 കോപ്പി ചെയ്യപ്പെട്ടു (10)."
+          }
+      ]
+  },
+  "1_4_9": {
+      "title": "വേരിയബിളുകൾ പുതുക്കൽ കോഡ്",
+      "description": "ആദ്യം <code>score = 0</code> എന്ന് നൽകി പ്രിന്റ് ചെയ്യുക. ശേഷം <code>score = 50</code> എന്ന് അപ്ഡേറ്റ് ചെയ്ത് വീണ്ടും പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> പെട്ടിയിലെ മൂല്യം മാറ്റി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "0\n50"
+  },
+  "1_4_10": {
+      "title": "വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്",
+      "topic": "2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്",
+      "questions": [
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
+              "question": "പൈത്തണിൽ വേരിയബിൾ ഉണ്ടാക്കുമ്പോൾ എന്ത് ചിഹ്നമാണ് ഉപയോഗിക്കുന്നത്?",
+              "options": [
+                  "= (അസൈൻമെന്റ്)",
+                  "==",
+                  ":",
+                  "->"
+              ],
+              "correct_answer": "= (അസൈൻമെന്റ്)",
+              "explanation_correct": "ശരിയാണ്! = ചിഹ്നം ഉപയോഗിച്ചാണ് വേരിയബിളിലേക്ക് മൂല്യം നൽകുന്നത്.",
+              "explanation_incorrect": "വേരിയബിളിലേക്ക് മൂല്യം നൽകാൻ = ഉപയോഗിക്കുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
+              "question": "name = \"Alice\" എന്നതിൽ \"Alice\" എന്ത് ടൈപ്പാണ്?",
+              "options": [
+                  "സ്ട്രിംഗ് (String)",
+                  "ഇൻ്റിജർ (Integer)",
+                  "ഫ്ലോട്ട് (Float)",
+                  "ലിസ്റ്റ് (List)"
+              ],
+              "correct_answer": "സ്ട്രിംഗ് (String)",
+              "explanation_correct": "ശരിയാണ്! ഇരട്ട കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്.",
+              "explanation_incorrect": "കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
+              "question": "count = 10 ൽ count ന്റെ മൂല്യം 15 ആക്കി മാറ്റാൻ എന്ത് ചെയ്യണം?",
+              "options": [
+                  "count = 15",
+                  "15 = count",
+                  "update count 15",
+                  "count + 15"
+              ],
+              "correct_answer": "count = 15",
+              "explanation_correct": "ശരിയാണ്! count = 15 എന്ന് വീണ്ടും അസൈൻ ചെയ്യുക.",
+              "explanation_incorrect": "count = 15 എന്ന് പുതിയ മൂല്യം നൽകുക."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
+              "question": "ഇനിപ്പറയുന്നവയിൽ തെറ്റായ അസൈൻമെന്റ് ഏതാണ്?",
+              "options": [
+                  "25 = age",
+                  "age = 25",
+                  "name = \"John\"",
+                  "total = 0"
+              ],
+              "correct_answer": "25 = age",
+              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് ഇടത്തും സംഖ്യ വലത്തുമായിരിക്കണം.",
+              "explanation_incorrect": "25 = age തെറ്റാണ്; age = 25 എന്നാണ് വേണ്ടത്."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
+              "question": "print(\"age\") ഉം print(age) ഉം എങ്ങനെ വ്യത്യാസപ്പെടുന്നു?",
+              "options": [
+                  "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
+                  "രണ്ടും ഒരേ സംഖ്യ നൽകുന്നു",
+                  "രണ്ടും 'age' എന്ന് നൽകുന്നു",
+                  "എറർ നൽകുന്നു"
+              ],
+              "correct_answer": "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളത് വാക്കായും, ഇല്ലാത്തത് വേരിയബിളായും പ്രവർത്തിക്കുന്നു.",
+              "explanation_incorrect": "\"age\" വാക്ക് പ്രിന്റ് ചെയ്യുമ്പോൾ age വേരിയബിളിലെ ഡാറ്റ നൽകുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
+              "question": "a = 5; b = 10; a = b; print(a) ന്റെ ഫലം എന്താണ്?",
+              "code": "a = 5\nb = 10\na = b\nprint(a)",
+              "options": [
+                  "10",
+                  "5",
+                  "15",
+                  "b"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! a = b ആയപ്പോൾ a യിലേക്ക് 10 എത്തി.",
+              "explanation_incorrect": "a യിലേക്ക് b യിലെ മൂല്യമായ 10 ലഭിച്ചു (10)."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
+              "question": "ഒരു വേരിയബിൾ ഉണ്ടാക്കാതെ ഉപയോഗിച്ചാൽ എന്ത് എറർ വരും?",
+              "options": [
+                  "NameError",
+                  "TypeError",
+                  "SyntaxError",
+                  "ValueError"
+              ],
+              "correct_answer": "NameError",
+              "explanation_correct": "ശരിയാണ്! നിർവചിക്കാത്ത പേര് വിളിക്കുമ്പോൾ NameError വരുന്നു.",
+              "explanation_incorrect": "വേരിയബിൾ ഇല്ലാത്തപ്പോൾ NameError ലഭിക്കുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
+              "question": "ഗണിതക്രിയകൾ ചെയ്യാൻ സംഖ്യകൾ എങ്ങനെ എഴുതണം?",
+              "options": [
+                  "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
+                  "ഇരട്ട കോട്ടുകളിൽ (\"50\")",
+                  "ഒറ്റ കോട്ടിൽ ('50')",
+                  "ബ്രാക്കറ്റിൽ (\"(50)\")"
+              ],
+              "correct_answer": "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
+              "explanation_correct": "ശരിയാണ്! ഇൻ്റിജറുകൾ കോട്ടുകളില്ലാതെ എഴുതുമ്പോഴാണ് കണക്കുകൂട്ടാൻ കഴിയുന്നത്.",
+              "explanation_incorrect": "കണക്കുകൂട്ടാൻ കോട്ടുകളില്ലാതെ എഴുതണം (50)."
+          }
+      ]
+  },
 };
 
 export const MALAYALAM_OVERVIEWS = {
@@ -1547,5 +2217,3 @@ export const MALAYALAM_CONCEPTS = {
     ]
   }
 };
-
-
