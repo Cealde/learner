@@ -20,9 +20,7 @@ export const sylPy = [
 
 export const LANGUAGES = [
   { code: 'en', name: 'English (US)', flag: '🇺🇸' },
-  { code: 'ml', name: 'മലയാളം (Malayalam)', flag: '🇮🇳' },
-  { code: 'es', name: 'Español (ES)', flag: '🇪🇸' },
-  { code: 'ja', name: '日本語 (JA)', flag: '🇯🇵' }
+  { code: 'ml', name: 'മലയാളം (Malayalam)', flag: '🇮🇳' }
 ];
 
 let currentLang = (typeof window !== 'undefined' && localStorage.getItem('learner_preferred_lang')) || 'en';
