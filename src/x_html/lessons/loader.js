@@ -1851,6 +1851,18 @@ function setupMultiQuestionQuiz(data) {
     }
   }
 
+  // Previous Question Button handler
+  if (prevQBtn) {
+    prevQBtn.onclick = () => {
+      if (currentQuestionIdx > 0) {
+        currentQuestionIdx--;
+        quizState.currentQuestionIdx = currentQuestionIdx;
+        saveQuizState(spcl, lsn, sub, quizState);
+        renderQuestion(currentQuestionIdx);
+      }
+    };
+  }
+
   // Next Question Button handler
   if (nextQBtn) {
     nextQBtn.onclick = () => {
