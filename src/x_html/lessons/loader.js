@@ -2,6 +2,12 @@
 // DYNAMIC SYLLABUS ROUTER & JSON DATA LOADER (loader.js)
 // ============================================================
 
+import {
+  MALAYALAM_UI,
+  MALAYALAM_MODULE_NAMES,
+  MALAYALAM_LESSON_DATA
+} from './malayalam_translations.js';
+
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
 export const sylPy = [
   [1, 4, 2, 3, 4], // Lesson 1 Sequence (0.1 Intro -> 0.1 Quiz -> 0.2 Code Task -> 0.3 Running Code -> 0.3 Debugging Quiz)
@@ -12,11 +18,12 @@ export const sylPy = [
 
 export const LANGUAGES = [
   { code: 'en', name: 'English (US)', flag: '🇺🇸' },
+  { code: 'ml', name: 'മലയാളം (Malayalam)', flag: '🇮🇳' },
   { code: 'es', name: 'Español (ES)', flag: '🇪🇸' },
   { code: 'ja', name: '日本語 (JA)', flag: '🇯🇵' }
 ];
 
-let currentLang = 'en';
+let currentLang = (typeof window !== 'undefined' && localStorage.getItem('learner_preferred_lang')) || 'en';
 
 export function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
@@ -67,8 +74,10 @@ export function initLanguageDropup() {
         e.stopPropagation();
         const code = item.getAttribute('data-code');
         currentLang = code;
+        localStorage.setItem('learner_preferred_lang', currentLang);
         menu.classList.remove('open');
         initLanguageDropup();
+        initLessonPage().catch(err => console.error(err));
       });
     });
   }
@@ -797,27 +806,35 @@ export function initSidebarNavigation(currentType) {
   if (navContainer) {
     navContainer.innerHTML = '';
 
-    const baseModuleNames = [
-      '0.1 • The Dumb Machine',
-      '0.1 • Fundamentals Quiz',
-      '0.2 • Python Coding Task',
-      '0.3 • Running Code',
-      '0.3 • Debugging Quiz'
-    ];
+    const baseModuleNames = currentLang === 'ml'
+      ? MALAYALAM_MODULE_NAMES
+      : [
+          '0.1 • The Dumb Machine',
+          '0.1 • Fundamentals Quiz',
+          '0.2 • Python Coding Task',
+          '0.3 • Running Code',
+          '0.3 • Debugging Quiz'
+        ];
 
     sequence.forEach((typeId, index) => {
       const stepNum = index + 1;
       const isCurrent = stepNum === sub;
       let title = '';
       if (index < baseSequence.length) {
-        title = baseModuleNames[index] || `Module ${stepNum}`;
+        title = baseModuleNames[index] || (currentLang === 'ml' ? `പാഠഭാഗം ${stepNum}` : `Module ${stepNum}`);
       } else {
         const adaptiveOffset = index - baseSequence.length;
         const roundNum = Math.floor(adaptiveOffset / 2) + 1;
         const isQuiz = adaptiveOffset % 2 === 1;
-        title = isQuiz 
-          ? `AI Reinforcement Quiz ${roundNum > 1 ? `(Round ${roundNum})` : ''}`.trim()
-          : `AI Breakdown ${roundNum > 1 ? `(Round ${roundNum})` : ''}`.trim();
+        if (currentLang === 'ml') {
+          title = isQuiz 
+            ? `AI പുനർപഠന ക്വിസ് ${roundNum > 1 ? `(റൗണ്ട് ${roundNum})` : ''}`.trim()
+            : `AI വിശദീകരണം ${roundNum > 1 ? `(റൗണ്ട് ${roundNum})` : ''}`.trim();
+        } else {
+          title = isQuiz 
+            ? `AI Reinforcement Quiz ${roundNum > 1 ? `(Round ${roundNum})` : ''}`.trim()
+            : `AI Breakdown ${roundNum > 1 ? `(Round ${roundNum})` : ''}`.trim();
+        }
       }
 
       const targetHtml = `${typeId}.html`;
@@ -856,13 +873,17 @@ export function initSidebarNavigation(currentType) {
   const percent = Math.round((sub / totalSteps) * 100);
   const headerProgressLabel = document.getElementById('header-progress-label');
   const headerProgressBar = document.getElementById('header-progress-bar');
-  if (headerProgressLabel) headerProgressLabel.textContent = `Progress ${percent}%`;
+  if (headerProgressLabel) {
+    headerProgressLabel.textContent = currentLang === 'ml' ? `പുരോഗതി ${percent}%` : `Progress ${percent}%`;
+  }
   if (headerProgressBar) headerProgressBar.style.width = `${percent}%`;
 
   // Update Footer Info
   const footerLessonInfo = document.getElementById('footer-lesson-info');
   if (footerLessonInfo) {
-    footerLessonInfo.textContent = `Lesson ${lsn}.${sub}: Page ${sub} of ${totalSteps}`;
+    footerLessonInfo.textContent = currentLang === 'ml' 
+      ? `പാഠം ${lsn}.${sub}: പേജ് ${sub} / ${totalSteps}`
+      : `Lesson ${lsn}.${sub}: Page ${sub} of ${totalSteps}`;
   }
 
   // Setup Next Page Button
@@ -906,6 +927,95 @@ export function initSidebarNavigation(currentType) {
   }
 
   initLanguageDropup();
+  applyLanguageUI();
+}
+
+export function applyLanguageUI() {
+  if (currentLang === 'ml') {
+    const sidebarTitle = document.querySelector('.sidebar-title');
+    if (sidebarTitle) sidebarTitle.textContent = MALAYALAM_UI.sidebarTitle;
+
+    const twinBadge = document.querySelector('.twin-badge');
+    if (twinBadge) twinBadge.textContent = MALAYALAM_UI.twinBadge;
+
+    const backBtn = document.querySelector('.back-journey-btn');
+    if (backBtn) backBtn.textContent = MALAYALAM_UI.backJourney;
+
+    const exitBtn = document.querySelector('.exit-btn');
+    if (exitBtn) exitBtn.textContent = MALAYALAM_UI.exitLesson;
+
+    const prevBtn = document.querySelector('.nav-prev-btn');
+    if (prevBtn) prevBtn.textContent = MALAYALAM_UI.prevPage;
+
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.textContent = MALAYALAM_UI.nextPage;
+
+    const btnRun = document.getElementById('btn-run');
+    if (btnRun) btnRun.innerHTML = MALAYALAM_UI.run;
+
+    const btnDebug = document.getElementById('btn-debug');
+    if (btnDebug) btnDebug.innerHTML = MALAYALAM_UI.debug;
+
+    const btnStep = document.getElementById('btn-step');
+    if (btnStep) btnStep.innerHTML = MALAYALAM_UI.step;
+
+    const btnContinue = document.getElementById('btn-continue');
+    if (btnContinue) btnContinue.innerHTML = MALAYALAM_UI.continue;
+
+    const btnReset = document.getElementById('btn-reset');
+    if (btnReset) btnReset.innerHTML = MALAYALAM_UI.reset;
+
+    const btnClear = document.getElementById('btn-clear-output');
+    if (btnClear) btnClear.textContent = MALAYALAM_UI.clear;
+
+    const taskBadge = document.querySelector('.task-badge');
+    if (taskBadge) taskBadge.textContent = MALAYALAM_UI.taskBadge;
+
+    const targetHeader = document.querySelector('.intended-output-header span');
+    if (targetHeader) targetHeader.textContent = MALAYALAM_UI.targetOutputHeader;
+  } else {
+    const sidebarTitle = document.querySelector('.sidebar-title');
+    if (sidebarTitle) sidebarTitle.textContent = 'LESSON MODULES';
+
+    const twinBadge = document.querySelector('.twin-badge');
+    if (twinBadge) twinBadge.textContent = 'LESSON TWIN';
+
+    const backBtn = document.querySelector('.back-journey-btn');
+    if (backBtn) backBtn.textContent = '← Learning Journey';
+
+    const exitBtn = document.querySelector('.exit-btn');
+    if (exitBtn) exitBtn.textContent = 'Exit Lesson';
+
+    const prevBtn = document.querySelector('.nav-prev-btn');
+    if (prevBtn) prevBtn.textContent = '← Previous Page';
+
+    const nextBtn = document.getElementById('next-btn');
+    if (nextBtn) nextBtn.textContent = 'Next Page →';
+
+    const btnRun = document.getElementById('btn-run');
+    if (btnRun) btnRun.innerHTML = '▶ Run';
+
+    const btnDebug = document.getElementById('btn-debug');
+    if (btnDebug) btnDebug.innerHTML = '🔍 Debug';
+
+    const btnStep = document.getElementById('btn-step');
+    if (btnStep) btnStep.innerHTML = '⏭ Step';
+
+    const btnContinue = document.getElementById('btn-continue');
+    if (btnContinue) btnContinue.innerHTML = '⏩ Continue';
+
+    const btnReset = document.getElementById('btn-reset');
+    if (btnReset) btnReset.innerHTML = '↺ Reset';
+
+    const btnClear = document.getElementById('btn-clear-output');
+    if (btnClear) btnClear.textContent = 'Clear';
+
+    const taskBadge = document.querySelector('.task-badge');
+    if (taskBadge) taskBadge.textContent = 'TASK OBJECTIVE';
+
+    const targetHeader = document.querySelector('.intended-output-header span');
+    if (targetHeader) targetHeader.textContent = 'TARGET OUTPUT';
+  }
 }
 
 export async function fetchLessonJson() {
@@ -915,6 +1025,11 @@ export async function fetchLessonJson() {
 
   if (adaptiveData) {
     return adaptiveData;
+  }
+
+  const key = `${spcl}_${lsn}_${sub}`;
+  if (currentLang === 'ml' && MALAYALAM_LESSON_DATA[key]) {
+    return JSON.parse(JSON.stringify(MALAYALAM_LESSON_DATA[key]));
   }
 
   const filePath = `lesson_data/${spcl}_${lsn}_${sub}.json`;
@@ -978,7 +1093,9 @@ async function initLessonPage() {
         nextBtn.disabled = true;
         nextBtn.style.opacity = '0.5';
         nextBtn.style.cursor = 'not-allowed';
-        nextBtn.title = 'Run your code and match the target output to unlock';
+        nextBtn.title = currentLang === 'ml' 
+          ? 'കോഡ് പ്രവർത്തിപ്പിച്ച് ലക്ഷ്യമിട്ട ഫലം വരുമ്പോൾ ഇത് അൺലോക്കാകും' 
+          : 'Run your code and match the target output to unlock';
       }
     }
 

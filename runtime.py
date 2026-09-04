@@ -94,3 +94,17 @@ Curriculum: {get_topic_context(topic_id)}
 Answer the exact doubt, adapt to learner level, and stay within the curriculum.'''
     r = get_client().models.generate_content(model=MODEL_NAME, contents=prompt)
     return {'topic_id':topic_id,'concept':concept,'language':language,'response':r.text.strip()}
+
+def translate_to_malayalam(text_content):
+    """Translate educational text, HTML or JSON to Malayalam while keeping Python terms and code in English."""
+    prompt = f'''You are an expert bilingual programming educator.
+Translate the following introductory programming lesson text into clear, natural Malayalam.
+Keep all Python keywords, code snippets, variables, functions, and HTML formatting tags unchanged in English.
+Translate explanations, headings, questions, and descriptions into easy-to-understand Malayalam.
+
+Content:
+{text_content}
+
+Return only the translated content.'''
+    r = get_client().models.generate_content(model=MODEL_NAME, contents=prompt)
+    return r.text.strip()
