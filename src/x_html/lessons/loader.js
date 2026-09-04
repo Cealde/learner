@@ -604,7 +604,7 @@ export function analyzeMistakeConcepts(mistakes) {
       reinforceQuestions: [
         {
           question: 'What is the purpose of placing a breakpoint during debugging?',
-          code: "score = 100\n# [Breakpoint placed here]\nprint(score)",
+          code: "score = 100\n# [Breakpoint placed on line 2]\ntotal = score + 50",
           options: [
             {
               prefix: "A",
@@ -632,7 +632,7 @@ export function analyzeMistakeConcepts(mistakes) {
         },
         {
           question: 'Why is stepping through code line-by-line with a debugger better than guessing bug locations?',
-          code: "for item in cart:\n    total += item.price\n# Step line-by-line",
+          code: "a = 5\nb = 10\nc = a + b\n# Step line-by-line",
           options: [
             {
               prefix: "A",

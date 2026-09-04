@@ -5,7 +5,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 1 OF 5",
       "question": "What happens when you click the \"Run\" button in your code editor?",
-      "code": "# Press Run\nprint(\"Welcome to Python!\")",
+      "code": "# Press Run\ngreeting = \"Welcome to Python\"",
       "options": [
         {
           "prefix": "A",
@@ -34,7 +34,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 2 OF 5",
       "question": "What happens when you click on a line number in the gutter to add a Breakpoint (●)?",
-      "code": "● 1 | name = \"Alex\"\n  2 | print(\"Hello\", name)",
+      "code": "● 1 | name = \"Alex\"\n  2 | score = 100",
       "options": [
         {
           "prefix": "A",
@@ -62,7 +62,7 @@
     },
     {
       "badge": "MODULE QUIZ • QUESTION 3 OF 5",
-      "question": "How does the \"Step\" () button work during debugging?",
+      "question": "How does the \"Step\" button work during debugging?",
       "code": "step_1 = \"Setup\"\nstep_2 = \"Process\"\nstep_3 = \"Display\"",
       "options": [
         {
@@ -121,11 +121,11 @@
     {
       "badge": "MODULE QUIZ • QUESTION 5 OF 5",
       "question": "What is the primary function of the Output Console Terminal?",
-      "code": "print(\"Mission Complete!\")",
+      "code": "status = \"Program finished\"",
       "options": [
         {
           "prefix": "A",
-          "text": "To display text output printed by print() and show runtime messages or errors.",
+          "text": "To display program results, execution logs, and runtime messages or errors.",
           "correct": true
         },
         {
@@ -144,8 +144,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>MODULE COMPLETE!</strong><br/>The output console is the screen where your program's text results, greetings, numbers, and error messages appear!",
-      "explanation_incorrect": "<strong>Almost!</strong><br/>The Output Console shows what your code prints out (using print()) and reports system messages or error traces."
+      "explanation_correct": "<strong>MODULE COMPLETE!</strong><br/>The output console is the screen where your program results, status logs, and error messages appear!",
+      "explanation_incorrect": "<strong>Almost!</strong><br/>The Output Console shows program results, execution logs, and system error messages."
     }
   ]
 }

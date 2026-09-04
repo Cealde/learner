@@ -5,7 +5,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 1 OF 8",
       "question": "What happens when you press Run on a program?",
-      "code": "print(\"Hello!\")\n# Press Run to execute the program.",
+      "code": "score = 100\n# Press Run to execute the program instructions.",
       "options": [
         {
           "prefix": "A",
@@ -63,11 +63,11 @@
     {
       "badge": "MODULE QUIZ • QUESTION 3 OF 8",
       "question": "In this code, what does the variable score represent while the program is running?",
-      "code": "score = 100\nprint(score)",
+      "code": "score = 100\nbonus = 20",
       "options": [
         {
           "prefix": "A",
-          "text": "A name used to refer to the value 100.",
+          "text": "A name used to refer to the value 100 in memory.",
           "correct": true
         },
         {
@@ -121,7 +121,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 5 OF 8",
       "question": "What is debugging?",
-      "code": "# Find out why the result is wrong\nprint(\"Investigate!\")",
+      "code": "target = 100\nactual = 80\n# Find out why actual differs from target",
       "options": [
         {
           "prefix": "A",
@@ -150,7 +150,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 6 OF 8",
       "question": "What does a breakpoint do?",
-      "code": "score = 100\nname = \"Alex\"\nprint(score)\n# Imagine placing a breakpoint on print(score)",
+      "code": "score = 100\nname = \"Alex\"\ntotal = score + 50\n# Imagine placing a breakpoint on line 3",
       "options": [
         {
           "prefix": "A",
@@ -179,7 +179,7 @@
     {
       "badge": "MODULE QUIZ • QUESTION 7 OF 8",
       "question": "Why would you step through a program while debugging?",
-      "code": "a = 5\nb = 10\nc = a + b\nprint(c)\n# Step through these lines one at a time.",
+      "code": "a = 5\nb = 10\nc = a + b\n# Step through these lines one at a time.",
       "options": [
         {
           "prefix": "A",
