@@ -249,42 +249,104 @@ function createSwirlParticles(count = 60, radius = 1.6, height = 3.0, color = '#
     return points;
 }
 
-// 6. Point Billboard Sprite Generator
-function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
+// 6. Point Billboard Sprite Generator (Neo-Brutalist Chapter Boxes)
+function createPointLabelSprite(text, iconSvgPath, status = 1, pageNo = 1) {
     const canvas = document.createElement('canvas');
-    canvas.width = 440;
-    canvas.height = 120;
+    canvas.width = 640;
+    canvas.height = 170;
     const ctx = canvas.getContext('2d');
+    let loadedImg = null;
 
     function redraw(img) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Pill badge background
-        ctx.fillStyle = 'rgba(10, 16, 31, 0.9)';
-        ctx.strokeStyle = colorHex;
-        ctx.lineWidth = 4;
+        // 1. Hard Black Offset Drop Shadow (Neo-Brutalism)
+        ctx.fillStyle = '#111111';
         ctx.beginPath();
-        ctx.roundRect(8, 8, 424, 104, 24);
+        ctx.roundRect(18, 18, 608, 138, 8);
         ctx.fill();
+
+        // 2. Main Box Background (Crisp White Card)
+        ctx.fillStyle = (status === 0 ? '#F8FAFC' : '#FFFFFF');
+        ctx.beginPath();
+        ctx.roundRect(10, 10, 608, 138, 8);
+        ctx.fill();
+
+        // 3. Thick Black Outline
+        ctx.strokeStyle = '#111111';
+        ctx.lineWidth = 5;
         ctx.stroke();
 
-        // Icon badge background circle
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.15)';
-        ctx.beginPath();
-        ctx.arc(58, 60, 36, 0, Math.PI * 2);
-        ctx.fill();
+        // 4. Square Icon Container Box
+        let iconBg = '#FFD43B'; // Neo-yellow
+        if (status === 1) iconBg = '#7CFF6B'; // Neo-green (Active)
+        else if (status === 0) iconBg = '#E2E8F0'; // Muted (Locked)
 
-        // Draw SVG Icon
+        ctx.fillStyle = iconBg;
+        ctx.beginPath();
+        ctx.roundRect(24, 24, 110, 110, 6);
+        ctx.fill();
+        ctx.strokeStyle = '#111111';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // 5. Draw Icon inside container (larger, crisp)
         if (img && img.complete) {
-            ctx.drawImage(img, 32, 34, 52, 52);
+            ctx.drawImage(img, 36, 36, 86, 86);
         }
 
-        // Draw Point Label text
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 32px sans-serif';
+        // 6. Top Chapter/Status Badge (Larger and easier to read)
+        let badgeText = `CH ${pageNo} • ACTIVE`;
+        let badgeBg = '#7CFF6B';
+        let badgeColor = '#111111';
+
+        if (status === 2) {
+            badgeText = `CH ${pageNo} • COMPLETED`;
+            badgeBg = '#FFD43B';
+            badgeColor = '#111111';
+        } else if (status === 0) {
+            badgeText = `CH ${pageNo} • LOCKED`;
+            badgeBg = '#CBD5E1';
+            badgeColor = '#475569';
+        }
+
+        ctx.font = 'bold 18px "Title", "Manrope", sans-serif';
+        const badgeW = ctx.measureText(badgeText).width + 24;
+        const badgeH = 30;
+
+        // Badge shadow
+        ctx.fillStyle = '#111111';
+        ctx.beginPath();
+        ctx.roundRect(153, 27, badgeW, badgeH, 4);
+        ctx.fill();
+
+        // Badge box
+        ctx.fillStyle = badgeBg;
+        ctx.beginPath();
+        ctx.roundRect(150, 24, badgeW, badgeH, 4);
+        ctx.fill();
+        ctx.strokeStyle = '#111111';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Badge text
+        ctx.fillStyle = badgeColor;
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.fillText(text, 110, 60);
+        ctx.fillText(badgeText, 162, 39);
+
+        // 7. Chapter Title Text (Much larger and high contrast)
+        ctx.fillStyle = (status === 0 ? '#64748B' : '#111111');
+        let titleFontSize = 34;
+        ctx.font = `900 ${titleFontSize}px "Title", "Arial Black", -apple-system, sans-serif`;
+        let textWidth = ctx.measureText(text.toUpperCase()).width;
+        if (textWidth > 450) {
+            titleFontSize = 28;
+            ctx.font = `900 ${titleFontSize}px "Title", "Arial Black", -apple-system, sans-serif`;
+        }
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(text.toUpperCase(), 150, 98);
     }
 
     redraw(null);
@@ -295,10 +357,18 @@ function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
     if (iconSvgPath) {
         const iconImg = new Image();
         iconImg.onload = () => {
+            loadedImg = iconImg;
             redraw(iconImg);
             texture.needsUpdate = true;
         };
         iconImg.src = iconSvgPath;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            redraw(loadedImg);
+            texture.needsUpdate = true;
+        });
     }
 
     const spriteMat = new THREE.SpriteMaterial({
@@ -308,8 +378,8 @@ function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
     });
 
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(7.5, 2.05, 1);
-    sprite.position.y = 3.6;
+    sprite.scale.set(10.8, 10.8 * (170 / 640), 1);
+    sprite.position.y = 4.2;
     return sprite;
 }
 
@@ -318,33 +388,49 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
     if (!pointCardEl) return;
     if (cardIconEl && pt.iconSvg) {
         cardIconEl.src = pt.iconSvg;
-        if (pt.color) cardIconEl.style.borderColor = pt.color;
     }
     if (cardTitleEl) {
         cardTitleEl.textContent = pt.id;
-        if (pt.color) cardTitleEl.style.color = pt.color;
     }
 
-    if(visitCardEl) {
+    const cardBadgeEl = document.getElementById('card-badge');
+    if (cardBadgeEl) {
         const stat = pt.status;
+        if (stat === 2) {
+            cardBadgeEl.textContent = `LESSON ${pt.page_no} • COMPLETED`;
+            cardBadgeEl.style.background = '#FFD43B';
+            cardBadgeEl.style.color = '#111111';
+        } else if (stat === 1) {
+            cardBadgeEl.textContent = `LESSON ${pt.page_no} • ACTIVE`;
+            cardBadgeEl.style.background = '#7CFF6B';
+            cardBadgeEl.style.color = '#111111';
+        } else {
+            cardBadgeEl.textContent = `LESSON ${pt.page_no} • LOCKED`;
+            cardBadgeEl.style.background = '#E5E5E5';
+            cardBadgeEl.style.color = '#777777';
+        }
+    }
 
-        if(stat == 2) {
-            visitCardEl.innerText = 'Learn Again';
+    if (visitCardEl) {
+        const stat = pt.status;
+        visitCardEl.classList.remove('active', 'completed', 'locked');
+
+        if (stat === 2) {
+            visitCardEl.innerText = 'LEARN AGAIN';
             visitCardEl.classList.add('completed');
-        } else if(stat == 1) {
-            visitCardEl.innerText = 'Learn';
+        } else if (stat === 1) {
+            visitCardEl.innerText = 'START LESSON';
             visitCardEl.classList.add('active');
         } else {
-            visitCardEl.innerText = 'Locked';
+            visitCardEl.innerText = 'LOCKED';
             visitCardEl.classList.add('locked');
         }
 
-        visitCardEl.addEventListener('click', () => {
-            if(stat <= 1) {
-                window.location.href = '../x_html/lessons/'+subNo+'.html?'+'spcl='+spclNo+'&lsn='+pt.page_no+'&sub='+subNo;
+        visitCardEl.onclick = () => {
+            if (stat >= 1) {
+                window.location.href = '../x_html/lessons/' + subNo + '.html?spcl=' + spclNo + '&lsn=' + pt.page_no + '&sub=' + subNo;
             }
-        });
-
+        };
     }
 
     if (cardCoordsEl) cardCoordsEl.textContent = `X: ${pt.x.toFixed(1)}, Z: ${pt.z.toFixed(1)}`;
