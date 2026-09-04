@@ -88,13 +88,13 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'A PC is not a magical device that does everything, its simply a extremelt complex calculator, every application in a PC had to be programmed by someone, Us as humans have managed to make sand do things which is feat on its own but here we are to learn that a computer does things as its asked and has no common sense.' },
-    { id: 'Programming',   x: 53,  z: -3,  iconSvg: '../assets/icons/power.svg', desc: 'Code editor essentials, the print() command, and sequential execution.' },
-    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',   desc: 'How are variables stored in the memory' },
-    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Logistics center and automated supply storage facility.' },
-    { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/list.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
-    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',    desc: 'Long-range satellite transceiver and telemetry relay array.' },
-    { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/loop.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'Explore computer architecture, hardware components, CPU, memory, and how software runs on a PC.' },
+    { id: 'Programming',   x: 50,  z: -16, iconSvg: '../assets/icons/power.svg', desc: 'Introduction to programming concepts, algorithmic logic, and writing your first Python code.' },
+    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',   desc: 'Learn how to declare variables, store values in memory, and work with core Python data types.' },
+    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Master arithmetic calculations, mathematical operators, and Python built-in math functions.' },
+    { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/list.svg',  desc: 'Work with data collections, list indexing, slicing, appending, and list manipulation methods.' },
+    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',    desc: 'Control program execution flow using if, elif, and else statements with comparison logic.' },
+    { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/loop.svg',  desc: 'Automate repetitive workflows, iterate across sequences, and master loop control statements.' }
 ];
 
 const WAVE_AMPLITUDE = 3.5;
@@ -227,8 +227,8 @@ function buildMapNodesAndRoutes() {
         head.userData = { ptGroup: group, ptData: pt };
         group.add(head);
 
-        // Icon + Label Sprite
-        const labelSprite = createPointLabelSprite(pt.id, pt.iconSvg, pt.color);
+        // Icon + Label Sprite (Neo-Brutalist Chapter Box)
+        const labelSprite = createPointLabelSprite(pt.id, pt.iconSvg, pt.status, pt.page_no);
         labelSprite.userData = { ptGroup: group, ptData: pt };
         group.add(labelSprite);
 

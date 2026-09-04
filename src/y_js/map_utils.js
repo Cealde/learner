@@ -273,42 +273,87 @@ function createSwirlParticles(count = 60, radius = 1.6, height = 3.0, color = '#
     return points;
 }
 
-// 6. Point Billboard Sprite Generator
-function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
+// 6. Point Billboard Sprite Generator (Neo-Brutalist Chapter Box)
+function createPointLabelSprite(text, iconSvgPath, status = 0, pageNo = 1) {
     const canvas = document.createElement('canvas');
-    canvas.width = 440;
-    canvas.height = 120;
+    canvas.width = 460;
+    canvas.height = 130;
     const ctx = canvas.getContext('2d');
+
+    const isDone = (status === 2);
+    const isActive = (status === 1);
+
+    // Color definitions
+    const badgeBg = isDone ? '#86efac' : (isActive ? '#fde047' : '#cbd5e1');
+    const badgeText = isDone ? 'COMPLETED' : (isActive ? 'ACTIVE' : 'LOCKED');
+    const chLabel = `CH 0${pageNo}`;
 
     function redraw(img) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Pill badge background
-        ctx.fillStyle = 'rgba(10, 16, 31, 0.9)';
-        ctx.strokeStyle = colorHex;
-        ctx.lineWidth = 4;
+        // 1. Neo-Brutalist Hard Shadow (Black Offset Box)
+        ctx.fillStyle = '#111111';
         ctx.beginPath();
-        ctx.roundRect(8, 8, 424, 104, 24);
+        ctx.roundRect(14, 14, 432, 106, 6);
+        ctx.fill();
+
+        // 2. Main Box Background
+        ctx.fillStyle = isActive ? '#ffffff' : (isDone ? '#f0fdf4' : '#f8fafc');
+        ctx.beginPath();
+        ctx.roundRect(8, 8, 432, 106, 6);
+        ctx.fill();
+
+        // 3. Thick Black Border
+        ctx.strokeStyle = '#111111';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // 4. Chapter Number Badge (Left Pill)
+        ctx.fillStyle = badgeBg;
+        ctx.beginPath();
+        ctx.roundRect(18, 18, 92, 30, 4);
         ctx.fill();
         ctx.stroke();
 
-        // Icon badge background circle
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.15)';
-        ctx.beginPath();
-        ctx.arc(58, 60, 36, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.fillStyle = '#111111';
+        ctx.font = '900 15px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(chLabel, 64, 33);
 
-        // Draw SVG Icon
+        // 5. Status Pill (Right)
+        ctx.fillStyle = isDone ? '#dcfce7' : (isActive ? '#fef9c3' : '#f1f5f9');
+        ctx.beginPath();
+        ctx.roundRect(324, 18, 104, 30, 4);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isDone ? '#166534' : (isActive ? '#854d0e' : '#475569');
+        ctx.font = '800 13px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(badgeText, 376, 33);
+
+        // 6. SVG Icon Container & Icon Drawing
+        ctx.fillStyle = isActive ? '#fef08a' : (isDone ? '#bbf7d0' : '#e2e8f0');
+        ctx.beginPath();
+        ctx.arc(46, 84, 24, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#111111';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
         if (img && img.complete) {
-            ctx.drawImage(img, 32, 34, 52, 52);
+            ctx.drawImage(img, 28, 66, 36, 36);
         }
 
-        // Draw Point Label text
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 32px sans-serif';
+        // 7. Node Title Text
+        ctx.fillStyle = '#111111';
+        ctx.font = '900 24px sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
-        ctx.fillText(text, 110, 60);
+        const displayTitle = text.length > 20 ? text.substring(0, 18) + '...' : text;
+        ctx.fillText(displayTitle, 86, 84);
     }
 
     redraw(null);
@@ -332,22 +377,44 @@ function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
     });
 
     const sprite = new THREE.Sprite(spriteMat);
-    sprite.scale.set(7.5, 2.05, 1);
+    sprite.scale.set(7.5, 2.12, 1);
     sprite.position.y = 3.6;
     return sprite;
 }
 
-// 7. Point Details Card Displayer
+// 7. Point Details Card Displayer (Neo-Brutalist Modal)
 function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl, cardDescEl, visitCardEl, userProg, spclNo = 1) {
     if (!pointCardEl) return;
+    const stat = pt.status;
+
+    // Header badge
+    const cardBadge = document.getElementById('card-badge');
+    if (cardBadge) {
+        if (stat === 2) {
+            cardBadge.textContent = `CHAPTER 0${pt.page_no} • COMPLETED`;
+            cardBadge.style.background = 'var(--neo-green)';
+            cardBadge.style.color = 'var(--neo-black)';
+        } else if (stat === 1) {
+            cardBadge.textContent = `CHAPTER 0${pt.page_no} • CURRENT OBJECTIVE`;
+            cardBadge.style.background = 'var(--neo-yellow)';
+            cardBadge.style.color = 'var(--neo-black)';
+        } else {
+            cardBadge.textContent = `CHAPTER 0${pt.page_no} • LOCKED`;
+            cardBadge.style.background = '#e2e8f0';
+            cardBadge.style.color = '#64748b';
+        }
+    }
+
     if (cardIconEl && pt.iconSvg) {
         cardIconEl.src = pt.iconSvg;
     }
     if (cardTitleEl) {
         cardTitleEl.textContent = pt.id;
     }
+    if (cardDescEl) {
+        cardDescEl.textContent = pt.desc || 'Explore this Python programming lesson.';
+    }
 
-    const cardBadge = document.getElementById('card-badge');
     const closeBtn = document.getElementById('card-close');
     if (closeBtn) {
         closeBtn.onclick = () => {
@@ -356,38 +423,17 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
     }
 
     if (visitCardEl) {
-        const stat = pt.status;
-
-        // Reset classes
         visitCardEl.classList.remove('completed', 'active', 'locked');
 
         if (stat === 2) {
-            visitCardEl.textContent = 'LEARN AGAIN →';
+            visitCardEl.innerText = 'LEARN AGAIN →';
             visitCardEl.classList.add('completed');
-            visitCardEl.disabled = false;
-            if (cardBadge) {
-                cardBadge.textContent = 'COMPLETED';
-                cardBadge.style.background = 'var(--neo-yellow)';
-                cardBadge.style.color = 'var(--neo-black)';
-            }
         } else if (stat === 1) {
-            visitCardEl.textContent = 'START LESSON →';
+            visitCardEl.innerText = 'START LESSON →';
             visitCardEl.classList.add('active');
-            visitCardEl.disabled = false;
-            if (cardBadge) {
-                cardBadge.textContent = 'IN PROGRESS';
-                cardBadge.style.background = 'var(--neo-green)';
-                cardBadge.style.color = 'var(--neo-black)';
-            }
         } else {
-            visitCardEl.textContent = 'LOCKED';
+            visitCardEl.innerText = 'LOCKED';
             visitCardEl.classList.add('locked');
-            visitCardEl.disabled = true;
-            if (cardBadge) {
-                cardBadge.textContent = 'LOCKED';
-                cardBadge.style.background = '#e5e7eb';
-                cardBadge.style.color = '#6b7280';
-            }
         }
 
         visitCardEl.onclick = () => {
@@ -407,7 +453,6 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
     }
 
     if (cardCoordsEl) cardCoordsEl.textContent = `X: ${pt.x.toFixed(1)}, Z: ${pt.z.toFixed(1)}`;
-    if (cardDescEl) cardDescEl.textContent = pt.desc || 'Operational waypoint on the isometric map.';
     pointCardEl.style.display = 'block';
 }
 
