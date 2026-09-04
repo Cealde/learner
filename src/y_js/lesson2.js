@@ -40,6 +40,9 @@ let isDebugging = false;
 // Multi-Challenge State
 let activeChallenges = [];
 let currentChallengeIdx = 0;
+let maxUnlockedStageIdx = 0;
+let completedStages = new Set();
+let stageCodeCache = {};
 let lessonData = null;
 
 // Starter Python code for Lesson 2
@@ -460,12 +463,16 @@ function updateChallengeUI() {
   const taskDesc = document.getElementById('task-desc');
   const intendedOutputEl = document.getElementById('task-intended-output');
 
-  if (taskTitle) taskTitle.textContent = c.title || `Challenge ${currentChallengeIdx + 1}`;
+  if (taskTitle) taskTitle.textContent = c.title || `Stage ${currentChallengeIdx + 1}`;
   if (taskDesc) taskDesc.innerHTML = c.description || '';
   if (intendedOutputEl) intendedOutputEl.textContent = c.intended_output || '';
 
-  if (codeInput && (c.starter_code !== undefined)) {
-    codeInput.value = c.starter_code;
+  if (codeInput) {
+    if (stageCodeCache[currentChallengeIdx] !== undefined) {
+      codeInput.value = stageCodeCache[currentChallengeIdx];
+    } else if (c.starter_code !== undefined) {
+      codeInput.value = c.starter_code;
+    }
     updateGutter();
     updateHighlighting();
   }
@@ -491,14 +498,18 @@ function renderChallengeStepper() {
 
   stepperEl.innerHTML = activeChallenges.map((c, i) => {
     const isCurrent = i === currentChallengeIdx;
-    const isDone = i < currentChallengeIdx;
-    const bg = isCurrent ? '#fef08a' : (isDone ? '#86efac' : '#e5e7eb');
-    const color = '#111111';
+    const isDone = completedStages.has(i);
+    const isUnlocked = isDone || i <= maxUnlockedStageIdx;
+
+    const bg = isCurrent ? '#fef08a' : (isDone ? '#86efac' : (isUnlocked ? '#e5e7eb' : '#f3f4f6'));
+    const color = isUnlocked ? '#111111' : '#6b7280';
     const border = '2px solid #111111';
     const icon = isDone ? '[DONE] ' : (isCurrent ? '[ACTIVE] ' : '');
-    const cursor = (isDone || isCurrent) ? 'pointer' : 'default';
+    const cursor = isUnlocked ? 'pointer' : 'not-allowed';
+    const opacity = isUnlocked ? '1' : '0.6';
+
     return `
-      <button type="button" class="stage-pill-btn" data-stage-idx="${i}" style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 4px 10px; font-weight: 900; font-size: 11px; text-transform: uppercase; border-radius: 4px; cursor: ${cursor}; font-family: inherit;">
+      <button type="button" class="stage-pill-btn" data-stage-idx="${i}" ${!isUnlocked ? 'disabled' : ''} style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 4px 10px; font-weight: 900; font-size: 11px; text-transform: uppercase; border-radius: 4px; cursor: ${cursor}; opacity: ${opacity}; font-family: inherit;">
         ${icon}STAGE ${i + 1}
       </button>
     `;
@@ -507,7 +518,10 @@ function renderChallengeStepper() {
   stepperEl.querySelectorAll('.stage-pill-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = parseInt(btn.getAttribute('data-stage-idx'), 10);
-      if (!isNaN(idx) && idx < activeChallenges.length && idx !== currentChallengeIdx) {
+      if (!isNaN(idx) && idx < activeChallenges.length && (completedStages.has(idx) || idx <= maxUnlockedStageIdx)) {
+        if (codeInput) {
+          stageCodeCache[currentChallengeIdx] = codeInput.value;
+        }
         currentChallengeIdx = idx;
         updateChallengeUI();
       }
@@ -756,15 +770,36 @@ async function verifyOutput(actualOutput) {
   const cleanExpected = normalizeOutput(expectedRaw);
 
   if (cleanActual === cleanExpected) {
-    if (activeChallenges && activeChallenges.length > 0 && currentChallengeIdx < activeChallenges.length - 1) {
+    if (activeChallenges && activeChallenges.length > 0) {
+      completedStages.add(currentChallengeIdx);
+      maxUnlockedStageIdx = Math.max(maxUnlockedStageIdx, currentChallengeIdx + 1);
+
+      if (codeInput) {
+        stageCodeCache[currentChallengeIdx] = codeInput.value;
+      }
+
       appendTerminal(`\nSTAGE ${currentChallengeIdx + 1} COMPLETE: Output matched!`, 'term-line-info');
-      currentChallengeIdx++;
-      appendTerminal(`\nADVANCING TO STAGE ${currentChallengeIdx + 1}...`, 'term-line-info');
-      updateChallengeUI();
-      return true;
+
+      // Check if there are remaining incomplete stages
+      if (completedStages.size < activeChallenges.length) {
+        let nextIncomplete = -1;
+        for (let idx = 0; idx < activeChallenges.length; idx++) {
+          if (!completedStages.has(idx)) {
+            nextIncomplete = idx;
+            break;
+          }
+        }
+        if (nextIncomplete !== -1) {
+          currentChallengeIdx = nextIncomplete;
+          appendTerminal(`\nADVANCING TO STAGE ${currentChallengeIdx + 1}...`, 'term-line-info');
+          updateChallengeUI();
+          return true;
+        }
+      }
     }
 
-    appendTerminal('\nSUCCESS: Output matches expected results!', 'term-line-info');
+    renderChallengeStepper();
+    appendTerminal('\nSUCCESS: All stages completed with 100% accuracy!', 'term-line-info');
     if (typeof markQuizCompleted === 'function') {
       markQuizCompleted(special, lesson, subset);
     }

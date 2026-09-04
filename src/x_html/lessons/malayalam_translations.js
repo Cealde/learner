@@ -1538,7 +1538,7 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_5_3": {
-    "title": "Condition Caveats & Indentation",
+    "title": "Condition Caveats & Indentation Rules",
     "badge": "പാഠം • വിവരണം",
     "summary": "",
     "sections": [],
@@ -1618,7 +1618,7 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_5_9": {
-    "title": "Branching Caveats & elif Order",
+    "title": "Branch Ordering Caveats & elif Chains",
     "badge": "പാഠം • വിവരണം",
     "summary": "",
     "sections": [],
@@ -1936,7 +1936,7 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_8_10": {
-    "title": "Dictionary Operations — .get(), keys & mutation",
+    "title": "Dictionary Operations — .get(), keys & Mutation",
     "badge": "പാഠം • വിവരണം",
     "summary": "",
     "sections": [],
@@ -2050,7 +2050,7 @@ export const MALAYALAM_LESSON_DATA = {
     "footer": ""
 },
   "1_8_3": {
-    "title": "List Mutation — append, pop & slicing",
+    "title": "List Mutation — append, pop & Slicing",
     "badge": "പാഠം • വിവരണം",
     "summary": "",
     "sections": [],
