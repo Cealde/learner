@@ -24,6 +24,8 @@ pub struct UserProgress {
     pub max_visited_subs: HashMap<String, u32>,
     #[serde(default)]
     pub lesson_mistakes: HashMap<String, Vec<serde_json::Value>>,
+    #[serde(default)]
+    pub ai_breakdowns: HashMap<String, serde_json::Value>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -85,6 +87,7 @@ impl UserStoreState {
                                             completed_subtopics: Vec::new(),
                                             max_visited_subs: HashMap::new(),
                                             lesson_mistakes: HashMap::new(),
+                                            ai_breakdowns: HashMap::new(),
                                         },
                                     );
                                 }
@@ -98,6 +101,7 @@ impl UserStoreState {
                                             completed_subtopics: Vec::new(),
                                             max_visited_subs: HashMap::new(),
                                             lesson_mistakes: HashMap::new(),
+                                            ai_breakdowns: HashMap::new(),
                                         },
                                     );
                                 }
@@ -152,6 +156,7 @@ pub fn get_user_progress(
         completed_subtopics: Vec::new(),
         max_visited_subs: HashMap::new(),
         lesson_mistakes: HashMap::new(),
+        ai_breakdowns: HashMap::new(),
     }))
 }
 
@@ -175,6 +180,7 @@ pub fn record_subtopic_progress(
         completed_subtopics: Vec::new(),
         max_visited_subs: HashMap::new(),
         lesson_mistakes: HashMap::new(),
+        ai_breakdowns: HashMap::new(),
     });
 
     let sub_key = format!("{}_{}_{}", spcl, lsn, sub);
@@ -247,6 +253,38 @@ pub fn clear_lesson_mistakes(
     drop(data);
     state.persist()?;
     Ok(())
+}
+
+#[tauri::command]
+pub fn save_ai_breakdown(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    breakdown_key: String,
+    breakdown: serde_json::Value,
+) -> Result<(), String> {
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    let prog = data.entries.entry(key).or_insert_with(Default::default);
+    prog.ai_breakdowns.insert(breakdown_key, breakdown);
+    drop(data);
+    state.persist()?;
+    Ok(())
+}
+
+#[tauri::command]
+pub fn get_ai_breakdowns(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+) -> Result<HashMap<String, serde_json::Value>, String> {
+    let key = resolve_key(&app_state, user_key);
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    Ok(data
+        .entries
+        .get(&key)
+        .map(|p| p.ai_breakdowns.clone())
+        .unwrap_or_default())
 }
 
 #[tauri::command]

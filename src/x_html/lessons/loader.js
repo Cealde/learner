@@ -114,7 +114,8 @@ let currentProgress = {
   spec_no: 1,
   completed_subtopics: [],
   max_visited_subs: {},
-  lesson_mistakes: {}
+  lesson_mistakes: {},
+  ai_breakdowns: {}
 };
 
 export async function loadUserData() {
@@ -130,7 +131,8 @@ export async function loadUserData() {
           spec_no: prog.spec_no || 1,
           completed_subtopics: Array.isArray(prog.completed_subtopics) ? prog.completed_subtopics : [],
           max_visited_subs: (prog.max_visited_subs && typeof prog.max_visited_subs === 'object') ? prog.max_visited_subs : {},
-          lesson_mistakes: (prog.lesson_mistakes && typeof prog.lesson_mistakes === 'object') ? prog.lesson_mistakes : {}
+          lesson_mistakes: (prog.lesson_mistakes && typeof prog.lesson_mistakes === 'object') ? prog.lesson_mistakes : {},
+          ai_breakdowns: (prog.ai_breakdowns && typeof prog.ai_breakdowns === 'object') ? prog.ai_breakdowns : {}
         };
       }
     } catch (err) {
@@ -140,6 +142,7 @@ export async function loadUserData() {
     try {
       const raw = localStorage.getItem('adhicode_user_progress');
       if (raw) currentProgress = JSON.parse(raw);
+      if (!currentProgress.ai_breakdowns) currentProgress.ai_breakdowns = {};
     } catch (e) {}
   }
 }
@@ -275,21 +278,66 @@ export function clearRecordedMistakes(spcl, lsn) {
   persistLocalFallback();
 }
 
+export function getSavedAiBreakdown(spcl, lsn, roundNum) {
+  const key = `${spcl}_${lsn}_round_${roundNum}`;
+  if (currentProgress.ai_breakdowns && currentProgress.ai_breakdowns[key]) {
+    return currentProgress.ai_breakdowns[key];
+  }
+  return null;
+}
+
+export function saveAiBreakdown(spcl, lsn, roundNum, mistakes) {
+  const key = `${spcl}_${lsn}_round_${roundNum}`;
+  if (!currentProgress.ai_breakdowns) {
+    currentProgress.ai_breakdowns = {};
+  }
+  const breakdownData = {
+    spcl: String(spcl),
+    lsn: Number(lsn),
+    roundNum: Number(roundNum),
+    mistakes: Array.isArray(mistakes) ? JSON.parse(JSON.stringify(mistakes)) : [],
+    savedAt: new Date().toISOString()
+  };
+  currentProgress.ai_breakdowns[key] = breakdownData;
+
+  safeInvoke('save_ai_breakdown', {
+    userKey: null,
+    breakdownKey: key,
+    breakdown: breakdownData
+  });
+  persistLocalFallback();
+  return breakdownData;
+}
+
 export function getAdaptiveSequence() {
   const { lsn, spcl, sub } = getQueryParams();
   const lessonIdx = Math.max(0, lsn - 1);
   const baseSequence = [...(sylPy[lessonIdx] || sylPy[0])];
   const mistakes = getRecordedMistakes(spcl, lsn);
 
-  // If no mistakes are recorded, ONLY return the standard base lesson modules (Left bar won't show breakdown/quiz)
-  if (mistakes.length === 0) {
+  // Check highest saved breakdown round for this lesson
+  let maxSavedRound = 0;
+  if (currentProgress.ai_breakdowns) {
+    const prefix = `${spcl}_${lsn}_round_`;
+    Object.keys(currentProgress.ai_breakdowns).forEach(k => {
+      if (k.startsWith(prefix)) {
+        const r = parseInt(k.replace(prefix, ''), 10);
+        if (!isNaN(r) && r > maxSavedRound) maxSavedRound = r;
+      }
+    });
+  }
+
+  // If no mistakes are recorded AND no breakdowns are saved in memory, return baseSequence
+  if (mistakes.length === 0 && maxSavedRound === 0) {
     return baseSequence;
   }
 
-  // If mistakes exist, calculate how many adaptive remediation pairs are needed
+  // Calculate required remediation pairs based on maxVisited, current sub, and saved breakdowns
   const maxVisited = getMaxVisitedSub(spcl, lsn);
   const highestStep = Math.max(maxVisited, sub || 1);
-  const adaptiveSteps = Math.max(2, highestStep - baseSequence.length);
+  const adaptiveStepsFromVisited = Math.max(0, highestStep - baseSequence.length);
+  const adaptiveStepsFromSaved = maxSavedRound * 2;
+  const adaptiveSteps = Math.max(adaptiveStepsFromVisited, adaptiveStepsFromSaved, mistakes.length > 0 ? 2 : 0);
   const adaptivePairs = Math.max(1, Math.ceil(adaptiveSteps / 2));
 
   const extendedSequence = [...baseSequence];
@@ -696,16 +744,40 @@ export function generateAdaptiveContent(sub, totalSteps) {
   const { lsn, spcl } = getQueryParams();
   const lessonIdx = Math.max(0, lsn - 1);
   const baseLen = (sylPy[lessonIdx] || sylPy[0]).length;
-  const mistakes = getRecordedMistakes(spcl, lsn);
 
   if (sub <= baseLen) return null;
-  if (mistakes.length === 0) return null;
 
   const adaptiveOffset = sub - baseLen; // 1 = Breakdown R1, 2 = Quiz R1, 3 = Breakdown R2, 4 = Quiz R2...
   const roundNum = Math.floor((adaptiveOffset - 1) / 2) + 1;
   const isQuiz = (adaptiveOffset % 2 === 0);
 
-  const activeConcepts = analyzeMistakeConcepts(mistakes);
+  // 1. Retrieve stored breakdown snapshot for this specific roundNum from memory
+  let saved = getSavedAiBreakdown(spcl, lsn, roundNum);
+  let roundMistakes = (saved && Array.isArray(saved.mistakes) && saved.mistakes.length > 0) ? saved.mistakes : null;
+
+  // 2. If not saved yet, check active mistakes and snapshot them for this round!
+  if (!roundMistakes || roundMistakes.length === 0) {
+    const currentMistakes = getRecordedMistakes(spcl, lsn);
+    if (currentMistakes.length > 0) {
+      saveAiBreakdown(spcl, lsn, roundNum, currentMistakes);
+      roundMistakes = currentMistakes;
+    }
+  }
+
+  // 3. Fallback: If still empty, check if round 1 or previous rounds had mistakes
+  if (!roundMistakes || roundMistakes.length === 0) {
+    for (let r = roundNum - 1; r >= 1; r--) {
+      const prevSaved = getSavedAiBreakdown(spcl, lsn, r);
+      if (prevSaved && Array.isArray(prevSaved.mistakes) && prevSaved.mistakes.length > 0) {
+        roundMistakes = prevSaved.mistakes;
+        break;
+      }
+    }
+  }
+
+  if (!roundMistakes || roundMistakes.length === 0) return null;
+
+  const activeConcepts = analyzeMistakeConcepts(roundMistakes);
   if (activeConcepts.length === 0) return null;
 
   if (!isQuiz) {
@@ -757,7 +829,7 @@ export function generateAdaptiveContent(sub, totalSteps) {
     }).join('');
 
     const overviewBadge = isMl ? MALAYALAM_OVERVIEWS.breakdownBadge(roundNum) : `AI Breakdown ${roundNum > 1 ? `• Round ${roundNum}` : ''}`;
-    const overviewHeading = isMl ? MALAYALAM_OVERVIEWS.breakdownHeading : 'Mastering Your <hlt>Tricky Concepts</hlt>';
+    const overviewHeading = isMl ? MALAYALAM_OVERVIEWS.breakdownHeading : 'Mastering Your <hlt> Concepts</hlt>';
     const overviewIntro = isMl 
       ? MALAYALAM_OVERVIEWS.breakdownIntro(activeConcepts.length)
       : `We synthesized your latest quiz responses into ${activeConcepts.length} focused concept pillar${activeConcepts.length > 1 ? 's' : ''} to solidify your understanding.`;
@@ -767,7 +839,7 @@ export function generateAdaptiveContent(sub, totalSteps) {
 
     return {
       topic: isMl ? 'AI പുനർപഠന വിശകലനം' : 'AI ADAPTIVE REINFORCEMENT',
-      title: isMl ? `പ്രയാസമുള്ള ആശയങ്ങളുടെ വിശകലനം ${roundNum > 1 ? `(റൗണ്ട് ${roundNum})` : ''}` : `Personalized Review: Tricky Concept Breakdown${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
+      title: isMl ? `പ്രയാസമുള്ള ആശയങ്ങളുടെ വിശകലനം ${roundNum > 1 ? `(റൗണ്ട് ${roundNum})` : ''}` : `Personalized Review:  Concept Breakdown${roundNum > 1 ? ` (Round ${roundNum})` : ''}`,
       body: `
         <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
           <div style="text-align: center; margin-bottom: 4px; width: 100%;">
@@ -1380,8 +1452,11 @@ function setupMultiQuestionQuiz(data) {
           } else {
             // Completed all questions in the quiz!
             if (isAIQuiz) {
+              const currentRound = Math.floor((sub - baseLen) / 2);
+              const nextRound = currentRound + 1;
               if (sessionMistakes.length > 0) {
-                // Made mistakes in this AI quiz round! Update mistake log for next round and advance
+                // Made mistakes in this AI quiz round! Save new breakdown specifically for nextRound in memory
+                saveAiBreakdown(spcl, lsn, nextRound, sessionMistakes);
                 setRecordedMistakes(spcl, lsn, sessionMistakes);
                 markQuizCompleted(spcl, lsn, sub);
                 setMaxVisitedSub(spcl, lsn, sub + 1);
@@ -1421,7 +1496,7 @@ function setupMultiQuestionQuiz(data) {
                 if (feedbackBox) {
                   feedbackBox.innerHTML += `
                     <div style="margin-top: 12px; padding: 12px 14px; background: #86efac; border: 2px solid var(--neo-black); border-radius: 4px; font-weight: 900; color: #111111;">
-                      Perfect score! You have mastered all tricky concepts for this lesson!
+                      Perfect score! You have mastered all concepts for this lesson!
                     </div>
                   `;
                 }
@@ -1467,12 +1542,13 @@ function setupMultiQuestionQuiz(data) {
                   };
                 }
               } else if (isLastBaseStep && currentMistakes.length > 0) {
-                // User made mistakes during the lesson -> unlock AI breakdown
+                // User made mistakes during the lesson -> save Round 1 breakdown and unlock
+                saveAiBreakdown(spcl, lsn, 1, currentMistakes);
                 setMaxVisitedSub(spcl, lsn, sub + 1);
                 if (feedbackBox) {
                   feedbackBox.innerHTML += `
                     <div style="margin-top: 12px; padding: 12px 14px; background: #fef08a; border: 2px solid var(--neo-black); border-radius: 4px; font-weight: 800; color: #111111;">
-                      You had ${currentMistakes.length} tricky question${currentMistakes.length > 1 ? 's' : ''}. An AI breakdown has been prepared to help you master them. Click <strong>Review Breakdown →</strong> to continue.
+                      You had ${currentMistakes.length} question${currentMistakes.length > 1 ? 's' : ''}. An AI breakdown has been prepared to help you master them. Click <strong>Review Breakdown →</strong> to continue.
                     </div>
                   `;
                 }
