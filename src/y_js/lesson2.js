@@ -658,6 +658,25 @@ async function verifyOutput(actualOutput) {
         } else {
           astMessage = "AI Verification: Confirmed all 4 math operators (+, -, *, /) and bracketed combo expression are calculated and printed correctly!";
         }
+      } else if (aiCheckType === 'euclidean_distance_formula' || aiCheckType === 'distance_formula') {
+        if (/distance\s*=\s*10(?:\.0)?\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You wrote the literal number 10.0 instead of using the formula. In real algorithms, coordinates change dynamically! Write: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5.";
+        } else if (!/distance\s*=/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Variable 'distance' was not assigned. Write: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5.";
+        } else if (/distance\s*=\s*\(?\s*x2\s*-\s*x1\s*\)?\s*\*\*\s*2\s*\+\s*\(?\s*y2\s*-\s*y1\s*\)?\s*\*\*\s*2\s*(?!\*\*)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Squared distance calculated, but square root is missing! Wrap the sum in brackets and raise to power 0.5: ((x2 - x1)**2 + (y2 - y1)**2)**0.5.";
+        } else if (/x2\s*-\s*x1\s*\*\*\s*2/.test(code) || /y2\s*-\s*y1\s*\*\*\s*2/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Operator Precedence Alert! Exponentiation (**) executes before subtraction (-). Wrap the subtractions in brackets: (x2 - x1)**2 and (y2 - y1)**2.";
+        } else if (!/\(\s*\(\s*(?:x2\s*-\s*x1|x1\s*-\s*x2)\s*\)\s*\*\*\s*2\s*\+\s*\(\s*(?:y2\s*-\s*y1|y1\s*-\s*y2)\s*\)\s*\*\*\s*2\s*\)\s*\*\*\s*0?\.5/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Calculate distance using the complete formula: distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5.";
+        } else {
+          astMessage = "AI Verification: Confirmed 2D Euclidean Distance formula ((x2 - x1)**2 + (y2 - y1)**2)**0.5 with correct bracket precedence and exponentiation!";
+        }
       } else if (aiCheckType === 'binary_search_midpoint_formula' || aiCheckType === 'midpoint_formula') {
         if (/midpoint\s*=\s*30(?:\.0)?\b/.test(code)) {
           astCheckPassed = false;

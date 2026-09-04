@@ -875,9 +875,9 @@ export const MALAYALAM_LESSON_DATA = {
       "intended_output": "30\n10\n200\n2.0\n60"
   },
   "1_3_5": {
-      "title": "അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല",
-      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം:</strong> ബൈനറി സെർച്ച് (Binary Search) പോലെയുള്ള കമ്പ്യൂട്ടർ അൽഗോരിതങ്ങളിൽ നടുവിലെ പോയിന്റ് കണ്ടെത്താൻ മിഡ്പോയിന്റ് ഫോർമുല <code>(low + high) / 2</code> ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> താഴെയുള്ള ഫോർമുല വരിയിൽ <code>midpoint = (low + high) / 2</code> എന്ന് എഴുതി കൃത്യമായ ഫലം കണ്ടെത്തുക.",
-      "intended_output": "30.0"
+      "title": "അൽഗോരിതം ഫോർമുല: 2D യൂക്ലിഡിയൻ ഡിസ്റ്റൻസ്",
+      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: 2D യൂക്ലിഡിയൻ ഡിസ്റ്റൻസ് (Distance Formula)</strong><br/>ഗെയിം ഫിസിക്സ്, കൊളീഷൻ ഡിറ്റക്ഷൻ, റോബോട്ടിക്സ്, നാവിഗേഷൻ എഞ്ചിനുകൾ (Google Maps & A* pathfinding) എന്നിവയിൽ രണ്ട് പോയിന്റുകൾ <code>(x1, y1)</code>, <code>(x2, y2)</code> തമ്മിലുള്ള നേർരേഖാ ദൂരം സെക്കൻഡിൽ ലക്ഷക്കണക്കിന് തവണ കണക്കാക്കുന്നു.<br/><br/><strong>ഗണിത ഫോർമുല:</strong><br/><div class=\"code-demo-box\" style=\"margin: 8px 0; padding: 10px; background: #0d1117; color: #fde047; border: 2px solid #000; border-radius: 6px; font-family: monospace; font-size: 1.05rem;\">distance = ((x2 - x1)**2 + (y2 - y1)**2)**0.5</div><br/><strong>ചലഞ്ച്:</strong><br/>മുകളിലെ കോർഡിനേറ്റ് വേരിയബിളുകൾ ലോക്ക് ചെയ്തിരിക്കുന്നു. എഡിറ്റബിൾ ലൈനിൽ ഫോർമുല എഴുതി <code>distance</code> കണക്കാക്കുക.<br/><br/><em>പ്രത്യേകം ശ്രദ്ധിക്കുക:</em> ഈ ഫോർമുല കോഡാക്കി മാറ്റാൻ <strong>ബ്രാക്കറ്റുകളും <code>()</code> പ്രവർത്തന മുൻഗണനയും (Operator Precedence)</strong> കൃത്യമായി പാലിക്കണം! സ്ക്വയർ ചെയ്യുന്നതിന് (<code>** 2</code>) മുൻപ് സംഖ്യകൾ തമ്മിൽ കുറയ്ക്കണം (<code>-</code>), രണ്ടിന്റെയും വർഗ്ഗങ്ങൾ തമ്മിൽ കൂട്ടണം (<code>+</code>), തുടർന്ന് മുഴുവൻ തുകയെയും ബ്രാക്കറ്റിലിട്ട് <code>** 0.5</code> വഴി വർഗ്ഗമൂലം (Square Root) കണ്ടെത്തണം.",
+      "intended_output": "10.0"
   },
   "1_3_6": {
       "title": "വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ",
@@ -949,8 +949,8 @@ export const MALAYALAM_LESSON_DATA = {
       ]
   },
   "1_3_9": {
-      "title": "അൽഗോരിതം: എപിഐ യുആർഎൽ നിർമ്മാണം",
-      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം:</strong> വെബ് ആപ്പുകളിലും സെർച്ച് എഞ്ചിനുകളിലും സെർവർ റിക്വസ്റ്റ് URL നിർമ്മിക്കാൻ സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ഉപയോഗിക്കുന്നു.<br/><br/><strong>ടാസ്ക്:</strong> <code>protocol</code>, <code>domain</code>, <code>endpoint</code>, <code>query</code> എന്നിവ ഉപയോഗിച്ച് <code>url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query</code> നിർമ്മിച്ച് പ്രിന്റ് ചെയ്യുക.",
+      "title": "അൽഗോരിതം ഫോർമുല: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം",
+      "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം</strong><br/>സെർച്ച് എഞ്ചിനുകളും മൊബൈൽ ആപ്പുകളും വെബ്ബിൽ നിന്ന് ഡാറ്റ സ്വീകരിക്കാൻ കൃത്യമായ ഫോർമുല ഉപയോഗിച്ച് റിക്വസ്റ്റ് URL നിർമ്മിക്കുന്നു.<br/><br/><strong>കോൺകാറ്റനേഷൻ ഫോർമുല:</strong><br/><div class=\"code-demo-box\" style=\"margin: 8px 0; padding: 10px; background: #0d1117; color: #fde047; border: 2px solid #000; border-radius: 6px; font-family: monospace; font-size: 1.05rem;\">url = protocol + \"://\" + domain + \"/\" + endpoint + \"?q=\" + query</div><br/><strong>ചലഞ്ച്:</strong><br/>മുകളിലെ കോൺഫിഗറേഷൻ വേരിയബിളുകൾ ലോക്ക് ചെയ്തിരിക്കുന്നു. എഡിറ്റബിൾ ഭാഗത്ത് സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ (<code>+</code>) ഉപയോഗിച്ച് മുഴുവൻ API URL-ഉം <code>url</code> എന്ന വേരിയബിളിൽ നിർമ്മിക്കുക.<br/><br/><em>ശ്രദ്ധിക്കുക:</em> പൈത്തൺ സ്വമേധയാ ചിഹ്നങ്ങൾ ചേർക്കില്ല. വേരിയബിളുകളെ കൃത്യമായ ചിഹ്നങ്ങൾ നൽകി (<code>\"://\"</code>, <code>\"/\"</code>, <code>\"?q=\"</code>) വേണം കൂട്ടിച്ചേർക്കാൻ.<br/><br/>പ്രതീക്ഷിക്കുന്ന ഔട്ട്പുട്ട്: <code>https://api.learner.dev/search?q=python</code>",
       "intended_output": "https://api.learner.dev/search?q=python"
   },
   "1_3_10": {
