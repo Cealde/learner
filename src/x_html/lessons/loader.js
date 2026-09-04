@@ -1236,7 +1236,7 @@ export function applyLanguageUI() {
     if (sidebarTitle) sidebarTitle.textContent = 'LESSON MODULES';
 
     const twinBadge = document.querySelector('.twin-badge');
-    if (twinBadge) twinBadge.textContent = 'LESSON TWIN';
+    if (twinBadge) twinBadge.textContent = 'Lesson';
 
     const backBtn = document.querySelector('.back-journey-btn');
     if (backBtn) backBtn.textContent = '← Learning Journey';

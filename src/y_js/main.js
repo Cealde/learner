@@ -123,21 +123,9 @@ function renderProfiles(profiles) {
 
     // Delete handler
     const deleteBtn = card.querySelector(".delete-profile-btn");
-    deleteBtn.addEventListener("click", async (e) => {
+    deleteBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (!confirm(`Are you sure you want to delete profile "${profile.username}"?`)) return;
-      
-      if (!invoke) {
-        showStatus(`Deleted ${profile.username}`);
-        return;
-      }
-
-      try {
-        await invoke("delete_profile", { id: profile.id });
-        refreshProfiles();
-      } catch (err) {
-        showStatus(String(err), true);
-      }
+      openDeleteModal(profile);
     });
 
     // Card click handler
@@ -212,6 +200,38 @@ function closeAddModal() {
   if (addModal) addModal.style.display = "none";
 }
 
+let pendingDeleteProfile = null;
+let deleteModal;
+
+function openDeleteModal(profile) {
+  pendingDeleteProfile = profile;
+  const titleEl = document.getElementById("delete-modal-title");
+  const descEl = document.getElementById("delete-modal-desc");
+  const pwdGroup = document.getElementById("delete-password-group");
+  const pwdInput = document.getElementById("delete-profile-password-input");
+
+  if (titleEl) titleEl.textContent = `Delete Profile: ${profile.username}`;
+  if (pwdInput) pwdInput.value = "";
+
+  if (profile.has_password) {
+    if (descEl) descEl.textContent = `Profile "${profile.username}" is password-protected. Enter its password to permanently delete it.`;
+    if (pwdGroup) pwdGroup.style.display = "block";
+    if (pwdInput) pwdInput.required = true;
+  } else {
+    if (descEl) descEl.textContent = `Are you sure you want to delete profile "${profile.username}"? All saved progress will be lost.`;
+    if (pwdGroup) pwdGroup.style.display = "none";
+    if (pwdInput) pwdInput.required = false;
+  }
+
+  if (deleteModal) deleteModal.style.display = "flex";
+  if (profile.has_password && pwdInput) pwdInput.focus();
+}
+
+function closeDeleteModal() {
+  pendingDeleteProfile = null;
+  if (deleteModal) deleteModal.style.display = "none";
+}
+
 function closePasswordModal() {
   pendingPasswordProfileId = null;
   if (passwordModal) passwordModal.style.display = "none";
@@ -222,6 +242,7 @@ window.addEventListener("DOMContentLoaded", () => {
   profilesGrid = document.getElementById("profiles-grid");
   addModal = document.getElementById("add-modal");
   passwordModal = document.getElementById("password-modal");
+  deleteModal = document.getElementById("delete-modal");
   statusMsg = document.getElementById("status-msg");
 
   const addProfileForm = document.getElementById("add-profile-form");
@@ -280,6 +301,38 @@ window.addEventListener("DOMContentLoaded", () => {
   const cancelPasswordBtn = document.getElementById("cancel-password-btn");
   if (cancelPasswordBtn) cancelPasswordBtn.addEventListener("click", closePasswordModal);
 
+  // Delete profile form
+  const deleteProfileForm = document.getElementById("delete-profile-form");
+  if (deleteProfileForm) {
+    deleteProfileForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!pendingDeleteProfile) return;
+
+      const pwdInput = document.getElementById("delete-profile-password-input");
+      const password = pendingDeleteProfile.has_password ? (pwdInput ? pwdInput.value : "") : null;
+      const targetId = pendingDeleteProfile.id;
+      const targetUsername = pendingDeleteProfile.username;
+
+      if (!invoke) {
+        closeDeleteModal();
+        showStatus(`Deleted profile "${targetUsername}"`);
+        return;
+      }
+
+      try {
+        await invoke("delete_profile", { id: targetId, password });
+        closeDeleteModal();
+        showStatus(`Deleted profile "${targetUsername}"`);
+        refreshProfiles();
+      } catch (err) {
+        showStatus(String(err), true);
+      }
+    });
+  }
+
+  const cancelDeleteBtn = document.getElementById("cancel-delete-btn");
+  if (cancelDeleteBtn) cancelDeleteBtn.addEventListener("click", closeDeleteModal);
+
   // Close modals on backdrop click
   if (addModal) {
     addModal.addEventListener("click", (e) => {
@@ -289,6 +342,11 @@ window.addEventListener("DOMContentLoaded", () => {
   if (passwordModal) {
     passwordModal.addEventListener("click", (e) => {
       if (e.target === passwordModal) closePasswordModal();
+    });
+  }
+  if (deleteModal) {
+    deleteModal.addEventListener("click", (e) => {
+      if (e.target === deleteModal) closeDeleteModal();
     });
   }
 

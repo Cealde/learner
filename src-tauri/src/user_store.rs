@@ -133,6 +133,13 @@ impl UserStoreState {
         fs::write(&self.db_path, json).map_err(|e| e.to_string())?;
         Ok(())
     }
+
+    pub fn delete_user_data(&self, username: &str) -> Result<(), String> {
+        let mut data = self.data.lock().map_err(|e| e.to_string())?;
+        data.entries.remove(username);
+        drop(data);
+        self.persist()
+    }
 }
 
 fn resolve_key(app_state: &State<'_, AppState>, user_key: Option<String>) -> String {

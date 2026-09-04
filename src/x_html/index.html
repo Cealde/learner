@@ -87,5 +87,28 @@
         </form>
       </div>
     </div>
+
+    <!-- Delete Profile Verification Modal -->
+    <div id="delete-modal" class="modal-backdrop" style="display: none;">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-icon" style="background: var(--neo-red, #ef4444); color: white;">✕</div>
+          <h2 id="delete-modal-title">Delete Profile</h2>
+        </div>
+        <p class="modal-desc" id="delete-modal-desc">This action permanently deletes this profile.</p>
+
+        <form id="delete-profile-form">
+          <div class="form-group" id="delete-password-group" style="display: none;">
+            <label for="delete-profile-password-input">Profile Password <span class="required">*</span></label>
+            <input type="password" id="delete-profile-password-input" placeholder="Enter password to confirm deletion..." autocomplete="off" />
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" id="cancel-delete-btn" class="btn-secondary">Cancel</button>
+            <button type="submit" class="btn-primary" style="background: #ef4444; color: white;">Confirm Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

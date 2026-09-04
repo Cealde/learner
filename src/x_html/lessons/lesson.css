@@ -1,5 +1,5 @@
 /* ============================================================
-   ADHICODE LESSON TWIN: NEO-BRUTALIST STYLES
+   ADHICODE Lesson: NEO-BRUTALIST STYLES
    ============================================================ */
 
 @font-face {
@@ -836,6 +836,99 @@ hlt:hover {
   transform: translate(2px, 2px);
   box-shadow: 1px 1px 0 var(--neo-black);
   background: var(--neo-yellow);
+}
+
+/* Generic Content Classes */
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.section-heading {
+  font-family: 'Title', 'Body', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--neo-black);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.section-subheading {
+  font-family: 'Title', 'Body', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--neo-black);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.section-lead {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222222;
+  line-height: 1.5;
+}
+
+.neo-callout {
+  border: 3px solid var(--neo-black);
+  box-shadow: 5px 5px 0 var(--neo-black);
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+
+.neo-callout.info-callout {
+  background: #EFF6FF;
+}
+
+.neo-callout.warning-callout {
+  background: #FEE2E2;
+}
+
+.neo-callout h4 {
+  font-family: 'Title', 'Body', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+  color: var(--neo-black);
+}
+
+.neo-callout p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111111;
+  line-height: 1.45;
+}
+
+.code-demo-box {
+  background: #0d1117;
+  border: 3px solid var(--neo-black);
+  box-shadow: 4px 4px 0 var(--neo-black);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.code-demo-header {
+  background: #161b22;
+  border-bottom: 2px solid #30363d;
+  color: #c9d1d9;
+  font-family: 'Title', 'Body', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.code-demo-box pre {
+  padding: 14px 16px;
+  margin: 0;
+  font-family: 'Consolas', monospace;
+  font-size: 0.9rem;
+  color: #f0f6fc;
+  line-height: 1.5;
+  overflow-x: auto;
 }
 
 @media (max-width: 1100px) {

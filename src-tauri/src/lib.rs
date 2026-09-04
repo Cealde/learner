@@ -170,15 +170,38 @@ fn create_profile(
 }
 
 #[tauri::command]
-fn delete_profile(state: State<'_, AppState>, id: String) -> Result<(), String> {
-    {
-        let mut data = state.data.lock().map_err(|e| e.to_string())?;
-        data.profiles.retain(|p| p.id != id);
-        if data.active_profile_id.as_deref() == Some(&id) {
-            data.active_profile_id = None;
+fn delete_profile(
+    state: State<'_, AppState>,
+    user_store_state: State<'_, user_store::UserStoreState>,
+    id: String,
+    password: Option<String>,
+) -> Result<(), String> {
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+
+    let profile = data
+        .profiles
+        .iter()
+        .find(|p| p.id == id)
+        .ok_or_else(|| "Profile not found".to_string())?;
+
+    if let Some(required_pwd) = &profile.password {
+        let input_pwd = password.unwrap_or_default();
+        if &input_pwd != required_pwd {
+            return Err("Incorrect password. Cannot delete protected profile.".into());
         }
     }
+
+    let username = profile.username.clone();
+    data.profiles.retain(|p| p.id != id);
+    if data.active_profile_id.as_deref() == Some(&id) {
+        data.active_profile_id = None;
+    }
+
+    drop(data);
     state.persist()?;
+
+    let _ = user_store_state.delete_user_data(&username);
+
     Ok(())
 }
 
