@@ -341,7 +341,7 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
 
         visitCardEl.addEventListener('click', () => {
             if(stat <= 1) {
-                window.location.href = '../x_html/lessons/'+subNo+'.html?'+'spcl='+spclNo+'&lsn'+pt.page_no;
+                window.location.href = '../x_html/lessons/'+2+'.html?'+'spcl='+spclNo+'&lsn'+pt.page_no;
             }
         });
 
