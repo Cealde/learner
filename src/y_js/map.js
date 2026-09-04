@@ -15,6 +15,7 @@ userSessionInitialize(
         currentSubNo = progress ? (progress.sub_no || 1) : 1;
         currentSpecNo = progress ? (progress.spec_no || 1) : 1;
         buildMapNodesAndRoutes();
+        zoomToActiveNode(250);
     },
     () => {
         window.location.href = 'index.html';
@@ -32,6 +33,8 @@ scene.background = new THREE.Color('#dbdbdb');
 // ============================================================
 const aspect = window.innerWidth / window.innerHeight;
 const frustumSize = 36;
+const INITIAL_ZOOM = 0.42;
+const FOCUSED_NODE_ZOOM = 1.15;
 
 const camera = new THREE.OrthographicCamera(
     (-frustumSize * aspect) / 2,
@@ -41,6 +44,8 @@ const camera = new THREE.OrthographicCamera(
     0.1,
     1000
 );
+camera.zoom = INITIAL_ZOOM;
+camera.updateProjectionMatrix();
 
 // True Isometric Angle (RCT Style): 45° yaw around Y, 35.264° pitch down
 const ISO_DIST = 150;
@@ -239,8 +244,22 @@ function buildMapNodesAndRoutes() {
     });
 }
 
+function zoomToActiveNode(delay = 300) {
+    setTimeout(() => {
+        const activeIndex = Math.min(Math.max(completionInt - 1, 0), MAP_POINTS.length - 1);
+        const activeNode = MAP_POINTS[activeIndex] || MAP_POINTS[0];
+        if (activeNode) {
+            targetPanX = activeNode.x;
+            targetPanZ = activeNode.z;
+            updatePanBounds();
+            targetZoom = FOCUSED_NODE_ZOOM;
+        }
+    }, delay);
+}
+
 buildMapNodesAndRoutes();
 scatterTrees(scene, MAP_POINTS);
+zoomToActiveNode(350);
 
 // ============================================================
 // 6. CLICK DETECTION & POINT CARD MODAL
@@ -266,7 +285,7 @@ const mouse = new THREE.Vector2();
 let isDragging = false;
 let pointerDownPos = { x: 0, y: 0 };
 let previousPointer = { x: 0, y: 0 };
-const MAX_PAN_RADIUS = 65;
+const MAX_PAN_RADIUS = 125;
 
 function updatePanBounds() {
     const clamped = clampPan(targetPanX, targetPanZ, MAX_PAN_RADIUS);
@@ -330,7 +349,7 @@ window.addEventListener('pointerup', (e) => {
 // ============================================================
 const MIN_ZOOM = 0.35;
 const MAX_ZOOM = 3.5;
-let targetZoom = 1.0;
+let targetZoom = INITIAL_ZOOM;
 
 function setZoom(factor) {
     targetZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, targetZoom * factor));
@@ -370,12 +389,12 @@ function animate() {
     const elapsedTime = clock.getElapsedTime();
 
     // Smooth pan inertia
-    currentPanX += (targetPanX - currentPanX) * 0.12;
-    currentPanZ += (targetPanZ - currentPanZ) * 0.12;
+    currentPanX += (targetPanX - currentPanX) * 0.08;
+    currentPanZ += (targetPanZ - currentPanZ) * 0.08;
 
     // Smooth zoom interpolation
     if (Math.abs(camera.zoom - targetZoom) > 0.0005) {
-        camera.zoom += (targetZoom - camera.zoom) * 0.12;
+        camera.zoom += (targetZoom - camera.zoom) * 0.06;
         camera.updateProjectionMatrix();
     }
 

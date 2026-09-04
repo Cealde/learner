@@ -461,7 +461,7 @@ function goToPage(pt) {
 }
 
 // 8. Pan Clamping Helper
-function clampPan(targetPanX, targetPanZ, maxRadius = 65) {
+function clampPan(targetPanX, targetPanZ, maxRadius = 125) {
     const dist = Math.hypot(targetPanX, targetPanZ);
     if (dist > maxRadius) {
         return {
