@@ -28,8 +28,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>A computer follows instructions and performs the operations specified by those instructions.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>The key idea is that computers follow instructions rather than independently understanding or deciding what to do."
+      "explanation_correct": "<strong>EXCELLENT!</strong><br/>A computer follows instructions and performs the operations specified by those instructions.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>The key idea is that computers follow instructions rather than independently understanding or deciding what to do."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 2 OF 8",
@@ -57,8 +57,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>The term emphasizes that computers do not possess human-like common sense. They need instructions that tell them what to do.",
-      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>\"Dumb\" refers to the lack of human-like understanding or common sense, not a lack of computational power."
+      "explanation_correct": "<strong>SPOT ON!</strong><br/>The term emphasizes that computers do not possess human-like common sense. They need instructions that tell them what to do.",
+      "explanation_incorrect": "<strong>Try Again!</strong><br/>\"Dumb\" refers to the lack of human-like understanding or common sense, not a lack of computational power."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 3 OF 8",
@@ -86,8 +86,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>✅ CORRECT!</strong><br/>Computers do not automatically fill in missing instructions using human common sense.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>A computer follows the instructions it receives. It does not automatically use human common sense to supply missing steps."
+      "explanation_correct": "<strong>CORRECT!</strong><br/>Computers do not automatically fill in missing instructions using human common sense.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>A computer follows the instructions it receives. It does not automatically use human common sense to supply missing steps."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 4 OF 8",
@@ -115,8 +115,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>💡 NICE!</strong><br/>A computer needs explicit steps rather than vague instructions.",
-      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Computers require explicit instructions. Vague phrases leave important actions unspecified."
+      "explanation_correct": "<strong>NICE!</strong><br/>A computer needs explicit steps rather than vague instructions.",
+      "explanation_incorrect": "<strong>Try Again!</strong><br/>Computers require explicit instructions. Vague phrases leave important actions unspecified."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 5 OF 8",
@@ -144,8 +144,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🚀 EXACTLY!</strong><br/>Computers can perform huge numbers of simple operations extremely quickly.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Their apparent intelligence comes from executing instructions quickly, not from gaining human-like understanding."
+      "explanation_correct": "<strong>EXACTLY!</strong><br/>Computers can perform huge numbers of simple operations extremely quickly.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>Their apparent intelligence comes from executing instructions quickly, not from gaining human-like understanding."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 6 OF 8",
@@ -173,8 +173,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🔍 WELL DONE!</strong><br/>Computers do not automatically use human common sense to infer unstated intentions.",
-      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Computers can follow instructions, perform operations, and execute them quickly. The missing ability is human-like common sense."
+      "explanation_correct": "<strong>WELL DONE!</strong><br/>Computers do not automatically use human common sense to infer unstated intentions.",
+      "explanation_incorrect": "<strong>Try Again!</strong><br/>Computers can follow instructions, perform operations, and execute them quickly. The missing ability is human-like common sense."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 7 OF 8",
@@ -202,8 +202,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>✅ GREAT JOB!</strong><br/>Computers need precise instructions because they do not automatically infer the intended meaning of vague instructions.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>The issue is not speed or the type of information. Computers need instructions to be explicit because they do not automatically infer human intent."
+      "explanation_correct": "<strong>GREAT JOB!</strong><br/>Computers need precise instructions because they do not automatically infer the intended meaning of vague instructions.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>The issue is not speed or the type of information. Computers need instructions to be explicit because they do not automatically infer human intent."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 8 OF 8",
@@ -231,8 +231,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>A computer can accomplish complex tasks by executing huge numbers of relatively simple instructions at very high speed.",
-      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Computers remain instruction-following machines. Their power comes from the speed and scale at which they execute operations."
+      "explanation_correct": "<strong>MODULE COMPLETE!</strong><br/>A computer can accomplish complex tasks by executing huge numbers of relatively simple instructions at very high speed.",
+      "explanation_incorrect": "<strong>Almost!</strong><br/>Computers remain instruction-following machines. Their power comes from the speed and scale at which they execute operations."
     }
   ]
 }

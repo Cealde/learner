@@ -454,7 +454,7 @@ function renderChallengeStepper() {
     const bg = isCurrent ? '#fef08a' : (isDone ? '#86efac' : '#e5e7eb');
     const color = '#111111';
     const border = '2px solid #111111';
-    const icon = isDone ? '✓ ' : (isCurrent ? '▶ ' : '');
+    const icon = isDone ? '[Done] ' : (isCurrent ? '[Active] ' : '');
     return `
       <div style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 3px 10px; font-weight: 800; font-size: 11px; text-transform: uppercase; border-radius: 3px;">
         ${icon}Stage ${i + 1}
@@ -533,10 +533,10 @@ async function verifyOutput(actualOutput) {
     }
 
     if (!astCheckPassed) {
-      appendTerminal(`\n🤖 [Inbuilt AI Feedback]: ${astMessage}`, 'term-line-err');
+      appendTerminal(`\n[AI Feedback]: ${astMessage}`, 'term-line-err');
       return false;
     } else if (astMessage) {
-      appendTerminal(`\n🤖 [Inbuilt AI]: ${astMessage}`, 'term-line-info');
+      appendTerminal(`\n[AI Verification]: ${astMessage}`, 'term-line-info');
     }
   }
 
@@ -545,14 +545,14 @@ async function verifyOutput(actualOutput) {
 
   if (cleanActual === cleanExpected) {
     if (activeChallenges && activeChallenges.length > 0 && currentChallengeIdx < activeChallenges.length - 1) {
-      appendTerminal(`\n✅ STAGE ${currentChallengeIdx + 1} COMPLETE: Output matched!`, 'term-line-info');
+      appendTerminal(`\nSTAGE ${currentChallengeIdx + 1} COMPLETE: Output matched!`, 'term-line-info');
       currentChallengeIdx++;
-      appendTerminal(`\n🚀 ADVANCING TO STAGE ${currentChallengeIdx + 1}...`, 'term-line-info');
+      appendTerminal(`\nADVANCING TO STAGE ${currentChallengeIdx + 1}...`, 'term-line-info');
       updateChallengeUI();
       return true;
     }
 
-    appendTerminal('\n✅ SUCCESS: Output matches expected results!', 'term-line-info');
+    appendTerminal('\nSUCCESS: Output matches expected results!', 'term-line-info');
     if (typeof markQuizCompleted === 'function') {
       markQuizCompleted(special, lesson, subset);
     }
@@ -578,7 +578,7 @@ async function verifyOutput(actualOutput) {
     }
     return true;
   } else {
-    appendTerminal('\n❌ Output does not match expected result. Keep experimenting!', 'term-line-err');
+    appendTerminal('\nOutput does not match expected result. Keep experimenting!', 'term-line-err');
     return false;
   }
 }

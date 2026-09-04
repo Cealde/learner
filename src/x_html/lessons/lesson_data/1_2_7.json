@@ -28,8 +28,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>Python executes instructions strictly top-to-bottom, line-by-line in sequential order.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Python is sequential: it begins at line 1, finishes it, then proceeds to line 2, and so on."
+      "explanation_correct": "<strong>EXCELLENT!</strong><br/>Python executes instructions strictly top-to-bottom, line-by-line in sequential order.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>Python is sequential: it begins at line 1, finishes it, then proceeds to line 2, and so on."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 2 OF 5",
@@ -57,8 +57,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>Each print() statement outputs on a new line in the exact order written from top to bottom.",
-      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Each print() executes in top-to-bottom order and places its text on a new line in the output terminal."
+      "explanation_correct": "<strong>SPOT ON!</strong><br/>Each print() statement outputs on a new line in the exact order written from top to bottom.",
+      "explanation_incorrect": "<strong>Try Again!</strong><br/>Each print() executes in top-to-bottom order and places its text on a new line in the output terminal."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 3 OF 5",
@@ -86,8 +86,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>💡 NICE!</strong><br/>When Python hits an error during execution or parsing, it immediately stops. Later lines are not executed.",
-      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Python stops execution immediately upon encountering an unhandled error. Subsequent lines do not run."
+      "explanation_correct": "<strong>NICE!</strong><br/>When Python hits an error during execution or parsing, it immediately stops. Later lines are not executed.",
+      "explanation_incorrect": "<strong>Not quite!</strong><br/>Python stops execution immediately upon encountering an unhandled error. Subsequent lines do not run."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 4 OF 5",
@@ -115,8 +115,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🔍 WELL DONE!</strong><br/>Line 1 prints 10, then Line 2 prints 20 on the next line. They are not added together because they are separate print commands.",
-      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Because these are two separate print() statements, 10 is printed first, followed by 20 on a new line."
+      "explanation_correct": "<strong>WELL DONE!</strong><br/>Line 1 prints 10, then Line 2 prints 20 on the next line. They are not added together because they are separate print commands.",
+      "explanation_incorrect": "<strong>Try Again!</strong><br/>Because these are two separate print() statements, 10 is printed first, followed by 20 on a new line."
     },
     {
       "badge": "MODULE QUIZ • QUESTION 5 OF 5",
@@ -134,8 +134,8 @@
           "correct": false
         }
       ],
-      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>Computers have no common sense or concept of 'importance'—they execute strictly in the sequential order you write!",
-      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Python never rearranges your code based on 'importance'. It executes lines strictly in the order you wrote them."
+      "explanation_correct": "<strong>MODULE COMPLETE!</strong><br/>Computers have no common sense or concept of 'importance'—they execute strictly in the sequential order you write!",
+      "explanation_incorrect": "<strong>Almost!</strong><br/>Python never rearranges your code based on 'importance'. It executes lines strictly in the order you wrote them."
     }
   ]
 }

@@ -10,6 +10,6 @@
     { "prefix": "C", "text": "\"405\" (str)", "correct": false },
     { "prefix": "D", "text": "TypeError: incompatible types", "correct": false }
   ],
-  "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/><code>\"20\" * 2</code> repeats the string to <code>\"2020\"</code>, and concatenating <code>str(5)</code> yields <code>\"20205\"</code>.",
-  "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Remember that multiplying a string repeats it (e.g. <code>\"hi\" * 2</code> becomes <code>\"hihi\"</code>), rather than performing arithmetic addition. Try again!"
+  "explanation_correct": "<strong>EXCELLENT!</strong><br/><code>\"20\" * 2</code> repeats the string to <code>\"2020\"</code>, and concatenating <code>str(5)</code> yields <code>\"20205\"</code>.",
+  "explanation_incorrect": "<strong>Not quite!</strong><br/>Remember that multiplying a string repeats it (e.g. <code>\"hi\" * 2</code> becomes <code>\"hihi\"</code>), rather than performing arithmetic addition. Try again!"
 }

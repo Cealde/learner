@@ -19,8 +19,8 @@ export const sylPy = [
 ];
 
 export const LANGUAGES = [
-  { code: 'en', name: 'English (US)', flag: '🇺🇸' },
-  { code: 'ml', name: 'മലയാളം (Malayalam)', flag: '🇮🇳' }
+  { code: 'en', name: 'English (US)' },
+  { code: 'ml', name: 'മലയാളം (Malayalam)' }
 ];
 
 let currentLang = (typeof window !== 'undefined' && localStorage.getItem('learner_preferred_lang')) || 'en';
@@ -44,14 +44,14 @@ export function initLanguageDropup() {
       <div id="lang-dropup-menu" class="lang-dropup-menu">
         ${LANGUAGES.map(lang => `
           <button type="button" class="lang-option-item ${lang.code === currentLang ? 'active' : ''}" data-code="${lang.code}">
-            <span>${lang.flag} ${lang.name}</span>
-            ${lang.code === currentLang ? '<span>✓</span>' : ''}
+            <span>${lang.name}</span>
+            ${lang.code === currentLang ? '<span>(Active)</span>' : ''}
           </button>
         `).join('')}
       </div>
       <button type="button" id="lang-dropup-btn" class="lang-dropup-btn">
-        <span>🌐 <span id="current-lang-text">${activeLangObj.name}</span></span>
-        <span>▴</span>
+        <span>Language: <span id="current-lang-text">${activeLangObj.name}</span></span>
+        <span>^</span>
       </button>
     </div>
   `;
@@ -719,7 +719,7 @@ export function generateAdaptiveContent(sub, totalSteps) {
       const correctPrincipleLabel = isMl ? MALAYALAM_OVERVIEWS.correctPrincipleLabel : 'Correct Principle:';
       const reviewHeader = isMl 
         ? MALAYALAM_OVERVIEWS.reviewPointsTitle(cg.mistakes.length)
-        : `📝 Triggered Review Points (${cg.mistakes.length} item${cg.mistakes.length > 1 ? 's' : ''}):`;
+        : `Triggered Review Points (${cg.mistakes.length} item${cg.mistakes.length > 1 ? 's' : ''}):`;
 
       const reviewedItems = cg.mistakes.map(m => `
         <div style="font-size: 13px; font-weight: 600; color: #111111; margin-bottom: 8px; line-height: 1.4;">
@@ -753,7 +753,7 @@ export function generateAdaptiveContent(sub, totalSteps) {
       `;
     }).join('');
 
-    const overviewBadge = isMl ? MALAYALAM_OVERVIEWS.breakdownBadge(roundNum) : `🧠 AI Breakdown ${roundNum > 1 ? `• Round ${roundNum}` : ''}`;
+    const overviewBadge = isMl ? MALAYALAM_OVERVIEWS.breakdownBadge(roundNum) : `AI Breakdown ${roundNum > 1 ? `• Round ${roundNum}` : ''}`;
     const overviewHeading = isMl ? MALAYALAM_OVERVIEWS.breakdownHeading : 'Mastering Your <hlt>Tricky Concepts</hlt>';
     const overviewIntro = isMl 
       ? MALAYALAM_OVERVIEWS.breakdownIntro(activeConcepts.length)
@@ -1045,19 +1045,19 @@ export function applyLanguageUI() {
     if (nextBtn) nextBtn.textContent = 'Next Page →';
 
     const btnRun = document.getElementById('btn-run');
-    if (btnRun) btnRun.innerHTML = '▶ Run';
+    if (btnRun) btnRun.innerHTML = 'Run';
 
     const btnDebug = document.getElementById('btn-debug');
-    if (btnDebug) btnDebug.innerHTML = '🔍 Debug';
+    if (btnDebug) btnDebug.innerHTML = 'Debug';
 
     const btnStep = document.getElementById('btn-step');
-    if (btnStep) btnStep.innerHTML = '⏭ Step';
+    if (btnStep) btnStep.innerHTML = 'Step';
 
     const btnContinue = document.getElementById('btn-continue');
-    if (btnContinue) btnContinue.innerHTML = '⏩ Continue';
+    if (btnContinue) btnContinue.innerHTML = 'Continue';
 
     const btnReset = document.getElementById('btn-reset');
-    if (btnReset) btnReset.innerHTML = '↺ Reset';
+    if (btnReset) btnReset.innerHTML = 'Reset';
 
     const btnClear = document.getElementById('btn-clear-output');
     if (btnClear) btnClear.textContent = 'Clear';
@@ -1309,7 +1309,7 @@ function setupMultiQuestionQuiz(data) {
             if (!text) return '';
             return text
               .replace(/<strong[^>]*>.*?<\/strong>\s*(<br\s*\/?>)?/gi, '')
-              .replace(/^([✅❌🎯💡]|EXCELLENT!|Not quite!|SPOT ON!|\s)+/gi, '')
+              .replace(/^([]|EXCELLENT!|Not quite!|SPOT ON!|\s)+/gi, '')
               .trim();
           };
 
@@ -1372,7 +1372,7 @@ function setupMultiQuestionQuiz(data) {
           if (idx < questions.length - 1) {
             if (nextQBtn) {
               nextQBtn.style.display = 'inline-flex';
-              nextQBtn.textContent = `Next Question (${idx + 2}/${questions.length}) ➔`;
+              nextQBtn.textContent = `Next Question (${idx + 2}/${questions.length}) ->`;
             }
           } else {
             // Completed all questions in the quiz!
@@ -1386,7 +1386,7 @@ function setupMultiQuestionQuiz(data) {
                 if (feedbackBox) {
                   feedbackBox.innerHTML += `
                     <div style="margin-top: 12px; padding: 12px 14px; background: #fef08a; border: 2px solid var(--neo-black); border-radius: 4px; font-weight: 800; color: #111111;">
-                      ⚠️ You missed ${sessionMistakes.length} question${sessionMistakes.length > 1 ? 's' : ''}. An updated AI breakdown has been generated for these topics. Click <strong>Review Breakdown →</strong> to continue.
+                      You missed ${sessionMistakes.length} question${sessionMistakes.length > 1 ? 's' : ''}. An updated AI breakdown has been generated for these topics. Click <strong>Review Breakdown →</strong> to continue.
                     </div>
                   `;
                 }
@@ -1418,7 +1418,7 @@ function setupMultiQuestionQuiz(data) {
                 if (feedbackBox) {
                   feedbackBox.innerHTML += `
                     <div style="margin-top: 12px; padding: 12px 14px; background: #86efac; border: 2px solid var(--neo-black); border-radius: 4px; font-weight: 900; color: #111111;">
-                      🎉 Perfect score! You have mastered all tricky concepts for this lesson!
+                      Perfect score! You have mastered all tricky concepts for this lesson!
                     </div>
                   `;
                 }
@@ -1452,7 +1452,7 @@ function setupMultiQuestionQuiz(data) {
                 });
 
                 if (feedbackBox) {
-                  feedbackBox.innerHTML += '<div style="margin-top: 10px; font-weight: 900; color: #111111;">🎉 Lesson completed with 100% accuracy! Click Next Topic below to continue.</div>';
+                  feedbackBox.innerHTML += '<div style="margin-top: 10px; font-weight: 900; color: #111111;">Lesson completed with 100% accuracy! Click Next Topic below to continue.</div>';
                 }
                 if (nextBtn) {
                   nextBtn.disabled = false;
@@ -1469,7 +1469,7 @@ function setupMultiQuestionQuiz(data) {
                 if (feedbackBox) {
                   feedbackBox.innerHTML += `
                     <div style="margin-top: 12px; padding: 12px 14px; background: #fef08a; border: 2px solid var(--neo-black); border-radius: 4px; font-weight: 800; color: #111111;">
-                      ⚠️ You had ${currentMistakes.length} tricky question${currentMistakes.length > 1 ? 's' : ''}. An AI breakdown has been prepared to help you master them. Click <strong>Review Breakdown →</strong> to continue.
+                      You had ${currentMistakes.length} tricky question${currentMistakes.length > 1 ? 's' : ''}. An AI breakdown has been prepared to help you master them. Click <strong>Review Breakdown →</strong> to continue.
                     </div>
                   `;
                 }
@@ -1486,7 +1486,7 @@ function setupMultiQuestionQuiz(data) {
                 // Intermediate base quiz (e.g. sub=2)
                 setMaxVisitedSub(spcl, lsn, sub + 1);
                 if (feedbackBox) {
-                  feedbackBox.innerHTML += '<div style="margin-top: 10px; font-weight: 900;">🎉 Quiz finished! Click Next Page below to continue.</div>';
+                  feedbackBox.innerHTML += '<div style="margin-top: 10px; font-weight: 900;">Quiz finished! Click Next Page below to continue.</div>';
                 }
                 if (nextBtn) {
                   nextBtn.disabled = false;
