@@ -972,8 +972,9 @@ export function initSidebarNavigation(currentType) {
       btn.setAttribute('data-sec', stepNum);
       btn.id = `sidebar-nav-item-${stepNum}`;
 
-      // User can visit any step up to their max unlocked / visited step
-      const isUnlocked = stepNum <= maxVisited;
+      // User can visit any step if the lesson was completed previously, or up to max visited step
+      const isCompletedLesson = Number(lsn) < Number(currentProgress.lesson_no);
+      const isUnlocked = isCompletedLesson || (stepNum <= maxVisited);
 
       if (!isUnlocked) {
         btn.disabled = true;
