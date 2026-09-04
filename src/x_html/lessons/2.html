@@ -2,15 +2,107 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../z_css/middle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Active Profile - Adhicode</title>
-    <script type="module" src="lesson.css" defer></script>
+    <title>Lesson 2: Python Debugger Workspace - Adhicode</title>
+    <link rel="stylesheet" href="lesson.css" />
+    <script type="module" src="../../y_js/lesson2.js" defer></script>
   </head>
 
   <body>
-    <main>
-        <h1>Lesson Twin</h1>
+    <!-- Top Header -->
+    <header class="lesson-header">
+      <div class="header-left">
+        <button class="back-btn" onclick="window.location.href = '../journey.html'">
+          ← Back to Map
+        </button>
+        <div class="lesson-title-group">
+          <h1>Lesson 2: Python Execution & Debugging</h1>
+          <p>Inspect variables, set breakpoints, and trace code step-by-step</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Debugger Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-buttons">
+        <button id="btn-run" class="tool-btn btn-run" title="Run entire script">
+          ▶ Run
+        </button>
+        <button id="btn-debug" class="tool-btn btn-debug" title="Start step-by-step debugger">
+          🔍 Debug
+        </button>
+        <button id="btn-step" class="tool-btn btn-step" title="Step to next line">
+          ⏭ Step
+        </button>
+        <button id="btn-continue" class="tool-btn btn-continue" title="Continue to next breakpoint">
+          ⏩ Continue
+        </button>
+        <button id="btn-reset" class="tool-btn btn-reset" title="Reset state">
+          ↺ Reset
+        </button>
+      </div>
+
+      <div class="status-badge">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Ready</span>
+      </div>
+    </div>
+
+    <!-- Main Workspace Split Grid -->
+    <main class="workspace-grid">
+      <!-- Left Panel: Python Code Editor -->
+      <section class="panel editor-panel">
+        <div class="panel-header">
+          <span>Python Code Editor</span>
+          <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">Click gutter to toggle breakpoints</span>
+        </div>
+        <div class="editor-container">
+          <div id="gutter" class="gutter"></div>
+          <div class="editor-wrapper">
+            <div id="line-highlights"></div>
+            <textarea id="code-input" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: Variables Inspector + Output Console -->
+      <div class="right-split">
+        <!-- Variables Inspector -->
+        <section class="panel variables-panel">
+          <div class="panel-header">
+            <span>Variables Inspector</span>
+          </div>
+          <div class="vars-table-wrapper">
+            <div id="empty-vars-msg" class="empty-vars">
+              No active variables. Click "Debug" or "Step" to inspect memory state.
+            </div>
+            <table class="vars-table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Type</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody id="vars-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Output Box / Terminal Console -->
+        <section class="panel output-panel">
+          <div class="panel-header">
+            <span>Output Console</span>
+            <div class="panel-actions">
+              <button id="btn-clear-output" type="button">Clear</button>
+            </div>
+          </div>
+          <div id="terminal-box" class="terminal-box">
+            <div class="term-line-info">Python 3.13 Interactive Environment Ready.</div>
+            <div class="term-line-info">Click "Run" or "Debug" to execute code.</div>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
