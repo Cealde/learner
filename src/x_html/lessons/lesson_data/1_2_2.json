@@ -1,0 +1,151 @@
+{
+  "title": "Practice Quiz: Code Editor Controls",
+  "topic": "1.1 • THE CODE EDITOR",
+  "questions": [
+    {
+      "badge": "MODULE QUIZ • QUESTION 1 OF 5",
+      "question": "What happens when you click the \"Run\" button in your code editor?",
+      "code": "# Press ▶ Run\nprint(\"Welcome to Python!\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "The computer executes the entire program from start to finish at full speed.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "The computer pauses on every single line and asks for permission.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "The computer deletes all previous lines and closes the window.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "The computer converts the Python code into an image file.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ CORRECT!</strong><br/>The Run button instructs Python to execute all instructions sequentially from top to bottom at normal speed.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Run executes the script from start to finish. If you want to pause and inspect line-by-line, you use Debug and Step."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 2 OF 5",
+      "question": "What happens when you click on a line number in the gutter to add a Breakpoint (●)?",
+      "code": "● 1 | name = \"Alex\"\n  2 | print(\"Hello\", name)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "It marks a pause point where the debugger will temporarily stop execution.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "It comments out that line so Python skips it completely.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "It makes that line repeat 10 times automatically.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It encrypts the line with a password.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>A Breakpoint tells the debugger: 'Pause here so the programmer can look at variables and inspect memory.'",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Breakpoints do not delete or skip lines. They pause execution during a debug session so you can inspect state."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 3 OF 5",
+      "question": "How does the \"Step\" (⏭) button work during debugging?",
+      "code": "step_1 = \"Setup\"\nstep_2 = \"Process\"\nstep_3 = \"Display\"",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "It advances execution by exactly one line, allowing you to observe variable changes.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "It skips all remaining code in the file.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "It reverses time and un-runs the previous line.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It shuts down the computer safely.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>💡 NICE!</strong><br/>Stepping moves the program forward one line at a time, making it easy to spot where things go wrong.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Step executes the next single line of code so you can watch memory values change gradually."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 4 OF 5",
+      "question": "Where can you check the current values and types of variables while stepping through code?",
+      "code": "score = 100\nbonus = 25\ntotal = score + bonus",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "The Memory & Variables Inspector table in the right panel.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "The keyboard settings menu.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "The browser history tab.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "The operating system recycle bin.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🔍 EXCELLENT!</strong><br/>The Memory / Variables table displays all active variables, their Python data types (e.g. str, int), and their live values.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>The Variables Inspector table in the editor panel shows variable names, types, and values in memory."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 5 OF 5",
+      "question": "What is the primary function of the Output Console Terminal?",
+      "code": "print(\"Mission Complete!\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "To display text output printed by print() and show runtime messages or errors.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "To design 3D animations automatically.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "To format the computer's hard drive.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "To write code on your behalf without typing.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>The output console is the screen where your program's text results, greetings, numbers, and error messages appear!",
+      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>The Output Console shows what your code prints out (using print()) and reports system messages or error traces."
+    }
+  ]
+}

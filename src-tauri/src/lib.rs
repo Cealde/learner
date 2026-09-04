@@ -236,7 +236,7 @@ fn logout_profile(state: State<'_, AppState>) -> Result<(), String> {
 pub mod user_store;
 pub mod python_runner;
 
-use python_runner::{debug_python, run_python, translate_with_ai};
+use python_runner::{debug_python, run_python, translate_with_ai, verify_python_ast};
 use user_store::{
     clear_lesson_mistakes, delete_user_value, get_all_user_values, get_lesson_mistakes,
     get_user_progress, get_user_value, record_subtopic_progress, save_lesson_mistakes,
@@ -271,7 +271,8 @@ pub fn run() {
             clear_lesson_mistakes,
             run_python,
             debug_python,
-            translate_with_ai
+            translate_with_ai,
+            verify_python_ast
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

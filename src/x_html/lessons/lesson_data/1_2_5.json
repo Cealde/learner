@@ -1,0 +1,151 @@
+{
+  "title": "Practice Quiz: The print() Command",
+  "topic": "1.2 • THE PRINT() COMMAND",
+  "questions": [
+    {
+      "badge": "MODULE QUIZ • QUESTION 1 OF 5",
+      "question": "Which line of Python code correctly prints the text \"Hellow\" to the console?",
+      "code": "# Choose the correct syntax:",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "print(\"Hellow\")",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Print(Hellow)",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "output \"Hellow\"",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "echo << \"Hellow\"",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>Python's print() function is lowercase, followed by parentheses and quotation marks around the text.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Python is case-sensitive, so print must be lowercase with parentheses and quotation marks around text: print(\"Hellow\")."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 2 OF 5",
+      "question": "What is the crucial difference between print(5) and print(\"5\")?",
+      "code": "print(5)    # Case A\nprint(\"5\")  # Case B",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "5 is a numeric integer (int) ready for math, while \"5\" is a text string (str).",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "print(5) causes an immediate error because numbers cannot be printed.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "print(\"5\") prints five blank lines.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "There is zero difference under the hood in Python memory.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>Numbers without quotes are stored as integers (int), allowing arithmetic. Text in quotes is treated as string (str).",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>5 without quotes is an integer (int); \"5\" in quotes is text (str). While they look similar when printed, their types in memory are completely different!"
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 3 OF 5",
+      "question": "Why will Python report a SyntaxError for this code?",
+      "code": "print(\"Hellow)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "The opening quote was not closed before the parenthesis (unterminated string).",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "The word \"Hellow\" is not a recognized Python keyword.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Python only allows single quotes, never double quotes.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "print() cannot be used on the first line of a script.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>💡 NICE!</strong><br/>Every opening quotation mark must have a matching closing quotation mark before the closing parenthesis.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Quotes must always come in matching pairs (start and end). Missing the closing quote creates an unterminated string literal error."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 4 OF 5",
+      "question": "Which statement will output the character sequence P Y T H O N?",
+      "code": "# Target: P Y T H O N",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "print(\"P Y T H O N\")",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "print(P, Y, T, H, O, N)",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "sequence[\"P Y T H O N\"]",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "letter_display(P-Y-T-H-O-N)",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🔍 WELL DONE!</strong><br/>Writing the text sequence inside quotation marks inside print() will cleanly display 'P Y T H O N' in the console.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Without quotes, Python thinks P, Y, T, etc., are variable names. Wrapping them in quotes print(\"P Y T H O N\") prints the characters as text."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 5 OF 5",
+      "question": "What happens if you write print(Hellow) without quotes?",
+      "code": "print(Hellow)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Python thinks Hellow is a variable name and raises a NameError: name 'Hellow' is not defined.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Python automatically adds quotes and prints it normally.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Python translates it into another language.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "The computer reboots.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>Without quotes, Python looks for an existing variable named Hellow. If no such variable was created, it throws a NameError.",
+      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Any word written without quotation marks is assumed to be a variable or keyword. Without prior assignment, it raises a NameError."
+    }
+  ]
+}

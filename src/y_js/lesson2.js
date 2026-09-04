@@ -1,4 +1,4 @@
-import { markQuizCompleted, setMaxVisitedSub } from '../x_html/lessons/loader.js';
+import { markQuizCompleted, setMaxVisitedSub, fetchLessonJson } from '../x_html/lessons/loader.js';
 
 function getInvoke() {
   if (typeof window !== 'undefined' && window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
@@ -37,8 +37,14 @@ let debugSteps = [];
 let currentStepIdx = -1;
 let isDebugging = false;
 
+// Multi-Challenge State
+let activeChallenges = [];
+let currentChallengeIdx = 0;
+let lessonData = null;
+
 // Starter Python code for Lesson 2
-const STARTER_CODE = `#Enter Code Here`
+const STARTER_CODE = `# Write your code here\n`;
+
 
 // ============================================================
 // SYNTAX HIGHLIGHTING ENGINE
@@ -404,9 +410,70 @@ function normalizeOutput(text) {
     .trim();
 }
 
-async function verifyOutput(actualOutput) {
+function updateChallengeUI() {
+  if (!activeChallenges || activeChallenges.length === 0) return;
+  const c = activeChallenges[currentChallengeIdx];
+  if (!c) return;
+
+  const taskTitle = document.getElementById('task-title');
+  const taskDesc = document.getElementById('task-desc');
   const intendedOutputEl = document.getElementById('task-intended-output');
-  let expectedRaw = (intendedOutputEl && intendedOutputEl.textContent.trim() !== '') ? intendedOutputEl.textContent : null;
+
+  if (taskTitle) taskTitle.textContent = c.title || `Challenge ${currentChallengeIdx + 1}`;
+  if (taskDesc) taskDesc.innerHTML = c.description || '';
+  if (intendedOutputEl) intendedOutputEl.textContent = c.intended_output || '';
+
+  if (codeInput && (c.starter_code !== undefined)) {
+    codeInput.value = c.starter_code;
+    updateGutter();
+    updateHighlighting();
+  }
+
+  renderChallengeStepper();
+}
+
+function renderChallengeStepper() {
+  if (!activeChallenges || activeChallenges.length <= 1) return;
+  const taskInfo = document.querySelector('.task-info');
+  if (!taskInfo) return;
+
+  let stepperEl = document.getElementById('challenge-stepper');
+  if (!stepperEl) {
+    stepperEl = document.createElement('div');
+    stepperEl.id = 'challenge-stepper';
+    stepperEl.style.display = 'flex';
+    stepperEl.style.gap = '8px';
+    stepperEl.style.marginBottom = '10px';
+    stepperEl.style.flexWrap = 'wrap';
+    taskInfo.insertBefore(stepperEl, taskInfo.querySelector('.task-badge') || taskInfo.firstChild);
+  }
+
+  stepperEl.innerHTML = activeChallenges.map((c, i) => {
+    const isCurrent = i === currentChallengeIdx;
+    const isDone = i < currentChallengeIdx;
+    const bg = isCurrent ? '#fef08a' : (isDone ? '#86efac' : '#e5e7eb');
+    const color = '#111111';
+    const border = '2px solid #111111';
+    const icon = isDone ? '✓ ' : (isCurrent ? '▶ ' : '');
+    return `
+      <div style="background: ${bg}; color: ${color}; border: ${border}; box-shadow: 2px 2px 0px #111111; padding: 3px 10px; font-weight: 800; font-size: 11px; text-transform: uppercase; border-radius: 3px;">
+        ${icon}Stage ${i + 1}
+      </div>
+    `;
+  }).join('');
+}
+
+async function verifyOutput(actualOutput) {
+  let expectedRaw = null;
+  let currentChallenge = null;
+
+  if (activeChallenges && activeChallenges.length > 0) {
+    currentChallenge = activeChallenges[currentChallengeIdx];
+    expectedRaw = currentChallenge.intended_output;
+  } else {
+    const intendedOutputEl = document.getElementById('task-intended-output');
+    expectedRaw = (intendedOutputEl && intendedOutputEl.textContent.trim() !== '') ? intendedOutputEl.textContent : null;
+  }
 
   if (!expectedRaw) {
     const candidateFiles = [
@@ -430,10 +497,61 @@ async function verifyOutput(actualOutput) {
     return false;
   }
 
+  // Inbuilt AI AST check if challenge specifies ai_check
+  if (currentChallenge && currentChallenge.ai_check) {
+    const code = codeInput ? codeInput.value : '';
+    let astCheckPassed = true;
+    let astMessage = '';
+
+    if (invoke) {
+      try {
+        const astRes = await invoke('verify_python_ast', {
+          code,
+          checkType: currentChallenge.ai_check
+        });
+        if (astRes && astRes.check_passed === false) {
+          astCheckPassed = false;
+          astMessage = astRes.message;
+        } else if (astRes && astRes.message) {
+          astMessage = astRes.message;
+        }
+      } catch (e) {
+        console.warn('AST verification error:', e);
+      }
+    } else {
+      if (currentChallenge.ai_check === 'int_not_str_5' || currentChallenge.ai_check === 'int_5') {
+        if (/print\s*\(\s*["']5["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: You used quotation marks around '5' or \"5\". In Python, quotes create text (strings). To print an integer number, write print(5) without quotes!";
+        } else if (!/print\s*\(\s*5\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "Did not find print(5). Make sure to write print(5) without quotes.";
+        } else {
+          astMessage = "AI Verification: Confirmed 5 is printed as an integer (int), not a string!";
+        }
+      }
+    }
+
+    if (!astCheckPassed) {
+      appendTerminal(`\n🤖 [Inbuilt AI Feedback]: ${astMessage}`, 'term-line-err');
+      return false;
+    } else if (astMessage) {
+      appendTerminal(`\n🤖 [Inbuilt AI]: ${astMessage}`, 'term-line-info');
+    }
+  }
+
   const cleanActual = normalizeOutput(actualOutput);
   const cleanExpected = normalizeOutput(expectedRaw);
 
   if (cleanActual === cleanExpected) {
+    if (activeChallenges && activeChallenges.length > 0 && currentChallengeIdx < activeChallenges.length - 1) {
+      appendTerminal(`\n✅ STAGE ${currentChallengeIdx + 1} COMPLETE: Output matched!`, 'term-line-info');
+      currentChallengeIdx++;
+      appendTerminal(`\n🚀 ADVANCING TO STAGE ${currentChallengeIdx + 1}...`, 'term-line-info');
+      updateChallengeUI();
+      return true;
+    }
+
     appendTerminal('\n✅ SUCCESS: Output matches expected results!', 'term-line-info');
     if (typeof markQuizCompleted === 'function') {
       markQuizCompleted(special, lesson, subset);
@@ -464,6 +582,7 @@ async function verifyOutput(actualOutput) {
     return false;
   }
 }
+
 
 // ============================================================
 // RUN DIRECTLY
@@ -644,8 +763,20 @@ btnReset?.addEventListener('click', () => {
 btnClearOutput?.addEventListener('click', clearTerminal);
 
 // Initialize on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initEditor();
   renderVariables({});
   setStatus('Ready', '');
+
+  try {
+    const data = await fetchLessonJson();
+    if (data && data.challenges && Array.isArray(data.challenges) && data.challenges.length > 0) {
+      activeChallenges = data.challenges;
+      currentChallengeIdx = 0;
+      updateChallengeUI();
+    }
+  } catch (err) {
+    console.warn('Failed to load challenges into editor:', err);
+  }
 });
+

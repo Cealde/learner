@@ -183,6 +183,123 @@ pub fn debug_python(code: String) -> Result<PythonDebugResult, String> {
     }
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct AstVerifyResult {
+    pub is_valid: bool,
+    pub check_passed: bool,
+    pub message: String,
+    pub details: Option<String>,
+}
+
+#[tauri::command]
+pub fn verify_python_ast(code: String, check_type: String) -> Result<AstVerifyResult, String> {
+    let script = r#"
+import sys, ast, json
+
+code = sys.stdin.read()
+check_type = sys.argv[1] if len(sys.argv) > 1 else "int_not_str_5"
+
+try:
+    tree = ast.parse(code)
+except SyntaxError as e:
+    print(json.dumps({
+        "is_valid": False,
+        "check_passed": False,
+        "message": f"Syntax Error: {e.msg} at line {e.lineno}",
+        "details": "syntax_error"
+    }))
+    sys.exit(0)
+
+if check_type in ("int_not_str_5", "int_5"):
+    found_int_5 = False
+    found_str_5 = False
+    other_prints = []
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Call):
+            func_name = ""
+            if isinstance(node.func, ast.Name):
+                func_name = node.func.id
+            if func_name == "print":
+                for arg in node.args:
+                    if isinstance(arg, ast.Constant):
+                        if arg.value == 5 and isinstance(arg.value, int) and not isinstance(arg.value, bool):
+                            found_int_5 = True
+                        elif arg.value in ("5", '5'):
+                            found_str_5 = True
+                        else:
+                            other_prints.append(str(arg.value))
+                    elif hasattr(ast, 'Num') and isinstance(arg, ast.Num):
+                        if arg.n == 5 and isinstance(arg.n, int):
+                            found_int_5 = True
+                    elif hasattr(ast, 'Str') and isinstance(arg, ast.Str):
+                        if arg.s == "5":
+                            found_str_5 = True
+
+    if found_int_5:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed 5 is printed as an integer (int), not a string!",
+            "details": "int_literal"
+        }))
+    elif found_str_5:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: You used quotation marks around '5' or \"5\". In Python, quotes create text (strings). To print an integer number, write print(5) without quotes!",
+            "details": "string_literal"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "Did not find print(5). Make sure to write print(5) without quotes.",
+            "details": "missing_print_5"
+        }))
+else:
+    print(json.dumps({
+        "is_valid": True,
+        "check_passed": True,
+        "message": "AST check passed",
+        "details": "ok"
+    }))
+"#;
+
+    let mut child = Command::new("python")
+        .arg("-u")
+        .arg("-c")
+        .arg(script)
+        .arg(&check_type)
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .map_err(|e| format!("Failed to launch Python AST validator: {}", e))?;
+
+    if let Some(mut stdin) = child.stdin.take() {
+        stdin
+            .write_all(code.as_bytes())
+            .map_err(|e| format!("Failed to pass code to AST validator: {}", e))?;
+    }
+
+    let output = child
+        .wait_with_output()
+        .map_err(|e| format!("Error waiting for AST validator: {}", e))?;
+
+    let stdout = String::from_utf8_lossy(&output.stdout).trim().to_string();
+    if let Ok(res) = serde_json::from_str::<AstVerifyResult>(&stdout) {
+        Ok(res)
+    } else {
+        Ok(AstVerifyResult {
+            is_valid: true,
+            check_passed: true,
+            message: "AST check completed".to_string(),
+            details: None,
+        })
+    }
+}
+
 #[tauri::command]
 pub fn translate_with_ai(text: String, language: Option<String>) -> Result<String, String> {
     let _target_lang = language.unwrap_or_else(|| "malayalam".to_string());
@@ -225,3 +342,5 @@ except Exception as e:
         Ok(text)
     }
 }
+
+

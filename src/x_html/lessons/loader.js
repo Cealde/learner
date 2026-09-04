@@ -12,10 +12,10 @@ import {
 
 // 1 = Intro (1.html), 2 = Code/Debug (2.html), 3 = General Info (3.html), 4 = MCQ (4.html)
 export const sylPy = [
-  [1, 4, 3, 4], // Lesson 1 Sequence (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
-  [2, 3, 4],       // Lesson 2 Sequence
-  [1, 2, 3, 4],    // Lesson 3 Sequence
-  [1, 2, 4]        // Lesson 4 Sequence
+  [1, 4, 3, 4],             // Lesson 1: 0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz
+  [1, 4, 3, 2, 4, 3, 4],    // Lesson 2: 1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz
+  [1, 2, 3, 4],             // Lesson 3
+  [1, 2, 4]                 // Lesson 4
 ];
 
 export const LANGUAGES = [
@@ -824,6 +824,24 @@ export function generateAdaptiveContent(sub, totalSteps) {
   }
 }
 
+export const ENGLISH_MODULE_NAMES = {
+  1: [
+    '0.1 • The Dumb Machine',
+    '0.1 • Fundamentals Quiz',
+    '0.2 • Running Code',
+    '0.2 • Debugging Quiz'
+  ],
+  2: [
+    '1.1 • About the Editor',
+    '1.1 • Editor Controls Quiz',
+    '1.2 • The print() Command',
+    '1.2 • Interactive Coding',
+    '1.2 • print() Mastery Quiz',
+    '1.3 • Running Your Code',
+    '1.3 • Execution Order Quiz'
+  ]
+};
+
 export function initSidebarNavigation(currentType) {
   const { lsn, sub, spcl } = getQueryParams();
   const sequence = getAdaptiveSequence();
@@ -842,13 +860,13 @@ export function initSidebarNavigation(currentType) {
     navContainer.innerHTML = '';
 
     const baseModuleNames = currentLang === 'ml'
-      ? MALAYALAM_MODULE_NAMES
-      : [
+      ? (MALAYALAM_MODULE_NAMES && MALAYALAM_MODULE_NAMES[lsn] ? MALAYALAM_MODULE_NAMES[lsn] : (Array.isArray(MALAYALAM_MODULE_NAMES) ? MALAYALAM_MODULE_NAMES : []))
+      : (ENGLISH_MODULE_NAMES[lsn] || [
           '0.1 • The Dumb Machine',
           '0.1 • Fundamentals Quiz',
           '0.2 • Running Code',
           '0.2 • Debugging Quiz'
-        ];
+        ]);
 
     sequence.forEach((typeId, index) => {
       const stepNum = index + 1;

@@ -1,0 +1,141 @@
+{
+  "title": "Practice Quiz: Execution Order & Program Flow",
+  "topic": "1.3 • RUNNING YOUR CODE",
+  "questions": [
+    {
+      "badge": "MODULE QUIZ • QUESTION 1 OF 5",
+      "question": "In what order does the Python interpreter execute statements in a program?",
+      "code": "# Python execution rule:",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Sequentially from top to bottom, one line at a time.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Randomly based on which line is the shortest.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "From bottom to top in reverse order.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "All lines simultaneously at the exact same millisecond.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>Python executes instructions strictly top-to-bottom, line-by-line in sequential order.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Python is sequential: it begins at line 1, finishes it, then proceeds to line 2, and so on."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 2 OF 5",
+      "question": "What will be printed in the console when this script runs?",
+      "code": "print(\"Morning\")\nprint(\"Afternoon\")\nprint(\"Evening\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Morning\nAfternoon\nEvening",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Evening\nAfternoon\nMorning",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Morning Afternoon Evening (all on one line)",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Afternoon\nEvening\nMorning",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>Each print() statement outputs on a new line in the exact order written from top to bottom.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Each print() executes in top-to-bottom order and places its text on a new line in the output terminal."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 3 OF 5",
+      "question": "If Line 2 contains a syntax error in a 3-line script, what happens?",
+      "code": "print(\"Line 1\")\nprint(\"Line 2\"   # Missing closing parenthesis\nprint(\"Line 3\")",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Python halts and reports the error; Line 3 never runs.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Python ignores the error on Line 2 and continues running Line 3.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Python fixes the parenthesis automatically.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Line 3 runs first, followed by Line 1.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>💡 NICE!</strong><br/>When Python hits an error during execution or parsing, it immediately stops. Later lines are not executed.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Python stops execution immediately upon encountering an unhandled error. Subsequent lines do not run."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 4 OF 5",
+      "question": "What will be the console output of this code?",
+      "code": "print(10)\nprint(20)",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "10\n20",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "30",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "20\n10",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "10 20",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🔍 WELL DONE!</strong><br/>Line 1 prints 10, then Line 2 prints 20 on the next line. They are not added together because they are separate print commands.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Because these are two separate print() statements, 10 is printed first, followed by 20 on a new line."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 5 OF 5",
+      "question": "True or False: Does Python decide the order of lines based on which variable seems most important?",
+      "code": "price = 100\nprint(price)\nname = \"Laptop\"",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "False — Python strictly follows the written top-to-bottom order regardless of meaning.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "True — Python rearranges variables to the top automatically before running anything.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>Computers have no common sense or concept of 'importance'—they execute strictly in the sequential order you write!",
+      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Python never rearranges your code based on 'importance'. It executes lines strictly in the order you wrote them."
+    }
+  ]
+}

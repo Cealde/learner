@@ -1,0 +1,34 @@
+{
+  "title": "Interactive Coding: The print() Spell",
+  "subtitle": "Your First Python Programs",
+  "topic": "1.2 • THE PRINT() COMMAND",
+  "description": "Master the <hlt>print()</hlt> spell by completing all 3 interactive stages below!",
+  "intended_output": "Hellow",
+  "starter_code": "# Stage 1: Print the word Hellow\n# Write your code below and click Run:\n\n",
+  "challenges": [
+    {
+      "stage": 1,
+      "title": "Stage 1: Print \"Hellow\"",
+      "description": "Use the <hlt>print()</hlt> function to output the exact word <hlt>\"Hellow\"</hlt> into the console.",
+      "starter_code": "# Stage 1: Print Hellow\n# Write your print() statement below:\n\n",
+      "intended_output": "Hellow",
+      "ai_check": null
+    },
+    {
+      "stage": 2,
+      "title": "Stage 2: Print 5 as an Integer",
+      "description": "Now print the number <hlt>5</hlt>. In Python, numbers do not require quotes! Our <strong>Inbuilt AI</strong> will verify that you printed an integer (int) literal and not a text string (\"5\").",
+      "starter_code": "# Stage 2: Print 5 as an Integer (No quotes!)\n# Write your code below:\n\n",
+      "intended_output": "5",
+      "ai_check": "int_not_str_5"
+    },
+    {
+      "stage": 3,
+      "title": "Stage 3: Print a Character Sequence",
+      "description": "Print a sequence of characters spaced out: <hlt>P Y T H O N</hlt>. Write <hlt>print(\"P Y T H O N\")</hlt> and click Run to complete your training!",
+      "starter_code": "# Stage 3: Print a Character Sequence\n# Write your code below:\n\n",
+      "intended_output": "P Y T H O N",
+      "ai_check": null
+    }
+  ]
+}

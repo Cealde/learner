@@ -27,12 +27,23 @@ export const MALAYALAM_UI = {
   termHint: 'കോഡ് പ്രവർത്തിപ്പിക്കാൻ "Run" അല്ലെങ്കിൽ "Debug" ക്ലിക്ക് ചെയ്യുക.'
 };
 
-export const MALAYALAM_MODULE_NAMES = [
-  '0.1 • കമ്പ്യൂട്ടർ എന്ന യന്ത്രം',
-  '0.1 • അടിസ്ഥാന ക്വിസ്',
-  '0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ',
-  '0.2 • ഡീബഗ്ഗിംഗ് ക്വിസ്'
-];
+export const MALAYALAM_MODULE_NAMES = {
+  1: [
+    '0.1 • കമ്പ്യൂട്ടർ എന്ന യന്ത്രം',
+    '0.1 • അടിസ്ഥാന ക്വിസ്',
+    '0.2 • കോഡ് പ്രവർത്തിപ്പിക്കൽ',
+    '0.2 • ഡീബഗ്ഗിംഗ് ക്വിസ്'
+  ],
+  2: [
+    '1.1 • കോഡ് എഡിറ്റർ',
+    '1.1 • എഡിറ്റർ ക്വിസ്',
+    '1.2 • print() കമാൻഡ്',
+    '1.2 • കോഡിംഗ് പരിശീലനം',
+    '1.2 • print() ക്വിസ്',
+    '1.3 • കോഡ് റൺ ചെയ്യുമ്പോൾ',
+    '1.3 • പ്രവർത്തന ക്രമ ക്വിസ്'
+  ]
+};
 
 export const MALAYALAM_LESSON_DATA = {
   '1_1_1': {
@@ -598,6 +609,502 @@ export const MALAYALAM_CONCEPTS = {
         explanation_incorrect: "ലൈൻ-ബൈ-ലൈൻ സ്റ്റെപ്പിംഗ് തത്സമയ വേരിയബിൾ പരിശോധന സാധ്യമാക്കുന്നു."
       }
     ]
+  },
+  '1_2_1': {
+    title: "കോഡ് എഡിറ്ററും നിയന്ത്രണങ്ങളും",
+    subtitle: "കൺട്രോളുകൾ, ഡീബഗ്ഗിംഗ്, ഔട്ട്പുട്ട്",
+    topic: "1.1 • കോഡ് എഡിറ്റർ",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.1 • എഡിറ്റർ കൺട്രോളുകൾ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">നിങ്ങളുടെ <hlt>കോഡിംഗ് കൺട്രോൾ ഡെക്ക്</hlt></h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">നിങ്ങളുടെ ആദ്യ പൈത്തൺ പ്രോഗ്രാം എഴുതുന്നതിന് മുൻപ്, എഡിറ്ററിലെ പ്രധാന ബട്ടണുകൾ എന്തൊക്കെയാണെന്ന് പരിചയപ്പെടാം.</p></div><div style="background: #ffffff; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 6px; padding: 18px; box-sizing: border-box;"><div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #111111; padding-bottom: 10px; margin-bottom: 14px;"><span style="font-weight: 900; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">🖥️ വർക്ക്സ്പേസ് രൂപരേഖ</span><span style="background: #fef08a; border: 2px solid #111111; padding: 2px 8px; font-size: 11px; font-weight: 800;">Adhicode IDE</span></div><div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px;"><div style=\"background: #f8fafc; border: 2px solid #111111; padding: 14px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 13px; color: #1e293b; margin-bottom: 8px; text-transform: uppercase;\">ഇടത് കോളം: കോഡ് എഡിറ്റർ</div><div style=\"background: #0f172a; color: #f8fafc; padding: 10px 12px; font-family: monospace; font-size: 12px; border-radius: 4px; border: 2px solid #111111; line-height: 1.6;\"><span style=\"color: #ef4444; font-weight: bold;\">● 1</span> | <span style=\"color: #38bdf8;\">name</span> = <span style=\"color: #a7f3d0;\">\"Alex\"</span><br/><span style=\"color: #64748b;\">&nbsp; 2</span> | <span style=\"color: #38bdf8;\">score</span> = <span style=\"color: #facc15;\">100</span><br/><span style=\"color: #ef4444; font-weight: bold;\">● 3</span> | <span style=\"color: #f472b6;\">print</span>(name, score)</div><p style=\"font-size: 12px; color: #334155; margin: 8px 0 0 0; font-weight: 600;\"><strong style=\"color: #ef4444;\">● ബ്രേക്ക്പോയിൻ്റ്:</strong> വരിയുടെ നമ്പറിൽ ക്ലിക്ക് ചെയ്താൽ അവിടെ പ്രോഗ്രാം താൽക്കാലികമായി നിൽക്കും.</p></div><div style=\"display: flex; flex-direction: column; gap: 8px;\"><div style=\"background: #e0e7ff; border: 2px solid #111111; padding: 10px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 12px; text-transform: uppercase;\">📦 മെമ്മറിയും വേരിയബിളുകളും</div><p style=\"font-size: 11px; font-weight: 600; color: #1e1b4b; margin: 4px 0 0 0;\">കംപ്യൂട്ടർ മെമ്മറിയിലുള്ള വേരിയബിളുകൾ, അവയുടെ ടൈപ്പ്, വില എന്നിവ കാണിക്കുന്നു.</p></div><div style=\"background: #dcfce7; border: 2px solid #111111; padding: 10px; border-radius: 4px;\"><div style=\"font-weight: 900; font-size: 12px; text-transform: uppercase;\">📟 ഔട്ട്പുട്ട് കൺസോൾ</div><p style=\"font-size: 11px; font-weight: 600; color: #064e3b; margin: 4px 0 0 0;\"><hlt>print()</hlt> വഴി പ്രിൻ്റ് ചെയ്യുന്ന വിവരങ്ങൾ ഇവിടെ പ്രത്യക്ഷപ്പെടുന്നു.</p></div></div></div></div><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 14px;\"><div style=\"background: #bbf7d0; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">▶ RUN</span><strong style=\"font-size: 15px; text-transform: uppercase;\">റൺ ചെയ്യുക</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">പ്രോഗ്രാമിലെ എല്ലാ നിർദ്ദേശങ്ങളും മുകളിൽ നിന്ന് താഴേക്ക് സാധാരണ വേഗതയിൽ റൺ ചെയ്യുന്നു.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">🔍 DEBUG</span><strong style=\"font-size: 15px; text-transform: uppercase;\">ഡീബഗ്ഗിംഗ്</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">ഓരോ വരിയായി നിരീക്ഷിച്ച് പ്രവർത്തിപ്പിക്കുന്നു. ബ്രേക്ക്പോയിൻ്റുകളിൽ തനിയെ നിന്നുതരുന്നു.</p></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">⏭ STEP</span><strong style=\"font-size: 15px; text-transform: uppercase;\">അടുത്ത വരി (Step)</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">കൃത്യമായി <strong>ഒരു വരി മാത്രം</strong> മുന്നോട്ട് പ്രവർത്തിപ്പിച്ച് വേരിയബിളുകളിലെ മാറ്റങ്ങൾ കാട്ടിത്തരുന്നു.</p></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; border-radius: 4px; padding: 16px;\"><div style=\"display: flex; align-items: center; gap: 8px; margin-bottom: 8px;\"><span style=\"background: #ffffff; border: 2px solid #111111; padding: 2px 8px; font-weight: 900; font-size: 12px;\">↺ RESET</span><strong style=\"font-size: 15px; text-transform: uppercase;\">റീസെറ്റ്</strong></div><p style=\"font-size: 13px; font-weight: 600; color: #111111; margin: 0; line-height: 1.4;\">മെമ്മറി ക്ലിയർ ചെയ്ത് ഒന്നാം വരിയിൽ നിന്ന് വീണ്ടും തുടങ്ങാൻ സഹായിക്കുന്നു.</p></div></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\">💡 ചുരുക്കം: <hlt>Run</hlt> സാധാരണ ഫലം കാണാനും <hlt>Debug & Step</hlt> കോഡിന്റെ പ്രവർത്തനം ഇഴകീറി പരിശോധിക്കാനും സഹായിക്കുന്നു!</p></div></div>`
+  },
+  '1_2_2': {
+    title: "പരിശീലന ക്വിസ്: കോഡ് എഡിറ്റർ നിയന്ത്രണങ്ങൾ",
+    topic: "1.1 • കോഡ് എഡിറ്റർ",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "കോഡ് എഡിറ്ററിലെ \"Run\" ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ എന്ത് സംഭവിക്കുന്നു?",
+        code: "# Press ▶ Run\nprint(\"Welcome to Python!\")",
+        options: [
+          {
+            prefix: "A",
+            text: "പ്രോഗ്രാമിലെ എല്ലാ നിർദ്ദേശങ്ങളും മുകളിൽ നിന്ന് താഴേക്ക് സാധാരണ വേഗതയിൽ കമ്പ്യൂട്ടർ റൺ ചെയ്യുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "എല്ലാ വരികളിലും തനിയെ നിന്ന് ഉപയോക്താവിനോട് ചോദിക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "കോഡ് മുഴുവൻ ഡിലീറ്റ് ചെയ്ത് വിൻഡോ അടയ്ക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "പൈത്തൺ കോഡിനെ ഒരു ചിത്രമാക്കി മാറ്റുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "റൺ ബട്ടൺ കോഡ് മുകളിൽ നിന്ന് താഴേക്ക് തുടർച്ചയായി പ്രവർത്തിപ്പിക്കുന്നു.",
+        explanation_incorrect: "റൺ മുഴുവൻ കോഡും പൂർണ്ണ വേഗതയിൽ റൺ ചെയ്യുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "വരിയുടെ നമ്പറിൽ ക്ലിക്ക് ചെയ്ത് ബ്രേക്ക്പോയിൻ്റ് (●) ഇടുമ്പോൾ എന്ത് സംഭവിക്കുന്നു?",
+        code: "● 1 | name = \"Alex\"\n  2 | print(\"Hello\", name)",
+        options: [
+          {
+            prefix: "A",
+            text: "ഡീബഗ്ഗിംഗ് സമയത്ത് ആ വരിയിൽ എത്തുമ്പോൾ പ്രോഗ്രാം താൽക്കാലികമായി നിർത്തുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ആ വരി പൈത്തൺ എന്നെന്നേക്കുമായി ഒഴിവാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ആ വരി 10 തവണ ആവർത്തിക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "ആ വരിക്ക് പാസ്‌വേഡ് നൽകുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "മെമ്മറി പരിശോധിക്കാനായി പ്രോഗ്രാം താൽക്കാലികമായി നിർത്താനാണ് ബ്രേക്ക്പോയിൻ്റ്.",
+        explanation_incorrect: "ബ്രേക്ക്പോയിൻ്റുകൾ ഡീബഗ്ഗർ പരിശോധനയ്ക്കായി താൽക്കാലികമായി നിർത്താൻ സഹായിക്കുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "\"Step\" (⏭) ബട്ടൺ എങ്ങനെയാണ് പ്രവർത്തിക്കുന്നത്?",
+        code: "step_1 = \"Setup\"\nstep_2 = \"Process\"\nstep_3 = \"Display\"",
+        options: [
+          {
+            prefix: "A",
+            text: "കൃത്യമായി അടുത്ത ഒരു വരി മാത്രം റൺ ചെയ്ത് വേരിയബിളുകൾ കാണാൻ സഹായിക്കുന്നു.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ബാക്കിയുള്ള എല്ലാ വരികളും ഒഴിവാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "മുൻപത്തെ വരിയിലേക്ക് തിരിച്ചുപോകുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "കംപ്യൂട്ടർ ഓഫ് ചെയ്യുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "സ്റ്റെപ്പ് ബട്ടൺ കൃത്യമായി ഒരു വരി മാത്രം പ്രവർത്തിപ്പിക്കുന്നു.",
+        explanation_incorrect: "സ്റ്റെപ്പിംഗ് ഓരോ വരിയായി മെമ്മറിയിലെ മാറ്റങ്ങൾ കാണാൻ സഹായിക്കുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "പ്രോഗ്രാമിലെ വേരിയബിളുകളുടെ തത്സമയ വിലകളും ടൈപ്പുകളും എവിടെയാണ് കാണാൻ കഴിയുക?",
+        code: "score = 100\nbonus = 25\ntotal = score + bonus",
+        options: [
+          {
+            prefix: "A",
+            text: "വലത് വശത്തുള്ള Memory & Variables ടേബിളിൽ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "കീബോർഡ് ക്രമീകരണങ്ങളിൽ.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ബ്രൗസർ ഹിസ്റ്ററിയിൽ.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "റീസൈക്കിൾ ബിന്നിൽ.",
+            correct: false
+          }
+        ],
+        explanation_correct: "വേരിയബിൾ ഇൻസ്പെക്ടർ ടേബിളിൽ എല്ലാ വേരിയബിളുകളുടെയും തത്സമയ വിലകൾ കാണാം.",
+        explanation_incorrect: "എഡിറ്ററിലെ മെമ്മറി ടേബിളിലാണ് വേരിയബിളുകളുടെ വിവരങ്ങൾ ലഭ്യമാകുന്നത്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ഔട്ട്പുട്ട് കൺസോളിന്റെ പ്രധാന ധർമ്മം എന്താണ്?",
+        code: "print(\"Mission Complete!\")",
+        options: [
+          {
+            prefix: "A",
+            text: "print() വഴി നൽകുന്ന ഫലങ്ങളും സിസ്റ്റം മെസ്സേജുകളും സ്ക്രീനിൽ കാണിക്കുക.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "3D ആനിമേഷൻ തനിയെ ഉണ്ടാക്കുക.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "ഹാർഡ് ഡിസ്ക് ഫോർമാറ്റ് ചെയ്യുക.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "നിങ്ങൾക്കായി കോഡ് ടൈപ്പ് ചെയ്യുക.",
+            correct: false
+          }
+        ],
+        explanation_correct: "പ്രോഗ്രാം പ്രിൻ്റ് ചെയ്യുന്ന വിവരങ്ങൾ കാണിക്കുന്നത് ഔട്ട്പുട്ട് കൺസോളിലാണ്.",
+        explanation_incorrect: "ഔട്ട്പുട്ട് കൺസോൾ സ്ക്രീനിലേക്ക് പ്രിൻ്റ് ചെയ്യുന്ന വിവരങ്ങൾ കാട്ടിത്തരുന്നു."
+      }
+    ]
+  },
+  '1_2_3': {
+    title: "print() കമാൻഡ് — നിങ്ങളുടെ ആദ്യ മാന്ത്രികം",
+    subtitle: "സ്ക്രീനിൽ വിവരങ്ങൾ കാണിക്കാം",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.2 • പൈത്തൺ അടിസ്ഥാനം</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">The <hlt>print()</hlt> കമാൻഡ് — നിങ്ങളുടെ ആദ്യ മാന്ത്രികം</h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">പ്രോഗ്രാമിംഗിൽ സ്ക്രീനിലേക്ക് വിവരങ്ങൾ കാട്ടാൻ ഉപയോഗിക്കുന്ന കമാൻഡാണ് <hlt>print()</hlt>.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">1. പോസ്റ്റ് ബോക്സ് ഉപമ</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">സ്ക്രീനിലേക്ക് സന്ദേശങ്ങൾ അയക്കാം</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\"><hlt>print()</hlt> കമാൻഡിനെ ഔട്ട്പുട്ട് സ്ക്രീനിലേക്കുള്ള ഒരു തപാൽ പെട്ടിയായി സങ്കൽപ്പിക്കാം. ബ്രാക്കറ്റിനുള്ളിൽ നിങ്ങൾ നൽകുന്നതെന്തും സ്ക്രീനിൽ കൃത്യമായി ലഭിക്കും.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Hellow\"</span>) &nbsp;<span style=\"color: #8b949e;\"># ഫലം: Hellow</span></div></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">2. അക്ഷരങ്ങളും (Strings) സംഖ്യകളും (Integers)</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">ക്വോട്ടുകൾ പ്രധാനം!</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">പൈത്തണിൽ വാക്കുകൾ എല്ലായ്പ്പോഴും കൊട്ടേഷൻ മാർക്കുകളിൽ നൽകണം (<hlt>\"...\"</hlt>). ഇത് <strong>സ്ട്രിംഗ് (str)</strong> ആണ്. എന്നാൽ <hlt>5</hlt> പോലെയുള്ള യഥാർത്ഥ സംഖ്യകൾക്ക് കൊട്ടേഷൻ ആവശ്യമില്ല!</p><div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 12px;\"><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace; color: #0284c7;\">വാക്കുകൾ / സ്ട്രിംഗ് (str)</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #f1f5f9; padding: 6px; border-radius: 3px;\">print(\"Hellow\")</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">കൊട്ടേഷൻസ് പൈത്തണിനോട് പറയുന്നു: 'ഇത് വെറും അക്ഷരങ്ങളാണ്.'</p></div><div style=\"background: #ffffff; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px;\"><strong style=\"font-family: 'Title', monospace; color: #16a34a;\">സംഖ്യ / ഇൻ്റിജർ (int)</strong><div style=\"font-family: monospace; font-size: 13px; margin-top: 6px; background: #f1f5f9; padding: 6px; border-radius: 3px;\">print(5)</div><p style=\"font-size: 12px; margin: 6px 0 0 0; color: #475569;\">കൊട്ടേഷൻസ് ഇല്ല! കണക്കുകൂട്ടാൻ സാധിക്കുന്ന സംഖ്യയാണിത്.</p></div></div></div><div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">3. അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യൽ</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">അക്ഷരങ്ങൾ നിരയായി</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">അക്ഷരങ്ങൾ ഇടവിട്ട് പ്രിൻ്റ് ചെയ്യാൻ <hlt>print(\"P Y T H O N\")</hlt> എന്ന് എഴുതാവുന്നതാണ്.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"P Y T H O N\"</span>)<br/><span style=\"color: #8b949e;\"># ഔട്ട്പുട്ടിൽ അക്ഷരങ്ങൾ കൃത്യമായി പ്രത്യക്ഷപ്പെടും!</span></div></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\">⚡ കോഡിംഗിന് തയ്യാറാകൂ: അടുത്ത പേജിൽ 3 ലൈവ് ചലഞ്ചുകൾ പൂർത്തിയാക്കുക!</p></div></div>`
+  },
+  '1_2_4': {
+    title: "ഇന്ററാക്ടീവ് കോഡിംഗ്: print() മാന്ത്രികം",
+    subtitle: "നിങ്ങളുടെ ആദ്യ പൈത്തൺ പ്രോഗ്രാമുകൾ",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    description: "താഴെയുള്ള 3 ഘട്ടങ്ങളും വിജയകരമായി പൂർത്തിയാക്കി <hlt>print()</hlt> കമാൻഡ് സ്വായത്തമാക്കൂ!",
+    intended_output: "Hellow",
+    starter_code: "# ഘട്ടം 1: Hellow എന്ന് പ്രിൻ്റ് ചെയ്യുക\n# താഴെ കോഡ് എഴുതി Run ക്ലിക്ക് ചെയ്യുക:\n\n",
+    challenges: [
+      {
+        stage: 1,
+        title: "ഘട്ടം 1: \"Hellow\" പ്രിൻ്റ് ചെയ്യുക",
+        description: "<hlt>print()</hlt> കമാൻഡ് ഉപയോഗിച്ച് കൺസോളിലേക്ക് <hlt>\"Hellow\"</hlt> എന്ന് പ്രിൻ്റ് ചെയ്യുക.",
+        starter_code: "# ഘട്ടം 1: Hellow എന്ന് പ്രിൻ്റ് ചെയ്യുക\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "Hellow",
+        ai_check: null
+      },
+      {
+        stage: 2,
+        title: "ഘട്ടം 2: സംഖ്യ 5 ഒരു ഇൻ്റിജറായി പ്രിൻ്റ് ചെയ്യുക",
+        description: "ഇനി സംഖ്യ <hlt>5</hlt> പ്രിൻ്റ് ചെയ്യുക. പൈത്തണിൽ സംഖ്യകൾക്ക് കൊട്ടേഷൻസ് നൽകരുത്! നിങ്ങൾ കൊട്ടേഷൻ ഇല്ലാതെയാണോ എഴുതിയതെന്ന് നമ്മുടെ <strong>ഇൻബിൽറ്റ് AI</strong> പരിശോധിക്കും.",
+        starter_code: "# ഘട്ടം 2: സംഖ്യ 5 ഇൻ്റിജറായി പ്രിൻ്റ് ചെയ്യുക (Quotes ഇല്ലാതെ!)\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "5",
+        ai_check: "int_not_str_5"
+      },
+      {
+        stage: 3,
+        title: "ഘട്ടം 3: അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യുക",
+        description: "ഇടവിട്ട അക്ഷരങ്ങളുടെ ശ്രേണി പ്രിൻ്റ് ചെയ്യുക: <hlt>P Y T H O N</hlt>. <hlt>print(\"P Y T H O N\")</hlt> എന്ന് എഴുതി Run ക്ലിക്ക് ചെയ്യുക!",
+        starter_code: "# ഘട്ടം 3: അക്ഷര ശ്രേണി പ്രിൻ്റ് ചെയ്യുക\n# നിങ്ങളുടെ കോഡ് താഴെ എഴുതുക:\n\n",
+        intended_output: "P Y T H O N",
+        ai_check: null
+      }
+    ]
+  },
+  '1_2_5': {
+    title: "പരിശീലന ക്വിസ്: print() കമാൻഡും ഡാറ്റാ ടൈപ്പുകളും",
+    topic: "1.2 • PRINT() കമാൻഡ്",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "താഴെ പറയുന്നവയിൽ \"Hellow\" എന്ന് കൃത്യമായി പ്രിൻ്റ് ചെയ്യുന്നത് ഏതാണ്?",
+        code: "# ശരിയായ വാക്യം തിരഞ്ഞെടുക്കുക:",
+        options: [
+          {
+            prefix: "A",
+            text: "print(\"Hellow\")",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "Print(Hellow)",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "output \"Hellow\"",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "echo << \"Hellow\"",
+            correct: false
+          }
+        ],
+        explanation_correct: "പൈത്തണിലെ print() സ്മോൾ ലെറ്ററിലാണ് തുടങ്ങുന്നത്, ഒപ്പം കൊട്ടേഷൻസിൽ വാക്ക് നൽകണം.",
+        explanation_incorrect: "പൈത്തൺ കേസ്-സെൻസിറ്റീവ് ആണ്, അതിനാൽ print(\"Hellow\") എന്ന് ചെറിയ അക്ഷരത്തിൽ എഴുതണം."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "print(5) ഉം print(\"5\") ഉം തമ്മിലുള്ള പ്രധാന വ്യത്യാസം എന്താണ്?",
+        code: "print(5)    # A\nprint(\"5\")  # B",
+        options: [
+          {
+            prefix: "A",
+            text: "5 എന്നത് കണക്കുകൂട്ടാൻ കഴിയുന്ന ഇൻ്റിജർ (int) ആണ്, \"5\" എന്നത് ഒരു അക്ഷര സ്ട്രിംഗ് (str) ആണ്.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "print(5) എറർ ഉണ്ടാക്കുന്നു കാരണം സംഖ്യകൾ പ്രിൻ്റ് ചെയ്യാൻ കഴിയില്ല.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "print(\"5\") 5 ശൂന്യമായ വരികൾ പ്രിൻ്റ് ചെയ്യുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "പൈത്തൺ മെമ്മറിയിൽ ഇവ രണ്ടും തമ്മിൽ യാതൊരു വ്യത്യാസവുമില്ല.",
+            correct: false
+          }
+        ],
+        explanation_correct: "ക്വോട്ടുകളില്ലാത്ത സംഖ്യകൾ ഇൻ്റിജറുകളായാണ് (int) കമ്പ്യൂട്ടർ മെമ്മറിയിൽ സൂക്ഷിക്കുന്നത്.",
+        explanation_incorrect: "5 എന്നത് ഇൻ്റിജറും \"5\" എന്നത് സ്ട്രിംഗുമാണ്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "ഈ കോഡ് റൺ ചെയ്യുമ്പോൾ പൈത്തൺ എറർ കാണിക്കുന്നത് എന്തുകൊണ്ട്?",
+        code: "print(\"Hellow)",
+        options: [
+          {
+            prefix: "A",
+            text: "തുടങ്ങിയ കൊട്ടേഷൻ മാർക്ക് അവസാനിപ്പിച്ചിട്ടില്ല (Unterminated string).",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "\"Hellow\" എന്നത് പൈത്തൺ കീവേഡ് അല്ലാത്തതുകൊണ്ട്.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ ഇരട്ട കൊട്ടേഷൻസ് പിന്തുണയ്ക്കാത്തതുകൊണ്ട്.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "ഒന്നാമത്തെ വരിയിൽ print() ഉപയോഗിക്കാൻ പറ്റാത്തതുകൊണ്ട്.",
+            correct: false
+          }
+        ],
+        explanation_correct: "തുടങ്ങിയ ക്വോട്ട് അടയ്ക്കാതിരുന്നാൽ സിന്റാക്സ് എറർ സംഭവിക്കുന്നു.",
+        explanation_incorrect: "ക്വോട്ടേഷൻ മാർക്കുകൾ എപ്പോഴും ജോഡിയായി വരണം."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "P Y T H O N എന്ന അക്ഷരങ്ങൾ കൃത്യമായി ഔട്ട്പുട്ട് ചെയ്യാൻ ഏതാണ് ശരിയായ രീതി?",
+        code: "# Target: P Y T H O N",
+        options: [
+          {
+            prefix: "A",
+            text: "print(\"P Y T H O N\")",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "print(P, Y, T, H, O, N)",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "sequence[\"P Y T H O N\"]",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "letter_display(P-Y-T-H-O-N)",
+            correct: false
+          }
+        ],
+        explanation_correct: "അക്ഷരങ്ങൾ ക്വോട്ടുകളിൽ നൽകിയാൽ സ്ക്രീനിൽ കൃത്യമായി തെളിയും.",
+        explanation_incorrect: "ക്വോട്ടുകളില്ലാതെ എഴുതിയാൽ പൈത്തൺ അവയെ വേരിയബിളുകളായി തെറ്റിദ്ധരിക്കും."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ക്വോട്ടുകൾ ഇല്ലാതെ print(Hellow) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
+        code: "print(Hellow)",
+        options: [
+          {
+            prefix: "A",
+            text: "Hellow എന്നത് ഒരു വേരിയബിൾ ആണെന്ന് കരുതി NameError കാണിക്കും.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "പൈത്തൺ തനിയെ ക്വോട്ടുകൾ ചേർത്ത് പ്രിൻ്റ് ചെയ്യും.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ അത് മറ്റൊരു ഭാഷയിലേക്ക് മാറ്റും.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "കംപ്യൂട്ടർ റീസ്റ്റാർട്ട് ആകും.",
+            correct: false
+          }
+        ],
+        explanation_correct: "ക്വോട്ടുകളില്ലാത്ത വാക്കുകളെ വേരിയബിളുകളായാണ് പൈത്തൺ കരുതുന്നത്. വേരിയബിൾ ഇല്ലെങ്കിൽ NameError വരും.",
+        explanation_incorrect: "മുൻകൂട്ടി നിർവ്വചിക്കാത്ത പേരുകൾക്ക് പൈത്തൺ NameError നൽകുന്നു."
+      }
+    ]
+  },
+  '1_2_6': {
+    title: "കോഡ് റൺ ചെയ്യുമ്പോൾ സംഭവിക്കുന്നത് എന്ത്?",
+    subtitle: "മുകളിൽ നിന്ന് താഴേക്കുള്ള പ്രവർത്തന ക്രമം",
+    topic: "1.3 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
+    body: `<div style="display: flex; flex-direction: column; gap: 20px; width: 100%;"><div style="text-align: center; margin-bottom: 8px; width: 100%;"><div style="display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 12px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">1.3 • പ്രോഗ്രാം ഫ്ലോ</div><h1 style="font-family: 'Title', 'Body', sans-serif; font-size: 32px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: -0.5px;">പ്രവർത്തന <hlt>ക്രമം</hlt> (Order of Execution)</h1><p style="font-size: 16px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 600px;">നിങ്ങൾ Run ക്ലിക്ക് ചെയ്യുമ്പോൾ കമ്പ്യൂട്ടർ എങ്ങനെയാണ് ഓരോ വരിയും പ്രവർത്തിപ്പിക്കുന്നത് എന്ന് നോക്കാം.</p></div><div style=\"background: #fef08a; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">1. മുകളിൽ നിന്ന് താഴേക്ക്</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">പുസ്തകം വായിക്കുന്നത് പോലെ</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">നാം പുസ്തകം വായിക്കുന്നത് പോലെ പൈത്തൺ <strong>മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി</strong> മാത്രമേ കോഡ് വായിക്കുകയുള്ളൂ. അത് സ്വയം വരികൾ ചാടിക്കടക്കില്ല.</p><div style=\"display: flex; flex-direction: column; gap: 8px;\"><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #0284c7;\">വരി 1: print(\"First\")</span><span style=\"font-size: 12px; font-weight: 800; background: #e0f2fe; border: 1px solid #111111; padding: 2px 8px;\">1️⃣ ആദ്യം റൺ ചെയ്യുന്നു</span></div><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #16a34a;\">വരി 2: print(\"Second\")</span><span style=\"font-size: 12px; font-weight: 800; background: #dcfce7; border: 1px solid #111111; padding: 2px 8px;\">2️⃣ രണ്ടാമത് റൺ ചെയ്യുന്നു</span></div><div style=\"background: #ffffff; border: 2px solid #111111; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;\"><span style=\"font-family: monospace; font-weight: bold; color: #d97706;\">വരി 3: print(\"Third\")</span><span style=\"font-size: 12px; font-weight: 800; background: #fef3c7; border: 1px solid #111111; padding: 2px 8px;\">3️⃣ അവസാനം റൺ ചെയ്യുന്നു</span></div></div></div><div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">2. ക്രമം ഫലത്തെ മാറ്റുന്നു</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">വരികളുടെ ക്രമം പ്രധാനം</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">വരികളുടെ ക്രമം മാറ്റി എഴുതിയാൽ ഔട്ട്പുട്ടിലെ ക്രമവും ഉടൻ മാറും. കമ്പ്യൂട്ടർ എഴുതിയ അതേ ക്രമം പിന്തുടരുന്നു.</p><div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 16px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\"><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Game Over\"</span>)<br/><span style=\"color: #f472b6;\">print</span>(<span style=\"color: #a5d6ff;\">\"Welcome Player 1\"</span>)<br/><span style=\"color: #8b949e;\"># വരി 1 ലുള്ള 'Game Over' ആണ് ആദ്യം പ്രിൻ്റ് ആകുന്നത്!</span></div></div><div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 22px; box-sizing: border-box;\"><span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">3. എറർ വന്നാൽ എന്ത് സംഭവിക്കും?</span><h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">തൽക്ഷണം നിൽക്കുന്നു</h2><p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">രണ്ടാമത്തെ വരിയിൽ ഒരു എറർ വന്നാൽ അതിന് മുമ്പുള്ള വരികൾ റൺ ആകുമെങ്കിലും രണ്ടാമത്തെ വരിയിൽ വെച്ച് പ്രോഗ്രാം നിലയ്ക്കുകയും താഴെയുള്ള വരികൾ റൺ ആകാതിരിക്കുകയും ചെയ്യുന്നു.</p></div><div style=\"background-color: #c4b5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 16px 20px; text-align: center;\"><p style=\"font-size: 15px; font-weight: 900; color: #111111; margin: 0; text-transform: uppercase;\">പ്രധാന നിയമം: പൈത്തൺ പ്രോഗ്രാമുകൾ <hlt>തുടർച്ചയായ ക്രമത്തിലാണ്</hlt> പ്രവർത്തിക്കുന്നത്—വരി 1 തീർന്നതിന് ശേഷമേ വരി 2 തുടങ്ങൂ!</p></div></div>`
+  },
+  '1_2_7': {
+    title: "പരിശീലന ക്വിസ്: പ്രവർത്തന ക്രമവും പ്രോഗ്രാം ഫ്ലോയും",
+    topic: "1.3 • കോഡ് പ്രവർത്തിപ്പിക്കൽ",
+    questions: [
+      {
+        badge: "ക്വിസ് • ചോദ്യം 1 / 5",
+        question: "പൈത്തൺ ഇന്റർപ്രെറ്റർ ഏത് ക്രമത്തിലാണ് നിർദ്ദേശങ്ങൾ പ്രവർത്തിപ്പിക്കുന്നത്?",
+        code: "# പൈത്തൺ പ്രവർത്തന നിയമം:",
+        options: [
+          {
+            prefix: "A",
+            text: "മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി ക്രമത്തിൽ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ചെറിയ വരികൾ ആദ്യം തിരഞ്ഞെടുത്ത് ക്രമരഹിതമായി.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "താഴെ നിന്ന് മുകളിലേക്ക് റിവേഴ്സ് ആയി.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "എല്ലാ വരികളും ഒരേ സമയം ഒരൊറ്റ നിമിഷത്തിൽ.",
+            correct: false
+          }
+        ],
+        explanation_correct: "പൈത്തൺ മുകളിൽ നിന്ന് താഴേക്ക് ഓരോ വരിയായി കൃത്യമായ ക്രമത്തിൽ പ്രവർത്തിക്കുന്നു.",
+        explanation_incorrect: "പൈത്തൺ വരി 1 ൽ തുടങ്ങി താഴേക്ക് ക്രമമായി പോകുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 2 / 5",
+        question: "ഈ സ്ക്രിപ്റ്റ് റൺ ചെയ്യുമ്പോൾ കൺസോളിൽ എന്ത് ലഭിക്കും?",
+        code: "print(\"Morning\")\nprint(\"Afternoon\")\nprint(\"Evening\")",
+        options: [
+          {
+            prefix: "A",
+            text: "Morning\nAfternoon\nEvening",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "Evening\nAfternoon\nMorning",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "Morning Afternoon Evening (എല്ലാം ഒരൊറ്റ വരിയിൽ)",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "Afternoon\nEvening\nMorning",
+            correct: false
+          }
+        ],
+        explanation_correct: "ഓരോ print() ഉം പുതിയ വരിയിൽ എഴുതിയ അതേ ക്രമത്തിൽ പ്രത്യക്ഷപ്പെടുന്നു.",
+        explanation_incorrect: "എഴുതിയ അതേ മുകളിൽ നിന്ന് താഴേക്കുള്ള ക്രമത്തിലാണ് പ്രിൻ്റ് ആകുന്നത്."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 3 / 5",
+        question: "വരി 2 ൽ ഒരു സിന്റാക്സ് എറർ ഉണ്ടായാൽ എന്ത് സംഭവിക്കും?",
+        code: "print(\"Line 1\")\nprint(\"Line 2\"   # ക്ലോസിംഗ് ബ്രാക്കറ്റ് ഇല്ല\nprint(\"Line 3\")",
+        options: [
+          {
+            prefix: "A",
+            text: "പൈത്തൺ പ്രവർത്തനം നിർത്തി എറർ കാട്ടുന്നു; വരി 3 റൺ ആകില്ല.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "വരി 2 ലെ എറർ അവഗണിച്ച് വരി 3 റൺ ചെയ്യുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "പൈത്തൺ ബ്രാക്കറ്റ് സ്വയം ശരിയാക്കുന്നു.",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "വരി 3 ആദ്യം റൺ ചെയ്യുന്നു.",
+            correct: false
+          }
+        ],
+        explanation_correct: "എറർ കണ്ടാൽ പൈത്തൺ ഉടൻ നിൽക്കും, പിന്നീടുള്ള വരികൾ പ്രവർത്തിക്കില്ല.",
+        explanation_incorrect: "തടസ്സമില്ലാത്ത എററുകൾ വന്നാൽ പിന്നീടുള്ള വരികൾ റൺ ആകില്ല."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 4 / 5",
+        question: "ഈ കോഡിന്റെ ഔട്ട്പുട്ട് എന്തായിരിക്കും?",
+        code: "print(10)\nprint(20)",
+        options: [
+          {
+            prefix: "A",
+            text: "10\n20",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "30",
+            correct: false
+          },
+          {
+            prefix: "C",
+            text: "20\n10",
+            correct: false
+          },
+          {
+            prefix: "D",
+            text: "10 20",
+            correct: false
+          }
+        ],
+        explanation_correct: "ആദ്യം 10 പ്രിൻ്റ് ചെയ്യുന്നു, ശേഷം അടുത്ത വരിയിൽ 20 പ്രിൻ്റ് ചെയ്യുന്നു.",
+        explanation_incorrect: "ഇവ രണ്ടും വെവ്വേറെ print കമാൻഡുകൾ ആയതിനാൽ 10 ഉം 20 ഉം വെവ്വേറെ വരികളിൽ വരുന്നു."
+      },
+      {
+        badge: "ക്വിസ് • ചോദ്യം 5 / 5",
+        question: "ശരിയോ തെറ്റോ: പ്രധാന്യത്തിന്റെ അടിസ്ഥാനത്തിൽ പൈത്തൺ വരികളുടെ ക്രമം സ്വയം മാറ്റുമോ?",
+        code: "price = 100\nprint(price)\nname = \"Laptop\"",
+        options: [
+          {
+            prefix: "A",
+            text: "തെറ്റ് — പൈത്തൺ നിങ്ങൾ എഴുതിയ ക്രമം മാത്രമേ അനുസരിക്കൂ.",
+            correct: true
+          },
+          {
+            prefix: "B",
+            text: "ശരി — പ്രധാന വേരിയബിളുകൾ പൈത്തൺ സ്വയം മുകളിലേക്ക് മാറ്റും.",
+            correct: false
+          }
+        ],
+        explanation_correct: "കമ്പ്യൂട്ടറുകൾക്ക് 'പ്രാധാന്യം' എന്ന സങ്കല്പമില്ല; എഴുതിയ ക്രമത്തിൽ മാത്രം പ്രവർത്തിക്കുന്നു!",
+        explanation_incorrect: "പൈത്തൺ ഒരിക്കലും വരികളുടെ ക്രമം സ്വയം മാറ്റില്ല."
+      }
+    ]
   }
 };
+
 
