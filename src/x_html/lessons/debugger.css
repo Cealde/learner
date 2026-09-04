@@ -221,6 +221,31 @@
   color: #333333;
   line-height: 1.4;
   margin: 0;
+  max-height: 115px;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--neo-yellow, #FFD43B) #F1F5F9;
+}
+
+.task-desc::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-desc::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border: 1px solid #111111;
+  border-radius: 3px;
+}
+
+.task-desc::-webkit-scrollbar-thumb {
+  background: var(--neo-yellow, #FFD43B);
+  border: 1px solid #111111;
+  border-radius: 3px;
+}
+
+.task-desc::-webkit-scrollbar-thumb:hover {
+  background: #FCC419;
 }
 
 .task-desc hlt {
