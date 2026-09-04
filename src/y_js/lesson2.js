@@ -2,6 +2,8 @@ const { invoke } = window.__TAURI__ ? window.__TAURI__.core : { invoke: null };
 
 // DOM Elements
 const codeInput = document.getElementById('code-input');
+const highlightLayer = document.getElementById('highlight-layer');
+const highlightContent = document.getElementById('highlight-content');
 const gutter = document.getElementById('gutter');
 const lineHighlights = document.getElementById('line-highlights');
 const varsTableBody = document.getElementById('vars-tbody');
@@ -45,11 +47,96 @@ for step in range(1, 4):
     print(f"Step {step}: bonus = {bonus}")
 `;
 
+// ============================================================
+// SYNTAX HIGHLIGHTING ENGINE
+// ============================================================
+
+const PYTHON_KEYWORDS = new Set([
+  'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue',
+  'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from',
+  'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not',
+  'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
+]);
+
+const PYTHON_BUILTINS = new Set([
+  'abs', 'all', 'any', 'bin', 'bool', 'bytearray', 'bytes', 'callable',
+  'chr', 'classmethod', 'compile', 'complex', 'delattr', 'dict', 'dir',
+  'divmod', 'enumerate', 'eval', 'exec', 'filter', 'float', 'format',
+  'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex',
+  'id', 'input', 'int', 'isinstance', 'issubclass', 'iter', 'len',
+  'list', 'locals', 'map', 'max', 'memoryview', 'min', 'next', 'object',
+  'oct', 'open', 'ord', 'pow', 'print', 'property', 'range', 'repr',
+  'reversed', 'round', 'set', 'setattr', 'slice', 'sorted', 'staticmethod',
+  'str', 'sum', 'super', 'tuple', 'type', 'vars', 'zip'
+]);
+
+const PYTHON_CONSTANTS = new Set(['True', 'False', 'None']);
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function highlightPython(code) {
+  const tokenRegex = /(#.*$)|("""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')|\b([0-9]+\.?[0-9]*(?:[eE][+-]?[0-9]+)?|0[xX][0-9a-fA-F]+|0[bB][01]+)\b|\b([a-zA-Z_][a-zA-Z0-9_]*)\b|([+\-*/%=<>!&|^~:]+)/gm;
+
+  let result = '';
+  let lastIndex = 0;
+  let match;
+
+  while ((match = tokenRegex.exec(code)) !== null) {
+    if (match.index > lastIndex) {
+      result += escapeHtml(code.slice(lastIndex, match.index));
+    }
+
+    const [fullMatch, comment, string, number, identifier, operator] = match;
+
+    if (comment) {
+      result += `<span class="token-comment">${escapeHtml(comment)}</span>`;
+    } else if (string) {
+      result += `<span class="token-string">${escapeHtml(string)}</span>`;
+    } else if (number) {
+      result += `<span class="token-number">${escapeHtml(number)}</span>`;
+    } else if (identifier) {
+      if (PYTHON_KEYWORDS.has(identifier)) {
+        result += `<span class="token-keyword">${escapeHtml(identifier)}</span>`;
+      } else if (PYTHON_CONSTANTS.has(identifier)) {
+        result += `<span class="token-boolean">${escapeHtml(identifier)}</span>`;
+      } else if (PYTHON_BUILTINS.has(identifier)) {
+        result += `<span class="token-builtin">${escapeHtml(identifier)}</span>`;
+      } else {
+        result += escapeHtml(identifier);
+      }
+    } else if (operator) {
+      result += `<span class="token-operator">${escapeHtml(operator)}</span>`;
+    }
+
+    lastIndex = tokenRegex.lastIndex;
+  }
+
+  if (lastIndex < code.length) {
+    result += escapeHtml(code.slice(lastIndex));
+  }
+
+  return result;
+}
+
+function updateHighlighting() {
+  if (!codeInput || !highlightContent) return;
+  highlightContent.innerHTML = highlightPython(codeInput.value) + '\n';
+}
+
 function initEditor() {
   if (codeInput) {
     codeInput.value = STARTER_CODE;
     updateGutter();
-    codeInput.addEventListener('input', updateGutter);
+    updateHighlighting();
+    codeInput.addEventListener('input', () => {
+      updateGutter();
+      updateHighlighting();
+    });
     codeInput.addEventListener('scroll', syncScroll);
   }
 }
@@ -58,6 +145,10 @@ function syncScroll() {
   if (!codeInput) return;
   if (gutter) gutter.scrollTop = codeInput.scrollTop;
   if (lineHighlights) lineHighlights.scrollTop = codeInput.scrollTop;
+  if (highlightLayer) {
+    highlightLayer.scrollTop = codeInput.scrollTop;
+    highlightLayer.scrollLeft = codeInput.scrollLeft;
+  }
 }
 
 function updateGutter() {
@@ -138,7 +229,6 @@ function highlightLine(lineNum) {
   const row = document.getElementById(`highlight-line-${lineNum}`);
   if (row) {
     row.classList.add('active-line');
-    // Scroll line into view if needed
     const lineHeight = 22;
     const targetScroll = (lineNum - 3) * lineHeight;
     if (codeInput && (codeInput.scrollTop > targetScroll || codeInput.scrollTop + 300 < targetScroll)) {
@@ -274,7 +364,6 @@ function applyStep(index) {
   renderVariables(step.locals);
 
   if (step.stdout) {
-    // Update terminal with stdout up to this step
     clearTerminal();
     appendTerminal(`>>> [debugging: step ${index + 1}/${debugSteps.length}]`, 'term-prompt');
     appendTerminal(step.stdout, 'term-line-out');

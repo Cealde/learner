@@ -223,6 +223,10 @@ fn logout_profile(state: State<'_, AppState>) -> Result<(), String> {
 }
 
 pub mod user_store;
+pub mod python_runner;
+
+use python_runner::{debug_python, run_python};
+use user_store::{delete_user_value, get_all_user_values, get_user_value, set_user_value};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
@@ -241,10 +245,12 @@ pub fn run() {
             login_profile,
             get_active_profile,
             logout_profile,
-            user_store::set_user_value,
-            user_store::get_user_value,
-            user_store::get_all_user_values,
-            user_store::delete_user_value
+            set_user_value,
+            get_user_value,
+            get_all_user_values,
+            delete_user_value,
+            run_python,
+            debug_python
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
