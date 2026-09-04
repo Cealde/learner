@@ -190,7 +190,7 @@ print(456)
 **Path A — If They Got It:**
 - Challenge: "Print your full name, your age as a number, and your favorite food — three separate `print()` lines." This forces them to notice which values need quotes (name, food) and which don't (age).
 - Quick-fire variations: print three jokes, three animal names, three of their favorite numbers.
-- **Algorithmic Challenge:** "Write a program that prints a short poem of 5 lines. Now change it to print exactly the same poem but with ALL CAPS (without changing the original text)." (This is tricky — for now, they'd need to manually retype it in caps. But the challenge is recognizing they need to change what's INSIDE the quotes, not the `print()` command.)
+- **Algorithmic Challenge:** "Write a program that prints a short poem of 5 lines. Now change it to print exactly the same poem but with ALL CAPS (without changing the original text)." (This is  — for now, they'd need to manually retype it in caps. But the challenge is recognizing they need to change what's INSIDE the quotes, not the `print()` command.)
 
 **Path B — If They Struggled:**
 - **Alternative approach 1:** Give them the exact working code to copy first: `print("Good Morning!")`. Type it ten times, changing only the text inside.
@@ -377,7 +377,7 @@ print(player)
   The SAME operator (+) does DIFFERENT things based on whether the values are numbers or text. This is called "operator overloading" — but for now, just remember: quotes change everything!
 
 **Real-World Connection:**
-- When you fill out a form online, your name goes in a text box, your age goes in a number box, and your phone number goes in... well, that's tricky. Phone numbers have digits but you never add them, so they're stored as text! This exact question comes up in programming all the time.
+- When you fill out a form online, your name goes in a text box, your age goes in a number box, and your phone number goes in... well, that's . Phone numbers have digits but you never add them, so they're stored as text! This exact question comes up in programming all the time.
 
 **Quiz:** "Create a number variable called `score` with value 100. Create a text variable called `player` with value 'John'. Print both."
 
@@ -440,7 +440,7 @@ print(score)  # Shows 50
   2. Prints `total`
   3. Sets `total = 10`
   4. Prints `total`
-  5. Sets `total = total + 5`  (this is the tricky one!)
+  5. Sets `total = total + 5`  (this is the  one!)
   6. Prints `total`
   Predict each output before running.
 
