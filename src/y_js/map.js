@@ -95,8 +95,8 @@ scene.add(groundPlane);
 const MAP_POINTS = [
     { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'Explore computer architecture, hardware components, CPU, memory, and how software runs on a PC.' },
     { id: 'Programming',   x: 50,  z: -16, iconSvg: '../assets/icons/power.svg', desc: 'Introduction to programming concepts, algorithmic logic, and writing your first Python code.' },
-    { id: 'Math Functions', x: 26,  z: -5,  iconSvg: '../assets/icons/maths.svg', desc: 'Master arithmetic calculations, mathematical operators, and Python built-in math functions.' },
-    { id: 'Variables',      x: 0,   z: 8,   iconSvg: '../assets/icons/var.svg',   desc: 'Learn how to declare variables, store values in memory, and work with core Python data types.' },
+    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',   desc: 'Learn how to declare variables, store values in memory, and work with core Python data types.' },
+    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Master arithmetic calculations, mathematical operators, and Python built-in math functions.' },
     { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/list.svg',  desc: 'Work with data collections, list indexing, slicing, appending, and list manipulation methods.' },
     { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',    desc: 'Control program execution flow using if, elif, and else statements with comparison logic.' },
     { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/loop.svg',  desc: 'Automate repetitive workflows, iterate across sequences, and master loop control statements.' }

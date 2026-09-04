@@ -14,8 +14,8 @@ import {
 export const sylPy = [
   [1, 4, 3, 4],                         // Lesson 1: What is a PC (0.1 Intro -> 0.1 Quiz -> 0.2 Info -> 0.2 Quiz)
   [1, 4, 3, 2, 4, 3, 4],                // Lesson 2: Programming (1.1 Editor -> 1.1 Quiz -> 1.2 print() Info -> 1.2 Code -> 1.2 Quiz -> 1.3 Running Code -> 1.3 Quiz)
-  [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],       // Lesson 3: Basic Math & Strings (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
-  [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],       // Lesson 4: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
+  [1, 4, 2, 1, 4, 2, 1, 4, 2, 4],       // Lesson 3: Variables (2.1 Info->Quiz->Code, 2.2 Info->Quiz->Code, 2.3 Info->Quiz->Code->FinalQuiz)
+  [1, 4, 3, 2, 2, 1, 2, 4, 2, 4],       // Lesson 4: Basic Math & Strings (3.1 Math->Quiz->Mult/Div->Code->AlgoCode, 3.2 StringInfo->Code->Quiz->AlgoCode->FinalQuiz)
   [1, 2, 4],                            // Lesson 5: Lists
   [1, 2, 4],                            // Lesson 6: Conditions
   [1, 2, 4]                             // Lesson 7: For Loop
@@ -1015,18 +1015,6 @@ export const ENGLISH_MODULE_NAMES = {
     '1.3 • Execution Order Quiz'
   ],
   3: [
-    '3.1 • Basic Math Operations',
-    '3.1 • Math & Precedence Quiz',
-    '3.1 • Multiplication & Division',
-    '3.1 • Four Operators Coding',
-    '3.1 • Algorithm: Midpoint Formula',
-    '3.2 • Combining Text (Strings)',
-    '3.2 • String Concatenation Code',
-    '3.2 • String Concatenation Quiz',
-    '3.2 • Algorithm: API URL Builder',
-    '3.2 • Math & Strings Final Quiz'
-  ],
-  4: [
     '2.1 • What Is a Variable?',
     '2.1 • Variable Fundamentals Quiz',
     '2.1 • Creating Variables Code',
@@ -1037,6 +1025,18 @@ export const ENGLISH_MODULE_NAMES = {
     '2.3 • Reassignment Quiz',
     '2.3 • Updating Variables Code',
     '2.3 • Complete Variables Mastery'
+  ],
+  4: [
+    '3.1 • Basic Math Operations',
+    '3.1 • Math & Precedence Quiz',
+    '3.1 • Multiplication & Division',
+    '3.1 • Four Operators Coding',
+    '3.1 • Algorithm: Min-Max Normalization',
+    '3.2 • Combining Text (Strings)',
+    '3.2 • String Concatenation Code',
+    '3.2 • String Concatenation Quiz',
+    '3.2 • Algorithm: API URL Builder',
+    '3.2 • Math & Strings Final Quiz'
   ]
 };
 

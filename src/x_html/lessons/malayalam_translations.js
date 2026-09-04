@@ -44,18 +44,6 @@ export const MALAYALAM_MODULE_NAMES = {
     '1.3 • പ്രവർത്തന ക്രമ ക്വിസ്'
   ],
   3: [
-    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
-    '3.1 • കണക്കും മുൻഗണനയും ക്വിസ്',
-    '3.1 • ഗുണനവും ഹരണവും',
-    '3.1 • നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
-    '3.1 • അൽഗോരിതം: മിഡ്പോയിന്റ് ഫോർമുല',
-    '3.2 • വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ',
-    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്',
-    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്',
-    '3.2 • അൽഗോരിതം: എപിഐ യുആർഎൽ നിർമ്മാണം',
-    '3.2 • കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്'
-  ],
-  4: [
     '2.1 • എന്താണ് വേരിയബിൾ?',
     '2.1 • വേരിയബിൾ അടിസ്ഥാന ക്വിസ്',
     '2.1 • വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്',
@@ -66,6 +54,18 @@ export const MALAYALAM_MODULE_NAMES = {
     '2.3 • മൂല്യം മാറ്റൽ ക്വിസ്',
     '2.3 • വേരിയബിളുകൾ പുതുക്കൽ കോഡ്',
     '2.3 • വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്'
+  ],
+  4: [
+    '3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ',
+    '3.1 • കണക്കും മുൻഗണനയും ക്വിസ്',
+    '3.1 • ഗുണനവും ഹരണവും',
+    '3.1 • നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്',
+    '3.1 • അൽഗോരിതം ഫോർമുല: മിൻ-മാക്സ് നോർമലൈസേഷൻ',
+    '3.2 • വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ',
+    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്',
+    '3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്',
+    '3.2 • അൽഗോരിതം ഫോർമുല: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം',
+    '3.2 • കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്'
   ]
 };
 
@@ -798,12 +798,333 @@ export const MALAYALAM_LESSON_DATA = {
     ]
   },
   "1_3_1": {
+      "title": "എന്താണ് വേരിയബിൾ?",
+      "subtitle": "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
+      "topic": "2.1 • എന്താണ് വേരിയബിൾ?",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.1 • വിവരങ്ങൾ സൂക്ഷിക്കൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      എന്താണ് ഒരു <hlt>വേരിയബിൾ</hlt>?\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      കമ്പ്യൂട്ടർ മെമ്മറിയിൽ വിവരങ്ങൾ ഒരു പേരിൽ സൂക്ഷിച്ചുവെക്കാനും പിന്നീട് ആവശ്യമുള്ളപ്പോൾ തിരിച്ചെടുക്കാനും വേരിയബിളുകൾ സഹായിക്കുന്നു.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      കമ്പ്യൂട്ടർ റാമിൽ വിവരങ്ങൾ താൽക്കാലികമായി സൂക്ഷിക്കുന്നതും print() കമാൻഡും മുൻ പാഠങ്ങളിൽ നാം കണ്ടു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=1&sub=3&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: കമ്പ്യൂട്ടർ മെമ്മറിയും റാമും (പാഠം 1.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • ലേബൽ ചെയ്ത പെട്ടി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പുറത്ത് പേരെഴുതിയ ഒരു പെട്ടി\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഒരു പെട്ടിയുടെ പുറത്ത് <hlt>age</hlt> എന്ന് ലേബൽ ഒട്ടിച്ച് അതിനുള്ളിൽ <hlt>25</hlt> എന്ന പേപ്പർ വെയ്ക്കുന്നത് സങ്കൽപ്പിക്കുക. പിന്നീട് ആ സംഖ്യ വേണമെങ്കിൽ <hlt>age</hlt> എന്ന പെട്ടി തുറന്നാൽ മതി.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># 'age' പെട്ടി തുറന്ന് 25 കാണിക്കുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ഇരട്ടപ്പേര്\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഒരു മൂല്യത്തിന് നൽകുന്ന വിളിപ്പേര്\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      നീണ്ട വിവരങ്ങൾ വീണ്ടും വീണ്ടും എഴുതുന്നതിന് പകരം ഒരു ചെല്ലപ്പേര് നൽകുന്നു. ഉദാഹരണത്തിന് <hlt>\"Kochi\"</hlt> എന്ന വിവരത്തിന് <hlt>city</hlt> എന്ന് പേര് നൽകൽ:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      city = <span style=\"color: #a5d6ff;\">\"Kochi\"</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(city)  <span style=\"color: #8b949e;\"># ഔട്ട്പുട്ട്: Kochi</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      നിയമങ്ങളും മുൻകരുതലുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>ഇടതും വലതും:</strong> പെട്ടിയുടെ പേര് എപ്പോഴും ഇടത്തും, അതിനുള്ളിലെ മൂല്യം വലത്തുമായിരിക്കണം: <hlt>age = 25</hlt>.</li>\n      <li><strong>കോട്ടുകൾ ശ്രദ്ധിക്കുക:</strong> <hlt>print(age)</hlt> പെട്ടിയിലെ 25 കാണിക്കും. എന്നാൽ <hlt>print(\"age\")</hlt> \"age\" എന്ന വാക്ക് പ്രിന്റ് ചെയ്യും.</li>\n      <li><strong>ഉണ്ടാക്കിയ ശേഷം ഉപയോഗിക്കുക:</strong> പെട്ടി നിർമ്മിക്കുന്നതിന് മുൻപ് print(age) എന്ന് വിളിച്ചാൽ പൈത്തൺ NameError നൽകും.</li>\n    </ul>\n  </div>\n</div>"
+  },
+  "1_3_2": {
+      "title": "വേരിയബിൾ അടിസ്ഥാന ക്വിസ്",
+      "topic": "2.1 • വേരിയബിൾ ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "Python-ൽ ശരിയായ രീതിയിൽ വേരിയബിൾ ഉണ്ടാക്കുന്നത് എങ്ങനെയാണ്?",
+              "options": [
+                  "age = 25",
+                  "25 = age",
+                  "variable age 25",
+                  "int age: 25"
+              ],
+              "correct_answer": "age = 25",
+              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം.",
+              "explanation_incorrect": "വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം (age = 25)."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "print(name) എന്നതും print(\"name\") എന്നതും തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?",
+              "options": [
+                  "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
+                  "രണ്ടും ഒരേ ഫലം നൽകുന്നു",
+                  "രണ്ടും 'name' എന്ന വാക്ക് കാണിക്കുന്നു",
+                  "print(name) എറർ നൽകുന്നു"
+              ],
+              "correct_answer": "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ വേരിയബിൾ പേര് നൽകുമ്പോൾ അതിനുള്ളിലെ ഡാറ്റ ലഭിക്കുന്നു.",
+              "explanation_incorrect": "കോട്ടുകളില്ലാതെ എഴുതുമ്പോൾ പെട്ടി തുറന്ന് അതിലെ വിവരവും, കോട്ടുകളോടെ എഴുതുമ്പോൾ ആ വാക്കും വരുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു വേരിയബിൾ നിർമ്മിക്കുന്നതിന് മുൻപ് print(score) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
+              "options": [
+                  "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
+                  "0 എന്ന് പ്രിന്റ് ചെയ്യും",
+                  "\"score\" എന്ന് പ്രിന്റ് ചെയ്യും",
+                  "None എന്ന് പ്രിന്റ് ചെയ്യും"
+              ],
+              "correct_answer": "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
+              "explanation_correct": "ശരിയാണ്! പെട്ടി ഉണ്ടാക്കുന്നതിന് മുൻപ് തുറക്കാൻ ശ്രമിച്ചാൽ NameError ലഭിക്കും.",
+              "explanation_incorrect": "നിലവിലില്ലാത്ത വേരിയബിൾ ഉപയോഗിക്കുമ്പോൾ NameError വരുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "വേരിയബിളിനെ എന്തുമായാണ് ഏറ്റവും നന്നായി ഉപമിക്കാൻ കഴിയുക?",
+              "options": [
+                  "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
+                  "കമ്പ്യൂട്ടറിന്റെ പവർ ബട്ടൺ",
+                  "ഒരു പ്രിന്റർ മെഷീൻ",
+                  "ഒരു കീബോർഡ് കീ"
+              ],
+              "correct_answer": "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
+              "explanation_correct": "ശരിയാണ്! ഒരു ലേബൽ ചെയ്ത പെട്ടി പോലെയാണ് വേരിയബിൾ.",
+              "explanation_incorrect": "വിവരങ്ങൾ പേരിട്ട് സൂക്ഷിക്കുന്ന പെട്ടിയാണ് വേരിയബിൾ."
+          }
+      ]
+  },
+  "1_3_3": {
+      "title": "വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്",
+      "description": "നിങ്ങളുടെ സ്വന്തം വേരിയബിളുകൾ നിർമ്മിച്ച് പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>name = \"Alice\"</code> എന്നും <code>age = 25</code> എന്നും നിർമ്മിച്ച് രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "Alice\n25"
+  },
+  "1_3_4": {
+      "title": "സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)",
+      "subtitle": "ഇൻ്റിജറുകളും സ്ട്രിംഗുകളും",
+      "topic": "2.2 • ഡാറ്റാ ടൈപ്പുകൾ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.2 • സംഖ്യകളും വാചകങ്ങളും\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      സംഖ്യകളും <hlt>വാചകങ്ങളും</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      സംഖ്യകളെയും (Numbers) വാചകങ്ങളെയും (Text) പൈത്തൺ വ്യത്യസ്തമായാണ് കൈകാര്യം ചെയ്യുന്നത്. കോട്ടുകൾ ഉണ്ടോ ഇല്ലയോ എന്നതാണ് ഡാറ്റാ ടൈപ്പ് നിശ്ചയിക്കുന്നത്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      രണ്ടാം അധ്യായത്തിൽ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ ഇരട്ട കോട്ടുകളിൽ പൊതിയണമെന്ന് നാം കണ്ടു.\n    </p>\n    <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_4\" class=\"ref-jump-btn\">റിവ്യൂ: print() ലെ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ (പാഠം 2.2) →</a>\n  </div>\n\n  <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 16px;\">\n    <div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഇൻ്റിജറുകൾ (സംഖ്യകൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകൾ ഇല്ല</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        കണക്കുകൂട്ടലുകൾക്കായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        score = <span style=\"color: #7ee787;\">100</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(5 + 5)  <span style=\"color: #8b949e;\"># ഫലം: 10</span>\n      </div>\n    </div>\n\n    <div style=\"background: #fbcfe8; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        സ്ട്രിംഗുകൾ (വാചകങ്ങൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകളിൽ പൊതിഞ്ഞത്</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        പേരുകൾക്കും വാക്കുകൾക്കുമായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        player = <span style=\"color: #a5d6ff;\">\"John\"</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #a5d6ff;\">\"5\"</span> + <span style=\"color: #a5d6ff;\">\"5\"</span>)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം • ഐഡി കാർഡും വില ടാഗും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 19px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      വില ടാഗുകളാണ് കൂട്ടിച്ചേർക്കുന്നത്, പേരുകളല്ല\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">\n      ഐഡി കാർഡിലെ പേര് ടെക്സ്റ്റ് ആണ്—രണ്ട് പേരുകൾ നാം തമ്മിൽ കൂട്ടില്ല. എന്നാൽ സാധനങ്ങളുടെ വില സംഖ്യയാണ്—അവ കൂട്ടിച്ചേർക്കാം.\n    </p>\n  </div>\n</div>"
+  },
+  "1_3_5": {
+      "title": "സംഖ്യകളും വാചകങ്ങളും ക്വിസ്",
+      "topic": "2.2 • ഡാറ്റാ ടൈപ്പ് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "ഇനിപ്പറയുന്നവയിൽ ഏതാണ് ഇൻ്റിജർ (പൂർണ്ണസംഖ്യ)?",
+              "options": [
+                  "100",
+                  "\"100\"",
+                  "'100'",
+                  "score_100"
+              ],
+              "correct_answer": "100",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ എഴുതുന്ന സംഖ്യയാണ് ഇൻ്റിജർ.",
+              "explanation_incorrect": "കോട്ടുകളില്ലാത്ത 100 ആണ് ഇൻ്റിജർ."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "print(10 + 20) ഉം print(\"10\" + \"20\") ഉം എന്ത് നൽകുന്നു?",
+              "options": [
+                  "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
+                  "രണ്ടും 30 നൽകുന്നു",
+                  "രണ്ടും 1020 നൽകുന്നു",
+                  "രണ്ടാമത്തേതിൽ എറർ വരുന്നു"
+              ],
+              "correct_answer": "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
+              "explanation_correct": "ശരിയാണ്! നമ്പറുകൾ കൂട്ടി 30 ആവുകയും സ്ട്രിംഗുകൾ ചേർത്ത് 1020 ആവുകയും ചെയ്യുന്നു.",
+              "explanation_incorrect": "10 + 20 = 30, \"10\" + \"20\" = \"1020\"."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു ഫോൺ നമ്പർ പൈത്തണിൽ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നത് എന്തുകൊണ്ട്?",
+              "options": [
+                  "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
+                  "പൈത്തണിന് വലിയ സംഖ്യകൾ സൂക്ഷിക്കാൻ കഴിയില്ല",
+                  "ഫോൺ നമ്പറുകൾക്ക് വിലയില്ലാത്തതിനാൽ",
+                  "എറർ ഒഴിവാക്കാൻ"
+              ],
+              "correct_answer": "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
+              "explanation_correct": "ശരിയാണ്! ഗണിതക്രിയകൾ ചെയ്യാത്ത ഐഡന്റിഫയറുകൾ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നു.",
+              "explanation_incorrect": "ഗണിതക്രിയകൾ വേണ്ടാത്തതിനാലാണ് ഫോൺ നമ്പർ സ്ട്രിംഗാക്കുന്നത്."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "age = \"25\" എന്ന് എഴുതിയാൽ അത് എന്ത് ഡാറ്റാ ടൈപ്പാണ്?",
+              "options": [
+                  "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
+                  "ഇൻ്റിജർ (Integer - സംഖ്യ)",
+                  "ഫ്ലോട്ട് (Float)",
+                  "ബൂളിയൻ (Boolean)"
+              ],
+              "correct_answer": "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളതിനാൽ ഇത് സ്ട്രിംഗ് ആണ്.",
+              "explanation_incorrect": "കോട്ടുകൾ നൽകിയാൽ അത് സ്ട്രിംഗ് ആയി മാറും."
+          }
+      ]
+  },
+  "1_3_6": {
+      "title": "മെമ്മറിയും ടൈപ്പുകളും കോഡ്",
+      "description": "സംഖ്യയും ടെക്സ്റ്റും വേരിയബിളുകളാക്കി മാറ്റി പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>score = 100</code> (ഇൻ്റിജർ) എന്നും <code>player = \"John\"</code> (സ്ട്രിംഗ്) എന്നും നൽകി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "100\nJohn"
+  },
+  "1_3_7": {
+      "title": "പെട്ടിയിലെ മൂല്യം മാറ്റൽ",
+      "subtitle": "വേരിയബിളുകൾ റീഅസൈൻ ചെയ്യൽ",
+      "topic": "2.3 • മൂല്യം മാറ്റൽ",
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.3 • മൂല്യം മാറ്റൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ മൂല്യം <hlt>മാറ്റാം</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      വേരിയബിളുകൾ സ്ഥിരമല്ല. പെട്ടിയിലെ പഴയ സാധനം മാറ്റി പുതിയത് വെയ്ക്കുന്നത് പോലെ എപ്പോൾ വേണമെങ്കിലും അവയിലെ മൂല്യം മാറ്റാം (Reassignment).\n    </p>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • സാധനം മാറ്റിവെയ്ക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ലേബൽ നിലനിൽക്കുന്നു, ഉള്ളിലെ മൂല്യം മാറുന്നു\n    </h2>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 25</span><br/><br/>\n      age = <span style=\"color: #7ee787;\">30</span>     <span style=\"color: #8b949e;\"># പഴയ 25 മാറ്റി പുതിയ 30 വെയ്ക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 30</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • വൈറ്റ്ബോർഡ് അനലോഗി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      മായ്ച്ചു കളഞ്ഞ് പുതിയത് എഴുതുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      വേരിയബിൾ എന്നത് വൈറ്റ്ബോർഡിൽ എഴുതിയത് പോലെയാണ്—പഴയത് മായ്ച്ച് പുതിയത് എഴുതാം.\n    </p>\n  </div>\n</div>"
+  },
+  "1_3_8": {
+      "title": "മൂല്യം മാറ്റൽ ക്വിസ്",
+      "topic": "2.3 • റീഅസൈൻമെന്റ് ക്വിസ്",
+      "questions": [
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
+              "question": "ഇനിപ്പറയുന്ന കോഡ് എന്ത് പ്രിന്റ് ചെയ്യും?",
+              "code": "x = 5\nx = 10\nprint(x)",
+              "options": [
+                  "10",
+                  "5",
+                  "5 10",
+                  "15"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! ഏറ്റവും ഒടുവിൽ മാറ്റിയെഴുതിയ മൂല്യമായ 10 ആണ് പെട്ടിയിലുള്ളത്.",
+              "explanation_incorrect": "x ന്റെ മൂല്യം 10 ആയി അപ്ഡേറ്റ് ചെയ്യപ്പെട്ടു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
+              "question": "ഇനിപ്പറയുന്ന കോഡിന്റെ ഔട്ട്പുട്ട് എന്താണ്?",
+              "code": "score = 0\nprint(score)\nscore = 50\nprint(score)",
+              "options": [
+                  "ആദ്യം 0, പിന്നീട് 50",
+                  "രണ്ട് തവണയും 50",
+                  "രണ്ട് തവണയും 0",
+                  "50 മാത്രം"
+              ],
+              "correct_answer": "ആദ്യം 0, പിന്നീട് 50",
+              "explanation_correct": "ശരിയാണ്! ഓരോ വരിയും ക്രമമായി പ്രവർത്തിക്കുന്നു.",
+              "explanation_incorrect": "ആദ്യം 0 പ്രിന്റ് ചെയ്യുകയും, പിന്നീട് മാറ്റിയ ശേഷം 50 പ്രിന്റ് ചെയ്യുകയും ചെയ്യുന്നു."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
+              "question": "ഒരു വേരിയബിളിൽ ഒരേസമയം എത്ര മൂല്യങ്ങൾ സൂക്ഷിക്കാം?",
+              "options": [
+                  "ഒരു മൂല്യം മാത്രം",
+                  "രണ്ട് മൂല്യങ്ങൾ",
+                  "പഴയതും പുതിയതും ഒരുമിച്ച്",
+                  "അൺലിമിറ്റഡ്"
+              ],
+              "correct_answer": "ഒരു മൂല്യം മാത്രം",
+              "explanation_correct": "ശരിയാണ്! ഒരു പെട്ടിയിൽ ഒരേസമയം ഒരു സാധനം മാത്രമേ ഇരിക്കൂ.",
+              "explanation_incorrect": "ഒരു വേരിയബിളിന് ഒരു സമയം ഒരു മൂല്യം മാത്രമേ ഉണ്ടാകൂ."
+          },
+          {
+              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
+              "question": "x = 10; y = x; x = 20 ആയാൽ y ന്റെ മൂല്യം എന്താണ്?",
+              "code": "x = 10\ny = x\nx = 20\nprint(y)",
+              "options": [
+                  "10",
+                  "20",
+                  "30",
+                  "Error"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! y = x നടക്കുമ്പോൾ x ൽ 10 ആയിരുന്നു, പിന്നീട് x മാറിയാലും y മാറില്ല.",
+              "explanation_incorrect": "y = x നൽകിയപ്പോൾ y ലേക്ക് 10 കോപ്പി ചെയ്യപ്പെട്ടു (10)."
+          }
+      ]
+  },
+  "1_3_9": {
+      "title": "വേരിയബിളുകൾ പുതുക്കൽ കോഡ്",
+      "description": "ആദ്യം <code>score = 0</code> എന്ന് നൽകി പ്രിന്റ് ചെയ്യുക. ശേഷം <code>score = 50</code> എന്ന് അപ്ഡേറ്റ് ചെയ്ത് വീണ്ടും പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> പെട്ടിയിലെ മൂല്യം മാറ്റി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
+      "intended_output": "0\n50"
+  },
+  "1_3_10": {
+      "title": "വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്",
+      "topic": "2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്",
+      "questions": [
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
+              "question": "പൈത്തണിൽ വേരിയബിൾ ഉണ്ടാക്കുമ്പോൾ എന്ത് ചിഹ്നമാണ് ഉപയോഗിക്കുന്നത്?",
+              "options": [
+                  "= (അസൈൻമെന്റ്)",
+                  "==",
+                  ":",
+                  "->"
+              ],
+              "correct_answer": "= (അസൈൻമെന്റ്)",
+              "explanation_correct": "ശരിയാണ്! = ചിഹ്നം ഉപയോഗിച്ചാണ് വേരിയബിളിലേക്ക് മൂല്യം നൽകുന്നത്.",
+              "explanation_incorrect": "വേരിയബിളിലേക്ക് മൂല്യം നൽകാൻ = ഉപയോഗിക്കുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
+              "question": "name = \"Alice\" എന്നതിൽ \"Alice\" എന്ത് ടൈപ്പാണ്?",
+              "options": [
+                  "സ്ട്രിംഗ് (String)",
+                  "ഇൻ്റിജർ (Integer)",
+                  "ഫ്ലോട്ട് (Float)",
+                  "ലിസ്റ്റ് (List)"
+              ],
+              "correct_answer": "സ്ട്രിംഗ് (String)",
+              "explanation_correct": "ശരിയാണ്! ഇരട്ട കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്.",
+              "explanation_incorrect": "കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
+              "question": "count = 10 ൽ count ന്റെ മൂല്യം 15 ആക്കി മാറ്റാൻ എന്ത് ചെയ്യണം?",
+              "options": [
+                  "count = 15",
+                  "15 = count",
+                  "update count 15",
+                  "count + 15"
+              ],
+              "correct_answer": "count = 15",
+              "explanation_correct": "ശരിയാണ്! count = 15 എന്ന് വീണ്ടും അസൈൻ ചെയ്യുക.",
+              "explanation_incorrect": "count = 15 എന്ന് പുതിയ മൂല്യം നൽകുക."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
+              "question": "ഇനിപ്പറയുന്നവയിൽ തെറ്റായ അസൈൻമെന്റ് ഏതാണ്?",
+              "options": [
+                  "25 = age",
+                  "age = 25",
+                  "name = \"John\"",
+                  "total = 0"
+              ],
+              "correct_answer": "25 = age",
+              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് ഇടത്തും സംഖ്യ വലത്തുമായിരിക്കണം.",
+              "explanation_incorrect": "25 = age തെറ്റാണ്; age = 25 എന്നാണ് വേണ്ടത്."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
+              "question": "print(\"age\") ഉം print(age) ഉം എങ്ങനെ വ്യത്യാസപ്പെടുന്നു?",
+              "options": [
+                  "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
+                  "രണ്ടും ഒരേ സംഖ്യ നൽകുന്നു",
+                  "രണ്ടും 'age' എന്ന് നൽകുന്നു",
+                  "എറർ നൽകുന്നു"
+              ],
+              "correct_answer": "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
+              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളത് വാക്കായും, ഇല്ലാത്തത് വേരിയബിളായും പ്രവർത്തിക്കുന്നു.",
+              "explanation_incorrect": "\"age\" വാക്ക് പ്രിന്റ് ചെയ്യുമ്പോൾ age വേരിയബിളിലെ ഡാറ്റ നൽകുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
+              "question": "a = 5; b = 10; a = b; print(a) ന്റെ ഫലം എന്താണ്?",
+              "code": "a = 5\nb = 10\na = b\nprint(a)",
+              "options": [
+                  "10",
+                  "5",
+                  "15",
+                  "b"
+              ],
+              "correct_answer": "10",
+              "explanation_correct": "ശരിയാണ്! a = b ആയപ്പോൾ a യിലേക്ക് 10 എത്തി.",
+              "explanation_incorrect": "a യിലേക്ക് b യിലെ മൂല്യമായ 10 ലഭിച്ചു (10)."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
+              "question": "ഒരു വേരിയബിൾ ഉണ്ടാക്കാതെ ഉപയോഗിച്ചാൽ എന്ത് എറർ വരും?",
+              "options": [
+                  "NameError",
+                  "TypeError",
+                  "SyntaxError",
+                  "ValueError"
+              ],
+              "correct_answer": "NameError",
+              "explanation_correct": "ശരിയാണ്! നിർവചിക്കാത്ത പേര് വിളിക്കുമ്പോൾ NameError വരുന്നു.",
+              "explanation_incorrect": "വേരിയബിൾ ഇല്ലാത്തപ്പോൾ NameError ലഭിക്കുന്നു."
+          },
+          {
+              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
+              "question": "ഗണിതക്രിയകൾ ചെയ്യാൻ സംഖ്യകൾ എങ്ങനെ എഴുതണം?",
+              "options": [
+                  "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
+                  "ഇരട്ട കോട്ടുകളിൽ (\"50\")",
+                  "ഒറ്റ കോട്ടിൽ ('50')",
+                  "ബ്രാക്കറ്റിൽ (\"(50)\")"
+              ],
+              "correct_answer": "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
+              "explanation_correct": "ശരിയാണ്! ഇൻ്റിജറുകൾ കോട്ടുകളില്ലാതെ എഴുതുമ്പോഴാണ് കണക്കുകൂട്ടാൻ കഴിയുന്നത്.",
+              "explanation_incorrect": "കണക്കുകൂട്ടാൻ കോട്ടുകളില്ലാതെ എഴുതണം (50)."
+          }
+      ]
+  },
+  "1_4_1": {
       "title": "അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
       "subtitle": "സങ്കലനം, വ്യവകലനം & ബ്രാക്കറ്റുകൾ",
       "topic": "3.1 • അടിസ്ഥാന കണക്കുകൂട്ടലുകൾ",
-      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.1 • കണക്കുകൂട്ടലുകൾ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      കമ്പ്യൂട്ടറിലൂടെ <hlt>കണക്ക്</hlt> ചെയ്യാം\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      മിന്നൽ വേഗത്തിൽ കണക്കുകൂട്ടലുകൾ നടത്താനാണ് കമ്പ്യൂട്ടറുകൾ കണ്ടുപിടിച്ചത്. പൈത്തണിൽ സങ്കലനവും (+) വ്യവകലനവും (-) നേരിട്ട് ചെയ്യാവുന്നതാണ്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      മുൻ അധ്യായങ്ങളിൽ print() സ്‌ക്രീനിൽ കാണിക്കുന്നതും വേരിയബിളുകൾ മെമ്മറിയിൽ സൂക്ഷിക്കുന്നതും നാം പഠിച്ചു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=4&sub=1&ref_from=1_3_1\" class=\"ref-jump-btn\">റിവ്യൂ: എന്താണ് വേരിയബിൾ? (പാഠം 4.1) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ സംഖ്യകൾ എടുത്ത് കൂട്ടുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      <code>x + y</code> എന്നത് x പെട്ടിയിലെയും y പെട്ടിയിലെയും സംഖ്യകൾ എടുത്ത് കൂട്ടി പുതിയൊരു റിസൾട്ട് പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      price1 = <span style=\"color: #7ee787;\">50</span><br/>\n      price2 = <span style=\"color: #7ee787;\">20</span><br/>\n      total = price1 + price2<br/>\n      <span style=\"color: #79c0ff;\">print</span>(total)  <span style=\"color: #8b949e;\"># total പെട്ടി തുറന്ന് ഫലം 70 നൽകുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ക്യാഷ് രജിസ്റ്ററും ഡിസ്കൗണ്ടും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ആകെ തുകയിൽ നിന്ന് ഡിസ്കൗണ്ട് കുറയ്ക്കൽ\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഓരോ വേരിയബിളും സാധനങ്ങളുടെ വിലയെ സൂചിപ്പിക്കുന്നു. അവ കൂട്ടിച്ചേർത്ത് ഡിസ്കൗണ്ട് തുക കുറയ്ക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      total = <span style=\"color: #7ee787;\">70</span><br/>\n      discount = <span style=\"color: #7ee787;\">15</span><br/>\n      final_price = total - discount<br/>\n      <span style=\"color: #79c0ff;\">print</span>(final_price)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fed7aa; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      മുൻഗണനാ ക്രമം • ബ്രാക്കറ്റുകൾ ()\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് തീരുമാനിക്കാം\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      പൈത്തണിൽ ഏത് ഭാഗം ആദ്യം കണക്കുകൂട്ടണമെന്ന് വ്യക്തമാക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      result = (<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">5</span>) - <span style=\"color: #7ee787;\">3</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(result)  <span style=\"color: #8b949e;\"># (15) - 3 = 12</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ശ്രദ്ധിക്കുക • സംഖ്യകളും കോട്ടുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>കണക്കുകൂട്ടാൻ സംഖ്യകൾ:</strong> സംഖ്യകൾ കോട്ടുകളില്ലാതെ എഴുതുക: <code>10 + 5 = 15</code>.</li>\n      <li><strong>കോട്ടുകൾ വാചകമാക്കും:</strong> <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടിച്ചേർത്ത് <code>\"105\"</code> എന്ന വാചകമാക്കും!</li>\n    </ul>\n  </div>\n</div>"
+      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.1 • കണക്കുകൂട്ടലുകൾ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      കമ്പ്യൂട്ടറിലൂടെ <hlt>കണക്ക്</hlt> ചെയ്യാം\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      മിന്നൽ വേഗത്തിൽ കണക്കുകൂട്ടലുകൾ നടത്താനാണ് കമ്പ്യൂട്ടറുകൾ കണ്ടുപിടിച്ചത്. പൈത്തണിൽ സങ്കലനവും (+) വ്യവകലനവും (-) നേരിട്ട് ചെയ്യാവുന്നതാണ്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      മുൻ അധ്യായങ്ങളിൽ print() സ്‌ക്രീനിൽ കാണിക്കുന്നതും വേരിയബിളുകൾ മെമ്മറിയിൽ സൂക്ഷിക്കുന്നതും നാം പഠിച്ചു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=4&sub=1&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: എന്താണ് വേരിയബിൾ? (പാഠം 4.1) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • രണ്ട് പെട്ടികൾ കൂട്ടിച്ചേർക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ സംഖ്യകൾ എടുത്ത് കൂട്ടുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      <code>x + y</code> എന്നത് x പെട്ടിയിലെയും y പെട്ടിയിലെയും സംഖ്യകൾ എടുത്ത് കൂട്ടി പുതിയൊരു റിസൾട്ട് പെട്ടിയിൽ സൂക്ഷിക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      price1 = <span style=\"color: #7ee787;\">50</span><br/>\n      price2 = <span style=\"color: #7ee787;\">20</span><br/>\n      total = price1 + price2<br/>\n      <span style=\"color: #79c0ff;\">print</span>(total)  <span style=\"color: #8b949e;\"># total പെട്ടി തുറന്ന് ഫലം 70 നൽകുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ക്യാഷ് രജിസ്റ്ററും ഡിസ്കൗണ്ടും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ആകെ തുകയിൽ നിന്ന് ഡിസ്കൗണ്ട് കുറയ്ക്കൽ\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഓരോ വേരിയബിളും സാധനങ്ങളുടെ വിലയെ സൂചിപ്പിക്കുന്നു. അവ കൂട്ടിച്ചേർത്ത് ഡിസ്കൗണ്ട് തുക കുറയ്ക്കുന്നു.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      total = <span style=\"color: #7ee787;\">70</span><br/>\n      discount = <span style=\"color: #7ee787;\">15</span><br/>\n      final_price = total - discount<br/>\n      <span style=\"color: #79c0ff;\">print</span>(final_price)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fed7aa; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      മുൻഗണനാ ക്രമം • ബ്രാക്കറ്റുകൾ ()\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഏത് ഭാഗം ആദ്യം ചെയ്യണമെന്ന് തീരുമാനിക്കാം\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      പൈത്തണിൽ ഏത് ഭാഗം ആദ്യം കണക്കുകൂട്ടണമെന്ന് വ്യക്തമാക്കാൻ <strong>ബ്രാക്കറ്റുകൾ <code>()</code></strong> ഉപയോഗിക്കാം:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      result = (<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">5</span>) - <span style=\"color: #7ee787;\">3</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(result)  <span style=\"color: #8b949e;\"># (15) - 3 = 12</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ശ്രദ്ധിക്കുക • സംഖ്യകളും കോട്ടുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>കണക്കുകൂട്ടാൻ സംഖ്യകൾ:</strong> സംഖ്യകൾ കോട്ടുകളില്ലാതെ എഴുതുക: <code>10 + 5 = 15</code>.</li>\n      <li><strong>കോട്ടുകൾ വാചകമാക്കും:</strong> <code>\"10\" + \"5\"</code> എന്ന് എഴുതിയാൽ അത് കൂട്ടിച്ചേർത്ത് <code>\"105\"</code> എന്ന വാചകമാക്കും!</li>\n    </ul>\n  </div>\n</div>"
   },
-  "1_3_2": {
+  "1_4_2": {
       "title": "കണക്കും മുൻഗണനയും ക്വിസ്",
       "topic": "3.1 • കണക്ക് ക്വിസ്",
       "questions": [
@@ -863,34 +1184,34 @@ export const MALAYALAM_LESSON_DATA = {
           }
       ]
   },
-  "1_3_3": {
+  "1_4_3": {
       "title": "ഗുണനവും ഹരണവും",
       "subtitle": "ചിഹ്നങ്ങളും പ്രവർത്തന മുൻഗണനയും",
       "topic": "3.1 • ഗുണനവും ഹരണവും",
       "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.1 • ഗുണനവും ഹരണവും\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      ഗുണനം, <hlt>ഹരണം</hlt> & മുൻഗണന\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      പൈത്തണിൽ ഗുണനത്തിന് <code>*</code> ചിഹ്നവും ഹരണത്തിന് <code>/</code> ചിഹ്നവുമാണ് ഉപയോഗിക്കുന്നത്.\n    </p>\n  </div>\n\n  <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 16px;\">\n    <div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഗുണനം (*)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">ആസ്റ്ററിസ്ക് ചിഹ്നം</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        രണ്ട് സംഖ്യകൾ ഗുണിക്കാൻ ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        length = <span style=\"color: #7ee787;\">10</span><br/>\n        width = <span style=\"color: #7ee787;\">5</span><br/>\n        area = length * width<br/>\n        <span style=\"color: #79c0ff;\">print</span>(area)  <span style=\"color: #8b949e;\"># ഫലം: 50</span>\n      </div>\n    </div>\n\n    <div style=\"background: #c4b5fd; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഹരണം (/) • ഫ്ലോട്ട് റിസൾട്ട്\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">സ്ലാഷ് ചിഹ്നം</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        പൈത്തണിലെ ഹരണം <code>/</code> എപ്പോഴും ദശാംശ സംഖ്യ (Float) നൽകുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        total = <span style=\"color: #7ee787;\">100</span><br/>\n        players = <span style=\"color: #7ee787;\">4</span><br/>\n        each = total / players<br/>\n        <span style=\"color: #79c0ff;\">print</span>(each)  <span style=\"color: #8b949e;\"># ഫലം: 25.0</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      മുൻഗണനാ ക്രമം • BODMAS\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഏത് ചിഹ്നത്തിനാണ് ആദ്യം മുൻഗണന?\n    </h2>\n    <div style=\"display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;\">\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        1. ബ്രാക്കറ്റുകൾ ()\n      </div>\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        2. ഗുണനം * & ഹരണം /\n      </div>\n      <div style=\"background: #ffffff; border: 2px solid #111111; padding: 6px 12px; font-weight: 800; font-size: 13px; box-shadow: 2px 2px 0 #111111;\">\n        3. സങ്കലനം + & വ്യവകലനം -\n      </div>\n    </div>\n\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      <span style=\"color: #8b949e;\"># ബ്രാക്കറ്റില്ലാതെ: 50 / 2 ആദ്യം നടക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">50</span> / <span style=\"color: #7ee787;\">2</span>)    <span style=\"color: #8b949e;\"># 10 + 25.0 = 35.0</span><br/><br/>\n      <span style=\"color: #8b949e;\"># ബ്രാക്കറ്റോടെ: (10 + 50) ആദ്യം നടക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>((<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">50</span>) / <span style=\"color: #7ee787;\">2</span>)  <span style=\"color: #8b949e;\"># 60 / 2 = 30.0</span>\n    </div>\n  </div>\n</div>"
   },
-  "1_3_4": {
+  "1_4_4": {
       "title": "നാല് ചിഹ്നങ്ങളുടെ കോഡിംഗ്",
       "description": "നാല് അടിസ്ഥാന കണക്ക് ചിഹ്നങ്ങളും (+) (-) (*) (/) ബ്രാക്കറ്റുകളും ഉപയോഗിച്ച് കണക്കുകൂട്ടലുകൾ നടത്തുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>a</code>, <code>b</code> എന്നിവയുടെ സങ്കലനം, വ്യവകലനം, ഗുണനം, ഹരണം, കൂടാതെ <code>(a + b) * 2</code> എന്നിവ കണക്കാക്കി പ്രിന്റ് ചെയ്യുക.",
       "intended_output": "30\n10\n200\n2.0\n60"
   },
-  "1_3_5": {
+  "1_4_5": {
       "title": "അൽഗോരിതം ഫോർമുല: മിൻ-മാക്സ് നോർമലൈസേഷൻ",
       "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: മിൻ-മാക്സ് ഫീച്ചർ നോർമലൈസേഷൻ</strong><br/>മെഷീൻ ലേണിംഗ്, ഡാറ്റാ സയൻസ്, ഗെയിമുകളിലെ ഹെൽത്ത് ബാറുകൾ എന്നിവയിൽ വലിയ സംഖ്യകളെ 0 മുതൽ 100 വരെയുള്ള സ്കെയിലിലേക്ക് മാറ്റാൻ മിൻ-മാക്സ് ഫോർമുല ഉപയോഗിക്കുന്നു:<br/><br/><strong>ഗണിത ഫോർമുല:</strong><br/><div class=\"math-formula-box\" style=\"margin: 8px 0; padding: 10px 18px; background: #0d1117; color: #fde047; border: 2px solid #000; border-radius: 6px; font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 1.25rem; display: inline-flex; align-items: center; gap: 8px;\"><em>normalized</em> = <span style=\"display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 1.05rem; margin: 0 4px;\"><span style=\"border-bottom: 2px solid #fde047; padding: 0 4px;\"><em>val</em> &minus; <em>min_val</em></span><span style=\"padding: 0 4px;\"><em>max_val</em> &minus; <em>min_val</em></span></span> &times; 100</div><br/><br/><strong>ചലഞ്ച്:</strong><br/>മുകളിലെ വേരിയബിളുകൾ ലോക്ക് ചെയ്തിരിക്കുന്നു. എഡിറ്റബിൾ ഭാഗത്ത് ഈ ഗണിത ഫോർമുലയെ പൈത്തൺ കോഡാക്കി മാറ്റി <code>normalized</code> കണക്കാക്കുക.<br/><br/><em>സൂചന (BODMAS):</em> ഹരണം <code>/</code> വ്യവകലനത്തിന് (<code>-</code>) മുൻപ് നടക്കും. അതിനാൽ അംശത്തിലും (Numerator) ഛേദത്തിലും (Denominator) കുറയ്ക്കൽ ആദ്യം നടക്കാൻ ബ്രാക്കറ്റുകൾ <code>()</code> കൃത്യമായി നൽകുക!",
       "intended_output": "50.0"
   },
-  "1_3_6": {
+  "1_4_6": {
       "title": "വാചകങ്ങൾ കൂട്ടിച്ചേർക്കൽ",
       "subtitle": "+ ചിഹ്നം ഉപയോഗിച്ച് സ്ട്രിംഗുകൾ ചേർക്കുന്നു",
       "topic": "3.2 • സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ",
       "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      3.2 • വാചകങ്ങൾ കൈകാര്യം ചെയ്യൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      <hlt>വാചകങ്ങൾ</hlt> കൂട്ടിച്ചേർക്കൽ (+)\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 640px;\">\n      പൈത്തണിൽ പ്ലസ് <code>+</code> ചിഹ്നം സംഖ്യകൾ കൂട്ടാൻ മാത്രമല്ല, വാചകങ്ങൾ (Strings) പരസ്പരം ഒട്ടിച്ചു ചേർക്കാനും ഉപയോഗിക്കുന്നു!\n    </p>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      പശയുടെ ഉദാഹരണം\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      കടലാസ് കഷണങ്ങൾ ഒട്ടിക്കുന്നത് പോലെ\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      വാക്കുകൾക്കിടയിൽ ഇടവേള (സ്പേസ്) വേണമെങ്കിൽ, നടുവിൽ <code>\" \"</code> ചേർക്കണം:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      first = <span style=\"color: #a5d6ff;\">\"Good\"</span><br/>\n      second = <span style=\"color: #a5d6ff;\">\"Morning\"</span><br/><br/>\n      <span style=\"color: #8b949e;\"># സ്പേസ് ഇല്ലാതെ:</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(first + second)          <span style=\"color: #8b949e;\"># ഫലം: \"GoodMorning\"</span><br/><br/>\n      <span style=\"color: #8b949e;\"># സ്പേസ് നൽകി:</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(first + <span style=\"color: #a5d6ff;\">\" \"</span> + second)    <span style=\"color: #8b949e;\"># ഫലം: \"Good Morning\"</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fbcfe8; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഡാറ്റാ ടൈപ്പുകളുടെ വ്യത്യാസം\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഒരേ ചിഹ്നം (+), വ്യത്യസ്ത ഫലം\n    </h2>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      <span style=\"color: #8b949e;\"># 1. സംഖ്യകൾ: ഗണിത സങ്കലനം</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #7ee787;\">10</span> + <span style=\"color: #7ee787;\">20</span>)      <span style=\"color: #8b949e;\"># ഫലം: 30</span><br/><br/>\n      <span style=\"color: #8b949e;\"># 2. വാചകങ്ങൾ: കൂട്ടിച്ചേർക്കൽ</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #a5d6ff;\">\"10\"</span> + <span style=\"color: #a5d6ff;\">\"20\"</span>)  <span style=\"color: #8b949e;\"># ഫലം: \"1020\"</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fed7aa; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ടൈപ്പ് മാറ്റം • str()\n    </span>\n    <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">വാചകവും സംഖ്യയും കൂട്ടിച്ചേർക്കൽ</h3>\n    <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.5;\">\n      വാചകവും സംഖ്യയും നേരിട്ട് കൂട്ടിച്ചേർക്കാൻ കഴിയില്ല. അതിനായി <code>str()</code> ഉപയോഗിച്ച് സംഖ്യയെ വാചകമാക്കി മാറ്റുക:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n      level = <span style=\"color: #7ee787;\">5</span><br/>\n      message = <span style=\"color: #a5d6ff;\">\"Level: \"</span> + <span style=\"color: #79c0ff;\">str</span>(level)<br/>\n      <span style=\"color: #79c0ff;\">print</span>(message)  <span style=\"color: #8b949e;\"># ഫലം: \"Level: 5\"</span>\n    </div>\n  </div>\n</div>"
   },
-  "1_3_7": {
+  "1_4_7": {
       "title": "സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ കോഡ്",
       "description": "<code>first_name</code>, <code>last_name</code> എന്നിവ നടുവിൽ സ്പേസ് നൽകി <code>full_name</code> ആയി കൂട്ടിച്ചേർത്ത് പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>full_name = first_name + \" \" + last_name</code>",
       "intended_output": "Alan Turing"
   },
-  "1_3_8": {
+  "1_4_8": {
       "title": "സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ ക്വിസ്",
       "topic": "3.2 • സ്ട്രിംഗ് ക്വിസ്",
       "questions": [
@@ -948,12 +1269,12 @@ export const MALAYALAM_LESSON_DATA = {
           }
       ]
   },
-  "1_3_9": {
+  "1_4_9": {
       "title": "അൽഗോരിതം ഫോർമുല: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം",
       "description": "<strong>യഥാർത്ഥ അൽഗോരിതം: ഡൈനാമിക് എപിഐ യുആർഎൽ നിർമ്മാണം</strong><br/>സെർച്ച് എഞ്ചിനുകളും മൊബൈൽ ആപ്പുകളും വെബ്ബിൽ നിന്ന് ഡാറ്റ സ്വീകരിക്കാൻ നിർദ്ദിഷ്ട ഫോർമാറ്റിൽ റിക്വസ്റ്റ് URL നിർമ്മിക്കുന്നു.<br/><br/><strong>ലക്ഷ്യമിടുന്ന URL ഘടന:</strong><br/><div class=\"code-demo-box\" style=\"margin: 8px 0; padding: 10px 18px; background: #0d1117; color: #fde047; border: 2px solid #000; border-radius: 6px; font-family: monospace; font-size: 1.05rem; display: inline-block;\"><em>protocol</em>://<em>domain</em>/<em>endpoint</em>?q=<em>query</em></div><br/><br/><strong>ചലഞ്ച്:</strong><br/>മുകളിലെ കോൺഫിഗറേഷൻ വേരിയബിളുകൾ ലോക്ക് ചെയ്തിരിക്കുന്നു. എഡിറ്റബിൾ ഭാഗത്ത് സ്ട്രിംഗ് കൂട്ടിച്ചേർക്കൽ (<code>+</code>) ഉപയോഗിച്ച് വേരിയബിളുകളും ചിഹ്നങ്ങളും (<code>\"://\"</code>, <code>\"/\"</code>, <code>\"?q=\"</code>) ചേർത്ത് മുഴുവൻ API URL-ഉം <code>url</code> എന്ന വേരിയബിളിൽ നിർമ്മിക്കുക.<br/><br/>പ്രതീക്ഷിക്കുന്ന ഔട്ട്പുട്ട്: <code>https://api.learner.dev/search?q=python</code>",
       "intended_output": "https://api.learner.dev/search?q=python"
   },
-  "1_3_10": {
+  "1_4_10": {
       "title": "കണക്കും സ്ട്രിംഗുകളും ഫൈനൽ ക്വിസ്",
       "topic": "3.2 • സമഗ്ര ക്വിസ്",
       "questions": [
@@ -1065,327 +1386,6 @@ export const MALAYALAM_LESSON_DATA = {
               "correct_answer": "Score: 100",
               "explanation_correct": "ശരിയാണ്! str(score) വഴി 100 ടെക്സ്റ്റായി മാറുകയും സുരക്ഷിതമായി കൂട്ടിച്ചേർക്കപ്പെടുകയും ചെയ്യുന്നു.",
               "explanation_incorrect": "\"Score: 100\" എന്നാണ് ശരിയായ ഫലം."
-          }
-      ]
-  },
-  "1_4_1": {
-      "title": "എന്താണ് വേരിയബിൾ?",
-      "subtitle": "മെമ്മറിയിൽ വിവരങ്ങൾ സൂക്ഷിക്കാം",
-      "topic": "2.1 • എന്താണ് വേരിയബിൾ?",
-      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.1 • വിവരങ്ങൾ സൂക്ഷിക്കൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      എന്താണ് ഒരു <hlt>വേരിയബിൾ</hlt>?\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      കമ്പ്യൂട്ടർ മെമ്മറിയിൽ വിവരങ്ങൾ ഒരു പേരിൽ സൂക്ഷിച്ചുവെക്കാനും പിന്നീട് ആവശ്യമുള്ളപ്പോൾ തിരിച്ചെടുക്കാനും വേരിയബിളുകൾ സഹായിക്കുന്നു.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      കമ്പ്യൂട്ടർ റാമിൽ വിവരങ്ങൾ താൽക്കാലികമായി സൂക്ഷിക്കുന്നതും print() കമാൻഡും മുൻ പാഠങ്ങളിൽ നാം കണ്ടു.\n    </p>\n    <div style=\"display: flex; gap: 10px; flex-wrap: wrap;\">\n      <a href=\"1.html?spcl=1&lsn=1&sub=3&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: കമ്പ്യൂട്ടർ മെമ്മറിയും റാമും (പാഠം 1.2) →</a>\n      <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_4_1\" class=\"ref-jump-btn\">റിവ്യൂ: print() കമാൻഡ് (പാഠം 2.2) →</a>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • ലേബൽ ചെയ്ത പെട്ടി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      പുറത്ത് പേരെഴുതിയ ഒരു പെട്ടി\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      ഒരു പെട്ടിയുടെ പുറത്ത് <hlt>age</hlt> എന്ന് ലേബൽ ഒട്ടിച്ച് അതിനുള്ളിൽ <hlt>25</hlt> എന്ന പേപ്പർ വെയ്ക്കുന്നത് സങ്കൽപ്പിക്കുക. പിന്നീട് ആ സംഖ്യ വേണമെങ്കിൽ <hlt>age</hlt> എന്ന പെട്ടി തുറന്നാൽ മതി.\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># 'age' പെട്ടി തുറന്ന് 25 കാണിക്കുന്നു</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • ഇരട്ടപ്പേര്\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ഒരു മൂല്യത്തിന് നൽകുന്ന വിളിപ്പേര്\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      നീണ്ട വിവരങ്ങൾ വീണ്ടും വീണ്ടും എഴുതുന്നതിന് പകരം ഒരു ചെല്ലപ്പേര് നൽകുന്നു. ഉദാഹരണത്തിന് <hlt>\"Kochi\"</hlt> എന്ന വിവരത്തിന് <hlt>city</hlt> എന്ന് പേര് നൽകൽ:\n    </p>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      city = <span style=\"color: #a5d6ff;\">\"Kochi\"</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(city)  <span style=\"color: #8b949e;\"># ഔട്ട്പുട്ട്: Kochi</span>\n    </div>\n  </div>\n\n  <div style=\"background: #fca5a5; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      നിയമങ്ങളും മുൻകരുതലുകളും\n    </span>\n    <ul style=\"font-size: 14px; font-weight: 600; color: #111111; margin-left: 20px; line-height: 1.6;\">\n      <li><strong>ഇടതും വലതും:</strong> പെട്ടിയുടെ പേര് എപ്പോഴും ഇടത്തും, അതിനുള്ളിലെ മൂല്യം വലത്തുമായിരിക്കണം: <hlt>age = 25</hlt>.</li>\n      <li><strong>കോട്ടുകൾ ശ്രദ്ധിക്കുക:</strong> <hlt>print(age)</hlt> പെട്ടിയിലെ 25 കാണിക്കും. എന്നാൽ <hlt>print(\"age\")</hlt> \"age\" എന്ന വാക്ക് പ്രിന്റ് ചെയ്യും.</li>\n      <li><strong>ഉണ്ടാക്കിയ ശേഷം ഉപയോഗിക്കുക:</strong> പെട്ടി നിർമ്മിക്കുന്നതിന് മുൻപ് print(age) എന്ന് വിളിച്ചാൽ പൈത്തൺ NameError നൽകും.</li>\n    </ul>\n  </div>\n</div>"
-  },
-  "1_4_2": {
-      "title": "വേരിയബിൾ അടിസ്ഥാന ക്വിസ്",
-      "topic": "2.1 • വേരിയബിൾ ക്വിസ്",
-      "questions": [
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
-              "question": "Python-ൽ ശരിയായ രീതിയിൽ വേരിയബിൾ ഉണ്ടാക്കുന്നത് എങ്ങനെയാണ്?",
-              "options": [
-                  "age = 25",
-                  "25 = age",
-                  "variable age 25",
-                  "int age: 25"
-              ],
-              "correct_answer": "age = 25",
-              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം.",
-              "explanation_incorrect": "വേരിയബിളിന്റെ പേര് എപ്പോഴും ഇടത്തും മൂല്യം വലത്തുമായിരിക്കണം (age = 25)."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
-              "question": "print(name) എന്നതും print(\"name\") എന്നതും തമ്മിലുള്ള വ്യത്യാസം എന്താണ്?",
-              "options": [
-                  "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
-                  "രണ്ടും ഒരേ ഫലം നൽകുന്നു",
-                  "രണ്ടും 'name' എന്ന വാക്ക് കാണിക്കുന്നു",
-                  "print(name) എറർ നൽകുന്നു"
-              ],
-              "correct_answer": "print(name) വേരിയബിളിലെ വിവരവും, print(\"name\") 'name' എന്ന വാക്കും കാണിക്കുന്നു",
-              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ വേരിയബിൾ പേര് നൽകുമ്പോൾ അതിനുള്ളിലെ ഡാറ്റ ലഭിക്കുന്നു.",
-              "explanation_incorrect": "കോട്ടുകളില്ലാതെ എഴുതുമ്പോൾ പെട്ടി തുറന്ന് അതിലെ വിവരവും, കോട്ടുകളോടെ എഴുതുമ്പോൾ ആ വാക്കും വരുന്നു."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
-              "question": "ഒരു വേരിയബിൾ നിർമ്മിക്കുന്നതിന് മുൻപ് print(score) എന്ന് എഴുതിയാൽ എന്ത് സംഭവിക്കും?",
-              "options": [
-                  "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
-                  "0 എന്ന് പ്രിന്റ് ചെയ്യും",
-                  "\"score\" എന്ന് പ്രിന്റ് ചെയ്യും",
-                  "None എന്ന് പ്രിന്റ് ചെയ്യും"
-              ],
-              "correct_answer": "NameError (വേരിയബിൾ നിർവചിച്ചിട്ടില്ല)",
-              "explanation_correct": "ശരിയാണ്! പെട്ടി ഉണ്ടാക്കുന്നതിന് മുൻപ് തുറക്കാൻ ശ്രമിച്ചാൽ NameError ലഭിക്കും.",
-              "explanation_incorrect": "നിലവിലില്ലാത്ത വേരിയബിൾ ഉപയോഗിക്കുമ്പോൾ NameError വരുന്നു."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
-              "question": "വേരിയബിളിനെ എന്തുമായാണ് ഏറ്റവും നന്നായി ഉപമിക്കാൻ കഴിയുക?",
-              "options": [
-                  "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
-                  "കമ്പ്യൂട്ടറിന്റെ പവർ ബട്ടൺ",
-                  "ഒരു പ്രിന്റർ മെഷീൻ",
-                  "ഒരു കീബോർഡ് കീ"
-              ],
-              "correct_answer": "പുറത്ത് പേരെഴുതിയ ഒരു ലേബൽ ചെയ്ത പെട്ടി",
-              "explanation_correct": "ശരിയാണ്! ഒരു ലേബൽ ചെയ്ത പെട്ടി പോലെയാണ് വേരിയബിൾ.",
-              "explanation_incorrect": "വിവരങ്ങൾ പേരിട്ട് സൂക്ഷിക്കുന്ന പെട്ടിയാണ് വേരിയബിൾ."
-          }
-      ]
-  },
-  "1_4_3": {
-      "title": "വേരിയബിളുകൾ നിർമ്മിക്കൽ കോഡ്",
-      "description": "നിങ്ങളുടെ സ്വന്തം വേരിയബിളുകൾ നിർമ്മിച്ച് പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>name = \"Alice\"</code> എന്നും <code>age = 25</code> എന്നും നിർമ്മിച്ച് രണ്ടും പ്രിന്റ് ചെയ്യുക.",
-      "intended_output": "Alice\n25"
-  },
-  "1_4_4": {
-      "title": "സംഖ്യകളും വാചകങ്ങളും (ടൈപ്പുകൾ)",
-      "subtitle": "ഇൻ്റിജറുകളും സ്ട്രിംഗുകളും",
-      "topic": "2.2 • ഡാറ്റാ ടൈപ്പുകൾ",
-      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.2 • സംഖ്യകളും വാചകങ്ങളും\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      സംഖ്യകളും <hlt>വാചകങ്ങളും</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      സംഖ്യകളെയും (Numbers) വാചകങ്ങളെയും (Text) പൈത്തൺ വ്യത്യസ്തമായാണ് കൈകാര്യം ചെയ്യുന്നത്. കോട്ടുകൾ ഉണ്ടോ ഇല്ലയോ എന്നതാണ് ഡാറ്റാ ടൈപ്പ് നിശ്ചയിക്കുന്നത്.\n    </p>\n  </div>\n\n  <div class=\"lesson-ref-card\">\n    <div class=\"lesson-ref-header\">\n      <span class=\"ref-badge\">മുൻ അറിവുകൾ</span>\n      <span class=\"lesson-ref-title\">നേരത്തെ പഠിച്ചവയുമായി ബന്ധിപ്പിക്കുന്നു</span>\n    </div>\n    <p class=\"lesson-ref-desc\">\n      രണ്ടാം അധ്യായത്തിൽ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ ഇരട്ട കോട്ടുകളിൽ പൊതിയണമെന്ന് നാം കണ്ടു.\n    </p>\n    <a href=\"1.html?spcl=1&lsn=2&sub=3&ref_from=1_4_4\" class=\"ref-jump-btn\">റിവ്യൂ: print() ലെ ടെക്സ്റ്റ് സ്ട്രിംഗുകൾ (പാഠം 2.2) →</a>\n  </div>\n\n  <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 16px;\">\n    <div style=\"background: #86efac; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        ഇൻ്റിജറുകൾ (സംഖ്യകൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകൾ ഇല്ല</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        കണക്കുകൂട്ടലുകൾക്കായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        score = <span style=\"color: #7ee787;\">100</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(5 + 5)  <span style=\"color: #8b949e;\"># ഫലം: 10</span>\n      </div>\n    </div>\n\n    <div style=\"background: #fbcfe8; border: 3px solid #111111; box-shadow: 5px 5px 0px #111111; border-radius: 4px; padding: 18px;\">\n      <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n        സ്ട്രിംഗുകൾ (വാചകങ്ങൾ)\n      </span>\n      <h3 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 18px; font-weight: 900; color: #111111; margin: 0 0 8px 0;\">കോട്ടുകളിൽ പൊതിഞ്ഞത്</h3>\n      <p style=\"font-size: 14px; font-weight: 600; color: #111111; margin-bottom: 10px; line-height: 1.4;\">\n        പേരുകൾക്കും വാക്കുകൾക്കുമായി ഉപയോഗിക്കുന്നു.\n      </p>\n      <div style=\"background: #0d1117; border: 2px solid #111111; padding: 10px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 13px; border-radius: 4px;\">\n        player = <span style=\"color: #a5d6ff;\">\"John\"</span><br/>\n        <span style=\"color: #79c0ff;\">print</span>(<span style=\"color: #a5d6ff;\">\"5\"</span> + <span style=\"color: #a5d6ff;\">\"5\"</span>)  <span style=\"color: #8b949e;\"># ഫലം: 55</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 18px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം • ഐഡി കാർഡും വില ടാഗും\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 19px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      വില ടാഗുകളാണ് കൂട്ടിച്ചേർക്കുന്നത്, പേരുകളല്ല\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0; line-height: 1.5;\">\n      ഐഡി കാർഡിലെ പേര് ടെക്സ്റ്റ് ആണ്—രണ്ട് പേരുകൾ നാം തമ്മിൽ കൂട്ടില്ല. എന്നാൽ സാധനങ്ങളുടെ വില സംഖ്യയാണ്—അവ കൂട്ടിച്ചേർക്കാം.\n    </p>\n  </div>\n</div>"
-  },
-  "1_4_5": {
-      "title": "സംഖ്യകളും വാചകങ്ങളും ക്വിസ്",
-      "topic": "2.2 • ഡാറ്റാ ടൈപ്പ് ക്വിസ്",
-      "questions": [
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
-              "question": "ഇനിപ്പറയുന്നവയിൽ ഏതാണ് ഇൻ്റിജർ (പൂർണ്ണസംഖ്യ)?",
-              "options": [
-                  "100",
-                  "\"100\"",
-                  "'100'",
-                  "score_100"
-              ],
-              "correct_answer": "100",
-              "explanation_correct": "ശരിയാണ്! കോട്ടുകളില്ലാതെ എഴുതുന്ന സംഖ്യയാണ് ഇൻ്റിജർ.",
-              "explanation_incorrect": "കോട്ടുകളില്ലാത്ത 100 ആണ് ഇൻ്റിജർ."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
-              "question": "print(10 + 20) ഉം print(\"10\" + \"20\") ഉം എന്ത് നൽകുന്നു?",
-              "options": [
-                  "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
-                  "രണ്ടും 30 നൽകുന്നു",
-                  "രണ്ടും 1020 നൽകുന്നു",
-                  "രണ്ടാമത്തേതിൽ എറർ വരുന്നു"
-              ],
-              "correct_answer": "ആദ്യത്തേത് 30 എന്നും രണ്ടാമത്തേത് 1020 എന്നും നൽകുന്നു",
-              "explanation_correct": "ശരിയാണ്! നമ്പറുകൾ കൂട്ടി 30 ആവുകയും സ്ട്രിംഗുകൾ ചേർത്ത് 1020 ആവുകയും ചെയ്യുന്നു.",
-              "explanation_incorrect": "10 + 20 = 30, \"10\" + \"20\" = \"1020\"."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
-              "question": "ഒരു ഫോൺ നമ്പർ പൈത്തണിൽ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നത് എന്തുകൊണ്ട്?",
-              "options": [
-                  "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
-                  "പൈത്തണിന് വലിയ സംഖ്യകൾ സൂക്ഷിക്കാൻ കഴിയില്ല",
-                  "ഫോൺ നമ്പറുകൾക്ക് വിലയില്ലാത്തതിനാൽ",
-                  "എറർ ഒഴിവാക്കാൻ"
-              ],
-              "correct_answer": "ഫോൺ നമ്പറുകൾ തമ്മിൽ ഒരിക്കലും കൂട്ടുകയോ കുറയ്ക്കുകയോ ചെയ്യാത്തതിനാൽ",
-              "explanation_correct": "ശരിയാണ്! ഗണിതക്രിയകൾ ചെയ്യാത്ത ഐഡന്റിഫയറുകൾ സ്ട്രിംഗായി സൂക്ഷിക്കുന്നു.",
-              "explanation_incorrect": "ഗണിതക്രിയകൾ വേണ്ടാത്തതിനാലാണ് ഫോൺ നമ്പർ സ്ട്രിംഗാക്കുന്നത്."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
-              "question": "age = \"25\" എന്ന് എഴുതിയാൽ അത് എന്ത് ഡാറ്റാ ടൈപ്പാണ്?",
-              "options": [
-                  "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
-                  "ഇൻ്റിജർ (Integer - സംഖ്യ)",
-                  "ഫ്ലോട്ട് (Float)",
-                  "ബൂളിയൻ (Boolean)"
-              ],
-              "correct_answer": "സ്ട്രിംഗ് (String - ടെക്സ്റ്റ്)",
-              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളതിനാൽ ഇത് സ്ട്രിംഗ് ആണ്.",
-              "explanation_incorrect": "കോട്ടുകൾ നൽകിയാൽ അത് സ്ട്രിംഗ് ആയി മാറും."
-          }
-      ]
-  },
-  "1_4_6": {
-      "title": "മെമ്മറിയും ടൈപ്പുകളും കോഡ്",
-      "description": "സംഖ്യയും ടെക്സ്റ്റും വേരിയബിളുകളാക്കി മാറ്റി പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> <code>score = 100</code> (ഇൻ്റിജർ) എന്നും <code>player = \"John\"</code> (സ്ട്രിംഗ്) എന്നും നൽകി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
-      "intended_output": "100\nJohn"
-  },
-  "1_4_7": {
-      "title": "പെട്ടിയിലെ മൂല്യം മാറ്റൽ",
-      "subtitle": "വേരിയബിളുകൾ റീഅസൈൻ ചെയ്യൽ",
-      "topic": "2.3 • മൂല്യം മാറ്റൽ",
-      "body": "<div style=\"display: flex; flex-direction: column; gap: 18px; width: 100%;\">\n  <div style=\"text-align: center; margin-bottom: 4px; width: 100%;\">\n    <div style=\"display: inline-block; background-color: #ffffff; border: 3px solid #111111; box-shadow: 4px 4px 0px #111111; padding: 4px 14px; margin-bottom: 10px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;\">\n      2.3 • മൂല്യം മാറ്റൽ\n    </div>\n    <h1 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 30px; font-weight: 900; color: #111111; margin: 0 0 8px 0; text-transform: uppercase;\">\n      പെട്ടിയിലെ മൂല്യം <hlt>മാറ്റാം</hlt>\n    </h1>\n    <p style=\"font-size: 15px; font-weight: 600; color: #222222; margin: 0 auto; max-width: 620px;\">\n      വേരിയബിളുകൾ സ്ഥിരമല്ല. പെട്ടിയിലെ പഴയ സാധനം മാറ്റി പുതിയത് വെയ്ക്കുന്നത് പോലെ എപ്പോൾ വേണമെങ്കിലും അവയിലെ മൂല്യം മാറ്റാം (Reassignment).\n    </p>\n  </div>\n\n  <div style=\"background: #fde047; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം A • സാധനം മാറ്റിവെയ്ക്കൽ\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      ലേബൽ നിലനിൽക്കുന്നു, ഉള്ളിലെ മൂല്യം മാറുന്നു\n    </h2>\n    <div style=\"background: #0d1117; border: 2px solid #111111; box-shadow: 3px 3px 0 #111111; padding: 12px 14px; font-family: 'Consolas', monospace; color: #f0f6fc; font-size: 14px; border-radius: 4px;\">\n      age = <span style=\"color: #7ee787;\">25</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 25</span><br/><br/>\n      age = <span style=\"color: #7ee787;\">30</span>     <span style=\"color: #8b949e;\"># പഴയ 25 മാറ്റി പുതിയ 30 വെയ്ക്കുന്നു</span><br/>\n      <span style=\"color: #79c0ff;\">print</span>(age)  <span style=\"color: #8b949e;\"># ഫലം: 30</span>\n    </div>\n  </div>\n\n  <div style=\"background: #93c5fd; border: 3px solid #111111; box-shadow: 6px 6px 0px #111111; border-radius: 4px; padding: 20px;\">\n    <span style=\"display: inline-block; background-color: #ffffff; color: #111111; border: 2px solid #111111; box-shadow: 2px 2px 0px #111111; padding: 2px 8px; font-size: 11px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px;\">\n      ഉദാഹരണം B • വൈറ്റ്ബോർഡ് അനലോഗി\n    </span>\n    <h2 style=\"font-family: 'Title', 'Body', sans-serif; font-size: 20px; font-weight: 900; color: #111111; margin: 0 0 10px 0; text-transform: uppercase;\">\n      മായ്ച്ചു കളഞ്ഞ് പുതിയത് എഴുതുന്നു\n    </h2>\n    <p style=\"font-size: 15px; font-weight: 600; color: #111111; margin: 0 0 12px 0; line-height: 1.5;\">\n      വേരിയബിൾ എന്നത് വൈറ്റ്ബോർഡിൽ എഴുതിയത് പോലെയാണ്—പഴയത് മായ്ച്ച് പുതിയത് എഴുതാം.\n    </p>\n  </div>\n</div>"
-  },
-  "1_4_8": {
-      "title": "മൂല്യം മാറ്റൽ ക്വിസ്",
-      "topic": "2.3 • റീഅസൈൻമെന്റ് ക്വിസ്",
-      "questions": [
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 1 / 4",
-              "question": "ഇനിപ്പറയുന്ന കോഡ് എന്ത് പ്രിന്റ് ചെയ്യും?",
-              "code": "x = 5\nx = 10\nprint(x)",
-              "options": [
-                  "10",
-                  "5",
-                  "5 10",
-                  "15"
-              ],
-              "correct_answer": "10",
-              "explanation_correct": "ശരിയാണ്! ഏറ്റവും ഒടുവിൽ മാറ്റിയെഴുതിയ മൂല്യമായ 10 ആണ് പെട്ടിയിലുള്ളത്.",
-              "explanation_incorrect": "x ന്റെ മൂല്യം 10 ആയി അപ്ഡേറ്റ് ചെയ്യപ്പെട്ടു."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 2 / 4",
-              "question": "ഇനിപ്പറയുന്ന കോഡിന്റെ ഔട്ട്പുട്ട് എന്താണ്?",
-              "code": "score = 0\nprint(score)\nscore = 50\nprint(score)",
-              "options": [
-                  "ആദ്യം 0, പിന്നീട് 50",
-                  "രണ്ട് തവണയും 50",
-                  "രണ്ട് തവണയും 0",
-                  "50 മാത്രം"
-              ],
-              "correct_answer": "ആദ്യം 0, പിന്നീട് 50",
-              "explanation_correct": "ശരിയാണ്! ഓരോ വരിയും ക്രമമായി പ്രവർത്തിക്കുന്നു.",
-              "explanation_incorrect": "ആദ്യം 0 പ്രിന്റ് ചെയ്യുകയും, പിന്നീട് മാറ്റിയ ശേഷം 50 പ്രിന്റ് ചെയ്യുകയും ചെയ്യുന്നു."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 3 / 4",
-              "question": "ഒരു വേരിയബിളിൽ ഒരേസമയം എത്ര മൂല്യങ്ങൾ സൂക്ഷിക്കാം?",
-              "options": [
-                  "ഒരു മൂല്യം മാത്രം",
-                  "രണ്ട് മൂല്യങ്ങൾ",
-                  "പഴയതും പുതിയതും ഒരുമിച്ച്",
-                  "അൺലിമിറ്റഡ്"
-              ],
-              "correct_answer": "ഒരു മൂല്യം മാത്രം",
-              "explanation_correct": "ശരിയാണ്! ഒരു പെട്ടിയിൽ ഒരേസമയം ഒരു സാധനം മാത്രമേ ഇരിക്കൂ.",
-              "explanation_incorrect": "ഒരു വേരിയബിളിന് ഒരു സമയം ഒരു മൂല്യം മാത്രമേ ഉണ്ടാകൂ."
-          },
-          {
-              "badge": "മോഡ്യൂൾ ക്വിസ് • ചോദ്യം 4 / 4",
-              "question": "x = 10; y = x; x = 20 ആയാൽ y ന്റെ മൂല്യം എന്താണ്?",
-              "code": "x = 10\ny = x\nx = 20\nprint(y)",
-              "options": [
-                  "10",
-                  "20",
-                  "30",
-                  "Error"
-              ],
-              "correct_answer": "10",
-              "explanation_correct": "ശരിയാണ്! y = x നടക്കുമ്പോൾ x ൽ 10 ആയിരുന്നു, പിന്നീട് x മാറിയാലും y മാറില്ല.",
-              "explanation_incorrect": "y = x നൽകിയപ്പോൾ y ലേക്ക് 10 കോപ്പി ചെയ്യപ്പെട്ടു (10)."
-          }
-      ]
-  },
-  "1_4_9": {
-      "title": "വേരിയബിളുകൾ പുതുക്കൽ കോഡ്",
-      "description": "ആദ്യം <code>score = 0</code> എന്ന് നൽകി പ്രിന്റ് ചെയ്യുക. ശേഷം <code>score = 50</code> എന്ന് അപ്ഡേറ്റ് ചെയ്ത് വീണ്ടും പ്രിന്റ് ചെയ്യുക.<br/><br/><strong>ലക്ഷ്യം:</strong> പെട്ടിയിലെ മൂല്യം മാറ്റി രണ്ടും പ്രിന്റ് ചെയ്യുക.",
-      "intended_output": "0\n50"
-  },
-  "1_4_10": {
-      "title": "വേരിയബിൾ മാസ്റ്ററി ഫൈനൽ ക്വിസ്",
-      "topic": "2.3 • സമഗ്ര വേരിയബിൾ ക്വിസ്",
-      "questions": [
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 1 / 8",
-              "question": "പൈത്തണിൽ വേരിയബിൾ ഉണ്ടാക്കുമ്പോൾ എന്ത് ചിഹ്നമാണ് ഉപയോഗിക്കുന്നത്?",
-              "options": [
-                  "= (അസൈൻമെന്റ്)",
-                  "==",
-                  ":",
-                  "->"
-              ],
-              "correct_answer": "= (അസൈൻമെന്റ്)",
-              "explanation_correct": "ശരിയാണ്! = ചിഹ്നം ഉപയോഗിച്ചാണ് വേരിയബിളിലേക്ക് മൂല്യം നൽകുന്നത്.",
-              "explanation_incorrect": "വേരിയബിളിലേക്ക് മൂല്യം നൽകാൻ = ഉപയോഗിക്കുന്നു."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 2 / 8",
-              "question": "name = \"Alice\" എന്നതിൽ \"Alice\" എന്ത് ടൈപ്പാണ്?",
-              "options": [
-                  "സ്ട്രിംഗ് (String)",
-                  "ഇൻ്റിജർ (Integer)",
-                  "ഫ്ലോട്ട് (Float)",
-                  "ലിസ്റ്റ് (List)"
-              ],
-              "correct_answer": "സ്ട്രിംഗ് (String)",
-              "explanation_correct": "ശരിയാണ്! ഇരട്ട കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്.",
-              "explanation_incorrect": "കോട്ടുകളിലുള്ളത് സ്ട്രിംഗ് ആണ്."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 3 / 8",
-              "question": "count = 10 ൽ count ന്റെ മൂല്യം 15 ആക്കി മാറ്റാൻ എന്ത് ചെയ്യണം?",
-              "options": [
-                  "count = 15",
-                  "15 = count",
-                  "update count 15",
-                  "count + 15"
-              ],
-              "correct_answer": "count = 15",
-              "explanation_correct": "ശരിയാണ്! count = 15 എന്ന് വീണ്ടും അസൈൻ ചെയ്യുക.",
-              "explanation_incorrect": "count = 15 എന്ന് പുതിയ മൂല്യം നൽകുക."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 4 / 8",
-              "question": "ഇനിപ്പറയുന്നവയിൽ തെറ്റായ അസൈൻമെന്റ് ഏതാണ്?",
-              "options": [
-                  "25 = age",
-                  "age = 25",
-                  "name = \"John\"",
-                  "total = 0"
-              ],
-              "correct_answer": "25 = age",
-              "explanation_correct": "ശരിയാണ്! വേരിയബിളിന്റെ പേര് ഇടത്തും സംഖ്യ വലത്തുമായിരിക്കണം.",
-              "explanation_incorrect": "25 = age തെറ്റാണ്; age = 25 എന്നാണ് വേണ്ടത്."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 5 / 8",
-              "question": "print(\"age\") ഉം print(age) ഉം എങ്ങനെ വ്യത്യാസപ്പെടുന്നു?",
-              "options": [
-                  "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
-                  "രണ്ടും ഒരേ സംഖ്യ നൽകുന്നു",
-                  "രണ്ടും 'age' എന്ന് നൽകുന്നു",
-                  "എറർ നൽകുന്നു"
-              ],
-              "correct_answer": "ആദ്യത്തേത് 'age' എന്നും രണ്ടാമത്തേത് പെട്ടിയിലെ സംഖ്യയും പ്രിന്റ് ചെയ്യുന്നു",
-              "explanation_correct": "ശരിയാണ്! കോട്ടുകൾ ഉള്ളത് വാക്കായും, ഇല്ലാത്തത് വേരിയബിളായും പ്രവർത്തിക്കുന്നു.",
-              "explanation_incorrect": "\"age\" വാക്ക് പ്രിന്റ് ചെയ്യുമ്പോൾ age വേരിയബിളിലെ ഡാറ്റ നൽകുന്നു."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 6 / 8",
-              "question": "a = 5; b = 10; a = b; print(a) ന്റെ ഫലം എന്താണ്?",
-              "code": "a = 5\nb = 10\na = b\nprint(a)",
-              "options": [
-                  "10",
-                  "5",
-                  "15",
-                  "b"
-              ],
-              "correct_answer": "10",
-              "explanation_correct": "ശരിയാണ്! a = b ആയപ്പോൾ a യിലേക്ക് 10 എത്തി.",
-              "explanation_incorrect": "a യിലേക്ക് b യിലെ മൂല്യമായ 10 ലഭിച്ചു (10)."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 7 / 8",
-              "question": "ഒരു വേരിയബിൾ ഉണ്ടാക്കാതെ ഉപയോഗിച്ചാൽ എന്ത് എറർ വരും?",
-              "options": [
-                  "NameError",
-                  "TypeError",
-                  "SyntaxError",
-                  "ValueError"
-              ],
-              "correct_answer": "NameError",
-              "explanation_correct": "ശരിയാണ്! നിർവചിക്കാത്ത പേര് വിളിക്കുമ്പോൾ NameError വരുന്നു.",
-              "explanation_incorrect": "വേരിയബിൾ ഇല്ലാത്തപ്പോൾ NameError ലഭിക്കുന്നു."
-          },
-          {
-              "badge": "ഫൈനൽ ക്വിസ് • ചോദ്യം 8 / 8",
-              "question": "ഗണിതക്രിയകൾ ചെയ്യാൻ സംഖ്യകൾ എങ്ങനെ എഴുതണം?",
-              "options": [
-                  "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
-                  "ഇരട്ട കോട്ടുകളിൽ (\"50\")",
-                  "ഒറ്റ കോട്ടിൽ ('50')",
-                  "ബ്രാക്കറ്റിൽ (\"(50)\")"
-              ],
-              "correct_answer": "കോട്ടുകളില്ലാതെ (ഉദാ: 50)",
-              "explanation_correct": "ശരിയാണ്! ഇൻ്റിജറുകൾ കോട്ടുകളില്ലാതെ എഴുതുമ്പോഴാണ് കണക്കുകൂട്ടാൻ കഴിയുന്നത്.",
-              "explanation_incorrect": "കണക്കുകൂട്ടാൻ കോട്ടുകളില്ലാതെ എഴുതണം (50)."
           }
       ]
   },

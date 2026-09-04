@@ -1,180 +1,115 @@
 {
-  "title": "Comprehensive Variables Mastery Quiz",
-  "topic": "2.3 • COMPREHENSIVE MASTERY",
+  "title": "Comprehensive Math & Strings Mastery Quiz",
+  "topic": "3.2 • COMPREHENSIVE QUIZ",
   "questions": [
     {
-      "badge": "FINAL QUIZ • QUESTION 1 OF 6",
-      "question": "Which of the following correctly describes what a variable is in programming?",
-      "code": "",
+      "badge": "FINAL QUIZ • QUESTION 1 OF 8",
+      "question": "What is the output of this expression: print((20 - 4) * 2)?",
+      "code": "print((20 - 4) * 2)",
       "options": [
-        {
-          "prefix": "A",
-          "text": "A named location in memory that stores a value for retrieval and updates",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "A permanent hardware chip on the motherboard that cannot be changed",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "A special key on the keyboard that opens Python",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "A computer monitor display setting",
-          "correct": false
-        }
+        "32",
+        "12",
+        "24",
+        "40"
       ],
-      "explanation_correct": "Correct! A variable is a named storage container in memory used to hold data.",
-      "explanation_incorrect": "Incorrect. A variable is a named location in memory used to store and manipulate data."
+      "correct_answer": "32",
+      "explanation_correct": "Correct! Brackets evaluate first: (20 - 4) = 16, then 16 * 2 = 32.",
+      "explanation_incorrect": "Brackets evaluate first: (20 - 4) = 16, then 16 * 2 = 32."
     },
     {
-      "badge": "FINAL QUIZ • QUESTION 2 OF 6",
-      "question": "Which statement correctly stores a person's city name?",
-      "code": "",
+      "badge": "FINAL QUIZ • QUESTION 2 OF 8",
+      "question": "What is the output of: print(20 - 4 * 2)?",
+      "code": "print(20 - 4 * 2)",
       "options": [
-        {
-          "prefix": "A",
-          "text": "city = \"Mumbai\"",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "\"Mumbai\" = city",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "city = Mumbai",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "create city \"Mumbai\"",
-          "correct": false
-        }
+        "12",
+        "32",
+        "24",
+        "16"
       ],
-      "explanation_correct": "Correct! The variable name goes on the left, '=' in the middle, and the text string in quotes on the right.",
-      "explanation_incorrect": "Incorrect. Variable names go on the left, values on the right, and text strings must be enclosed in quotes."
+      "correct_answer": "12",
+      "explanation_correct": "Correct! Multiplication * has higher precedence than subtraction -, so 4 * 2 = 8 is calculated first, then 20 - 8 = 12.",
+      "explanation_incorrect": "Multiplication happens before subtraction: 4 * 2 = 8, then 20 - 8 = 12."
     },
     {
-      "badge": "FINAL QUIZ • QUESTION 3 OF 6",
-      "question": "What is the difference between `total = 25` and `total = \"25\"`?",
-      "code": "",
+      "badge": "FINAL QUIZ • QUESTION 3 OF 8",
+      "question": "What data type does the single slash division operator / produce in Python?",
+      "code": "result = 15 / 3\nprint(result)",
       "options": [
-        {
-          "prefix": "A",
-          "text": "total = 25 is an integer (number for math), while total = \"25\" is a text string",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "They are 100% identical in every way",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "total = 25 is an error in Python",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "total = \"25\" automatically multiplies by 2",
-          "correct": false
-        }
+        "5.0 (a float)",
+        "5 (an integer)",
+        "\"5\"",
+        "Error"
       ],
-      "explanation_correct": "Correct! Without quotes it is an integer (numeric); with quotes it is a string (text).",
-      "explanation_incorrect": "Incorrect. Quotes define a string (text), whereas digits without quotes define an integer (number)."
+      "correct_answer": "5.0 (a float)",
+      "explanation_correct": "Correct! In Python, single division / always returns a floating-point number with a decimal point (5.0).",
+      "explanation_incorrect": "In Python, / always outputs a float (5.0), not an integer."
     },
     {
-      "badge": "FINAL QUIZ • QUESTION 4 OF 6",
-      "question": "What will be printed when this script runs?",
-      "code": "a = 5\nb = 10\na = b\nprint(a)",
+      "badge": "FINAL QUIZ • QUESTION 4 OF 8",
+      "question": "What is the output of print(\"5\" + \"5\") versus print(5 + 5)?",
       "options": [
-        {
-          "prefix": "A",
-          "text": "10",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "5",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "b",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "15",
-          "correct": false
-        }
+        "55 on first line, 10 on second line",
+        "10 on both lines",
+        "55 on both lines",
+        "10 on first line, 55 on second line"
       ],
-      "explanation_correct": "Correct! `a = b` copies the value of b (10) into a. So printing a outputs 10.",
-      "explanation_incorrect": "Incorrect. `a = b` assigns the value of b (which is 10) into a, so `print(a)` outputs 10."
+      "correct_answer": "55 on first line, 10 on second line",
+      "explanation_correct": "Correct! Quotes create strings which concatenate into 55, while numbers without quotes add up to 10.",
+      "explanation_incorrect": "\"5\" + \"5\" concatenates to 55, and 5 + 5 evaluates to 10."
     },
     {
-      "badge": "FINAL QUIZ • QUESTION 5 OF 6",
-      "question": "What will `print(\"player\")` display if you already wrote `player = \"Alex\"`?",
-      "code": "player = \"Alex\"\nprint(\"player\")",
+      "badge": "FINAL QUIZ • QUESTION 5 OF 8",
+      "question": "In the binary search midpoint formula (low + high) / 2, why are brackets mandatory?",
       "options": [
-        {
-          "prefix": "A",
-          "text": "player",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "Alex",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "\"Alex\"",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "Error: variable duplicate",
-          "correct": false
-        }
+        "Without brackets, high / 2 would be evaluated first due to division operator precedence",
+        "Because Python math expressions cannot run without brackets",
+        "To convert the result into an integer",
+        "To make the variables invisible"
       ],
-      "explanation_correct": "Correct! Because \"player\" is wrapped in quotes, print() prints the literal characters 'player', ignoring the variable.",
-      "explanation_incorrect": "Incorrect. Quotes mean 'print this literal text'. To print the variable's value, write `print(player)` without quotes."
+      "correct_answer": "Without brackets, high / 2 would be evaluated first due to division operator precedence",
+      "explanation_correct": "Correct! Division / has higher precedence than addition +, so without brackets low + high / 2 calculates low + (high / 2).",
+      "explanation_incorrect": "Brackets force addition before division, preventing high / 2 from running first."
     },
     {
-      "badge": "FINAL QUIZ • QUESTION 6 OF 6",
-      "question": "What is the output of the following 4-line program?",
-      "code": "count = 1\nprint(count)\ncount = 2\nprint(count)",
+      "badge": "FINAL QUIZ • QUESTION 6 OF 8",
+      "question": "If user = \"Ada\" and role = \"Admin\", what does user + \" (\" + role + \")\" produce?",
+      "code": "user = \"Ada\"\nrole = \"Admin\"\nprint(user + \" (\" + role + \")\")",
       "options": [
-        {
-          "prefix": "A",
-          "text": "1 on the first line, 2 on the second line",
-          "correct": true
-        },
-        {
-          "prefix": "B",
-          "text": "2 on both lines",
-          "correct": false
-        },
-        {
-          "prefix": "C",
-          "text": "1 on both lines",
-          "correct": false
-        },
-        {
-          "prefix": "D",
-          "text": "1 2 on a single line",
-          "correct": false
-        }
+        "Ada (Admin)",
+        "Ada(Admin)",
+        "\"Ada (Admin)\"",
+        "Ada Admin"
       ],
-      "explanation_correct": "Correct! Python executes in sequential order: Line 2 prints 1, Line 3 updates count to 2, Line 4 prints 2.",
-      "explanation_incorrect": "Incorrect. The program executes top-to-bottom, printing 1 first and then 2 after the reassignment."
+      "correct_answer": "Ada (Admin)",
+      "explanation_correct": "Correct! It concatenates \"Ada\", \" (\", \"Admin\", and \")\" to produce Ada (Admin).",
+      "explanation_incorrect": "The parts are joined in sequence: Ada + \" (\" + Admin + \")\" = Ada (Admin)."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 7 OF 8",
+      "question": "Given a = 5, b = 2, c = a * b + 1. What is the value of c?",
+      "code": "a = 5\nb = 2\nc = a * b + 1\nprint(c)",
+      "options": [
+        "11",
+        "15",
+        "10",
+        "12"
+      ],
+      "correct_answer": "11",
+      "explanation_correct": "Correct! a * b = 10, then 10 + 1 = 11.",
+      "explanation_incorrect": "Multiplication evaluates first: 5 * 2 = 10, then 10 + 1 = 11."
+    },
+    {
+      "badge": "FINAL QUIZ • QUESTION 8 OF 8",
+      "question": "Which statement about Python string concatenation is FALSE?",
+      "options": [
+        "Python automatically adds spaces between concatenated strings",
+        "You can concatenate multiple strings together using multiple + operators",
+        "Concatenating a string and an int directly results in a TypeError",
+        "You can convert an integer to a string using str()"
+      ],
+      "correct_answer": "Python automatically adds spaces between concatenated strings",
+      "explanation_correct": "Correct! Python never adds spaces automatically; you must explicitly include \" \" if spaces are needed.",
+      "explanation_incorrect": "Python does NOT add spaces automatically when concatenating strings."
     }
   ]
 }
