@@ -89,10 +89,11 @@ scene.add(groundPlane);
 // ============================================================
 const MAP_POINTS = [
     { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'Central tactical operations and network control hub.' },
-    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',     desc: 'How are variables stored in the memory' },
+    { id: 'Programming',   x: 53,  z: -3,  iconSvg: '../assets/icons/power.svg', desc: 'Code editor essentials, the print() command, and sequential execution.' },
+    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',   desc: 'How are variables stored in the memory' },
     { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Logistics center and automated supply storage facility.' },
     { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/list.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
-    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',  desc: 'Long-range satellite transceiver and telemetry relay array.' },
+    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',    desc: 'Long-range satellite transceiver and telemetry relay array.' },
     { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/loop.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
 ];
 

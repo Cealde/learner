@@ -13,10 +13,13 @@ function getInvoke() {
 }
 
 const SYLLABUS_MAP = [
-    [1, 4, 3, 4],             // Lesson 1: 0.1 Intro, 0.1 Quiz, 0.2 Info, 0.2 Quiz
-    [1, 4, 3, 2, 4, 3, 4],    // Lesson 2: 1.1 Editor, 1.1 Quiz, 1.2 print() Info, 1.2 Code, 1.2 Quiz, 1.3 Running Code, 1.3 Quiz
-    [1, 2, 3, 4],             // Lesson 3
-    [1, 2, 4]                 // Lesson 4
+    [1, 4, 3, 4],             // Lesson 1: What is a PC (0.1 Intro, 0.1 Quiz, 0.2 Info, 0.2 Quiz)
+    [1, 4, 3, 2, 4, 3, 4],    // Lesson 2: Programming (1.1 Editor, 1.1 Quiz, 1.2 print() Info, 1.2 Code, 1.2 Quiz, 1.3 Running Code, 1.3 Quiz)
+    [1, 2, 3, 4],             // Lesson 3: Variables
+    [1, 2, 4],                // Lesson 4: Math Functions
+    [1, 2, 4],                // Lesson 5: Lists
+    [1, 2, 4],                // Lesson 6: Conditions
+    [1, 2, 4]                 // Lesson 7: For Loop
 ];
 
 function getLessonPageUrl(spclNo, lessonNo, subNo) {
