@@ -239,8 +239,8 @@ pub mod python_runner;
 use python_runner::{debug_python, run_python, translate_with_ai, verify_python_ast};
 use user_store::{
     clear_lesson_mistakes, delete_user_value, get_ai_breakdowns, get_all_user_values,
-    get_lesson_mistakes, get_user_progress, get_user_value, record_subtopic_progress,
-    save_ai_breakdown, save_lesson_mistakes, set_user_value,
+    get_lesson_mistakes, get_quiz_states, get_user_progress, get_user_value, record_subtopic_progress,
+    save_ai_breakdown, save_lesson_mistakes, save_quiz_state, set_user_value,
 };
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -271,6 +271,8 @@ pub fn run() {
             clear_lesson_mistakes,
             save_ai_breakdown,
             get_ai_breakdowns,
+            save_quiz_state,
+            get_quiz_states,
             run_python,
             debug_python,
             translate_with_ai,

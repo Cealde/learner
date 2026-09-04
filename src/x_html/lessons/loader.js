@@ -165,6 +165,18 @@ let currentProgress = {
 };
 
 export async function loadUserData() {
+  // Clean legacy unscoped quiz state keys that leaked across profiles
+  if (typeof window !== 'undefined' && window.localStorage) {
+    try {
+      Object.keys(localStorage).forEach(k => {
+        if (/^adhicode_quiz_state_\d+_\d+_\d+$/.test(k)) {
+          localStorage.removeItem(k);
+        }
+      });
+      localStorage.removeItem('adhicode_user_progress');
+    } catch (e) {}
+  }
+
   const inv = getInvoke();
   if (inv) {
     try {
@@ -187,7 +199,8 @@ export async function loadUserData() {
     }
   } else {
     try {
-      const raw = localStorage.getItem('adhicode_user_progress');
+      const userKey = (currentProfile && currentProfile.username) || (typeof localStorage !== 'undefined' && localStorage.getItem('adhicode_active_user')) || 'Guest';
+      const raw = localStorage.getItem(`adhicode_user_progress_${userKey}`);
       if (raw) currentProgress = JSON.parse(raw);
       if (!currentProgress.ai_breakdowns) currentProgress.ai_breakdowns = {};
       if (!currentProgress.quiz_states) currentProgress.quiz_states = {};
@@ -198,7 +211,8 @@ export async function loadUserData() {
 function persistLocalFallback() {
   if (!getInvoke()) {
     try {
-      localStorage.setItem('adhicode_user_progress', JSON.stringify(currentProgress));
+      const userKey = (currentProfile && currentProfile.username) || (typeof localStorage !== 'undefined' && localStorage.getItem('adhicode_active_user')) || 'Guest';
+      localStorage.setItem(`adhicode_user_progress_${userKey}`, JSON.stringify(currentProgress));
     } catch (e) {}
   }
 }
@@ -208,10 +222,13 @@ export function getQuizState(spcl, lsn, sub) {
   if (currentProgress.quiz_states && currentProgress.quiz_states[key]) {
     return currentProgress.quiz_states[key];
   }
-  try {
-    const raw = localStorage.getItem(`adhicode_quiz_state_${key}`);
-    if (raw) return JSON.parse(raw);
-  } catch (e) {}
+  if (!getInvoke()) {
+    try {
+      const userKey = (currentProfile && currentProfile.username) || (typeof localStorage !== 'undefined' && localStorage.getItem('adhicode_active_user')) || 'Guest';
+      const raw = localStorage.getItem(`adhicode_quiz_state_${userKey}_${key}`);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+  }
   return null;
 }
 
@@ -221,10 +238,20 @@ export function saveQuizState(spcl, lsn, sub, state) {
     currentProgress.quiz_states = {};
   }
   currentProgress.quiz_states[key] = state;
-  try {
-    localStorage.setItem(`adhicode_quiz_state_${key}`, JSON.stringify(state));
-  } catch (e) {}
-  persistLocalFallback();
+
+  safeInvoke('save_quiz_state', {
+    userKey: null,
+    quizKey: key,
+    quizState: state
+  });
+
+  if (!getInvoke()) {
+    try {
+      const userKey = (currentProfile && currentProfile.username) || (typeof localStorage !== 'undefined' && localStorage.getItem('adhicode_active_user')) || 'Guest';
+      localStorage.setItem(`adhicode_quiz_state_${userKey}_${key}`, JSON.stringify(state));
+    } catch (e) {}
+    persistLocalFallback();
+  }
 }
 
 export function getCompletedQuizzes() {

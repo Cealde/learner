@@ -26,6 +26,8 @@ pub struct UserProgress {
     pub lesson_mistakes: HashMap<String, Vec<serde_json::Value>>,
     #[serde(default)]
     pub ai_breakdowns: HashMap<String, serde_json::Value>,
+    #[serde(default)]
+    pub quiz_states: HashMap<String, serde_json::Value>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -88,6 +90,7 @@ impl UserStoreState {
                                             max_visited_subs: HashMap::new(),
                                             lesson_mistakes: HashMap::new(),
                                             ai_breakdowns: HashMap::new(),
+                                            quiz_states: HashMap::new(),
                                         },
                                     );
                                 }
@@ -102,6 +105,7 @@ impl UserStoreState {
                                             max_visited_subs: HashMap::new(),
                                             lesson_mistakes: HashMap::new(),
                                             ai_breakdowns: HashMap::new(),
+                                            quiz_states: HashMap::new(),
                                         },
                                     );
                                 }
@@ -157,6 +161,7 @@ pub fn get_user_progress(
         max_visited_subs: HashMap::new(),
         lesson_mistakes: HashMap::new(),
         ai_breakdowns: HashMap::new(),
+        quiz_states: HashMap::new(),
     }))
 }
 
@@ -181,6 +186,7 @@ pub fn record_subtopic_progress(
         max_visited_subs: HashMap::new(),
         lesson_mistakes: HashMap::new(),
         ai_breakdowns: HashMap::new(),
+        quiz_states: HashMap::new(),
     });
 
     let sub_key = format!("{}_{}_{}", spcl, lsn, sub);
@@ -284,6 +290,38 @@ pub fn get_ai_breakdowns(
         .entries
         .get(&key)
         .map(|p| p.ai_breakdowns.clone())
+        .unwrap_or_default())
+}
+
+#[tauri::command]
+pub fn save_quiz_state(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    quiz_key: String,
+    quiz_state: serde_json::Value,
+) -> Result<(), String> {
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    let prog = data.entries.entry(key).or_insert_with(Default::default);
+    prog.quiz_states.insert(quiz_key, quiz_state);
+    drop(data);
+    state.persist()?;
+    Ok(())
+}
+
+#[tauri::command]
+pub fn get_quiz_states(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+) -> Result<HashMap<String, serde_json::Value>, String> {
+    let key = resolve_key(&app_state, user_key);
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    Ok(data
+        .entries
+        .get(&key)
+        .map(|p| p.quiz_states.clone())
         .unwrap_or_default())
 }
 
