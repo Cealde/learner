@@ -5,13 +5,16 @@ let currentUsername = 'Guest';
 let completionInt = 1;
 let currentSubNo = 1;
 let currentSpecNo = 1;
+let currentUserProgress = { lesson_no: 1, sub_no: 1, spec_no: 1, max_visited_subs: {}, completed_subtopics: [] };
 
 userSessionInitialize(
-    (username, lessonNo, subNo, specNo) => {
+    (username, progress) => {
         currentUsername = username;
-        completionInt = lessonNo;
-        currentSubNo = subNo;
-        currentSpecNo = specNo;
+        currentUserProgress = progress || currentUserProgress;
+        completionInt = progress ? (progress.lesson_no || 1) : 1;
+        currentSubNo = progress ? (progress.sub_no || 1) : 1;
+        currentSpecNo = progress ? (progress.spec_no || 1) : 1;
+        buildMapNodesAndRoutes();
     },
     () => {
         window.location.href = 'index.html';
@@ -85,13 +88,12 @@ scene.add(groundPlane);
 // 5. HARDCODED MAP POINTS & ORDERED CONNECTING LINES
 // ============================================================
 const MAP_POINTS = [
-    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/hq.svg',    desc: 'Central tactical operations and network control hub.' },
-    { id: 'Programming',    x: 50,  z: -16, iconSvg: '../assets/icons/power.svg',   desc: 'High-voltage reactor grid delivering primary base power.' },
-    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/lab.svg',     desc: 'Advanced laboratory conducting atmospheric and material analysis.' },
-    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/storage.svg', desc: 'Logistics center and automated supply storage facility.' },
-    { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/launch.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
-    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/beacon.svg',  desc: 'Long-range satellite transceiver and telemetry relay array.' },
-    { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/mining.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
+    { id: 'What is a PC',   x: 80,  z: 0,   iconSvg: '../assets/icons/pc.svg',    desc: 'Central tactical operations and network control hub.' },
+    { id: 'Variables',      x: 26,  z: -5,  iconSvg: '../assets/icons/var.svg',     desc: 'How are variables stored in the memory' },
+    { id: 'Math Functions', x: 0,   z: 8,   iconSvg: '../assets/icons/maths.svg', desc: 'Logistics center and automated supply storage facility.' },
+    { id: 'Lists',          x: -26, z: 24,  iconSvg: '../assets/icons/list.svg',  desc: 'Deep-space payload transport and launch pad complex.' },
+    { id: 'Conditions',     x: -64, z: 32,  iconSvg: '../assets/icons/if.svg',  desc: 'Long-range satellite transceiver and telemetry relay array.' },
+    { id: 'For Loop',       x: -98, z: 20,  iconSvg: '../assets/icons/loop.svg',  desc: 'Heavy mineral extraction facility and core drill platform.' }
 ];
 
 const WAVE_AMPLITUDE = 3.5;
@@ -102,38 +104,6 @@ const LINE_STYLES = {
     incomplete: { color: '#adadad', opacity: 1.0, linewidth: 12 }
 };
 const routeGroup = new THREE.Group();
-for (let i = 0; i < MAP_POINTS.length - 1; i++) {
-    const pA = MAP_POINTS[i];
-    const pB = MAP_POINTS[i + 1];
-
-    const isCompleted = (i + 2 <= completionInt);
-    const style = isCompleted ? LINE_STYLES.completed : LINE_STYLES.incomplete;
-    const dx = pB.x - pA.x;
-    const dz = pB.z - pA.z;
-    const dist = Math.hypot(dx, dz);
-    const nx = -dz / dist;
-    const nz = dx / dist;
-
-    const sign = (i % 2 === 0) ? 1 : -1;
-
-    const segmentPoints = [];
-    for (let s = 0; s <= SAMPLES_PER_SEGMENT; s++) {
-        const t = s / SAMPLES_PER_SEGMENT;
-        const waveOffset = sign * WAVE_AMPLITUDE * Math.sin(Math.PI * t);
-        const x = pA.x + t * dx + nx * waveOffset;
-        const z = pA.z + t * dz + nz * waveOffset;
-        segmentPoints.push(new THREE.Vector3(x, 0.4, z));
-    }
-    const segmentGeometry = new THREE.BufferGeometry().setFromPoints(segmentPoints);
-    const segmentMaterial = new THREE.LineBasicMaterial({
-        color: style.color,
-        transparent: true,
-        opacity: style.opacity,
-        linewidth: style.linewidth
-    });
-    const segmentLine = new THREE.Line(segmentGeometry, segmentMaterial);
-    routeGroup.add(segmentLine);
-}
 scene.add(routeGroup);
 
 // 5b. Point Meshes & Sprites
@@ -143,88 +113,132 @@ const ringGeometry = new THREE.RingGeometry(1.2, 1.6, 32);
 const stemGeometry = new THREE.CylinderGeometry(0.1, 0.3, 2.0, 16);
 const headGeometry = new THREE.SphereGeometry(0.8, 24, 24);
 
+function buildMapNodesAndRoutes() {
+    // Clear old route lines
+    while (routeGroup.children.length > 0) {
+        routeGroup.remove(routeGroup.children[0]);
+    }
+    // Clear old point meshes
+    pointMeshes.forEach(group => scene.remove(group));
+    pointMeshes.length = 0;
+    clickableTargets.length = 0;
 
-MAP_POINTS.forEach((pt, idx) => {
-    const group = new THREE.Group();
-    group.position.set(pt.x, 0, pt.z);
+    for (let i = 0; i < MAP_POINTS.length - 1; i++) {
+        const pA = MAP_POINTS[i];
+        const pB = MAP_POINTS[i + 1];
 
-    let hlt = null;
-    let swirl = null;
+        const isCompleted = (i + 2 <= completionInt);
+        const style = isCompleted ? LINE_STYLES.completed : LINE_STYLES.incomplete;
+        const dx = pB.x - pA.x;
+        const dz = pB.z - pA.z;
+        const dist = Math.hypot(dx, dz);
+        const nx = -dz / dist;
+        const nz = dx / dist;
 
-    pt.page_no = idx + 1;
+        const sign = (i % 2 === 0) ? 1 : -1;
 
-    if (idx + 1 > completionInt) { // Incomplete
-        pt.sphere_color = '#73628A';
-        pt.ring_opacity = 0.6;
-        pt.ring_color = '#CBC5EA';
-        pt.stem_color = '#313D5A';
-        pt.status = 0;
-    } else if (idx + 1 === completionInt) { // Active
-        pt.sphere_color = '#F5AF40';
-        pt.ring_opacity = 0.9;
-        pt.ring_color = '#F2E86D';
-        pt.stem_color = '#6C4F1A';
-        pt.status = 1;
+        const segmentPoints = [];
+        for (let s = 0; s <= SAMPLES_PER_SEGMENT; s++) {
+            const t = s / SAMPLES_PER_SEGMENT;
+            const waveOffset = sign * WAVE_AMPLITUDE * Math.sin(Math.PI * t);
+            const x = pA.x + t * dx + nx * waveOffset;
+            const z = pA.z + t * dz + nz * waveOffset;
+            segmentPoints.push(new THREE.Vector3(x, 0.4, z));
+        }
+        const segmentGeometry = new THREE.BufferGeometry().setFromPoints(segmentPoints);
+        const segmentMaterial = new THREE.LineBasicMaterial({
+            color: style.color,
+            transparent: true,
+            opacity: style.opacity,
+            linewidth: style.linewidth
+        });
+        const segmentLine = new THREE.Line(segmentGeometry, segmentMaterial);
+        routeGroup.add(segmentLine);
+    }
 
-        const hltGeometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 30, 1, true);
-        const hltMat = new THREE.MeshBasicMaterial({
+    MAP_POINTS.forEach((pt, idx) => {
+        const group = new THREE.Group();
+        group.position.set(pt.x, 0, pt.z);
+
+        let hlt = null;
+        let swirl = null;
+
+        pt.page_no = idx + 1;
+
+        if (idx + 1 > completionInt) { // Incomplete
+            pt.sphere_color = '#73628A';
+            pt.ring_opacity = 0.6;
+            pt.ring_color = '#CBC5EA';
+            pt.stem_color = '#313D5A';
+            pt.status = 0;
+        } else if (idx + 1 === completionInt) { // Active
+            pt.sphere_color = '#F5AF40';
+            pt.ring_opacity = 0.9;
+            pt.ring_color = '#F2E86D';
+            pt.stem_color = '#6C4F1A';
+            pt.status = 1;
+
+            const hltGeometry = new THREE.CylinderGeometry(1.5, 1.5, 3, 30, 1, true);
+            const hltMat = new THREE.MeshBasicMaterial({
+                color: pt.ring_color,
+                side: THREE.DoubleSide,
+                transparent: true,
+                opacity: 0.5
+            });
+            hlt = new THREE.Mesh(hltGeometry, hltMat);
+            hlt.position.y = 0.05;
+            group.add(hlt);
+
+            swirl = createSwirlParticles(60, 2, 3.0, '#D3DFB8');
+            swirl.position.y = 0.05;
+            group.add(swirl);
+        } else { // Completed
+            pt.sphere_color = '#4AAD52';
+            pt.ring_opacity = 1;
+            pt.ring_color = '#6EB257';
+            pt.stem_color = '#507255';
+            pt.status = 2;
+        }
+
+        const headMat = new THREE.MeshBasicMaterial({ color: pt.sphere_color });
+        const ringMat = new THREE.MeshBasicMaterial({
             color: pt.ring_color,
             side: THREE.DoubleSide,
             transparent: true,
-            opacity: 0.5
+            opacity: pt.ring_opacity
         });
-        hlt = new THREE.Mesh(hltGeometry, hltMat);
-        hlt.position.y = 0.05;
-        group.add(hlt);
 
-        swirl = createSwirlParticles(60, 2, 3.0, '#D3DFB8');
-        swirl.position.y = 0.05;
-        group.add(swirl);
-    } else { // Completed
-        pt.sphere_color = '#4AAD52';
-        pt.ring_opacity = 1;
-        pt.ring_color = '#6EB257';
-        pt.stem_color = '#507255';
-        pt.status = 2;
-    }
+        const ring = new THREE.Mesh(ringGeometry, ringMat);
+        ring.rotation.x = -Math.PI / 2;
+        ring.position.y = 0.05;
+        ring.isActive = (idx + 1 === completionInt);
+        group.add(ring);
 
-    const headMat = new THREE.MeshBasicMaterial({ color: pt.sphere_color });
-    const ringMat = new THREE.MeshBasicMaterial({
-        color: pt.ring_color,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: pt.ring_opacity
+        // Stem
+        const stemMat = new THREE.MeshBasicMaterial({ color: pt.stem_color });
+        const stem = new THREE.Mesh(stemGeometry, stemMat);
+        stem.position.y = 1.0;
+        group.add(stem);
+
+        // Sphere Head
+        const head = new THREE.Mesh(headGeometry, headMat);
+        head.position.y = 2.2;
+        head.userData = { ptGroup: group, ptData: pt };
+        group.add(head);
+
+        // Icon + Label Sprite
+        const labelSprite = createPointLabelSprite(pt.id, pt.iconSvg, pt.color);
+        labelSprite.userData = { ptGroup: group, ptData: pt };
+        group.add(labelSprite);
+
+        group.userData = { ring, head, labelSprite, pt, hlt, swirl };
+        scene.add(group);
+        pointMeshes.push(group);
+        clickableTargets.push(head, labelSprite);
     });
+}
 
-    const ring = new THREE.Mesh(ringGeometry, ringMat);
-    ring.rotation.x = -Math.PI / 2;
-    ring.position.y = 0.05;
-    ring.isActive = (idx + 1 === completionInt);
-    group.add(ring);
-
-    // Stem
-    const stemMat = new THREE.MeshBasicMaterial({ color: pt.stem_color });
-    const stem = new THREE.Mesh(stemGeometry, stemMat);
-    stem.position.y = 1.0;
-    group.add(stem);
-
-    // Sphere Head
-    const head = new THREE.Mesh(headGeometry, headMat);
-    head.position.y = 2.2;
-    head.userData = { ptGroup: group, ptData: pt };
-    group.add(head);
-
-    // Icon + Label Sprite
-    const labelSprite = createPointLabelSprite(pt.id, pt.iconSvg, pt.color);
-    labelSprite.userData = { ptGroup: group, ptData: pt };
-    group.add(labelSprite);
-
-    group.userData = { ring, head, labelSprite, pt, hlt, swirl };
-    scene.add(group);
-    pointMeshes.push(group);
-    clickableTargets.push(head, labelSprite);
-});
-
+buildMapNodesAndRoutes();
 scatterTrees(scene, MAP_POINTS);
 
 // ============================================================
@@ -299,7 +313,7 @@ window.addEventListener('pointerup', (e) => {
         if (intersects.length > 0) {
             const hitData = intersects[0].object.userData.ptData;
             if (hitData) {
-                showPointDetails(hitData, pointCard, cardIcon, cardTitle, cardCoords, cardDesc, visitBtn, currentSubNo, currentSpecNo);
+                showPointDetails(hitData, pointCard, cardIcon, cardTitle, cardCoords, cardDesc, visitBtn, currentUserProgress, currentSpecNo);
             }
         } else {
             if (pointCard) pointCard.style.display = 'none';

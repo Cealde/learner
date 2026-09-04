@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- Shadow for Decision Diamond -->
+  <polygon points="68,18 108,58 68,98 28,58" fill="#111111" />
+
+  <!-- Decision Diamond -->
+  <polygon points="64,14 104,54 64,94 24,54" fill="#FFD43B" stroke="#111111" stroke-width="3.5" stroke-linejoin="round" />
+  
+  <!-- Vector Question Mark '?' -->
+  <path d="M 56,42 Q 56,36 64,36 Q 72,36 72,43 Q 72,48 65,51 L 65,58" fill="none" stroke="#111111" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="65" cy="67" r="3" fill="#111111" />
+
+  <!-- True Branch (Right) -->
+  <path d="M 104,54 L 114,54 L 114,84 L 98,84" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" />
+  <circle cx="92" cy="84" r="10" fill="#7CFF6B" stroke="#111111" stroke-width="2.5" />
+  <polyline points="88,84 91,87 96,81" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- False Branch (Left) -->
+  <path d="M 24,54 L 14,54 L 14,84 L 30,84" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" />
+  <circle cx="36" cy="84" r="10" fill="#FF4D4D" stroke="#111111" stroke-width="2.5" />
+  <line x1="32" y1="80" x2="40" y2="88" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="40" y1="80" x2="32" y2="88" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" />
+</svg>

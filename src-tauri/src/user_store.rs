@@ -1,3 +1,4 @@
+use crate::AppState;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::fs;
@@ -11,12 +12,18 @@ fn default_spec_no() -> f64 {
 
 #[derive(Serialize, Deserialize, Default, Clone, Debug, PartialEq)]
 pub struct UserProgress {
-    #[serde(alias = "lesson")]
+    #[serde(alias = "lesson", default = "default_spec_no")]
     pub lesson_no: f64,
-    #[serde(alias = "sub")]
+    #[serde(alias = "sub", default = "default_spec_no")]
     pub sub_no: f64,
     #[serde(alias = "spec", default = "default_spec_no")]
     pub spec_no: f64,
+    #[serde(default)]
+    pub completed_subtopics: Vec<String>,
+    #[serde(default)]
+    pub max_visited_subs: HashMap<String, u32>,
+    #[serde(default)]
+    pub lesson_mistakes: HashMap<String, Vec<serde_json::Value>>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
@@ -75,6 +82,9 @@ impl UserStoreState {
                                             lesson_no,
                                             sub_no,
                                             spec_no: 1.0,
+                                            completed_subtopics: Vec::new(),
+                                            max_visited_subs: HashMap::new(),
+                                            lesson_mistakes: HashMap::new(),
                                         },
                                     );
                                 }
@@ -85,6 +95,9 @@ impl UserStoreState {
                                             lesson_no: num,
                                             sub_no: 1.0,
                                             spec_no: 1.0,
+                                            completed_subtopics: Vec::new(),
+                                            max_visited_subs: HashMap::new(),
+                                            lesson_mistakes: HashMap::new(),
                                         },
                                     );
                                 }
@@ -114,41 +127,162 @@ impl UserStoreState {
     }
 }
 
+fn resolve_key(app_state: &State<'_, AppState>, user_key: Option<String>) -> String {
+    if let Some(key) = user_key {
+        let trimmed = key.trim().to_string();
+        if !trimmed.is_empty() {
+            return trimmed;
+        }
+    }
+    app_state.get_active_username()
+}
+
+#[tauri::command]
+pub fn get_user_progress(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+) -> Result<UserProgress, String> {
+    let key = resolve_key(&app_state, user_key);
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    Ok(data.entries.get(&key).cloned().unwrap_or(UserProgress {
+        lesson_no: 1.0,
+        sub_no: 1.0,
+        spec_no: 1.0,
+        completed_subtopics: Vec::new(),
+        max_visited_subs: HashMap::new(),
+        lesson_mistakes: HashMap::new(),
+    }))
+}
+
+#[tauri::command]
+pub fn record_subtopic_progress(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    spcl: String,
+    lsn: u32,
+    sub: u32,
+    completed: bool,
+    max_sub: Option<u32>,
+) -> Result<UserProgress, String> {
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    let prog = data.entries.entry(key).or_insert(UserProgress {
+        lesson_no: 1.0,
+        sub_no: 1.0,
+        spec_no: 1.0,
+        completed_subtopics: Vec::new(),
+        max_visited_subs: HashMap::new(),
+        lesson_mistakes: HashMap::new(),
+    });
+
+    let sub_key = format!("{}_{}_{}", spcl, lsn, sub);
+    if completed && !prog.completed_subtopics.contains(&sub_key) {
+        prog.completed_subtopics.push(sub_key);
+    }
+
+    let lesson_key = format!("{}_{}", spcl, lsn);
+    let current_max = *prog.max_visited_subs.get(&lesson_key).unwrap_or(&1);
+    let new_max = current_max.max(max_sub.unwrap_or(sub));
+    prog.max_visited_subs.insert(lesson_key, new_max);
+
+    let result = prog.clone();
+    drop(data);
+    state.persist()?;
+    Ok(result)
+}
+
+#[tauri::command]
+pub fn save_lesson_mistakes(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    spcl: String,
+    lsn: u32,
+    mistakes: Vec<serde_json::Value>,
+) -> Result<(), String> {
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    let prog = data.entries.entry(key).or_insert_with(Default::default);
+    let lesson_key = format!("{}_{}", spcl, lsn);
+    prog.lesson_mistakes.insert(lesson_key, mistakes);
+    drop(data);
+    state.persist()?;
+    Ok(())
+}
+
+#[tauri::command]
+pub fn get_lesson_mistakes(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    spcl: String,
+    lsn: u32,
+) -> Result<Vec<serde_json::Value>, String> {
+    let key = resolve_key(&app_state, user_key);
+    let data = state.data.lock().map_err(|e| e.to_string())?;
+    let lesson_key = format!("{}_{}", spcl, lsn);
+    Ok(data
+        .entries
+        .get(&key)
+        .and_then(|p| p.lesson_mistakes.get(&lesson_key).cloned())
+        .unwrap_or_default())
+}
+
+#[tauri::command]
+pub fn clear_lesson_mistakes(
+    app_state: State<'_, AppState>,
+    state: State<'_, UserStoreState>,
+    user_key: Option<String>,
+    spcl: String,
+    lsn: u32,
+) -> Result<(), String> {
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    if let Some(prog) = data.entries.get_mut(&key) {
+        let lesson_key = format!("{}_{}", spcl, lsn);
+        prog.lesson_mistakes.remove(&lesson_key);
+    }
+    drop(data);
+    state.persist()?;
+    Ok(())
+}
+
 #[tauri::command]
 pub fn set_user_value(
+    app_state: State<'_, AppState>,
     state: State<'_, UserStoreState>,
-    user_key: String,
+    user_key: Option<String>,
     lesson_no: f64,
     sub_no: Option<f64>,
     spec_no: Option<f64>,
 ) -> Result<UserProgress, String> {
-    let user_key = user_key.trim().to_string();
-    if user_key.is_empty() {
-        return Err("User key cannot be empty".into());
+    let key = resolve_key(&app_state, user_key);
+    let mut data = state.data.lock().map_err(|e| e.to_string())?;
+    let prog = data.entries.entry(key).or_insert_with(Default::default);
+    prog.lesson_no = lesson_no;
+    if let Some(s) = sub_no {
+        prog.sub_no = s;
     }
-
-    let progress = UserProgress {
-        lesson_no,
-        sub_no: sub_no.unwrap_or(1.0),
-        spec_no: spec_no.unwrap_or(1.0),
-    };
-
-    {
-        let mut data = state.data.lock().map_err(|e| e.to_string())?;
-        data.entries.insert(user_key, progress.clone());
+    if let Some(sp) = spec_no {
+        prog.spec_no = sp;
     }
-
+    let result = prog.clone();
+    drop(data);
     state.persist()?;
-    Ok(progress)
+    Ok(result)
 }
 
 #[tauri::command]
 pub fn get_user_value(
+    app_state: State<'_, AppState>,
     state: State<'_, UserStoreState>,
-    user_key: String,
+    user_key: Option<String>,
 ) -> Result<Option<UserProgress>, String> {
+    let key = resolve_key(&app_state, user_key);
     let data = state.data.lock().map_err(|e| e.to_string())?;
-    Ok(data.entries.get(user_key.trim()).cloned())
+    Ok(data.entries.get(&key).cloned())
 }
 
 #[tauri::command]

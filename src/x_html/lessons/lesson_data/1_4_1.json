@@ -1,0 +1,15 @@
+{
+  "title": "Practice Quiz: String Operations",
+  "topic": "PRACTICE & QUIZ",
+  "badge": "MODULE QUIZ • QUESTION 1 OF 1",
+  "question": "What will be printed to the console by the following Python program?",
+  "code": "a = \"20\"\nb = 5\nresult = a * 2 + str(b)\nprint(result)",
+  "options": [
+    { "prefix": "A", "text": "\"20205\" (str)", "correct": true },
+    { "prefix": "B", "text": "45 (int)", "correct": false },
+    { "prefix": "C", "text": "\"405\" (str)", "correct": false },
+    { "prefix": "D", "text": "TypeError: incompatible types", "correct": false }
+  ],
+  "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/><code>\"20\" * 2</code> repeats the string to <code>\"2020\"</code>, and concatenating <code>str(5)</code> yields <code>\"20205\"</code>.",
+  "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Remember that multiplying a string repeats it (e.g. <code>\"hi\" * 2</code> becomes <code>\"hihi\"</code>), rather than performing arithmetic addition. Try again!"
+}

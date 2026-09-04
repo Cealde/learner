@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline Isometric Map</title>
+  <title>Learning Journey - Adhicode</title>
   <link rel="stylesheet" href="../z_css/map.css">
   <script src="../libs/three.min.js" defer></script>
   <script src="../y_js/map_utils.js" defer></script>
@@ -12,20 +12,23 @@
 <body>
   <div id="point-card" class="point-card" style="display: none;">
     <div class="card-header">
-      <img id="card-icon" class="card-icon-img" src="../assets/icons/hq.svg" alt="icon" />
-      <div class="card-title-group">
-        <h2 id="card-title">Curiculum Title</h2>
-      </div>
+      <span id="card-badge" class="card-badge">LESSON NODE</span>
       <button id="card-close" class="card-close-btn" type="button" aria-label="Close">×</button>
     </div>
-    <div class="card-body">
-      <p id="card-desc">Desc</p>
+    <div class="card-preview">
+      <img id="card-icon" class="card-icon-img" src="../assets/icons/hq.svg" alt="Course Illustration" />
     </div>
-    <button id="visit-btn">Visit Page</button>
+    <div class="card-title-group">
+      <h2 id="card-title">What is a PC</h2>
+    </div>
+    <div class="card-body">
+      <p id="card-desc">Course Description</p>
+    </div>
+    <button id="visit-btn" class="visit-btn" type="button">START LESSON</button>
   </div>
   
   <div id="back">
-    <button onclick="window.location.href = 'middle.html'">Back</button>
+    <button type="button" onclick="window.location.href = 'middle.html'">← BACK</button>
   </div>
 
   <div class="zoom-controls">

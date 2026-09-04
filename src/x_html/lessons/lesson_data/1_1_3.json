@@ -1,0 +1,7 @@
+{
+  "title": "Instructing the Machine: First Python Program",
+  "topic": "0.2 • INTERACTIVE CODING",
+  "description": "Computers do not guess what you want—they execute your exact instructions. Write a Python script to display the machine status and compute a quick calculation.<br><br><strong>Task Requirements:</strong><br>1. Print <code>\"System Online\"</code> on the first line.<br>2. Calculate and print <code>5 * 10</code> (outputs <code>50</code>) on the second line.",
+  "starter_code": "# The computer follows your exact instructions!\n# Complete the code below to match the target output:\n\nprint(\"System Online\")\nprint(5 * 10)\n",
+  "intended_output": "System Online\n50"
+}

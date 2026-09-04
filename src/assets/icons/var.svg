@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- Hard Offset Shadow -->
+  <rect x="22" y="24" width="88" height="84" rx="6" fill="#111111" />
+  
+  <!-- Main Container -->
+  <rect x="16" y="18" width="88" height="84" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="4" stroke-linejoin="round" />
+  
+  <!-- Header Tag Bar -->
+  <path d="M 16,24 Q 16,18 22,18 L 98,18 Q 104,18 104,24 L 104,36 L 16,36 Z" fill="#B58CFF" stroke="#111111" stroke-width="3.5" stroke-linejoin="round" />
+  
+  <!-- Header Label: Vector 'VAR' text drawn with bold paths -->
+  <!-- V -->
+  <polyline points="26,24 30,32 34,24" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- A -->
+  <polyline points="38,32 42,24 46,32" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <line x1="39.5" y1="29" x2="44.5" y2="29" stroke="#111111" stroke-width="2" />
+  <!-- R -->
+  <path d="M 50,32 L 50,24 L 56,24 Q 59,24 59,27 Q 59,29 55,29 L 50,29 M 55,29 L 59,32" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Status Indicator Dot -->
+  <circle cx="94" cy="27" r="4" fill="#7CFF6B" stroke="#111111" stroke-width="1.5" />
+
+  <!-- Inner Variable Storage Box -->
+  <rect x="24" y="44" width="72" height="48" rx="4" fill="#FFD43B" stroke="#111111" stroke-width="3.5" />
+  
+  <!-- Vector Left Curly Brace { -->
+  <path d="M 37,53 Q 32,53 32,60 Q 32,65 27,68 Q 32,71 32,76 Q 32,83 37,83" fill="none" stroke="#111111" stroke-width="3.5" stroke-linecap="round" />
+  
+  <!-- Vector Bold 'X' -->
+  <line x1="48" y1="56" x2="68" y2="80" stroke="#2563EB" stroke-width="6" stroke-linecap="round" />
+  <line x1="68" y1="56" x2="48" y2="80" stroke="#2563EB" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- Vector Right Curly Brace } -->
+  <path d="M 83,53 Q 88,53 88,60 Q 88,65 93,68 Q 88,71 88,76 Q 88,83 83,83" fill="none" stroke="#111111" stroke-width="3.5" stroke-linecap="round" />
+
+  <!-- Bottom Memory Pins -->
+  <rect x="32" y="102" width="8" height="8" fill="#111111" />
+  <rect x="50" y="102" width="8" height="8" fill="#111111" />
+  <rect x="68" y="102" width="8" height="8" fill="#111111" />
+  <rect x="86" y="102" width="8" height="8" fill="#111111" />
+</svg>

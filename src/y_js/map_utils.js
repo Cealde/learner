@@ -2,15 +2,38 @@
 // MAP UTILITY FUNCTIONS & GENERATORS
 // ============================================================
 
-const { invoke } = window.__TAURI__ ? window.__TAURI__.core : { invoke: null };
+function getInvoke() {
+    if (typeof window !== 'undefined' && window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
+        return window.__TAURI__.core.invoke;
+    }
+    if (typeof window !== 'undefined' && window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') {
+        return window.__TAURI_INTERNALS__.invoke;
+    }
+    return null;
+}
+
+const SYLLABUS_MAP = [
+    [1, 4, 2, 3, 4], // Lesson 1: 0.1 Intro, 0.1 Quiz, 0.2 Code Task, 0.3 Running Code, 0.3 Debugging Quiz
+    [2, 3, 4],    // Lesson 2
+    [1, 2, 3, 4], // Lesson 3
+    [1, 2, 4]     // Lesson 4
+];
+
+function getLessonPageUrl(spclNo, lessonNo, subNo) {
+    const lessonIdx = Math.max(0, lessonNo - 1);
+    const seq = SYLLABUS_MAP[lessonIdx] || SYLLABUS_MAP[0];
+    const subIdx = Math.max(1, Math.min(subNo || 1, seq.length));
+    const typeId = seq[subIdx - 1] || 1;
+    return `../x_html/lessons/${typeId}.html?spcl=${spclNo}&lsn=${lessonNo}&sub=${subIdx}`;
+}
 
 // 1. User session & completion helpers
 async function getUserCompletion(keyName, defaultLesson = 1, defaultSub = 1, defaultSpec = 1) {
-    if (!invoke) return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
+    const invoke = getInvoke();
+    if (!invoke) return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec, max_visited_subs: {}, completed_subtopics: [] };
     try {
-        if (!keyName) return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
-        let value = await invoke('get_user_value', { userKey: keyName });
-        if (value === null || value === undefined) {
+        let value = await invoke('get_user_progress', { userKey: keyName || null });
+        if (!value || value.lesson_no === undefined) {
             value = await invoke('set_user_value', {
                 userKey: keyName,
                 lessonNo: defaultLesson,
@@ -21,13 +44,14 @@ async function getUserCompletion(keyName, defaultLesson = 1, defaultSub = 1, def
         return value;
     } catch (err) {
         console.error('Error fetching user completion:', err);
-        return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec };
+        return { lesson_no: defaultLesson, sub_no: defaultSub, spec_no: defaultSpec, max_visited_subs: {}, completed_subtopics: [] };
     }
 }
 
 async function userSessionInitialize(onSuccess, onFail) {
+    const invoke = getInvoke();
     if (!invoke) {
-        if (onSuccess) onSuccess('Guest', 1, 1, 1);
+        if (onSuccess) onSuccess('Guest', { lesson_no: 1, sub_no: 1, spec_no: 1, max_visited_subs: {}, completed_subtopics: [] });
         return;
     }
     try {
@@ -39,10 +63,7 @@ async function userSessionInitialize(onSuccess, onFail) {
         }
         const currentUsername = active.username;
         const progress = await getUserCompletion(currentUsername, 1, 1, 1);
-        const lessonNo = (progress && progress.lesson_no !== undefined) ? progress.lesson_no : 3;
-        const subNo = (progress && progress.sub_no !== undefined) ? progress.sub_no : 1;
-        const specNo = (progress && progress.spec_no !== undefined) ? progress.spec_no : 1;
-        if (onSuccess) onSuccess(currentUsername, lessonNo, subNo, specNo);
+        if (onSuccess) onSuccess(currentUsername, progress);
     } catch (err) {
         console.error('Failed to load active profile:', err);
         if (onFail) onFail();
@@ -314,7 +335,7 @@ function createPointLabelSprite(text, iconSvgPath, colorHex = '#38bdf8') {
 }
 
 // 7. Point Details Card Displayer
-function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl, cardDescEl, visitCardEl, subNo, spclNo) {
+function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl, cardDescEl, visitCardEl, userProg, spclNo = 1) {
     if (!pointCardEl) return;
     if (cardIconEl && pt.iconSvg) {
         cardIconEl.src = pt.iconSvg;
@@ -325,13 +346,23 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
         if (pt.color) cardTitleEl.style.color = pt.color;
     }
 
-    if(visitCardEl) {
+    const closeBtn = document.getElementById('card-close');
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            pointCardEl.style.display = 'none';
+        };
+    }
+
+    if (visitCardEl) {
         const stat = pt.status;
 
-        if(stat == 2) {
+        // Reset classes
+        visitCardEl.classList.remove('completed', 'active', 'locked');
+
+        if (stat === 2) {
             visitCardEl.innerText = 'Learn Again';
             visitCardEl.classList.add('completed');
-        } else if(stat == 1) {
+        } else if (stat === 1) {
             visitCardEl.innerText = 'Learn';
             visitCardEl.classList.add('active');
         } else {
@@ -339,12 +370,20 @@ function showPointDetails(pt, pointCardEl, cardIconEl, cardTitleEl, cardCoordsEl
             visitCardEl.classList.add('locked');
         }
 
-        visitCardEl.addEventListener('click', () => {
-            if(stat <= 1) {
-                window.location.href = '../x_html/lessons/'+subNo+'.html?'+'spcl='+spclNo+'&lsn='+pt.page_no+'&sub='+subNo;
+        visitCardEl.onclick = () => {
+            if (stat >= 1) { // Available if Active or Completed
+                const lessonKey = `${spclNo}_${pt.page_no}`;
+                let targetSub = 1;
+                if (stat === 1) {
+                    targetSub = (userProg && userProg.max_visited_subs && userProg.max_visited_subs[lessonKey])
+                        || (userProg && userProg.sub_no)
+                        || 1;
+                } else if (stat === 2) {
+                    targetSub = 1; // When re-learning completed topic, start from first module
+                }
+                window.location.href = getLessonPageUrl(spclNo, pt.page_no, targetSub);
             }
-        });
-
+        };
     }
 
     if (cardCoordsEl) cardCoordsEl.textContent = `X: ${pt.x.toFixed(1)}, Z: ${pt.z.toFixed(1)}`;

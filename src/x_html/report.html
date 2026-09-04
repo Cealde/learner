@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Learner Diagnostic Report - Adhicode</title>
+    <link rel="stylesheet" href="../z_css/middle.css" />
+    <link rel="stylesheet" href="lessons/lesson.css" />
+    <style>
+      .report-page {
+        min-height: 100vh;
+        background-color: var(--neo-bg);
+        color: var(--neo-black);
+        padding: 40px 20px;
+        box-sizing: border-box;
+      }
+      .report-container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .report-header-card {
+        background: var(--neo-white);
+        border: var(--neo-border-lg);
+        border-radius: var(--neo-radius);
+        padding: 32px;
+        box-shadow: var(--neo-shadow-xl);
+        position: relative;
+      }
+      .report-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .stat-card {
+        background: var(--neo-bg);
+        border: var(--neo-border);
+        border-radius: 4px;
+        padding: 16px;
+        box-shadow: 3px 3px 0 var(--neo-black);
+        text-align: center;
+      }
+      .stat-val {
+        font-family: 'Title', sans-serif;
+        font-size: 2rem;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+      .stat-lbl {
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #555;
+      }
+      .weakness-card {
+        background: var(--neo-white);
+        border: var(--neo-border-lg);
+        border-radius: var(--neo-radius);
+        padding: 24px;
+        box-shadow: var(--neo-shadow-lg);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .weakness-topic-tag {
+        display: inline-block;
+        background: var(--neo-yellow);
+        border: 2px solid var(--neo-black);
+        box-shadow: 2px 2px 0 var(--neo-black);
+        padding: 4px 10px;
+        font-family: 'Title', sans-serif;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        align-self: flex-start;
+      }
+      .weakness-analysis-box {
+        background: #FEF2F2;
+        border: 2px solid var(--neo-red);
+        border-radius: 4px;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        box-shadow: 3px 3px 0 var(--neo-black);
+      }
+      .weakness-remedy-box {
+        background: #ECFDF5;
+        border: 2px solid var(--neo-green);
+        border-radius: 4px;
+        padding: 14px 16px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        box-shadow: 3px 3px 0 var(--neo-black);
+      }
+      .nav-bar-report {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .clear-btn {
+        background: #F87171;
+        color: var(--neo-white);
+        border: var(--neo-border);
+        box-shadow: 3px 3px 0 var(--neo-black);
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-family: 'Title', sans-serif;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+      .clear-btn:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--neo-black);
+      }
+    </style>
+  </head>
+
+  <body class="report-page">
+    <div class="bg-grid"></div>
+
+    <main class="report-container">
+      <div class="nav-bar-report">
+        <button type="button" class="action-btn secondary-btn" style="padding: 10px 18px;" onclick="window.history.back()">
+          ← Back to Journey
+        </button>
+        <button id="clear-log-btn" type="button" class="clear-btn">
+          🗑️ Clear Mistakes Log
+        </button>
+      </div>
+
+      <!-- Top AI Assessment Card -->
+      <section class="report-header-card">
+        <div class="workspace-badge" style="background: var(--neo-blue); color: var(--neo-white);">
+          <span>🧠 IN-HOUSE AI DIAGNOSTIC SYSTEM</span>
+        </div>
+        <h1 class="user-heading">Learner Weakness & Cognitive Report</h1>
+        <p style="font-size: 1.05rem; font-weight: 700; color: #333; margin-top: 8px;">
+          Synthesizing your tracked quiz errors, conceptual misunderstandings, and recommended remediation.
+        </p>
+
+        <div class="report-stats-grid">
+          <div class="stat-card">
+            <div id="stat-total-mistakes" class="stat-val" style="color: var(--neo-red);">0</div>
+            <div class="stat-lbl">Tracked Mistakes</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-weak-topics" class="stat-val" style="color: var(--neo-blue);">0</div>
+            <div class="stat-lbl">Weak Areas</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-accuracy-rate" class="stat-val" style="color: #059669;">--%</div>
+            <div class="stat-lbl">Estimated Mastery</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Diagnosed Weaknesses List -->
+      <section id="ai-weaknesses-list" style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- Populated dynamically by JS -->
+      </section>
+    </main>
+
+    <script type="module">
+      import { getRecordedMistakes, clearRecordedMistakes } from './lessons/loader.js';
+
+      const listContainer = document.getElementById('ai-weaknesses-list');
+      const totalMistakesEl = document.getElementById('stat-total-mistakes');
+      const weakTopicsEl = document.getElementById('stat-weak-topics');
+      const accuracyRateEl = document.getElementById('stat-accuracy-rate');
+      const clearBtn = document.getElementById('clear-log-btn');
+
+      function generateRemediation(topic, mistakes) {
+        const count = mistakes.length;
+        if (topic.includes('DUMB MACHINE') || topic.includes('FUNDAMENTALS')) {
+          return {
+            diagnosis: 'Confusion regarding computer execution vs human common sense.',
+            misconception: 'Assuming the computer can infer unstated intentions or correct missing steps automatically.',
+            remedy: 'Focus on writing explicit instructions. Always remember that computers only follow explicit code sequences at high speed.'
+          };
+        } else if (topic.includes('PROGRAMMING') || topic.includes('SYNTAX')) {
+          return {
+            diagnosis: 'Syntax and programming language purpose confusion.',
+            misconception: 'Mixing up language grammatical syntax with runtime performance or memory layout.',
+            remedy: 'Practice breaking down code into token grammar (e.g. keywords, function parentheses, strings vs integers).'
+          };
+        } else if (topic.includes('DEBUG') || topic.includes('RUNNING')) {
+          return {
+            diagnosis: 'Execution flow and memory tracking difficulty.',
+            misconception: 'Unclear distinction between active variables in memory and execution breakpoints.',
+            remedy: 'Use the step-through visualizer in the code editor to observe variables updating line-by-line.'
+          };
+        } else {
+          return {
+            diagnosis: `Identified ${count} conceptual error(s) in this module.`,
+            misconception: 'Incorrect mental model of instruction execution.',
+            remedy: 'Review the module summary cards and re-run the concept debugger.'
+          };
+        }
+      }
+
+      function renderReport() {
+        const mistakes = getRecordedMistakes();
+
+        totalMistakesEl.textContent = mistakes.length;
+
+        if (mistakes.length === 0) {
+          weakTopicsEl.textContent = '0';
+          accuracyRateEl.textContent = '100%';
+          listContainer.innerHTML = `
+            <div class="weakness-card" style="text-align: center; padding: 40px;">
+              <h2 style="font-family: 'Title', sans-serif; font-size: 1.5rem; margin-bottom: 8px;">🌟 Clean Cognitive Record!</h2>
+              <p style="font-weight: 700; color: #444; font-size: 1rem;">
+                No mistakes have been recorded yet. Complete quizzes in your lessons, and the AI Diagnostic Engine will automatically track any misconceptions and generate your weakness analysis here!
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        // Group mistakes by Topic
+        const grouped = {};
+        mistakes.forEach(m => {
+          const key = m.topic || m.title || 'General';
+          if (!grouped[key]) grouped[key] = [];
+          grouped[key].push(m);
+        });
+
+        const topicKeys = Object.keys(grouped);
+        weakTopicsEl.textContent = topicKeys.length;
+        const estimatedMastery = Math.max(10, Math.min(95, 100 - (mistakes.length * 12)));
+        accuracyRateEl.textContent = `${estimatedMastery}%`;
+
+        listContainer.innerHTML = topicKeys.map(topic => {
+          const topicMistakes = grouped[topic];
+          const remediation = generateRemediation(topic, topicMistakes);
+
+          return `
+            <div class="weakness-card">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="weakness-topic-tag">${topic}</span>
+                <span style="font-family: 'Title', sans-serif; font-size: 0.8rem; font-weight: 900; color: var(--neo-red);">
+                  ${topicMistakes.length} MISTAKE(S) DETECTED
+                </span>
+              </div>
+
+              <h2 style="font-family: 'Title', sans-serif; font-size: 1.25rem; margin: 4px 0 0 0;">
+                AI Diagnosis: <hlt>${remediation.diagnosis}</hlt>
+              </h2>
+
+              <div class="weakness-analysis-box">
+                <strong>⚠️ Detected Misconception:</strong><br/>
+                ${remediation.misconception}
+              </div>
+
+              <div class="weakness-remedy-box">
+                <strong>💡 Recommended AI Remediation:</strong><br/>
+                ${remediation.remedy}
+              </div>
+
+              <div style="margin-top: 8px;">
+                <strong style="font-size: 0.85rem; text-transform: uppercase; color: #555;">Recent Recorded Errors in this topic:</strong>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                  ${topicMistakes.slice(-3).map(m => `
+                    <div style="background: #F9FAFB; border: 2px solid var(--neo-black); border-radius: 4px; padding: 10px 14px; font-size: 0.88rem;">
+                      <div><strong>Q:</strong> ${m.question}</div>
+                      <div style="color: var(--neo-red); margin-top: 2px;"><strong>Your Answer:</strong> ${m.student_answer}</div>
+                      <div style="color: #059669; margin-top: 2px;"><strong>Expected:</strong> ${m.correct_answer}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      clearBtn.addEventListener('click', () => {
+        if (confirm('Clear all recorded quiz mistakes?')) {
+          clearRecordedMistakes();
+          renderReport();
+        }
+      });
+
+      renderReport();
+    </script>
+  </body>
+</html>

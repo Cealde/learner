@@ -1,0 +1,238 @@
+{
+  "title": "Practice Quiz: The Dumb Machine",
+  "topic": "0.1 • COMPUTER FUNDAMENTALS",
+  "questions": [
+    {
+      "badge": "MODULE QUIZ • QUESTION 1 OF 8",
+      "question": "Which statement best describes a computer?",
+      "code": "instructions = [\"step 1\", \"step 2\", \"step 3\"]\n# The computer follows the instructions.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "A machine that follows instructions to perform operations.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "A machine that understands situations like a human.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "A machine that automatically decides what instructions mean.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "A machine that performs tasks without needing instructions.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ EXCELLENT!</strong><br/>A computer follows instructions and performs the operations specified by those instructions.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>The key idea is that computers follow instructions rather than independently understanding or deciding what to do."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 2 OF 8",
+      "question": "Why is a computer described as a \"dumb machine\"?",
+      "code": "instruction = \"open door\"\n# The computer follows the instruction exactly.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "It does not have human-like common sense and must be given instructions.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "It is physically incapable of performing complicated operations.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "It can only perform one operation during its lifetime.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It cannot process information quickly.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🎯 SPOT ON!</strong><br/>The term emphasizes that computers do not possess human-like common sense. They need instructions that tell them what to do.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>\"Dumb\" refers to the lack of human-like understanding or common sense, not a lack of computational power."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 3 OF 8",
+      "question": "What happens when a computer is given instructions that do not include an important step?",
+      "code": "# Human intention:\n# \"Open the door and go through it.\"\n# Computer instructions must specify the required steps.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "The computer does not automatically invent the missing step.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "The computer always guesses the missing step correctly.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "The computer asks another computer to decide the step.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "The computer uses human common sense to complete the task.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ CORRECT!</strong><br/>Computers do not automatically fill in missing instructions using human common sense.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>A computer follows the instructions it receives. It does not automatically use human common sense to supply missing steps."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 4 OF 8",
+      "question": "Which instruction sequence is most appropriate for a computer that must perform a task precisely?",
+      "code": "# Task: move through a doorway",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Open door, step forward, close door.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Go through the door somehow.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Do the obvious thing at the doorway.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Enter when you think it is appropriate.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>💡 NICE!</strong><br/>A computer needs explicit steps rather than vague instructions.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Computers require explicit instructions. Vague phrases leave important actions unspecified."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 5 OF 8",
+      "question": "Why can a computer appear to be intelligent even though it follows simple instructions?",
+      "code": "for step in range(1000000):\n    perform_instruction(step)\n# Many simple operations can happen very quickly.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "It can execute enormous numbers of simple operations very quickly.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "It develops human common sense while executing instructions.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "It changes its instructions whenever they seem incomplete.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It understands every instruction in the same way a person does.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🚀 EXACTLY!</strong><br/>Computers can perform huge numbers of simple operations extremely quickly.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>Their apparent intelligence comes from executing instructions quickly, not from gaining human-like understanding."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 6 OF 8",
+      "question": "Which ability does a computer NOT automatically have according to the \"dumb machine\" idea?",
+      "code": "instruction = \"perform_task()\"\n# A computer receives instructions.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Using human common sense to understand an unstated intention.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Following a sequence of explicitly provided instructions.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Performing operations according to its instructions.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Executing many operations in a short amount of time.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🔍 WELL DONE!</strong><br/>Computers do not automatically use human common sense to infer unstated intentions.",
+      "explanation_incorrect": "<strong>❌ Try Again!</strong><br/>Computers can follow instructions, perform operations, and execute them quickly. The missing ability is human-like common sense."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 7 OF 8",
+      "question": "What is the main reason computers need instructions to be explicit?",
+      "code": "# Vague instruction:\n# \"Make it better\"\n# Computers require specific operations.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "They cannot reliably determine what a vague instruction is supposed to mean.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "They cannot execute more than one operation at a time.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "They cannot process instructions quickly enough.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "They can only understand instructions involving numbers.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>✅ GREAT JOB!</strong><br/>Computers need precise instructions because they do not automatically infer the intended meaning of vague instructions.",
+      "explanation_incorrect": "<strong>❌ Not quite!</strong><br/>The issue is not speed or the type of information. Computers need instructions to be explicit because they do not automatically infer human intent."
+    },
+    {
+      "badge": "MODULE QUIZ • QUESTION 8 OF 8",
+      "question": "What best explains the relationship between a computer's simplicity and its power?",
+      "code": "instruction_1()\ninstruction_2()\ninstruction_3()\n# Simple operations can be repeated extremely quickly.",
+      "options": [
+        {
+          "prefix": "A",
+          "text": "Simple operations become powerful when executed at enormous speed and scale.",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Simple operations automatically become intelligent when repeated.",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Computers become independent thinkers after enough operations.",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Computers avoid instructions when a task becomes complicated.",
+          "correct": false
+        }
+      ],
+      "explanation_correct": "<strong>🏆 MODULE COMPLETE!</strong><br/>A computer can accomplish complex tasks by executing huge numbers of relatively simple instructions at very high speed.",
+      "explanation_incorrect": "<strong>❌ Almost!</strong><br/>Computers remain instruction-following machines. Their power comes from the speed and scale at which they execute operations."
+    }
+  ]
+}

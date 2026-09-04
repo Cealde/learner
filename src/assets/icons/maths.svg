@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- Hard Offset Shadow -->
+  <rect x="24" y="24" width="88" height="88" rx="8" fill="#111111" />
+  
+  <!-- Main Container -->
+  <rect x="18" y="18" width="88" height="88" rx="8" fill="#FFFFFF" stroke="#111111" stroke-width="4" stroke-linejoin="round" />
+  
+  <!-- Quadrant 1: Top-Left (+) Addition -->
+  <rect x="22" y="22" width="38" height="38" rx="4" fill="#FFD43B" />
+  <line x1="41" y1="29" x2="41" y2="53" stroke="#111111" stroke-width="5" stroke-linecap="round" />
+  <line x1="29" y1="41" x2="53" y2="41" stroke="#111111" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Quadrant 2: Top-Right (−) Subtraction -->
+  <rect x="64" y="22" width="38" height="38" rx="4" fill="#7CFF6B" />
+  <line x1="72" y1="41" x2="94" y2="41" stroke="#111111" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Quadrant 3: Bottom-Left (×) Multiplication -->
+  <rect x="22" y="64" width="38" height="38" rx="4" fill="#2563EB" />
+  <line x1="32" y1="74" x2="50" y2="92" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+  <line x1="50" y1="74" x2="32" y2="92" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+
+  <!-- Quadrant 4: Bottom-Right (÷) Division -->
+  <rect x="64" y="64" width="38" height="38" rx="4" fill="#FF4D4D" />
+  <line x1="72" y1="83" x2="94" y2="83" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="83" cy="74" r="3" fill="#FFFFFF" />
+  <circle cx="83" cy="92" r="3" fill="#FFFFFF" />
+
+  <!-- Grid Divider Lines -->
+  <line x1="18" y1="62" x2="106" y2="62" stroke="#111111" stroke-width="4" />
+  <line x1="62" y1="18" x2="62" y2="106" stroke="#111111" stroke-width="4" />
+
+  <!-- Center Function 'f' Badge -->
+  <circle cx="62" cy="62" r="15" fill="#111111" stroke="#FFFFFF" stroke-width="2.5" />
+  <path d="M 66,54 Q 62,54 60,57 L 60,70 M 57,61 L 65,61" fill="none" stroke="#FFD43B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

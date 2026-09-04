@@ -1,3 +1,7 @@
+/* ============================================================
+   ADHICODE FULL-PAGE WORKSPACE DASHBOARD (NEO-BRUTALIST)
+   ============================================================ */
+
 @font-face {
   font-family: 'Title';
   src: url('../assets/fonts/Moderniz.otf') format('opentype');
@@ -7,6 +11,422 @@
   src: url('../assets/fonts/Manrope.ttf') format('truetype');
 }
 
-h1 {
-  font-family: Title;
+:root {
+  --neo-bg: #F5F1E8;
+  --neo-black: #111111;
+  --neo-white: #FFFFFF;
+  --neo-blue: #2563EB;
+  --neo-yellow: #FFD43B;
+  --neo-green: #7CFF6B;
+  --neo-purple: #B58CFF;
+  
+  --neo-border-sm: 2px solid #111111;
+  --neo-border: 3px solid #111111;
+  --neo-border-lg: 4px solid #111111;
+  --neo-shadow-sm: 3px 3px 0 #111111;
+  --neo-shadow: 6px 6px 0 #111111;
+  --neo-shadow-lg: 8px 8px 0 #111111;
+  --neo-radius: 4px;
+
+  font-family: 'Body', sans-serif;
+  color: var(--neo-black);
+  background-color: var(--neo-bg);
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full-Page Application Layout */
+.workspace-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neo-bg);
+  color: var(--neo-black);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Atmosphere Grid */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top Navigation Bar */
+.workspace-header {
+  position: relative;
+  z-index: 10;
+  height: 68px;
+  background: var(--neo-white);
+  border-bottom: var(--neo-border-lg);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 0 rgba(17, 17, 17, 0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-icon {
+  height: 22px;
+  width: auto;
+}
+
+.brand-title {
+  font-family: 'Title', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: var(--neo-black);
+}
+
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--neo-yellow);
+  border: var(--neo-border-sm);
+  padding: 4px 10px;
+  border-radius: var(--neo-radius);
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  box-shadow: var(--neo-shadow-sm);
+}
+
+.badge-icon {
+  color: var(--neo-black);
+}
+
+.user-pill {
+  font-family: 'Body', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: var(--neo-bg);
+  border: var(--neo-border-sm);
+  padding: 4px 12px;
+  border-radius: var(--neo-radius);
+  box-shadow: var(--neo-shadow-sm);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.switch-workspace-btn {
+  background: var(--neo-white);
+  border: var(--neo-border);
+  color: var(--neo-black);
+  padding: 8px 16px;
+  border-radius: var(--neo-radius);
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+
+.switch-workspace-btn:hover {
+  background: var(--neo-yellow);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--neo-black);
+}
+
+.switch-workspace-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+/* Main Full-Page Workspace Container */
+.workspace-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Daily Motivation Banner (Data-Ready Architecture) */
+.workspace-banner {
+  background: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  padding: 24px 28px;
+  box-shadow: var(--neo-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--neo-yellow);
+  border: var(--neo-border-sm);
+  padding: 4px 10px;
+  border-radius: var(--neo-radius);
+  font-family: 'Title', sans-serif;
+  font-size: 0.75rem;
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.banner-sticker {
+  font-family: 'Title', sans-serif;
+  font-size: 0.7rem;
+  background: var(--neo-purple);
+  color: var(--neo-black);
+  border: 2px solid var(--neo-black);
+  padding: 3px 8px;
+  border-radius: var(--neo-radius);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+.motivation-text {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--neo-black);
+  font-style: italic;
+}
+
+.motivation-author {
+  font-family: 'Title', sans-serif;
+  font-size: 0.8rem;
+  color: var(--neo-blue);
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* Course Selection Section */
+.workspace-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.courses-header {
+  text-align: center;
+}
+
+.courses-title {
+  font-family: 'Title', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--neo-black);
+  margin-bottom: 6px;
+}
+
+.courses-subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #444444;
+}
+
+/* 2 Equal Square Cards Grid */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Square Course Card */
+.subject-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background: var(--neo-white);
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow);
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+  overflow: hidden;
+}
+
+.subject-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--neo-black);
+}
+
+.subject-card:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0 var(--neo-black);
+}
+
+/* Selected Active States */
+.subject-card.active {
+  background: var(--neo-yellow);
+  border: var(--neo-border-lg);
+  box-shadow: var(--neo-shadow);
+}
+
+.subject-card[data-subject="sql"].active {
+  background: var(--neo-green);
+}
+
+/* Checkmark Badge */
+.subject-check {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: var(--neo-border-sm);
+  background: var(--neo-black);
+  color: var(--neo-white);
+  font-family: 'Title', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 2;
+}
+
+.subject-card.active .subject-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Centered Hierarchy: ICON -> TITLE -> DESCRIPTION */
+.subject-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 12px;
+}
+
+/* Large Brutalist Icon Box */
+.subject-icon-box {
+  width: 68px;
+  height: 68px;
+  background: var(--neo-white);
+  border: var(--neo-border);
+  border-radius: var(--neo-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  box-shadow: 3px 3px 0 var(--neo-black);
+  flex-shrink: 0;
+}
+
+.subject-title {
+  font-family: 'Title', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: var(--neo-black);
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subject-desc {
+  font-family: 'Body', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--neo-black);
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Enter Journey Map Primary Button */
+.workspace-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.enter-journey-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 440px;
+  width: 100%;
+  padding: 18px 32px;
+  background: var(--neo-blue);
+  color: var(--neo-white);
+  border: var(--neo-border-lg);
+  border-radius: var(--neo-radius);
+  font-family: 'Title', sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--neo-shadow);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.enter-journey-btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--neo-black);
+}
+
+.enter-journey-btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 var(--neo-black);
+}
+
+/* Responsive Rules */
+@media (max-width: 600px) {
+  .workspace-header {
+    padding: 0 16px;
+    height: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  
+  .subject-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
 }

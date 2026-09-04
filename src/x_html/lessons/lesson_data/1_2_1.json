@@ -1,0 +1,8 @@
+{
+  "title": "Calculate Item Subtotal & Discount",
+  "subtitle": "Variables & Arithmetic",
+  "topic": "CODE & DEBUGGER",
+  "description": "Declare variables for <hlt>unit_price</hlt>, <hlt>quantity</hlt>, and <hlt>discount</hlt>. Compute the final bill and run the loop to inspect values in memory.",
+  "starter_code": "# Lesson 2: Variables & Step-by-Step Execution\n# Click the gutter to set breakpoints, then click \"Debug\" or \"Step\"\n\nitem_name = \"Quantum Battery\"\nunit_price = 45.50\nquantity = 3\n\nsubtotal = unit_price * quantity\ndiscount = 10.00\ntotal_price = subtotal - discount\n\nprint(f\"Purchased: {quantity}x {item_name}\")\nprint(f\"Total Bill: ${total_price:.2f}\")\n\n# Loop example to observe variable changes\nfor step in range(1, 4):\n    bonus = step * 5\n    print(f\"Step {step}: bonus = {bonus}\")\n",
+  "intended_output": "Purchased: 3x Quantum Battery\nTotal Bill: $126.50\nStep 1: bonus = 5\nStep 2: bonus = 10\nStep 3: bonus = 15"
+}

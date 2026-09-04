@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- Shadow -->
+  <circle cx="68" cy="68" r="44" fill="#111111" />
+  
+  <!-- Outer Circular Plate -->
+  <circle cx="64" cy="64" r="44" fill="#FFFFFF" stroke="#111111" stroke-width="4" />
+
+  <!-- Loop Curved Arrows -->
+  <!-- Top-Right Arc with Arrow -->
+  <path d="M 38,44 A 32,32 0 0,1 92,44" fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round" />
+  <polygon points="90,32 104,46 88,52" fill="#2563EB" stroke="#111111" stroke-width="2.5" stroke-linejoin="round" />
+
+  <!-- Bottom-Left Arc with Arrow -->
+  <path d="M 90,84 A 32,32 0 0,1 36,84" fill="none" stroke="#7CFF6B" stroke-width="6" stroke-linecap="round" />
+  <polygon points="38,96 24,82 40,76" fill="#7CFF6B" stroke="#111111" stroke-width="2.5" stroke-linejoin="round" />
+
+  <!-- Center Badge: Loop Infinity Symbol -->
+  <rect x="36" y="50" width="56" height="28" rx="5" fill="#FFD43B" stroke="#111111" stroke-width="3" />
+  <!-- Vector Loop Symbol -->
+  <path d="M 52,64 C 47,58 41,58 41,64 C 41,70 47,70 52,64 C 57,58 63,58 63,64 C 63,70 57,70 52,64 Z" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" transform="translate(12, 0)" />
+</svg>

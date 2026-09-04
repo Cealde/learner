@@ -3,111 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson 2: Python Debugger Workspace - Adhicode</title>
+    <title>Lesson Twin: Code & Debugger - Adhicode</title>
     <link rel="stylesheet" href="lesson.css" />
     <link rel="stylesheet" href="debugger.css" />
+    <script type="module" src="loader.js" defer></script>
     <script type="module" src="../../y_js/lesson2.js" defer></script>
   </head>
 
-  <body>
-    <!-- Top Header -->
-    <header class="lesson-header">
-      <div class="header-left">
-        <button class="back-btn" onclick="window.location.href = '../journey.html'">
-          ← Back to Map
+  <body class="lesson-twin-page">
+    <div class="bg-grid"></div>
+
+    <!-- Header Navigation -->
+    <header class="twin-header">
+      <div class="twin-header-left">
+        <button type="button" class="back-journey-btn" onclick="window.location.href = '../journey.html'">
+          ← Learning Journey
         </button>
-        <div class="lesson-title-group">
-          <h1>Lesson 2: Python Execution & Debugging</h1>
-          <p>Inspect variables, set breakpoints, and trace code step-by-step</p>
+        <div class="header-divider"></div>
+        <span class="twin-badge">LESSON TWIN</span>
+        <div class="topic-pill">Topic: <strong id="topic-name">CODE & DEBUGGER</strong></div>
+      </div>
+
+      <div class="twin-header-right">
+        <div class="twin-progress">
+          <span id="header-progress-label" class="progress-label">Progress 40%</span>
+          <div class="progress-bar-track">
+            <div id="header-progress-bar" class="progress-bar-fill" style="width: 40%;"></div>
+          </div>
         </div>
+        <button type="button" class="exit-btn" onclick="window.location.href = '../journey.html'">Exit Lesson</button>
       </div>
     </header>
 
-    <!-- Debugger Toolbar -->
-    <div class="toolbar">
-      <div class="toolbar-buttons">
-        <button id="btn-run" class="tool-btn btn-run" title="Run entire script">
-          Run
-        </button>
-        <button id="btn-debug" class="tool-btn btn-debug" title="Start step-by-step debugger">
-          Debug
-        </button>
-        <button id="btn-step" class="tool-btn btn-step" title="Step to next line">
-          Step
-        </button>
-        <button id="btn-continue" class="tool-btn btn-continue" title="Continue to next breakpoint">
-          Continue
-        </button>
-        <button id="btn-reset" class="tool-btn btn-reset" title="Reset state">
-          Reset
-        </button>
-        <button id="next-btn" class="tool-btn btn-next hidden" style="display: none;" title="Proceed to next lesson">
-          Next Lesson →
-        </button>
-      </div>
-
-      <div class="status-badge">
-        <span id="status-dot" class="status-dot"></span>
-        <span id="status-text">Ready</span>
-      </div>
-    </div>
-
-    <!-- Main Workspace Split Grid -->
-    <main class="workspace-grid">
-      <!-- Left Panel: Python Code Editor -->
-      <section class="panel editor-panel">
-        <div class="panel-header">
-          <span>Python Code Editor</span>
-          <span style="font-size: 0.75rem; color: #64748b; font-weight: normal;">Click gutter to toggle breakpoints</span>
+    <!-- Main 2-Column Layout -->
+    <main class="twin-main-grid">
+      <!-- Left Sidebar: Constant Lesson Modules + Language Dropup -->
+      <aside class="twin-sidebar">
+        <div>
+          <h3 class="sidebar-title">LESSON MODULES</h3>
+          <nav class="module-nav" id="module-nav">
+            <!-- Dynamic topics populated by loader.js -->
+          </nav>
         </div>
-        <div class="editor-container">
-          <div id="gutter" class="gutter"></div>
-          <div class="editor-wrapper">
-            <div id="line-highlights"></div>
-            <pre id="highlight-layer" aria-hidden="true"><code id="highlight-content"></code></pre>
-            <textarea id="code-input" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+
+        <!-- Language Dropup Menu Container (Replaced Pro Tip) -->
+        <div id="sidebar-lang-container"></div>
+      </aside>
+
+      <!-- Center: Code Writing & Debugger Area -->
+      <section class="twin-content-container" style="padding: 0; display: flex; flex-direction: column; overflow: hidden;">
+        <!-- Debugger Toolbar -->
+        <div class="toolbar">
+          <div class="toolbar-buttons">
+            <button id="btn-run" class="tool-btn btn-run" title="Run entire script">
+              ▶ Run
+            </button>
+            <button id="btn-debug" class="tool-btn btn-debug" title="Start step-by-step debugger">
+              🔍 Debug
+            </button>
+            <button id="btn-step" class="tool-btn btn-step" title="Step to next line">
+              ⏭ Step
+            </button>
+            <button id="btn-continue" class="tool-btn btn-continue" title="Continue to next breakpoint">
+              ⏩ Continue
+            </button>
+            <button id="btn-reset" class="tool-btn btn-reset" title="Reset state">
+              ↺ Reset
+            </button>
+          </div>
+
+          <div class="status-badge">
+            <span id="status-dot" class="status-dot"></span>
+            <span id="status-text">Ready</span>
+          </div>
+        </div>
+
+        <!-- Debugger Split: Left = Python Editor, Right = Memory & Output -->
+        <div class="workspace-grid">
+          <!-- Left Column: Python Code Editor -->
+          <section class="panel editor-panel">
+            <div class="panel-header">
+              <span>Python Code Editor</span>
+              <span class="panel-subtitle">Click gutter to toggle breakpoints</span>
+            </div>
+
+            <!-- Task Header: Title, Description & Intended Output (Hydrated from JSON) -->
+            <div class="editor-task-banner">
+              <div class="task-info">
+                <span class="task-badge">TASK OBJECTIVE</span>
+                <h3 id="task-title" class="task-title">Calculate Item Subtotal & Discount</h3>
+                <p id="task-desc" class="task-desc">
+                  Declare variables for <hlt>unit_price</hlt>, <hlt>quantity</hlt>, and <hlt>discount</hlt>. Compute the final bill and run the loop to verify memory values.
+                </p>
+              </div>
+              <div class="task-intended-output">
+                <div class="intended-output-header">
+                  <span>TARGET OUTPUT</span>
+                </div>
+                <pre class="intended-output-code" id="task-intended-output">Purchased: 3x Quantum Battery
+Total Bill: $126.50
+Step 1: bonus = 5
+Step 2: bonus = 10
+Step 3: bonus = 15</pre>
+              </div>
+            </div>
+
+            <div class="editor-container">
+              <div id="gutter" class="gutter"></div>
+              <div class="editor-wrapper">
+                <div id="line-highlights"></div>
+                <pre id="highlight-layer" aria-hidden="true"><code id="highlight-content"></code></pre>
+                <textarea id="code-input" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <!-- Right Column: Memory (Variables Inspector) + Output Terminal -->
+          <div class="right-split">
+            <!-- Variables / Memory Inspector -->
+            <section class="panel variables-panel">
+              <div class="panel-header">
+                <span>Memory & Variables</span>
+              </div>
+              <div class="vars-table-wrapper">
+                <div id="empty-vars-msg" class="empty-vars">
+                  No active variables. Click "Debug" or "Step" to inspect memory.
+                </div>
+                <table class="vars-table">
+                  <thead>
+                    <tr>
+                      <th>Variable</th>
+                      <th>Type</th>
+                      <th>Value</th>
+                    </tr>
+                  </thead>
+                  <tbody id="vars-tbody"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Output Console -->
+            <section class="panel output-panel">
+              <div class="panel-header">
+                <span>Output Console</span>
+                <div class="panel-actions">
+                  <button id="btn-clear-output" type="button">Clear</button>
+                </div>
+              </div>
+              <div id="terminal-box" class="terminal-box">
+                <div class="term-line-info">Python 3.13 Interactive Environment Ready.</div>
+                <div class="term-line-info">Click "Run" or "Debug" to execute code.</div>
+              </div>
+            </section>
           </div>
         </div>
       </section>
-
-      <!-- Right Panel: Variables Inspector + Output Console -->
-      <div class="right-split">
-        <!-- Variables Inspector -->
-        <section class="panel variables-panel">
-          <div class="panel-header">
-            <span>Variables Inspector</span>
-          </div>
-          <div class="vars-table-wrapper">
-            <div id="empty-vars-msg" class="empty-vars">
-              No active variables. Click "Debug" or "Step" to inspect memory state.
-            </div>
-            <table class="vars-table">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Type</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody id="vars-tbody"></tbody>
-            </table>
-          </div>
-        </section>
-
-        <!-- Output Box / Terminal Console -->
-        <section class="panel output-panel">
-          <div class="panel-header">
-            <span>Output Console</span>
-            <div class="panel-actions">
-              <button id="btn-clear-output" type="button">Clear</button>
-            </div>
-          </div>
-          <div id="terminal-box" class="terminal-box">
-            <div class="term-line-info">Python 3.13 Interactive Environment Ready.</div>
-            <div class="term-line-info">Click "Run" or "Debug" to execute code.</div>
-          </div>
-        </section>
-      </div>
     </main>
+
+    <!-- Bottom Action Footer -->
+    <footer class="twin-footer">
+      <button type="button" class="nav-prev-btn">
+        ← Previous Page
+      </button>
+      <span id="footer-lesson-info" class="footer-lesson-info">Lesson 1.2: Code & Debugger</span>
+      <button id="next-btn" class="nav-next-btn">
+        Next Page →
+      </button>
+    </footer>
   </body>
 </html>

@@ -1,4 +1,15 @@
-const { invoke } = window.__TAURI__ ? window.__TAURI__.core : { invoke: null };
+import { markQuizCompleted, setMaxVisitedSub } from '../x_html/lessons/loader.js';
+
+function getInvoke() {
+  if (typeof window !== 'undefined' && window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
+    return window.__TAURI__.core.invoke;
+  }
+  if (typeof window !== 'undefined' && window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') {
+    return window.__TAURI_INTERNALS__.invoke;
+  }
+  return null;
+}
+const invoke = getInvoke();
 
 // DOM Elements
 const codeInput = document.getElementById('code-input');
@@ -227,7 +238,9 @@ function handleEditorKeyDown(e) {
 
 function initEditor() {
   if (codeInput) {
-    codeInput.value = STARTER_CODE;
+    if (!codeInput.value || codeInput.value.trim() === '') {
+      codeInput.value = STARTER_CODE;
+    }
     updateGutter();
     updateHighlighting();
     codeInput.addEventListener('input', () => {
@@ -392,20 +405,23 @@ function normalizeOutput(text) {
 }
 
 async function verifyOutput(actualOutput) {
-  const candidateFiles = [
-    `lesson_data/${special}_${lesson}_${subset}_op.txt`,
-  ];
+  const intendedOutputEl = document.getElementById('task-intended-output');
+  let expectedRaw = (intendedOutputEl && intendedOutputEl.textContent.trim() !== '') ? intendedOutputEl.textContent : null;
 
-  let expectedRaw = null;
-  for (const filePath of candidateFiles) {
-    try {
-      const response = await fetch(filePath);
-      if (response.ok) {
-        expectedRaw = await response.text();
-        break;
+  if (!expectedRaw) {
+    const candidateFiles = [
+      `lesson_data/${special}_${lesson}_${subset}_op.txt`,
+    ];
+    for (const filePath of candidateFiles) {
+      try {
+        const response = await fetch(filePath);
+        if (response.ok) {
+          expectedRaw = await response.text();
+          break;
+        }
+      } catch (e) {
+        // Try next candidate
       }
-    } catch (e) {
-      // Try next candidate
     }
   }
 
@@ -418,14 +434,33 @@ async function verifyOutput(actualOutput) {
   const cleanExpected = normalizeOutput(expectedRaw);
 
   if (cleanActual === cleanExpected) {
-    appendTerminal('\n SUCCESS: Output matches expected results!', 'term-line-info');
+    appendTerminal('\n✅ SUCCESS: Output matches expected results!', 'term-line-info');
+    if (typeof markQuizCompleted === 'function') {
+      markQuizCompleted(special, lesson, subset);
+    }
+    if (typeof setMaxVisitedSub === 'function') {
+      setMaxVisitedSub(special, lesson, Number(subset) + 1);
+    }
+
+    const nextStepNum = Number(subset) + 1;
+    const nextSidebarBtn = document.getElementById(`sidebar-nav-item-${nextStepNum}`);
+    if (nextSidebarBtn) {
+      nextSidebarBtn.disabled = false;
+      nextSidebarBtn.removeAttribute('title');
+    }
+
     if (nextBtn) {
       nextBtn.style.display = 'inline-flex';
       nextBtn.disabled = false;
+      nextBtn.style.opacity = '1';
+      nextBtn.style.cursor = 'pointer';
+      nextBtn.style.backgroundColor = '#22c55e';
+      nextBtn.textContent = 'Next Page →';
+      nextBtn.title = 'Proceed to next topic';
     }
     return true;
   } else {
-    appendTerminal('\n Output does not match expected result. Keep experimenting!', 'term-line-err');
+    appendTerminal('\n❌ Output does not match expected result. Keep experimenting!', 'term-line-err');
     return false;
   }
 }
@@ -607,11 +642,6 @@ btnReset?.addEventListener('click', () => {
   appendTerminal('Output cleared. Debugger reset.', 'term-line-info');
 });
 btnClearOutput?.addEventListener('click', clearTerminal);
-
-nextBtn?.addEventListener('click', () => {
-  const nextLessonNum = parseInt(lesson, 10) + 1;
-  window.location.href = `${nextLessonNum}.html`;
-});
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
