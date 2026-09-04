@@ -7,10 +7,26 @@
       "question": "What is the primary purpose of a variable in Python?",
       "code": "",
       "options": [
-        "A labeled storage box in memory that holds a value for later use",
-        "A command that immediately shuts down the computer",
-        "A physical cable connecting your monitor to the CPU",
-        "A special key on your keyboard that only types numbers"
+        {
+          "prefix": "A",
+          "text": "A labeled storage box in memory that holds a value for later use",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "A command that immediately shuts down the computer",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "A physical cable connecting your monitor to the CPU",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "A special key on your keyboard that only types numbers",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! A variable is a named reference in memory where you store a value to reuse later in your program.",
       "explanation_incorrect": "Incorrect. A variable is a labeled storage box in computer memory that holds data."
@@ -20,10 +36,26 @@
       "question": "Which line of Python code correctly creates a variable named 'score' with the value 100?",
       "code": "",
       "options": [
-        "score = 100",
-        "100 = score",
-        "score == 100",
-        "variable score is 100"
+        {
+          "prefix": "A",
+          "text": "score = 100",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "100 = score",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "score == 100",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "variable score is 100",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! The variable name always goes on the left side of the single '=' assignment operator, and the value goes on the right.",
       "explanation_incorrect": "Incorrect. Remember the rule: the box name always goes on the LEFT side of '=', value on the RIGHT."
@@ -33,10 +65,26 @@
       "question": "If you write `age = 25`, what will `print(age)` display vs `print(\"age\")`?",
       "code": "age = 25\nprint(age)\nprint(\"age\")",
       "options": [
-        "print(age) displays 25, while print(\"age\") displays the word age",
-        "Both lines display 25",
-        "Both lines display the word age",
-        "It causes an error because quotes are never allowed"
+        {
+          "prefix": "A",
+          "text": "print(age) displays 25, while print(\"age\") displays the word age",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Both lines display 25",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Both lines display the word age",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "It causes an error because quotes are never allowed",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! print(age) without quotes opens the variable box and shows 25, while print(\"age\") in quotes treats it as plain text.",
       "explanation_incorrect": "Incorrect. Without quotes, Python evaluates the variable name. With quotes, it prints the literal text."
@@ -46,10 +94,26 @@
       "question": "What happens if you try to `print(total)` before writing `total = 50`?",
       "code": "print(total)\ntotal = 50",
       "options": [
-        "Python crashes with a NameError because the box total has not been created yet",
-        "Python automatically guesses the value is 0",
-        "Python prints nothing and moves on silently",
-        "Python waits for you to type the value on the keyboard"
+        {
+          "prefix": "A",
+          "text": "Python crashes with a NameError because the box total has not been created yet",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Python automatically guesses the value is 0",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "Python prints nothing and moves on silently",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Python waits for you to type the value on the keyboard",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! Python executes top-to-bottom. You cannot open a variable box before you create it.",
       "explanation_incorrect": "Incorrect. Python executes in order from top to bottom. Trying to use an uncreated variable raises a NameError."

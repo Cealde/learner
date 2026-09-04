@@ -1395,10 +1395,24 @@ function setupMultiQuestionQuiz(data) {
       nextQBtn.style.display = 'none';
     }
 
-    // Render Options (with randomized position)
+    // Render Options (with normalized format & randomized position)
     if (optionsGroup && q.options && Array.isArray(q.options)) {
-      // Fisher-Yates shuffle on a cloned copy of options
-      const shuffledOptions = [...q.options];
+      // Normalize each option to { text: string, correct: boolean }
+      const normalizedOptions = q.options.map((opt, optIdx) => {
+        if (typeof opt === 'string') {
+          const isCorrect = (q.correct_answer ? opt === q.correct_answer : optIdx === 0);
+          return { text: opt, correct: isCorrect };
+        } else if (opt && typeof opt === 'object') {
+          return {
+            text: opt.text || opt.label || String(opt),
+            correct: opt.correct === true
+          };
+        }
+        return { text: String(opt), correct: false };
+      });
+
+      // Fisher-Yates shuffle on a cloned copy of normalized options
+      const shuffledOptions = [...normalizedOptions];
       for (let i = shuffledOptions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];

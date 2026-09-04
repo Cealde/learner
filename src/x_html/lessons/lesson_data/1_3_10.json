@@ -7,10 +7,26 @@
       "question": "Which of the following correctly describes what a variable is in programming?",
       "code": "",
       "options": [
-        "A named location in memory that stores a value for retrieval and updates",
-        "A permanent hardware chip on the motherboard that cannot be changed",
-        "A special key on the keyboard that opens Python",
-        "A computer monitor display setting"
+        {
+          "prefix": "A",
+          "text": "A named location in memory that stores a value for retrieval and updates",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "A permanent hardware chip on the motherboard that cannot be changed",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "A special key on the keyboard that opens Python",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "A computer monitor display setting",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! A variable is a named storage container in memory used to hold data.",
       "explanation_incorrect": "Incorrect. A variable is a named location in memory used to store and manipulate data."
@@ -20,10 +36,26 @@
       "question": "Which statement correctly stores a person's city name?",
       "code": "",
       "options": [
-        "city = \"Mumbai\"",
-        "\"Mumbai\" = city",
-        "city = Mumbai",
-        "create city \"Mumbai\""
+        {
+          "prefix": "A",
+          "text": "city = \"Mumbai\"",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "\"Mumbai\" = city",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "city = Mumbai",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "create city \"Mumbai\"",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! The variable name goes on the left, '=' in the middle, and the text string in quotes on the right.",
       "explanation_incorrect": "Incorrect. Variable names go on the left, values on the right, and text strings must be enclosed in quotes."
@@ -33,10 +65,26 @@
       "question": "What is the difference between `total = 25` and `total = \"25\"`?",
       "code": "",
       "options": [
-        "total = 25 is an integer (number for math), while total = \"25\" is a text string",
-        "They are 100% identical in every way",
-        "total = 25 is an error in Python",
-        "total = \"25\" automatically multiplies by 2"
+        {
+          "prefix": "A",
+          "text": "total = 25 is an integer (number for math), while total = \"25\" is a text string",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "They are 100% identical in every way",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "total = 25 is an error in Python",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "total = \"25\" automatically multiplies by 2",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! Without quotes it is an integer (numeric); with quotes it is a string (text).",
       "explanation_incorrect": "Incorrect. Quotes define a string (text), whereas digits without quotes define an integer (number)."
@@ -46,10 +94,26 @@
       "question": "What will be printed when this script runs?",
       "code": "a = 5\nb = 10\na = b\nprint(a)",
       "options": [
-        "10",
-        "5",
-        "b",
-        "15"
+        {
+          "prefix": "A",
+          "text": "10",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "5",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "b",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "15",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! `a = b` copies the value of b (10) into a. So printing a outputs 10.",
       "explanation_incorrect": "Incorrect. `a = b` assigns the value of b (which is 10) into a, so `print(a)` outputs 10."
@@ -59,10 +123,26 @@
       "question": "What will `print(\"player\")` display if you already wrote `player = \"Alex\"`?",
       "code": "player = \"Alex\"\nprint(\"player\")",
       "options": [
-        "player",
-        "Alex",
-        "\"Alex\"",
-        "Error: variable duplicate"
+        {
+          "prefix": "A",
+          "text": "player",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "Alex",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "\"Alex\"",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "Error: variable duplicate",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! Because \"player\" is wrapped in quotes, print() prints the literal characters 'player', ignoring the variable.",
       "explanation_incorrect": "Incorrect. Quotes mean 'print this literal text'. To print the variable's value, write `print(player)` without quotes."
@@ -72,10 +152,26 @@
       "question": "What is the output of the following 4-line program?",
       "code": "count = 1\nprint(count)\ncount = 2\nprint(count)",
       "options": [
-        "1 on the first line, 2 on the second line",
-        "2 on both lines",
-        "1 on both lines",
-        "1 2 on a single line"
+        {
+          "prefix": "A",
+          "text": "1 on the first line, 2 on the second line",
+          "correct": true
+        },
+        {
+          "prefix": "B",
+          "text": "2 on both lines",
+          "correct": false
+        },
+        {
+          "prefix": "C",
+          "text": "1 on both lines",
+          "correct": false
+        },
+        {
+          "prefix": "D",
+          "text": "1 2 on a single line",
+          "correct": false
+        }
       ],
       "explanation_correct": "Correct! Python executes in sequential order: Line 2 prints 1, Line 3 updates count to 2, Line 4 prints 2.",
       "explanation_incorrect": "Incorrect. The program executes top-to-bottom, printing 1 first and then 2 after the reassignment."
