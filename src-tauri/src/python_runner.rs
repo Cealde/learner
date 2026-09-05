@@ -3,6 +3,16 @@ use std::collections::HashMap;
 use std::io::Write;
 use std::process::{Command, Stdio};
 
+#[cfg(target_os = "windows")]
+use std::os::windows::process::CommandExt;
+
+fn create_python_cmd() -> Command {
+    let mut cmd = Command::new("python");
+    #[cfg(target_os = "windows")]
+    cmd.creation_flags(0x08000000); // CREATE_NO_WINDOW for instant process creation without window handles
+    cmd
+}
+
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct VariableInfo {
     pub val: String,
@@ -95,7 +105,7 @@ print(json.dumps(trace_steps))
 
 #[tauri::command]
 pub fn run_python(code: String) -> Result<PythonRunResult, String> {
-    let mut child = Command::new("python")
+    let mut child = create_python_cmd()
         .arg("-u")
         .arg("-c")
         .arg("import sys; exec(sys.stdin.read())")
@@ -129,7 +139,7 @@ pub fn run_python(code: String) -> Result<PythonRunResult, String> {
 
 #[tauri::command]
 pub fn debug_python(code: String) -> Result<PythonDebugResult, String> {
-    let mut child = Command::new("python")
+    let mut child = create_python_cmd()
         .arg("-u")
         .arg("-c")
         .arg(TRACER_WRAPPER)
@@ -209,6 +219,25 @@ except SyntaxError as e:
         "details": "syntax_error"
     }))
     sys.exit(0)
+
+# Universal Quoted Numeric String Pre-check (e.g. print("15") instead of print(15))
+for node in ast.walk(tree):
+    if isinstance(node, ast.Call) and getattr(node.func, 'id', '') == 'print':
+        for arg in node.args:
+            val_str = None
+            if isinstance(arg, ast.Constant) and isinstance(arg.value, str):
+                val_str = arg.value
+            elif hasattr(ast, 'Str') and isinstance(arg, ast.Str):
+                val_str = arg.s
+            if val_str is not None and val_str.strip().isdigit():
+                num_val = val_str.strip()
+                print(json.dumps({
+                    "is_valid": True,
+                    "check_passed": False,
+                    "message": f"AI Detection: You used quotation marks around '{num_val}' as a text string (\"{num_val}\"). To print an integer number, write print({num_val}) without quotes!",
+                    "details": "quoted_numeric_string"
+                }))
+                sys.exit(0)
 
 if check_type in ("int_not_str_5", "int_5"):
     found_int_5 = False
@@ -1272,7 +1301,7 @@ else:
         }))
 "#;
 
-    let mut child = Command::new("python")
+    let mut child = create_python_cmd()
         .arg("-u")
         .arg("-c")
         .arg(script)
@@ -1321,7 +1350,7 @@ except Exception as e:
     sys.stdout.write(raw)
 "#;
 
-    let mut child = Command::new("python")
+    let mut child = create_python_cmd()
         .arg("-u")
         .arg("-c")
         .arg(script)

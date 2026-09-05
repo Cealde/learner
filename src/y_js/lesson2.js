@@ -558,15 +558,19 @@ async function verifyOutput(actualOutput) {
     }
   }
 
-  if (expectedRaw === null) {
-    console.warn('No expected output file found to verify against.');
+  const code = codeInput ? codeInput.value : '';
+
+  // Universal check for quoted number in print (e.g., print("15") instead of print(15))
+  const quotedNumMatch = code.match(/print\s*\(\s*["'](\d+)["']\s*\)/);
+  if (quotedNumMatch) {
+    const num = quotedNumMatch[1];
+    appendTerminal(`\n[AI Feedback]: AI Detection: You passed '${num}' as a text string with quotation marks ("${num}"). To print an integer number, write print(${num}) without quotes!`, 'term-line-err');
     return false;
   }
 
   // Inbuilt AI AST check if challenge specifies ai_check
   const aiCheckType = (currentChallenge && currentChallenge.ai_check) || (lessonData && lessonData.ai_check) || null;
   if (aiCheckType) {
-    const code = codeInput ? codeInput.value : '';
     let astCheckPassed = true;
     let astMessage = '';
 
@@ -941,93 +945,23 @@ async function verifyOutput(actualOutput) {
 }
 
 
-function executePythonJS(codeStr) {
-  if (!codeStr) return '';
-  const lines = codeStr.split('\n');
-  const vars = {};
-  const output = [];
-
-  for (let rawLine of lines) {
-    let line = rawLine.trim();
-    if (!line || line.startsWith('#')) continue;
-
-    const printMatch = line.match(/^print\s*\((.*)\)$/);
-    if (printMatch) {
-      const expr = printMatch[1].trim();
-      if (!expr) {
-        output.push('');
-        continue;
-      }
-      if (expr in vars) {
-        output.push(String(vars[expr]));
-      } else if ((expr.startsWith('"') && expr.endsWith('"')) || (expr.startsWith("'") && expr.endsWith("'"))) {
-        output.push(expr.slice(1, -1));
-      } else {
-        try {
-          let evalExpr = expr;
-          for (const [k, v] of Object.entries(vars)) {
-            const regex = new RegExp(`\\b${k}\\b`, 'g');
-            evalExpr = evalExpr.replace(regex, typeof v === 'string' ? JSON.stringify(v) : v);
-          }
-          const res = Function(`"use strict"; return (${evalExpr})`)();
-          output.push(String(res));
-        } catch (e) {
-          output.push(expr);
-        }
-      }
-      continue;
-    }
-
-    const assignMatch = line.match(/^([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*(.+)$/);
-    if (assignMatch) {
-      const varName = assignMatch[1].trim();
-      const valExpr = assignMatch[2].trim();
-      if ((valExpr.startsWith('"') && valExpr.endsWith('"')) || (valExpr.startsWith("'") && valExpr.endsWith("'"))) {
-        vars[varName] = valExpr.slice(1, -1);
-      } else if (!isNaN(Number(valExpr))) {
-        vars[varName] = Number(valExpr);
-      } else {
-        try {
-          let evalExpr = valExpr;
-          for (const [k, v] of Object.entries(vars)) {
-            const regex = new RegExp(`\\b${k}\\b`, 'g');
-            evalExpr = evalExpr.replace(regex, typeof v === 'string' ? JSON.stringify(v) : v);
-          }
-          vars[varName] = Function(`"use strict"; return (${evalExpr})`)();
-        } catch (e) {
-          vars[varName] = valExpr;
-        }
-      }
-    }
-  }
-
-  return output.join('\n');
-}
-
 // ============================================================
 // RUN DIRECTLY
 // ============================================================
 async function runCode() {
-  const codeEl = document.getElementById('code-input') || codeInput;
-  const code = codeEl ? codeEl.value : '';
+  if (!invoke) {
+    const demoOutput = 'Purchased: 3x Quantum Battery\nTotal Bill: $126.50\nStep 1: bonus = 5\nStep 2: bonus = 10\nStep 3: bonus = 15';
+    appendTerminal('[Demo Mode] Simulated output:\n' + demoOutput, 'term-line-out');
+    await verifyOutput(demoOutput);
+    return;
+  }
 
   resetDebugger();
   setStatus('Running...', 'running');
   appendTerminal(`\n>>> python -u script.py`, 'term-prompt');
 
-  if (!invoke) {
-    const stdout = executePythonJS(code);
-    if (stdout) {
-      appendTerminal(stdout, 'term-line-out');
-    } else {
-      appendTerminal('[No output produced by script]', 'term-line-info');
-    }
-    setStatus('Completed', 'running');
-    await verifyOutput(stdout);
-    return;
-  }
-
   try {
+    const code = codeInput.value;
     const result = await invoke('run_python', { code });
 
     if (result.stdout && result.stdout.trim() !== '') {
@@ -1065,8 +999,7 @@ async function startDebugSession() {
   appendTerminal(`\n>>> [debugpy trace active]`, 'term-prompt');
 
   try {
-    const codeEl = document.getElementById('code-input') || codeInput;
-    const code = codeEl ? codeEl.value : '';
+    const code = codeInput.value;
     const result = await invoke('debug_python', { code });
 
     if (!result.success && (!result.steps || result.steps.length === 0)) {
@@ -1084,10 +1017,8 @@ async function startDebugSession() {
 
     isDebugging = true;
     currentStepIdx = 0;
-    const stepBtn = document.getElementById('btn-step') || btnStep;
-    const contBtn = document.getElementById('btn-continue') || btnContinue;
-    if (stepBtn) stepBtn.disabled = false;
-    if (contBtn) contBtn.disabled = false;
+    btnStep.disabled = false;
+    btnContinue.disabled = false;
 
     applyStep(currentStepIdx);
   } catch (err) {
@@ -1159,10 +1090,8 @@ async function finishDebugging() {
   clearLineHighlights();
   setStatus('Debug Session Finished', 'running');
   appendTerminal('\n[Execution Finished]', 'term-line-info');
-  const stepBtn = document.getElementById('btn-step') || btnStep;
-  const contBtn = document.getElementById('btn-continue') || btnContinue;
-  if (stepBtn) stepBtn.disabled = true;
-  if (contBtn) contBtn.disabled = true;
+  btnStep.disabled = true;
+  btnContinue.disabled = true;
   isDebugging = false;
 
   const finalStdout = debugSteps.length > 0 ? debugSteps[debugSteps.length - 1].stdout : '';
@@ -1178,38 +1107,24 @@ function resetDebugger() {
   clearLineHighlights();
   renderVariables({});
   setStatus('Ready', '');
-  const stepBtn = document.getElementById('btn-step') || btnStep;
-  const contBtn = document.getElementById('btn-continue') || btnContinue;
-  if (stepBtn) stepBtn.disabled = false;
-  if (contBtn) contBtn.disabled = false;
-}
-
-function bindToolbarListeners() {
-  const rBtn = document.getElementById('btn-run') || btnRun;
-  const dBtn = document.getElementById('btn-debug') || btnDebug;
-  const sBtn = document.getElementById('btn-step') || btnStep;
-  const cBtn = document.getElementById('btn-continue') || btnContinue;
-  const rstBtn = document.getElementById('btn-reset') || btnReset;
-  const clrBtn = document.getElementById('btn-clear-output') || btnClearOutput;
-
-  rBtn?.addEventListener('click', runCode);
-  dBtn?.addEventListener('click', startDebugSession);
-  sBtn?.addEventListener('click', stepForward);
-  cBtn?.addEventListener('click', continueExecution);
-  rstBtn?.addEventListener('click', () => {
-    resetDebugger();
-    clearTerminal();
-    appendTerminal('Output cleared. Debugger reset.', 'term-line-info');
-  });
-  clrBtn?.addEventListener('click', clearTerminal);
+  if (btnStep) btnStep.disabled = false;
+  if (btnContinue) btnContinue.disabled = false;
 }
 
 // Event Listeners
-bindToolbarListeners();
+btnRun?.addEventListener('click', runCode);
+btnDebug?.addEventListener('click', startDebugSession);
+btnStep?.addEventListener('click', stepForward);
+btnContinue?.addEventListener('click', continueExecution);
+btnReset?.addEventListener('click', () => {
+  resetDebugger();
+  clearTerminal();
+  appendTerminal('Output cleared. Debugger reset.', 'term-line-info');
+});
+btnClearOutput?.addEventListener('click', clearTerminal);
 
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', async () => {
-  bindToolbarListeners();
   initEditor();
   renderVariables({});
   setStatus('Ready', '');
