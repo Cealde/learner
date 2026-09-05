@@ -12,7 +12,7 @@
       "description": "Use the <hlt>print()</hlt> function to output the exact word <hlt>\"Hellow\"</hlt> into the console.",
       "starter_code": "# Stage 1: Print Hellow\n# Write your print() statement below:\n\n",
       "intended_output": "Hellow",
-      "ai_check": null
+      "ai_check": "print_hellow"
     },
     {
       "stage": 2,
@@ -28,7 +28,7 @@
       "description": "Print a sequence of characters spaced out: <hlt>P Y T H O N</hlt>. Write <hlt>print(\"P Y T H O N\")</hlt> and click Run to complete your training!",
       "starter_code": "# Stage 3: Print a Character Sequence\n# Write your code below:\n\n",
       "intended_output": "P Y T H O N",
-      "ai_check": null
+      "ai_check": "print_python_seq"
     }
   ]
 }

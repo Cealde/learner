@@ -755,8 +755,118 @@ async function verifyOutput(actualOutput) {
             astMessage = "AI Verification: Confirmed dynamic API URL assembly using string concatenation!";
           }
         }
+      } else if (aiCheckType === 'if_two_stages' || aiCheckType === 'if_statement_check' || aiCheckType === 'firewall_packet_rule' || aiCheckType === 'firewall_rule') {
+        if (!/\bif\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing 'if' statement! Write an if condition (e.g. if speed > 60: or if port == 80:).";
+        } else {
+          astMessage = "AI Verification: Confirmed 'if' branch statement structure!";
+        }
+      } else if (aiCheckType === 'if_else_two_stages' || aiCheckType === 'if_else_check' || aiCheckType === 'ecommerce_shipping_calculator' || aiCheckType === 'shipping_calc') {
+        if (!/\bif\b/.test(code) || !/\belse\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing 'if / else' structure! Provide both an 'if' branch and an alternative 'else:' branch.";
+        } else {
+          astMessage = "AI Verification: Confirmed two-path if/else control flow!";
+        }
+      } else if (aiCheckType === 'for_loop_four_stages' || aiCheckType === 'for_loop_check' || aiCheckType === 'sensor_accumulator_algorithm' || aiCheckType === 'sensor_loop') {
+        if (!/\bfor\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing 'for' loop! Use a 'for' loop (e.g. for i in range(4): or for item in list:).";
+        } else {
+          astMessage = "AI Verification: Confirmed for-loop sequence iteration!";
+        }
+      } else if (aiCheckType === 'while_loop_two_stages' || aiCheckType === 'while_loop_check' || aiCheckType === 'exponential_backoff_algorithm' || aiCheckType === 'backoff_loop') {
+        if (!/\bwhile\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing 'while' loop! Implement execution inside a 'while' loop.";
+        } else {
+          astMessage = "AI Verification: Confirmed while-loop condition control!";
+        }
+      } else if (aiCheckType === 'function_three_stages' || aiCheckType === 'function_check' || aiCheckType === 'currency_converter_function' || aiCheckType === 'converter_func' || aiCheckType === 'format_badge_function' || aiCheckType === 'default_param_func') {
+        if (!/\bdef\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing function definition! Define reusable logic using 'def function_name(...):'.";
+        } else if ((aiCheckType.includes('three') || aiCheckType.includes('converter')) && !/\breturn\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing 'return' statement inside function! Return the calculated result.";
+        } else {
+          astMessage = "AI Verification: Confirmed reusable function definition!";
+        }
+      } else if (aiCheckType === 'list_four_stages' || aiCheckType === 'list_ops_check' || aiCheckType === 'fifo_queue_algorithm' || aiCheckType === 'fifo_queue' || aiCheckType === 'find_max_algorithm' || aiCheckType === 'max_algo') {
+        if (!/\[[^\]]*\]/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing list syntax! Declare and operate on Python lists using square brackets [].";
+        } else {
+          astMessage = "AI Verification: Confirmed list data structure operations!";
+        }
+      } else if (aiCheckType === 'dict_three_stages' || aiCheckType === 'dict_ops_check' || aiCheckType === 'word_frequency_algorithm' || aiCheckType === 'word_freq' || aiCheckType === 'role_permission_algorithm' || aiCheckType === 'role_acl') {
+        if (!/\{[^\}]*\}/.test(code) && !/dict\s*\(/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Missing dictionary syntax! Create key-value mappings using curly braces {key: value}.";
+        } else {
+          astMessage = "AI Verification: Confirmed dictionary data structure operations!";
+        }
+      } else if (aiCheckType === 'capstone_leaderboard_filter') {
+        if (!/\b(for|while)\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Iterate through the dataset using a 'for' or 'while' loop.";
+        } else if (!/\bif\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Filter leaderboard scores using an 'if' statement inside the loop.";
+        } else {
+          astMessage = "AI Verification: Confirmed capstone leaderboard filter logic (loop + condition)!";
+        }
+      } else if (aiCheckType === 'capstone_banking_ledger') {
+        if (!/=\s*/.test(code) || !/[\+\-]/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Calculate transaction balances using variables and math (+ / -).";
+        } else {
+          astMessage = "AI Verification: Confirmed capstone banking ledger algorithm!";
+        }
+      } else if (aiCheckType === 'capstone_cipher_encryptor') {
+        if (!/\b(for|while|def)\b/.test(code) && !/[\+\-\*]/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Implement the cipher transformation using loops, functions, or char code math.";
+        } else {
+          astMessage = "AI Verification: Confirmed capstone cipher encryption algorithm!";
+        }
+      } else if (aiCheckType === 'capstone_inventory_auditor') {
+        if (!/\[|\{/.test(code) || !/\b(for|while)\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Store inventory in a list/dict and audit items using a loop.";
+        } else {
+          astMessage = "AI Verification: Confirmed capstone inventory auditing algorithm!";
+        }
+      } else if (aiCheckType === 'capstone_grade_analytics') {
+        if (!/\b(def|for|while)\b/.test(code) && !/sum|len/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Capstone verification failed. Calculate grade analytics using functions, loops, or aggregated lists.";
+        } else {
+          astMessage = "AI Verification: Confirmed capstone grade analytics algorithm!";
+        }
+      } else if (aiCheckType === 'grand_coding_challenge_25') {
+        if (!/=\s*/.test(code) && !/\b(if|for|while|def)\b/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Grand Challenge verification failed. Write required Python variables, loops, or conditionals instead of hardcoding.";
+        } else {
+          astMessage = "AI Verification: Confirmed Grand Challenge programming logic!";
+        }
+      } else if (aiCheckType === 'print_hellow') {
+        if (!/print\s*\(\s*["']Hellow["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Write print(\"Hellow\") to display the output.";
+        } else {
+          astMessage = "AI Verification: Confirmed print(\"Hellow\") statement!";
+        }
+      } else if (aiCheckType === 'print_python_seq') {
+        if (!/print\s*\(\s*["']P Y T H O N["']\s*\)/.test(code)) {
+          astCheckPassed = false;
+          astMessage = "AI Detection: Write print(\"P Y T H O N\") to display the sequence.";
+        } else {
+          astMessage = "AI Verification: Confirmed character sequence print() statement!";
+        }
       }
-    }
 
     if (!astCheckPassed) {
       appendTerminal(`\n[AI Feedback]: ${astMessage}`, 'term-line-err');

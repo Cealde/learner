@@ -1107,28 +1107,169 @@ elif check_type in ("role_permission_algorithm", "role_acl"):
             "details": "ok"
         }))
 
-elif check_type in (
-    "grand_coding_challenge_25",
-    "capstone_leaderboard_filter",
-    "capstone_banking_ledger",
-    "capstone_cipher_encryptor",
-    "capstone_inventory_auditor",
-    "capstone_grade_analytics"
-):
-    print(json.dumps({
-        "is_valid": True,
-        "check_passed": True,
-        "message": f"AI Verification: Confirmed capstone challenge ({check_type}) logic!",
-        "details": "ok"
-    }))
+elif check_type == "capstone_leaderboard_filter":
+    has_loop = any(isinstance(node, (ast.For, ast.While)) for node in ast.walk(tree))
+    has_if = any(isinstance(node, ast.If) for node in ast.walk(tree))
+    if not has_loop:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. You must iterate through the dataset using a 'for' or 'while' loop.",
+            "details": "missing_loop"
+        }))
+    elif not has_if:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. You must filter items using an 'if' condition inside the loop.",
+            "details": "missing_if"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed capstone leaderboard filter logic (loop + condition)!",
+            "details": "ok"
+        }))
+
+elif check_type == "capstone_banking_ledger":
+    has_assign = any(isinstance(node, ast.Assign) for node in ast.walk(tree))
+    has_binop = any(isinstance(node, ast.BinOp) for node in ast.walk(tree))
+    if not (has_assign and has_binop):
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. Calculate the balance using variables and math operations (+ / -).",
+            "details": "missing_math_vars"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed capstone banking transaction ledger algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type == "capstone_cipher_encryptor":
+    has_loop_or_func = any(isinstance(node, (ast.For, ast.While, ast.FunctionDef, ast.Call)) for node in ast.walk(tree))
+    if not has_loop_or_func:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. Implement the cipher transformation using loops, functions, or string methods.",
+            "details": "missing_cipher_logic"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed capstone cipher encryption algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type == "capstone_inventory_auditor":
+    has_data_struct = any(isinstance(node, (ast.List, ast.Dict, ast.Subscript)) for node in ast.walk(tree))
+    has_loop = any(isinstance(node, (ast.For, ast.While)) for node in ast.walk(tree))
+    if not has_data_struct or not has_loop:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. Use a list or dictionary data structure and iterate using a loop.",
+            "details": "missing_inventory_structure"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed capstone inventory auditing algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type == "capstone_grade_analytics":
+    has_func_or_loop = any(isinstance(node, (ast.FunctionDef, ast.For, ast.While, ast.Call)) for node in ast.walk(tree))
+    if not has_func_or_loop:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Capstone verification failed. Calculate grade analytics using reusable functions, loops, or aggregated lists.",
+            "details": "missing_analytics_logic"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed capstone grade analytics algorithm!",
+            "details": "ok"
+        }))
+
+elif check_type == "grand_coding_challenge_25":
+    has_logic = any(isinstance(node, (ast.Assign, ast.BinOp, ast.If, ast.For, ast.While, ast.FunctionDef)) for node in ast.walk(tree))
+    if not has_logic:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Grand Challenge verification failed. Hardcoding answers is not permitted. Write the required Python statements!",
+            "details": "missing_logic"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed Grand Challenge core programming logic!",
+            "details": "ok"
+        }))
+
+elif check_type == "print_hellow":
+    has_print = any(isinstance(node, ast.Call) and getattr(node.func, 'id', '') == 'print' for node in ast.walk(tree))
+    if not has_print:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Use print(\"Hellow\") to display the output.",
+            "details": "missing_print"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed print() statement for Hellow!",
+            "details": "ok"
+        }))
+
+elif check_type == "print_python_seq":
+    has_print = any(isinstance(node, ast.Call) and getattr(node.func, 'id', '') == 'print' for node in ast.walk(tree))
+    if not has_print:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Use print(\"P Y T H O N\") to display the character sequence.",
+            "details": "missing_print"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Confirmed character sequence print() statement!",
+            "details": "ok"
+        }))
 
 else:
-    print(json.dumps({
-        "is_valid": True,
-        "check_passed": True,
-        "message": "AST check passed",
-        "details": "ok"
-    }))
+    statements = [stmt for stmt in tree.body if not isinstance(stmt, ast.Pass)]
+    has_any_logic = any(isinstance(node, (ast.Assign, ast.BinOp, ast.If, ast.For, ast.While, ast.FunctionDef, ast.List, ast.Dict)) for node in ast.walk(tree))
+    if len(statements) == 1 and isinstance(statements[0], ast.Expr) and isinstance(statements[0].value, ast.Call) and not has_any_logic:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": False,
+            "message": "AI Detection: Hardcoded output detected! You printed the result directly instead of writing the required Python variables, expressions, loops, or conditionals.",
+            "details": "hardcoded_fallback"
+        }))
+    else:
+        print(json.dumps({
+            "is_valid": True,
+            "check_passed": True,
+            "message": "AI Verification: Structural AST check passed!",
+            "details": "ok"
+        }))
 "#;
 
     let mut child = Command::new("python")
