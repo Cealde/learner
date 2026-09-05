@@ -347,24 +347,9 @@
   background: #0D1117;
 }
 
-/* Highlight Layer (Syntax Highlight Render) */
+/* Highlight Layer */
 #highlight-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 12px 16px;
-  margin: 0;
-  background: transparent;
-  pointer-events: none;
-  overflow: hidden;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  white-space: pre;
-  tab-size: 4;
-  z-index: 2;
+  display: none !important;
 }
 
 #highlight-content {
@@ -374,34 +359,23 @@
   color: #E6EDF3;
 }
 
-/* Syntax Token Colors (GitHub Dark theme style) */
-.token-keyword { color: #FF7B72; font-weight: bold; }
-.token-builtin { color: #79C0FF; }
-.token-string { color: #A5D6FF; }
-.token-number { color: #7EE787; }
-.token-comment { color: #8B949E; font-style: italic; }
-.token-boolean { color: #FFA657; font-weight: bold; }
-.token-operator { color: #D2A8FF; }
-.token-def { color: #D2A8FF; font-weight: bold; }
-.token-decorator { color: #FFA657; }
-
-/* User Editable Textarea (Transparent text overlay) */
+/* User Editable Textarea */
 #code-input {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
-  color: transparent;
+  background: #0D1117;
+  color: #E6EDF3 !important;
   caret-color: #58A6FF;
   border: none;
   outline: none;
   resize: none;
   padding: 12px 16px;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 22px;
   white-space: pre;
   tab-size: 4;
   overflow: auto;
