@@ -126,8 +126,9 @@ function highlightPython(code) {
 }
 
 function updateHighlighting() {
-  if (!codeInput || !highlightContent) return;
-  highlightContent.innerHTML = highlightPython(codeInput.value) + '\n';
+  const hContent = document.getElementById('highlight-content') || highlightContent;
+  if (!codeInput || !hContent) return;
+  hContent.innerHTML = highlightPython(codeInput.value) + '\n';
 }
 
 // ============================================================
@@ -198,27 +199,12 @@ function handleEditorKeyDown(e) {
   }
 
   // 2. Auto-close opening brackets & quotes
-  if (PAIRS[e.key]) {
-    const openChar = e.key;
-    const closeChar = PAIRS[openChar];
-
-    if (hasSelection) {
+  if (PAIRS[e.key] && !hasSelection) {
+    const nextChar = val[start];
+    if (!nextChar || /\s|[,\)\]\}]/.test(nextChar) || e.key === '"' || e.key === "'") {
       e.preventDefault();
-      const wrapped = openChar + selectedText + closeChar;
-      document.execCommand('insertText', false, wrapped);
-      codeInput.setSelectionRange(start + 1, end + 1);
-      updateGutter();
-      updateHighlighting();
-      return;
-    } else {
-      // If typing quote and current char is the identical quote, step over
-      if ((openChar === '"' || openChar === "'") && val[start] === openChar) {
-        e.preventDefault();
-        codeInput.setSelectionRange(start + 1, start + 1);
-        return;
-      }
-      e.preventDefault();
-      document.execCommand('insertText', false, openChar + closeChar);
+      const pair = e.key + PAIRS[e.key];
+      document.execCommand('insertText', false, pair);
       codeInput.setSelectionRange(start + 1, start + 1);
       updateGutter();
       updateHighlighting();
@@ -226,22 +212,21 @@ function handleEditorKeyDown(e) {
     }
   }
 
-  // 3. Skip over closing brackets
-  if (CLOSING.has(e.key) && !hasSelection) {
-    if (val[start] === e.key) {
-      e.preventDefault();
-      codeInput.setSelectionRange(start + 1, start + 1);
-      return;
-    }
+  // 3. Skip over closing bracket if typed
+  if (CLOSING.has(e.key) && !hasSelection && val[start] === e.key) {
+    e.preventDefault();
+    codeInput.setSelectionRange(start + 1, start + 1);
+    return;
   }
 
-  // 4. Backspace pair deletion (e.g. (|) -> deletes both)
+  // 4. Backspace over empty pair
   if (e.key === 'Backspace' && !hasSelection && start > 0) {
     const prevChar = val[start - 1];
     const nextChar = val[start];
     if (PAIRS[prevChar] && PAIRS[prevChar] === nextChar) {
       e.preventDefault();
-      codeInput.value = val.substring(0, start - 1) + val.substring(start + 1);
+      const newVal = val.substring(0, start - 1) + val.substring(start + 1);
+      codeInput.value = newVal;
       codeInput.setSelectionRange(start - 1, start - 1);
       updateGutter();
       updateHighlighting();
@@ -281,6 +266,17 @@ function handleEditorKeyDown(e) {
 
 function initEditor() {
   if (codeInput) {
+    const wrapper = codeInput.parentElement;
+    if (wrapper && !document.getElementById('highlight-layer')) {
+      const pre = document.createElement('pre');
+      pre.id = 'highlight-layer';
+      pre.setAttribute('aria-hidden', 'true');
+      const codeEl = document.createElement('code');
+      codeEl.id = 'highlight-content';
+      pre.appendChild(codeEl);
+      wrapper.insertBefore(pre, codeInput);
+    }
+
     if (!codeInput.value || codeInput.value.trim() === '') {
       codeInput.value = STARTER_CODE;
     }
@@ -304,11 +300,12 @@ function initEditor() {
 
 function syncScroll() {
   if (!codeInput) return;
+  const hLayer = document.getElementById('highlight-layer') || highlightLayer;
   if (gutter) gutter.scrollTop = codeInput.scrollTop;
   if (lineHighlights) lineHighlights.scrollTop = codeInput.scrollTop;
-  if (highlightLayer) {
-    highlightLayer.scrollTop = codeInput.scrollTop;
-    highlightLayer.scrollLeft = codeInput.scrollLeft;
+  if (hLayer) {
+    hLayer.scrollTop = codeInput.scrollTop;
+    hLayer.scrollLeft = codeInput.scrollLeft;
   }
 }
 

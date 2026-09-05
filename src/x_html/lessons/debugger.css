@@ -351,26 +351,33 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   padding: 12px 16px;
   margin: 0;
-  background: transparent;
+  background: #0D1117;
   pointer-events: none;
   overflow: hidden;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
   white-space: pre;
   tab-size: 4;
-  z-index: 2;
+  z-index: 1;
+  box-sizing: border-box;
 }
 
 #highlight-content {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
   color: #E6EDF3;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  tab-size: 4;
 }
 
 /* Syntax Token Colors (GitHub Dark theme style) */
@@ -384,27 +391,31 @@
 .token-def { color: #D2A8FF; font-weight: bold; }
 .token-decorator { color: #FFA657; }
 
-/* User Editable Textarea (Transparent text overlay) */
+/* User Editable Textarea (Transparent overlay over syntax highlight layer) */
 #code-input {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background: transparent;
-  color: transparent;
-  caret-color: #58A6FF;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  caret-color: #58A6FF !important;
   border: none;
   outline: none;
   resize: none;
   padding: 12px 16px;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 14px !important;
+  line-height: 22px !important;
   white-space: pre;
   tab-size: 4;
   overflow: auto;
-  z-index: 3;
+  z-index: 2;
+  box-sizing: border-box;
 }
 
 #code-input::selection {
