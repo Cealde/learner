@@ -128,7 +128,113 @@ To streamline debugging, grading, and hackathon judge demonstrations:
 
 ---
 
-## 7. Hackathon Judge Defence Guide (Q&A)
+## 7. Deployment Architecture Model
+
+### 7.1 Deployment Architecture Diagram (Mermaid)
+
+```mermaid
+graph TD
+    subgraph Build Pipeline ["1. Cross-Platform Build Pipeline"]
+        SRC["Source Repository
+(Rust Core + JS/CSS App)"] --> BUNDLE["Tauri Bundler
+(cargo tauri build)"]
+        BUNDLE --> WIN_PKG["Windows Installer
+(.msi / .exe)"]
+        BUNDLE --> MAC_PKG["macOS Package
+(.dmg / .app)"]
+        BUNDLE --> LIN_PKG["Linux Bundle
+(.AppImage / .deb)"]
+    end
+
+    subgraph Client Machine ["2. Client Host Device (Target Deployment Environment)"]
+        subgraph OS Layer ["Host Operating System Layer"]
+            WEBVIEW["Native OS Webview
+(WebView2 / WebKit / WebKitGTK)"]
+            FS["Local File System
+(App Data Directory)"]
+            PY_ENV["Host / Embedded Python Environment"]
+        end
+
+        subgraph Application Container ["3. Learner Desktop Application Shell"]
+            subgraph Frontend Window ["WebView UI Container"]
+                JS_APP["Vanilla JS Controller"]
+                THREE_MAP["Three.js 2.5D Map Engine"]
+                EDITOR["Multi-Stage Code Editor"]
+                I18N["Bilingual Engine (EN / ML)"]
+            end
+
+            subgraph Tauri Backend ["Rust Tauri v2 Core Process"]
+                IPC["Zero-Copy IPC Bridge (serde_json)"]
+                AUTH["Argon2id Auth Engine"]
+                STORE["Sled / Local Storage Engine"]
+                SUBPROC["Isolated Python Sandbox
+(3000ms Timeout Enforcement)"]
+                AST_ENG["Offline AST Diagnostic Engine"]
+            end
+        end
+    end
+
+    %% Deployment Connections
+    WIN_PKG --> |Installed On| Client Machine
+    MAC_PKG --> |Installed On| Client Machine
+    LIN_PKG --> |Installed On| Client Machine
+
+    JS_APP <--> |Asynchronous IPC Commands| IPC
+    IPC <--> AUTH
+    IPC <--> STORE
+    IPC <--> SUBPROC
+    IPC <--> AST_ENG
+
+    SUBPROC <--> |Spawns & Monitors Subprocess| PY_ENV
+    STORE <--> |Reads & Writes Local State| FS
+```
+
+### 7.2 Deployment ASCII Blueprint
+
+```
++-----------------------------------------------------------------------------------+
+|                            BUILD & PACKAGING PIPELINE                             |
+|  [ Rust Core + JS/CSS Web App ] ===> ( tauri build )                              |
+|                                         ||                                        |
+|             +---------------------------+---------------------------+             |
+|             v                           v                           v             |
+|    [ Windows .msi / .exe ]     [ macOS .dmg / .app ]      [ Linux .AppImage ]     |
++-----------------------------------------|-----------------------------------------+
+                                          | Deployment to Client Hardware
+                                          v
++-----------------------------------------------------------------------------------+
+|                        CLIENT HOST DEVICE (TARGET ENVIRONMENT)                    |
+|                                                                                   |
+|  +-----------------------------------------------------------------------------+  |
+|  |                        LEARNER DESKTOP APPLICATION                          |  |
+|  |                                                                             |  |
+|  |  +-----------------------------------------------------------------------+  |  |
+|  |  |                   FRONTEND CONTAINER (OS WEBVIEW)                     |  |  |
+|  |  |  [ Three.js 2.5D Map ]  [ Multi-Stage Code Studio ]  [ Bilingual UI ] |  |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  |                                      | Tauri Async IPC (JSON-RPC)           |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  |  |                     TAURI v2 RUST CORE PROCESS                        |  |  |
+|  |  |  [ Argon2 Auth ]  [ Sled Storage ]  [ AST Remediation Engine ]       |  |  |
+|  |  |  [ Isolated Python Subprocess Runner (3000ms Timeout Enforcement) ]   |  |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  +--------------------------------------|--------------------------------------+  |
+|                                         |                                         |
+|  +--------------------------------------v--------------------------------------+  |
+|  |                    HOST OS & LOCAL HARDWARE RESOURCES                       |  |
+|  |  [ Local AppData FS Storage ] [ Native OS WebView ] [ Python Runtime ]     |  |  |
+|  +-----------------------------------------------------------------------------+  |
++-----------------------------------------------------------------------------------+
+```
+
+### 7.3 Key Deployment Characteristics
+1. **Zero Cloud Infrastructure Requirement**: No AWS, GCP, or central database servers required. Complete standalone execution guarantees zero monthly hosting overhead and 100% privacy compliance.
+2. **Local-First Data Storage**: User profiles, progress checkpoints, mistake ledgers, and streak metrics are written directly to local AppData storage using atomic file IO.
+3. **Hardware Agnostic**: Tested and optimized to run on low-end dual-core laptops with integrated graphics, making it ideal for rural school computer labs and low-connectivity environments.
+
+---
+
+## 8. Hackathon Judge Defence Guide (Q&A)
 
 ### Q1: Why did you choose Rust + Tauri over Electron?
 **Answer**: Tauri v2 produces binaries that are 10x smaller (~10-15MB vs ~150MB) and consume 80% less RAM (~30MB vs ~200MB+). It leverages the operating system native webview and executes native logic in memory-safe compiled Rust. This ensures the app can run smoothly even on low-cost hardware in school computer labs.
@@ -153,6 +259,9 @@ To streamline debugging, grading, and hackathon judge demonstrations:
 
 ### Q8: What is your adaptive remediation algorithm?
 **Answer**: The platform tracks user error frequency across syntax and logic categories. When a learner struggles (>= 2 failed attempts), the adaptive tutor intercepts the normal progression path with targeted conceptual micro-lessons focused on their specific point of failure.
+
+### Q9: What is your deployment strategy for institutional rollout (e.g. schools)?
+**Answer**: Because Learner compiles to self-contained native installer packages (.msi, .dmg, .AppImage) requiring zero server infrastructure, IT administrators can perform batch installations via standard management tools (e.g. Windows Group Policy or USB offline distribution) across an entire school lab in minutes.
 
 ---
 *Generated for the Learner Architecture Presentation & Technical Evaluation.*

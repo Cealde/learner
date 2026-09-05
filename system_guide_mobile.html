@@ -240,6 +240,7 @@
         <a href="#map" class="pill-btn">3D Map (Three.js)</a>
         <a href="#lessons" class="pill-btn">Lesson Engine</a>
         <a href="#ai" class="pill-btn">Offline AI &amp; AST</a>
+        <a href="#deployment" class="pill-btn">Deployment Model</a>
         <a href="#judges" class="pill-btn">Judge Q&amp;A</a>
     </div>
 
@@ -365,9 +366,70 @@ Pitch(zoom) = Pitch_min + (Pitch_max - Pitch_min) * ZoomFactor
         <p>If a student accumulates 2 or more consecutive errors on any concept, the adaptive engine intercepts the syllabus progression and generates a tailored reinforcement step before unlocking the next milestone.</p>
     </div>
 
-    <!-- SECTION 6: JUDGE Q&A -->
+    <!-- SECTION 6: DEPLOYMENT ARCHITECTURE MODEL -->
+    <div id="deployment" class="card">
+        <h2>6. Deployment Architecture Model</h2>
+        <p>Learner follows a zero-cloud client deployment model. The app packages into standalone native desktop installers containing all frontend assets, Rust native runtime binaries, and offline educational resources.</p>
+        
+        <div class="badge-grid">
+            <div class="badge-item">
+                <div class="badge-title">Windows Target</div>
+                <div class="badge-val">.msi / .exe (WebView2)</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-title">macOS Target</div>
+                <div class="badge-val">.dmg / .app (WebKit)</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-title">Linux Target</div>
+                <div class="badge-val">.AppImage / .deb</div>
+            </div>
+            <div class="badge-item">
+                <div class="badge-title">Cloud Overhead</div>
+                <div class="badge-val">$0.00 / mo (Offline)</div>
+            </div>
+        </div>
+
+        <pre>
++-----------------------------------------------------------------------------------+
+|                            BUILD &amp; PACKAGING PIPELINE                             |
+|  [ Rust Core + JS/CSS Web App ] ===&gt; ( tauri build )                              |
+|                                         ||                                        |
+|             +---------------------------+---------------------------+             |
+|             v                           v                           v             |
+|    [ Windows .msi / .exe ]     [ macOS .dmg / .app ]      [ Linux .AppImage ]     |
++-----------------------------------------|-----------------------------------------+
+                                          | Installed on Client Device
+                                          v
++-----------------------------------------------------------------------------------+
+|                        CLIENT HOST DEVICE (TARGET ENVIRONMENT)                    |
+|                                                                                   |
+|  +-----------------------------------------------------------------------------+  |
+|  |                        LEARNER DESKTOP APPLICATION                          |  |
+|  |                                                                             |  |
+|  |  +-----------------------------------------------------------------------+  |  |
+|  |  |                   FRONTEND CONTAINER (OS WEBVIEW)                     |  |  |
+|  |  |  [ Three.js 2.5D Map ]  [ Multi-Stage Code Studio ]  [ Bilingual UI ] |  |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  |                                      | Tauri Async IPC (JSON-RPC)           |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  |  |                     TAURI v2 RUST CORE PROCESS                        |  |  |
+|  |  |  [ Argon2 Auth ]  [ Sled Storage ]  [ AST Remediation Engine ]       |  |  |
+|  |  |  [ Isolated Python Subprocess Runner (3000ms Timeout Enforcement) ]   |  |  |
+|  |  +-----------------------------------|-----------------------------------+  |  |
+|  +--------------------------------------|--------------------------------------+  |
+|                                         |                                         |
+|  +--------------------------------------v--------------------------------------+  |
+|  |                    HOST OS &amp; LOCAL HARDWARE RESOURCES                       |  |
+|  |  [ Local AppData FS Storage ] [ Native OS WebView ] [ Python Runtime ]     |  |  |
+|  +-----------------------------------------------------------------------------+  |
++-----------------------------------------------------------------------------------+
+        </pre>
+    </div>
+
+    <!-- SECTION 7: JUDGE Q&A -->
     <div id="judges" class="card">
-        <h2>6. Hackathon Judge Defence (Q&amp;A)</h2>
+        <h2>7. Hackathon Judge Defence (Q&amp;A)</h2>
 
         <div class="qa-card">
             <div class="qa-q">Q1: Why Rust + Tauri v2 instead of Electron?</div>
@@ -407,6 +469,11 @@ Pitch(zoom) = Pitch_min + (Pitch_max - Pitch_min) * ZoomFactor
         <div class="qa-card">
             <div class="qa-q">Q8: How can judges or developers test the entire curriculum instantly?</div>
             <div class="qa-a">We provide dedicated developer commands: <code>devCompleteLesson()</code> or keyboard shortcut <code>Ctrl + Shift + L</code> instantly completes the current lesson with 100% accuracy, while <code>devCompleteAllLessons()</code> unlocks all 9 modules at once.</div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-q">Q9: What is your deployment model for school computer lab deployments?</div>
+            <div class="qa-a">Learner packages into self-contained installer executables (.msi / .dmg / .AppImage) requiring zero internet setup or cloud backend provision. School IT administrators can distribute the installer offline via USB drives or Windows Group Policy (GPO) across an entire computer lab in minutes.</div>
         </div>
     </div>
 
